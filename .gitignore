@@ -6,5 +6,3 @@ node_modules/
 .env.*
 !.env.example
 worklog/
-# Local experiments and their outputs are not part of the formal project.
-experiments/
