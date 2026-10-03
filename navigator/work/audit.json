@@ -1,0 +1,26 @@
+{
+  "pipeline_version": "0.1.0",
+  "as_of": "2026-10-01",
+  "ran_at": "2026-10-03 22:02:15 UTC",
+  "inputs": [
+    {
+      "name": "BATCH-01_D001-01_to_D009-01.jsonl",
+      "sha256": "9aa2427434d02a3ac4d31c76ae1884d82b3afa533726bbe9e71480d46d861d9a",
+      "bytes": 26577,
+      "objects": 29
+    }
+  ],
+  "counts": {
+    "files": 1,
+    "records_parsed": 21,
+    "accepted": 21,
+    "rejected": 0,
+    "rejected_fixed": 0,
+    "rules": 21,
+    "packets_total": 65,
+    "packets_done": 8
+  },
+  "outputs": {
+    "rules.json": "197d0c75d8afb43b169c048472689ff2a18303881b4f1fb3845eed626cb84ea9"
+  }
+}

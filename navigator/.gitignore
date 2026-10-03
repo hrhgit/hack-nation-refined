@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+worklog/
+# regenerable from the corpus; keep work/out/ (raw model answers = audit trail) and outputs/
+work/packets/
+work/paste/

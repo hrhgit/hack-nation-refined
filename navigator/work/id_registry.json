@@ -1,0 +1,26 @@
+{
+ "next": 22,
+ "ids": {
+  "CA|security_deposits|12": "r-0001",
+  "CA|security_deposits|california state law photographs after regaining possession": "r-0002",
+  "CA|security_deposits|california state law photographs at start of tenancy": "r-0003",
+  "CA|security_deposits|california state law security deposit return and itemization": "r-0004",
+  "CA|application_screening_fees|1950.6": "r-0005",
+  "Berkeley, CA|rent_increase_limits|13.76.110a": "r-0006",
+  "Berkeley, CA|rent_increase_limits|berkeley rent ordinance measure bb annual general adjustment cap": "r-0007",
+  "Berkeley, CA|rent_increase_limits|berkeley rent ordinance measure bb coverage of shared facility and subsidized units": "r-0008",
+  "Berkeley, CA|rent_increase_limits|berkeley rent ordinance coverage table rent control": "r-0009",
+  "Berkeley, CA|just_cause_eviction|berkeley rent ordinance measure bb eviction notice and filing requirements": "r-0010",
+  "Berkeley, CA|just_cause_eviction|berkeley rent ordinance measure bb just cause failure to sign new lease": "r-0011",
+  "Berkeley, CA|just_cause_eviction|berkeley rent ordinance measure bb just cause lease breach": "r-0012",
+  "Berkeley, CA|just_cause_eviction|berkeley rent ordinance measure bb just cause nonpayment of rent": "r-0013",
+  "Berkeley, CA|just_cause_eviction|berkeley rent ordinance coverage table just cause": "r-0014",
+  "Berkeley, CA|just_cause_eviction|berkeley rent stabilization and good cause for eviction ordinance ellis implementation ordinance": "r-0015",
+  "Berkeley, CA|security_deposits|berkeley rent ordinance coverage table security deposit interest": "r-0016",
+  "Berkeley, CA|security_deposits|berkeley rent ordinance security deposit interest": "r-0017",
+  "Berkeley, CA|application_screening_fees|13.78.010": "r-0018",
+  "Berkeley, CA|application_screening_fees|13.78.016": "r-0019",
+  "Berkeley, CA|screening_restrictions|13.106": "r-0020",
+  "Berkeley, CA|algorithmic_rent_setting|13.63": "r-0021"
+ }
+}
