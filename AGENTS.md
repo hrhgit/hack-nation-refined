@@ -9,3 +9,6 @@
 ## Lovable preview app
 
 - The Lovable preview (TanStack Start in `src/`) serves the original `navigator/web/static` frontend as a static snapshot from `public/navigator/`; answers are pre-dumped into `public/navigator/data/` from the Python web server (`python3 -m web`) because the preview has no Python runtime. Re-dump after `outputs/` or `work/` change.
+- `public/navigator/` is a three-way merge of `navigator/web/static/` (user's source of truth for features) with the preview's styling/copy edits; re-merge with `git merge-file` when the user pushes new frontend changes, never overwrite either side.
+- The online "/api/summary" is a TanStack server route (`src/routes/api/summary.ts` + `src/lib/navigator-summary.server.ts`) ported from `navigator/src/web/summary.ts`; it reads the lookup snapshot JSON, calls DeepSeek with `DEEPSEEK_API_KEY`, and caches validated paragraphs in the `summary_cache` table because the Worker has no writable disk. Keep prompt/validation in sync with the Node original.
+- "/api/imports" is stubbed client-side in `public/navigator/index.html` (reports no model configured) until the extraction pipeline is ported.
