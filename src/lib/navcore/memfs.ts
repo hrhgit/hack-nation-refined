@@ -37,7 +37,7 @@ export function load(p: string, data: string | Buffer, mtimeMs = Date.now()) {
 }
 export function drop(p: string) {
   p = norm(p); files.delete(p);
-  for (let d = path.posix.dirname(p); d.startsWith(PERSIST_PREFIX) && !isDir(d); d = path.posix.dirname(d)) dirs.delete(d);
+  for (let d = path.posix.dirname(p); d.startsWith(PERSIST_PREFIX) && ![...files.keys()].some((k) => k.startsWith(d + "/")); d = path.posix.dirname(d)) dirs.delete(d);
 }
 export function listFiles(prefix: string): string[] { return [...files.keys()].filter((k) => k.startsWith(prefix)); }
 export function readRaw(p: string): Entry | undefined { return files.get(norm(p)); }
