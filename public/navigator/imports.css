@@ -60,10 +60,10 @@
 .import-upload input[type="file"] { font: 14px var(--sans); color: var(--ink-2); border: 0; padding: 0; background: none; }
 .import-upload input[type="file"]::file-selector-button { font: 600 14px var(--sans); color: var(--ink); background: var(--page); border: 1px solid var(--line-strong); border-radius: var(--r); padding: 6px 12px; margin-right: 12px; cursor: pointer; }
 .import-upload input[type="file"]::file-selector-button:hover { border-color: var(--ink); }
-.import-job { margin-top: 28px; padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.import-job { margin-top: 24px; }
+#import-state { padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .import-stage { margin: 0; color: var(--ink); font-size: 16px; font-weight: 650; }
 .import-stage + .hint { margin-top: 2px; font-variant-numeric: tabular-nums; }
-.import-job[data-status="failed"] .import-stage { color: var(--red, var(--ink)); }
 .import-preview { margin-top: 40px; }
 .import-preview > h2 { margin-bottom: 0; padding-bottom: 10px; font-size: 13px; font-weight: 650; color: var(--ink-2); letter-spacing: .02em; text-transform: uppercase; border-bottom: 1px solid var(--line-strong); }
 .import-rule { margin-top: 0; padding: 22px 0 26px; }

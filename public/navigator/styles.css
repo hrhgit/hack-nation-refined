@@ -547,3 +547,14 @@ h1 { letter-spacing: 0; }
   font-weight: inherit;
   font-style: inherit;
 }
+
+/* Summary box: hairline frame, no fill; section labels quiet, paragraphs carry the weight. */
+.law-summary { margin: 22px 0; padding: 18px 0 6px; border: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--line); border-radius: 0; background: none; }
+.law-summary header h3 { font-size: 19px; font-weight: 650; }
+.law-summary header .hint { margin-top: 2px; max-width: 64ch; }
+.summary-legend { margin-top: 10px; gap: 4px 18px; }
+.summary-scroll { margin-top: 14px; padding-right: 12px; }
+.summary-sections h4 { margin: 20px 0 8px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 13px; font-weight: 650; color: var(--ink-2); letter-spacing: .02em; text-transform: uppercase; }
+.summary-sections h4:first-child { margin-top: 4px; padding-top: 0; border-top: 0; }
+.summary-paragraph p { max-width: 74ch; line-height: 1.7; }
+.law-summary[data-status="error"] { border-top-color: var(--amber); }
