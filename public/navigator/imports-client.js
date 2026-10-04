@@ -42,7 +42,7 @@ const WORDS = {
     history: '已提交的正文', empty: '还没有提交记录。', back: '返回法律变更', another: '提交另一份正文',
     preparing: '保存正文', extracting: '智能体正在读取正文', checking: '检查规则和原文引用', comparing: '判断地址影响', ready: '解析完成', failed: '本次解析未完成', interrupted: '解析已中断', applied: '已使用解析结果',
     progress: '已检查 {total} 个正文分段中的 {done} 个', live: '离开页面不会取消任务，可以从提交记录继续查看。', refresh: '刷新进度', poll_error: '暂时无法刷新任务：{msg}。',
-    raw: '查看提交的正文', extra: '用户提交的来源，不属于官方分发的比赛语料。', preview: '智能体识别的结果', details: '展开原文引用和已有规则的变化', before: '原来记录的规则', after: '本次正文提取的规则', absent: '原来没有这条规则', no_answer: '未列入查询结果',
+    raw: '查看提交的正文', extra: '用户提交的来源，不属于官方分发的比赛语料。', preview: '提取的规则', details: '展开原文引用和已有规则的变化', before: '原来记录的规则', after: '本次正文提取的规则', absent: '原来没有这条规则', no_answer: '未列入查询结果',
     apply: '使用解析结果', applied_hint: '地址查询已使用本次结果，按正文中的日期判断。', recompare: '刷新影响结果', retry: '继续解析',
     covered: '截至 {day}，覆盖 {n} 个样本地址。', future: '截至 {day} 尚未生效。从 {from} 起，可能覆盖 {n} 个样本地址。', proposed: '仍是提案。如果通过，可能覆盖 {n} 个样本地址。', failed_law: '未通过或已撤回。受影响列表为空，不作为现行规则。', uncertain: '状态或覆盖范围需要确认，可能涉及 {n} 个样本地址。',
     cases: '按题目示例追踪变更', dates: '比较 {before} → {after}', on_day: '截至 {day}', affected: '受影响地址 {n} 个', review: '需复核地址 {n} 个', ids: '展开受影响地址', missing_rules: '相关法规尚未全部提取，这份比较仍不完整。',
