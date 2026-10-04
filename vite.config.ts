@@ -26,7 +26,7 @@ const navigatorShims = {
       .replace(/from\s+['"]node:fs['"]/g, `from ${JSON.stringify(path.join(SHIMS, "memfs.ts"))}`)
       .replace(/from\s+['"]node:url['"]/g, `from ${JSON.stringify(path.join(SHIMS, "url-shim.ts"))}`)
       .replace(/from\s+['"](?:\.\.?\/)+http\.js['"]/g, (m) => {
-        const rel = m.match(/['"](.*)['"]/)![1];
+        const rel = m.match(/['"](.*)['"]/)?.[1] ?? "";
         return path.resolve(path.dirname(id), rel) === path.join(NAV_SRC, "http.js") ? `from ${JSON.stringify(path.join(SHIMS, "http-shim.ts"))}` : m;
       });
     return out === code ? null : { code: out, map: null };
