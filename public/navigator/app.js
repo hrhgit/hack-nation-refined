@@ -648,7 +648,8 @@ async function renderPipeline(request) {
 }
 
 /* ---------- key figures ----------
-   Money, rates and dates are what a reader scans for, so they carry their own ink (--figure).
+   Money, rates, dates and legal time periods are what a reader scans for, so they carry
+   their own ink (--figure).
    The pass runs over anything inserted into the page — lists, panels, dialogs — so no template
    has to remember to do it. Links, highlighted quotes and table counters are left alone. */
 const FIGURE_MONTHS = "January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sept|Sep|Oct|Nov|Dec|Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Octubre|Noviembre|Diciembre|Ene|Feb|Mar|Abr|May|Jun|Jul|Ago|Sep|Oct|Nov|Dic";
@@ -658,7 +659,10 @@ const FIGURE = new RegExp([
   `(?:${FIGURE_MONTHS})\\.?\\s+\\d{1,2}(?:st|nd|rd|th)?,?\\s+\\d{4}`, // July 1, 2024
   `\\d{1,2}(?:\\s+de)?\\s+(?:${FIGURE_MONTHS})\\.?(?:\\s+de)?\\s+\\d{4}`, // 1 ene 2026
   "\\d{4}[-/]\\d{1,2}[-/]\\d{1,2}",                               // 2024-07-01
-  "\\d{4}年\\d{1,2}月\\d{1,2}日"                                    // 2024年7月1日
+  "\\d{4}年\\d{1,2}月\\d{1,2}日",                                   // 2024年7月1日
+  "\\d+(?:\\.\\d+)?\\s+(?:calendar\\s+|business\\s+|working\\s+)?(?:day|days|week|weeks|month|months|year|years|hour|hours)", // 30 days · 12 months
+  "\\d+(?:\\.\\d+)?\\s+(?:días?|semanas?|mes(?:es)?|años?|horas?)(?:\\s+(?:calendario|hábiles?))?", // 30 días · 12 meses
+  "\\d+(?:\\.\\d+)?\\s*(?:个)?(?:日|天|周|星期|个月|月|年|小时)"       // 30天 · 12个月
 ].join("|"), "gi");
 const FIGURE_SKIP = "a, mark, .hl, .num, script, style, select, option, textarea, code, .fig";
 

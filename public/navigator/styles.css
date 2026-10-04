@@ -10,7 +10,7 @@
   --line: #dde2ec; --line-strong: #aeb7c8;
   --accent: #1740b0; --accent-wash: #e8eefc; --plaque: #1740b0; --on-plaque: #ffffff;
   --amber: #9a5b00; --amber-wash: #fff4da; --red: #b3261e; --red-wash: #fdecea; --hl: #ffe873;
-  --figure: #0a6a55;
+  --figure: #006e56; --figure-wash: #dff5ed;
   --shadow: 0 14px 36px rgba(18, 26, 43, .18), 0 2px 6px rgba(18, 26, 43, .08);
   --sans: "Libre Franklin", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   --serif: "Literata", "Noto Serif SC", "Iowan Old Style", "Palatino Linotype", Georgia, "Songti SC", serif;
@@ -22,7 +22,7 @@
     --line: #253046; --line-strong: #46536c;
     --accent: #9db8ff; --accent-wash: #1a2748; --plaque: #2149b8;
     --amber: #f0be5a; --amber-wash: #382c10; --red: #ff9a8f; --red-wash: #40201d; --hl: #5e5010;
-    --figure: #74d2b6;
+    --figure: #91e5cc; --figure-wash: #153d35;
     --shadow: 0 14px 36px rgba(0, 0, 0, .5), 0 2px 6px rgba(0, 0, 0, .3);
   }
 }
@@ -488,10 +488,22 @@ h1 { letter-spacing: -.02em; }
 /* ===== END BOLD HIERARCHY ===== */
 
 /* ---------- key figures in their own ink ----------
-   Amounts, rates and dates read as figures: teal-green, never a background or a box.
+   Amounts, rates, dates and time periods use firm teal ink on a restrained editorial wash.
    Quiet zones (notes, fine print, captions, metadata) keep their own ink, so the colour
    only marks the figures a reader is meant to compare. */
-.fig { color: var(--figure); }
+.fig {
+  padding: 0 .12em;
+  background: var(--figure-wash);
+  color: var(--figure);
+  font-weight: 700;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
 .row-sum .fig, .row-key .fig { font-weight: 600; }
 .note .fig, .fine .fig, .hint .fig, .muted .fig, .row-sub .fig, .row-origin .fig,
-.facts .fig, .crumbs .fig, .quote figcaption .fig, .case-id .fig { color: inherit; }
+.facts .fig, .crumbs .fig, .quote figcaption .fig, .case-id .fig {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font-weight: inherit;
+}
