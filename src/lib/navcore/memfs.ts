@@ -7,10 +7,14 @@ import path from "node:path";
 export const PERSIST_PREFIX = "/nav/work/law_imports/";
 
 type Entry = { data: Buffer; mtimeMs: number };
-const files = new Map<string, Entry>();
-const dirs = new Set<string>(["/"]);
-export const dirty = new Set<string>();
-export const removed = new Set<string>();
+// Shared through globalThis so every copy of this module sees one filesystem.
+type State = { files: Map<string, Entry>; dirs: Set<string>; dirty: Set<string>; removed: Set<string> };
+const g = globalThis as unknown as { __navfs?: State };
+const state = (g.__navfs ??= { files: new Map(), dirs: new Set(["/"]), dirty: new Set(), removed: new Set() });
+const files = state.files;
+const dirs = state.dirs;
+export const dirty = state.dirty;
+export const removed = state.removed;
 
 const norm = (p: string) => path.posix.resolve(String(p));
 const persisted = (p: string) => p.startsWith(PERSIST_PREFIX);
@@ -31,7 +35,10 @@ const enoent = (p: string) => Object.assign(new Error(`ENOENT: no such file or d
 export function load(p: string, data: string | Buffer, mtimeMs = Date.now()) {
   p = norm(p); files.set(p, { data: Buffer.isBuffer(data) ? data : Buffer.from(data), mtimeMs }); addDirs(p);
 }
-export function drop(p: string) { p = norm(p); files.delete(p); }
+export function drop(p: string) {
+  p = norm(p); files.delete(p);
+  for (let d = path.posix.dirname(p); d.startsWith(PERSIST_PREFIX) && ![...files.keys()].some((k) => k.startsWith(d + "/")); d = path.posix.dirname(d)) dirs.delete(d);
+}
 export function listFiles(prefix: string): string[] { return [...files.keys()].filter((k) => k.startsWith(prefix)); }
 export function readRaw(p: string): Entry | undefined { return files.get(norm(p)); }
 

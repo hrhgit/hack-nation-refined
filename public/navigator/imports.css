@@ -48,3 +48,41 @@
   .import-compare { grid-template-columns: minmax(0, 1fr); }
   .import-compare { gap: 20px; }
 }
+
+/* Design pass: same rules as the main pages — hairlines, size/weight for hierarchy, colour only for status. */
+.import-heading + p { max-width: 60ch; }
+.page-head + .actions { margin: 0 0 8px; }
+.import-form { margin-top: 28px; }
+.import-field { font-size: 14px; }
+.import-field textarea { background: var(--page); min-height: 14rem; }
+.import-field textarea:focus { border-color: var(--ink); outline: none; }
+.import-upload { font-size: 14px; color: var(--ink-2); margin: -6px 0 8px; }
+.import-upload input[type="file"] { font: 14px var(--sans); color: var(--ink-2); border: 0; padding: 0; background: none; }
+.import-upload input[type="file"]::file-selector-button { font: 600 14px var(--sans); color: var(--ink); background: var(--page); border: 1px solid var(--line-strong); border-radius: var(--r); padding: 6px 12px; margin-right: 12px; cursor: pointer; }
+.import-upload input[type="file"]::file-selector-button:hover { border-color: var(--ink); }
+.import-job { margin-top: 24px; }
+#import-state { padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.import-stage { margin: 0; color: var(--ink); font-size: 16px; font-weight: 650; }
+.import-stage + .hint { margin-top: 2px; font-variant-numeric: tabular-nums; }
+.import-preview { margin-top: 40px; }
+.import-preview > h2 { margin-bottom: 0; padding-bottom: 10px; font-size: 13px; font-weight: 650; color: var(--ink-2); letter-spacing: .02em; text-transform: uppercase; border-bottom: 1px solid var(--line-strong); }
+.import-rule { margin-top: 0; padding: 22px 0 26px; }
+.import-preview > .import-rule:first-of-type { border-top: 0; }
+.import-rule > h3 { font-size: 22px; font-weight: 650; line-height: 1.3; margin: 0 0 4px; }
+.import-rule > .hint { margin-bottom: 14px; }
+.import-rule > p { max-width: 72ch; }
+.import-rule .fold { margin-top: 10px; }
+.import-records { margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--line); }
+.import-preview .actions, .import-job .actions { display: flex; gap: 10px; margin: 18px 0 6px; }
+.import-case { border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: 16px 0; }
+.import-compare h5 { text-transform: none; }
+.import-facts > div { padding: 8px 0; border-bottom: 1px solid var(--line); margin: 0; }
+.import-facts .changed { background: none; border-radius: 0; box-shadow: inset 2px 0 0 var(--amber); padding-left: 10px; }
+.import-raw { border-left: 1px solid var(--line-strong); background: none; padding: 4px 0 4px 16px; }
+.import-history { margin-top: 56px; border-top: 0; padding-top: 0; }
+.import-history h2 { font-size: 13px; font-weight: 650; color: var(--ink-2); letter-spacing: .02em; text-transform: uppercase; padding-bottom: 10px; margin-bottom: 0; border-bottom: 1px solid var(--line-strong); }
+.import-history li { grid-template-columns: minmax(0, 1fr) auto; column-gap: 24px; align-items: baseline; padding: 12px 0; border-top: 0; border-bottom: 1px solid var(--line); }
+.import-history li a { color: var(--ink); font-weight: 600; text-decoration: none; }
+.import-history li a:hover { color: var(--accent); }
+.import-history li span { grid-column: 1; }
+.import-history li time { grid-column: 2; grid-row: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }

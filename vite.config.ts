@@ -15,13 +15,21 @@ const SHIMS = path.resolve(__dirname, "src/lib/navcore");
 const navigatorShims = {
   name: "navigator-shims",
   enforce: "pre" as const,
-  resolveId(source: string, importer?: string) {
+  resolveId(source: string) {
     if (source.startsWith("navigator-core/")) return path.join(NAV_SRC, source.slice("navigator-core/".length));
-    if (!importer || !importer.startsWith(NAV_SRC)) return null;
-    if (source === "node:fs" || source === "fs") return path.join(SHIMS, "memfs.ts");
-    if (source === "node:url" || source === "url") return path.join(SHIMS, "url-shim.ts");
-    if (/(^|\/)http\.js$/.test(source) && path.resolve(path.dirname(importer), source) === path.join(NAV_SRC, "http.js")) return path.join(SHIMS, "http-shim.ts");
     return null;
+  },
+  // Rewritten in the source text: builtin ids like node:fs skip resolveId in dev SSR.
+  transform(code: string, id: string) {
+    if (!id.startsWith(NAV_SRC + "/")) return null;
+    const out = code
+      .replace(/from\s+['"]node:fs['"]/g, `from ${JSON.stringify(path.join(SHIMS, "memfs.ts"))}`)
+      .replace(/from\s+['"]node:url['"]/g, `from ${JSON.stringify(path.join(SHIMS, "url-shim.ts"))}`)
+      .replace(/from\s+['"](?:\.\.?\/)+http\.js['"]/g, (m) => {
+        const rel = m.match(/['"](.*)['"]/)?.[1] ?? "";
+        return path.resolve(path.dirname(id), rel) === path.join(NAV_SRC, "http.js") ? `from ${JSON.stringify(path.join(SHIMS, "http-shim.ts"))}` : m;
+      });
+    return out === code ? null : { code: out, map: null };
   },
 };
 
