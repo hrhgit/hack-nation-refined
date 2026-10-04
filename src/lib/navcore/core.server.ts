@@ -3,7 +3,8 @@
 // page; a heartbeat file tells other requests the run is still alive.
 import "./seed";
 import * as nav from "navigator-core/web/server.ts";
-import { ImportError } from "navigator-core/web/law-imports.ts";
+import * as lawImportsMod from "navigator-core/web/law-imports.ts";
+const ImportError: any = lawImportsMod.ImportError;
 import { existsSync, readFileSync, writeFileSync } from "./memfs";
 import { flushPersisted, loadPersisted } from "./store.server";
 
@@ -74,7 +75,7 @@ export async function handle(request: Request): Promise<Response> {
     if (request.method !== "GET" || !Object.hasOwn(routes, url.pathname)) return json(404, { error: "Not found" });
     const q: Record<string, string[]> = Object.create(null);
     for (const [k, v] of url.searchParams) if (v) (q[k] ??= []).push(v);
-    try { return json(200, routes[url.pathname](q)); }
+    try { return json(200, routes[url.pathname]!(q)); }
     catch (e) { const err = e as Error; return json(e instanceof nav.NotFound ? 404 : "code" in err ? 500 : 400, { error: err.message }); }
   } finally {
     await flushPersisted().catch(() => {});
