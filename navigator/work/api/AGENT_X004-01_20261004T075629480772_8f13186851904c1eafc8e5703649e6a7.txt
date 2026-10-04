@@ -1,1 +1,0 @@
-{"packet_id":"X004-01","n_rules":0,"note":"Bill page covers general antitrust penalties, outside the six categories."}

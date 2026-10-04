@@ -7,3 +7,14 @@ node_modules/
 !.env.example
 worklog/
 .workbuddy/
+
+# Generated evaluation runs and raw agent logs
+/navigator/eval/**/traces/
+/navigator/eval/**/*_rep*.json
+/navigator/eval/**/calls.jsonl
+/navigator/eval/**/results.jsonl
+/navigator/eval/**/progress.txt
+/navigator/eval/**/errors.jsonl
+/navigator/work/api/
+/navigator/work/out/
+/navigator/work/archive_agent_run*/

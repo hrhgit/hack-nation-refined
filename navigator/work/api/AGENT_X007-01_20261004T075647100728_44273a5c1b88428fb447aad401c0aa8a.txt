@@ -1,1 +1,0 @@
-{"packet_id":"X007-01","n_rules":0,"note":"No rule in the six categories: only ballot-question titles and non-binding advisory questions appear."}

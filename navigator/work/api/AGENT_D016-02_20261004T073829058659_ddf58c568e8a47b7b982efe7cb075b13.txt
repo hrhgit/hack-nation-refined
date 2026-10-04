@@ -1,1 +1,0 @@
-{"packet_id":"D016-02","n_rules":0,"note":"Only discrimination complaint procedure and lending topics; no rule in the six categories."}
