@@ -10,7 +10,7 @@
   --line: #dde2ec; --line-strong: #aeb7c8;
   --accent: #1740b0; --accent-wash: #e8eefc; --plaque: #1740b0; --on-plaque: #ffffff;
   --amber: #9a5b00; --amber-wash: #fff4da; --red: #b3261e; --red-wash: #fdecea; --hl: #ffe873;
-  --figure: #006e56; --figure-wash: #dff5ed;
+  --figure: var(--ink); --figure-wash: var(--wash); --figure-line: var(--line-strong);
   --shadow: 0 14px 36px rgba(18, 26, 43, .18), 0 2px 6px rgba(18, 26, 43, .08);
   --sans: "Libre Franklin", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   --serif: "Literata", "Noto Serif SC", "Iowan Old Style", "Palatino Linotype", Georgia, "Songti SC", serif;
@@ -22,7 +22,7 @@
     --line: #253046; --line-strong: #46536c;
     --accent: #9db8ff; --accent-wash: #1a2748; --plaque: #2149b8;
     --amber: #f0be5a; --amber-wash: #382c10; --red: #ff9a8f; --red-wash: #40201d; --hl: #5e5010;
-    --figure: #91e5cc; --figure-wash: #153d35;
+    --figure: var(--ink); --figure-wash: var(--wash); --figure-line: var(--line-strong);
     --shadow: 0 14px 36px rgba(0, 0, 0, .5), 0 2px 6px rgba(0, 0, 0, .3);
   }
 }
@@ -487,23 +487,30 @@ h1 { letter-spacing: -.02em; }
 .browse li button span:last-child { color: var(--ink-3); font-size: 14px; }
 /* ===== END BOLD HIERARCHY ===== */
 
-/* ---------- key figures in their own ink ----------
-   Amounts, rates, dates and time periods use firm teal ink on a restrained editorial wash.
+/* ---------- key figures ----------
+   Amounts, rates, dates and time periods use a small monochrome editorial marker.
    Quiet zones (notes, fine print, captions, metadata) keep their own ink, so the colour
    only marks the figures a reader is meant to compare. */
 .fig {
-  padding: 0 .12em;
+  display: inline;
+  padding: .04em .2em;
   background: var(--figure-wash);
+  border: 1px solid var(--figure-line);
+  border-radius: 3px;
   color: var(--figure);
   font-weight: 700;
+  font-style: italic;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
-.row-sum .fig, .row-key .fig { font-weight: 600; }
+.row-sum .fig, .row-key .fig { font-weight: 700; }
 .note .fig, .fine .fig, .hint .fig, .muted .fig, .row-sub .fig, .row-origin .fig,
 .facts .fig, .crumbs .fig, .quote figcaption .fig, .case-id .fig {
   padding: 0;
   background: transparent;
+  border: 0;
+  border-radius: 0;
   color: inherit;
   font-weight: inherit;
+  font-style: inherit;
 }
