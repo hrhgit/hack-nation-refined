@@ -488,6 +488,10 @@ h1 { letter-spacing: -.02em; }
 /* ===== END BOLD HIERARCHY ===== */
 
 /* ---------- key figures in their own ink ----------
-   Amounts, rates and dates read as figures: teal-green, never a background or a box. */
+   Amounts, rates and dates read as figures: teal-green, never a background or a box.
+   Quiet zones (notes, fine print, captions, metadata) keep their own ink, so the colour
+   only marks the figures a reader is meant to compare. */
 .fig { color: var(--figure); }
 .row-sum .fig, .row-key .fig { font-weight: 600; }
+.note .fig, .fine .fig, .hint .fig, .muted .fig, .row-sub .fig, .row-origin .fig,
+.facts .fig, .crumbs .fig, .quote figcaption .fig, .case-id .fig { color: inherit; }
