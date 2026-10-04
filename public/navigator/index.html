@@ -30,19 +30,6 @@
 <footer class="foot"><p class="wrap"><strong data-t="not_legal_advice"></strong> <span data-t="foot_body"></span></p></footer>
 <dialog id="sheet" class="sheet"></dialog>
 <script src="i18n.js"></script>
-<script>
-// Online snapshot: law import still needs the local service.
-(() => {
-  const realFetch = window.fetch.bind(window);
-  const json = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json" } });
-  window.fetch = (input, init) => {
-    const url = typeof input === "string" ? input : input.url;
-    if (url === "/api/imports" && !(init && init.method === "POST")) return Promise.resolve(json({ configured: false, jobs: [] }));
-    if (url.startsWith("/api/imports")) return Promise.resolve(json({ error: "local only" }, 503));
-    return realFetch(input, init);
-  };
-})();
-</script>
 <script type="module" src="app.js"></script>
 </body>
 </html>
