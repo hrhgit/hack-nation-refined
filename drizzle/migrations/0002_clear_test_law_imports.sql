@@ -1,0 +1,1 @@
+DELETE FROM public.nav_files WHERE path LIKE '/nav/work/law_imports/%';
