@@ -664,7 +664,7 @@ const FIGURE = new RegExp([
   "\\d+(?:\\.\\d+)?\\s+(?:días|día|semanas|semana|meses|mes|años|año|horas|hora)(?:\\s+(?:calendario|hábiles?))?", // 30 días · 12 meses
   "\\d+(?:\\.\\d+)?\\s*(?:个)?(?:日|天|周|星期|个月|月|年|小时)"       // 30天 · 12个月
 ].join("|"), "gi");
-const FIGURE_SKIP = "a, mark, .hl, .num, script, style, select, option, textarea, code, .fig";
+const FIGURE_SKIP = "a, button, h1, mark, .hl, .num, script, style, select, option, textarea, code, .fig";
 
 let markingFigures = false;
 function markFigures(root) {
