@@ -23,9 +23,13 @@ export const Route = createFileRoute("/api/summary")({
         // Check evidence first so a stale/missing-key error can return a normal JSON status.
         const first: unknown[] = [];
         let started = false;
-        const work = runSummary(data, language, body.fingerprint, (e) => (started ? emit(e) : first.push(e)));
+        let firstEvent!: () => void;
+        const gotEvent = new Promise<void>((r) => { firstEvent = r; });
+        const work = runSummary(data, language, body.fingerprint, (e) => {
+          if (started) emit(e); else { first.push(e); firstEvent(); }
+        });
         try {
-          await Promise.race([work, new Promise((r) => setTimeout(r, 0))]);
+          await Promise.race([work, gotEvent]);
         } catch (error) {
           if (error instanceof SummaryError) return json({ code: error.code, error: error.message }, error.status);
           return json({ code: "summary_unavailable", error: "Summary unavailable" }, 500);
