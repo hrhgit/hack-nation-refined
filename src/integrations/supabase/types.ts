@@ -14,6 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
+      nav_files: {
+        Row: {
+          content: string
+          mtime_ms: number
+          path: string
+          updated_at: string
+        }
+        Insert: {
+          content: string
+          mtime_ms: number
+          path: string
+          updated_at?: string
+        }
+        Update: {
+          content?: string
+          mtime_ms?: number
+          path?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       summary_cache: {
         Row: {
           created_at: string

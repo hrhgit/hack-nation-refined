@@ -63,7 +63,10 @@ export function createImportsPage(context) {
   const $ = selector => view().querySelector(selector);
   async function request(url, body) {
     const response = await fetch(url, body === undefined ? {} : {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)});
-    const data = await response.json(); if (!response.ok) throw new Error(data.error || response.statusText); return data;
+    const data = await response.json(); if (!response.ok) throw new Error(data.error || response.statusText);
+    // Online: extraction runs in its own request, kept open while this page is.
+    if (body !== undefined && (url === '/api/imports' || url.endsWith('/retry'))) fetch('/api/imports/' + data.id + '/run', {method: 'POST'}).catch(() => {});
+    return data;
   }
   function formHtml(data) {
     return `<form id="law-import-form" class="import-form">

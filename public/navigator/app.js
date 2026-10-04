@@ -61,21 +61,10 @@ async function sha16(text) {
   return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 16);
 }
 async function api(path, params = {}) {
-  const name = path.replace(/^\/api\//, "");
-  let file = "data/" + name + ".json";
-  if (name === "lookup") {
-    if (!/^[A-Za-z0-9_-]+$/.test(params.address_id || "")) throw new Error("Unknown address id");
-    file = "data/lookup/" + params.address_id + ".json";
-  } else if (name === "source") {
-    file = "data/source/" + (await sha16(params.doc_id + "|" + (params.quote || ""))) + ".json";
-  }
-  const response = await fetch(file);
-  if (!response.ok) throw new Error(response.status === 404 ? "Not available in this snapshot" : response.statusText);
+  const query = new URLSearchParams(Object.entries(params).filter(([, v]) => v !== "" && v != null)).toString();
+  const response = await fetch(path + (query ? "?" + query : ""));
   const body = await response.json();
-  if (name === "lookup") {
-    const changed = (params.as_of && params.as_of !== body.as_of) || params.year_built || params.units;
-    if (changed) body.snapshot_note = true;
-  }
+  if (!response.ok) throw new Error(body.error || response.statusText);
   return body;
 }
 
