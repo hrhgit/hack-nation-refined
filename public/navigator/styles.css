@@ -396,7 +396,8 @@ body { background: var(--page); -webkit-font-smoothing: antialiased; }
 :root { --hl: #fff4bf; --hl-line: #e3b505; }
 @media (prefers-color-scheme: dark) { :root { --hl: #3a3312; --hl-line: #c9a227; } }
 mark { padding: 1px 0; border-radius: 0; background: var(--hl); box-shadow: inset 0 -2px 0 var(--hl-line); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-.quote, blockquote { border-left: 3px solid var(--hl-line); }
+.quote blockquote { padding-left: 14px; border-left: 3px solid var(--hl-line); }
+.hl { padding: 1px 0; border-radius: 0; background: var(--hl); }
 
 select {
   -webkit-appearance: none; appearance: none;
