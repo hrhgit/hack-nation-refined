@@ -1,0 +1,50 @@
+.import-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.import-heading h1 { flex: 1; }
+.import-entry { margin-top: 16px; }
+.import-form { max-width: 880px; margin-top: 30px; }
+.import-field { display: flex; flex-direction: column; gap: 7px; margin-bottom: 22px; font-weight: 600; min-width: 0; }
+.import-field input, .import-field select, .import-field textarea { width: 100%; font-weight: 400; }
+.import-field .hint { font-weight: 400; }
+.import-field textarea { resize: vertical; padding: 12px; border: 1px solid var(--line-strong); border-radius: var(--r); background: var(--page); color: var(--ink); font: 15px/1.6 var(--serif); }
+.import-upload { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: -8px 0 24px; }
+.import-upload input { max-width: 100%; }
+.import-form .btn { margin-top: 14px; }
+.import-form button:disabled, .import-job button:disabled { cursor: default; opacity: .5; }
+.import-history { margin-top: 44px; border-top: 1px solid var(--line); padding-top: 24px; }
+.import-history h2 { margin-bottom: 14px; }
+.import-history li { display: grid; gap: 4px; padding: 14px 0; border-top: 1px solid var(--line); }
+.import-history span, .import-history time { color: var(--ink-2); font-size: 13px; }
+.import-job { margin-top: 20px; }
+.import-stage { margin-top: 12px; font-weight: 600; color: var(--accent); }
+.import-raw { padding: 16px; white-space: pre-wrap; overflow-wrap: anywhere; background: var(--wash); font: 14px/1.7 var(--serif); }
+.import-preview { margin-top: 32px; }
+.import-preview h3 { margin-top: 28px; font-size: 18px; }
+.import-preview > h2 { margin-bottom: 18px; }
+.import-rule > h3 { margin: 0 0 8px; }
+.import-rule > p { margin-bottom: 12px; }
+.import-key { font: 17px/1.65 var(--serif); }
+.import-case { margin: 18px 0; padding: 18px; border: 1px solid var(--line); border-radius: var(--r); }
+.import-case h4, .import-case > p { margin: 0 0 12px; }
+.import-ids { display: flex; flex-wrap: wrap; gap: 8px 12px; margin: 12px 0; }
+.import-records { margin-top: 26px; }
+.import-records > p { margin: 16px 0; }
+.import-rule { margin-top: 18px; padding: 18px 0; border-top: 1px solid var(--line); }
+.import-rule h4 { font-size: 16px; margin: 0 0 14px; }
+.import-compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin: 12px 0; }
+.import-compare section { min-width: 0; }
+.import-compare h5 { margin: 0 0 10px; color: var(--ink-2); font-size: 13px; font-weight: 600; }
+.import-facts > div { padding: 8px 10px; margin: 3px 0; }
+.import-facts dt { font-size: 12px; color: var(--ink-2); margin-bottom: 3px; }
+.import-facts dd { font-size: 14px; overflow-wrap: anywhere; }
+.import-facts .changed { background: var(--amber-wash); border-radius: var(--r); }
+.import-quote { margin: 12px 0; padding: 12px; background: var(--hl); white-space: pre-wrap; overflow-wrap: anywhere; font: 14px/1.7 var(--serif); }
+.import-address { padding: 14px 0; border-top: 1px solid var(--line); }
+.import-address > summary { cursor: pointer; color: var(--accent); }
+.import-address p + p { margin-top: 8px; }
+.import-warnings ul { padding-left: 20px; list-style: disc; }
+.import-warnings li { margin-top: 8px; overflow-wrap: anywhere; }
+@media (max-width: 720px) {
+  .import-heading { align-items: flex-start; flex-direction: column; }
+  .import-compare { grid-template-columns: minmax(0, 1fr); }
+  .import-compare { gap: 20px; }
+}
