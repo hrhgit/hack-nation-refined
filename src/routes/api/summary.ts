@@ -19,7 +19,12 @@ export const Route = createFileRoute("/api/summary")({
         const encoder = new TextEncoder();
         let controller!: ReadableStreamDefaultController<Uint8Array>;
         const stream = new ReadableStream<Uint8Array>({ start(c) { controller = c; } });
-        const emit = (event: unknown) => controller.enqueue(encoder.encode(JSON.stringify(event) + "\n"));
+        // The reader may leave early; generation continues so the result is still cached.
+        let open = true;
+        const emit = (event: unknown) => {
+          if (!open) return;
+          try { controller.enqueue(encoder.encode(JSON.stringify(event) + "\n")); } catch { open = false; }
+        };
         // Check evidence first so a stale/missing-key error can return a normal JSON status.
         const first: unknown[] = [];
         let started = false;
@@ -36,9 +41,9 @@ export const Route = createFileRoute("/api/summary")({
         }
         started = true;
         first.forEach(emit);
-        work.then(() => controller.close(), (error) => {
+        work.then(() => { if (open) controller.close(); }, (error) => {
           emit({ type: "error", code: error instanceof SummaryError ? error.code : "generation_failed", error: String(error?.message ?? error) });
-          controller.close();
+          if (open) controller.close();
         });
         return new Response(stream, { headers: { "Content-Type": "application/x-ndjson", "Cache-Control": "no-store" } });
       },
