@@ -1,24 +1,40 @@
-# Hack Nation Refined
+# Rental Housing Law Navigator
 
-把公开仓库 https://github.com/hrhgit/hack-nation 接进去，基于原仓库 navigator/web/static/ 中的已有前端代码（index.html, styles.css, app.js, i18n.js）和 outputs/ 与 work/ 中提取出来的数据（rules.json, changes.json, lookups.json 等）完整导入并运行，在此基础上优化和美化前端界面。
+The Rental Housing Law Navigator helps people review rental housing rules for a property address and a selected date. It shows the rule, its status, and the source text used for the result. This project was built for the Hack-Nation RealPage challenge.
 
-This project was built with [Lovable](https://lovable.dev).
+## What you can do
 
-## Build with Lovable
+- Look up rental rules by address and review the rules that apply on a chosen date.
+- Open the cited law text and see why a rule applies, needs review, has not taken effect, or has been replaced.
+- Compare rule coverage before and after a law change, including the affected addresses.
+- Paste law text or upload a `.txt` file for rule extraction. Review the extracted rules and their address impact before applying them.
+- Read query summaries in English, Spanish, or Chinese, with citations linked to the supporting result.
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/abaab843-51a6-4ecb-be7a-0d54cfd392a4).
+The Navigator provides information for research and is not legal advice. Coverage depends on the laws and address data available to the project; check the cited source before relying on a result.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+## Run locally
 
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+You need Node.js and npm.
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+git clone https://github.com/hrhgit/hack-nation-refined.git
+cd hack-nation-refined
+npm install
 npm run dev
 ```
+
+The local development server prints its address when it starts. The app's data-backed API features use Supabase, and law extraction and query summaries use DeepSeek. Configure `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `SUPABASE_PUBLISHABLE_KEY`, `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`, and `DEEPSEEK_API_KEY` in the appropriate local or deployment environment. Keep `SUPABASE_SERVICE_ROLE_KEY` and `DEEPSEEK_API_KEY` server-side; never expose them in browser code. Database tables are defined in [`drizzle/migrations/`](drizzle/migrations/).
+
+## How it works
+
+The web app uses React, TypeScript, and TanStack Start. API requests run the original Navigator TypeScript from `navigator/src`; the Vite build redirects its file and HTTP access to in-memory and `fetch` adapters for the Worker runtime. Read-only laws, address facts, and challenge data are bundled from `navigator/` and `starter-pack/` at build time. Supabase stores submitted law text and validated summary results.
+
+For the original Navigator's extraction, address lookup, change tracking, and evaluation workflows, see [`navigator/README.md`](navigator/README.md).
+
+## Main folders
+
+- `src/` — web app, API routes, and runtime adapters.
+- `navigator/` — Navigator source, law and address data, and project documentation.
+- `starter-pack/` — challenge materials and distributed source texts.
+- `drizzle/migrations/` — database table definitions.
+- `submission/` — team introduction and technical walkthrough materials.
