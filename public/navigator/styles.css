@@ -475,4 +475,12 @@ h1 { letter-spacing: -.02em; }
 /* 5. Source column recedes further. */
 .row-origin { color: var(--ink-3); font-size: 12px; }
 .row-place { color: var(--ink-3); font-weight: 600; text-transform: none; }
+/* 6. Landing: bigger headline, cities read as the main choices. */
+.landing { padding-top: 88px; }
+.landing h1 { font-size: clamp(38px, 6vw, 60px); max-width: 16ch; }
+.landing-cols { margin-top: 72px; }
+.landing h2 { border-bottom: 2px solid var(--ink); font-size: 17px; }
+.landing .browse-state, .browse > div > button.browse-state { color: var(--ink); font: 600 19px/1.3 var(--serif); letter-spacing: 0; }
+.browse li button { padding: 9px 0; color: var(--ink); font-size: 17px; font-weight: 500; }
+.browse li button span:last-child { color: var(--ink-3); font-size: 14px; }
 /* ===== END BOLD HIERARCHY ===== */
