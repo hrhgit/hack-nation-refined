@@ -10,7 +10,7 @@ export const Route = createFileRoute("/api/summary")({
       POST: async ({ request }) => {
         let body: { query?: Record<string, string>; language?: string; fingerprint?: string };
         try { body = await request.json(); } catch { return json({ code: "bad_request", error: "Invalid JSON" }, 400); }
-        const id = body.query?.address_id ?? "";
+        const id = body.query?.["address_id"] ?? "";
         const language = (["en", "es", "zh"].includes(body.language ?? "") ? body.language : "en") as SummaryLanguage;
         if (!/^[A-Za-z0-9_-]+$/.test(id) || typeof body.fingerprint !== "string") return json({ code: "bad_request", error: "Invalid query" }, 400);
         const q: Record<string, string[]> = Object.create(null);
