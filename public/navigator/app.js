@@ -647,6 +647,69 @@ async function renderPipeline(request) {
     <p class="fine">${esc(d.disclaimer)}</p>`;
 }
 
+/* ---------- key figures ----------
+   Money, rates and dates are what a reader scans for, so they carry their own ink (--figure).
+   The pass runs over anything inserted into the page — lists, panels, dialogs — so no template
+   has to remember to do it. Links, highlighted quotes and table counters are left alone. */
+const FIGURE_MONTHS = "January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sept|Sep|Oct|Nov|Dec|Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Octubre|Noviembre|Diciembre|Ene|Feb|Mar|Abr|May|Jun|Jul|Ago|Sep|Oct|Nov|Dic";
+const FIGURE = new RegExp([
+  "\\$[\\d,]+(?:\\.\\d+)?",                                        // $1,000 · $446.00
+  "\\d+(?:\\.\\d+)?\\s?%",                                         // 5% · 2.87%
+  `(?:${FIGURE_MONTHS})\\.?\\s+\\d{1,2}(?:st|nd|rd|th)?,?\\s+\\d{4}`, // July 1, 2024
+  `\\d{1,2}(?:\\s+de)?\\s+(?:${FIGURE_MONTHS})\\.?(?:\\s+de)?\\s+\\d{4}`, // 1 ene 2026
+  "\\d{4}[-/]\\d{1,2}[-/]\\d{1,2}",                               // 2024-07-01
+  "\\d{4}年\\d{1,2}月\\d{1,2}日"                                    // 2024年7月1日
+].join("|"), "gi");
+const FIGURE_SKIP = "a, mark, .hl, .num, script, style, select, option, textarea, code, .fig";
+
+let markingFigures = false;
+function markFigures(root) {
+  if (markingFigures || !root || root.nodeType !== 1) return;
+  const nodes = [];
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const parent = node.parentElement;
+      if (!parent || parent.closest(FIGURE_SKIP) || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+      FIGURE.lastIndex = 0;
+      return FIGURE.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    },
+  });
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  if (!nodes.length) return;
+  markingFigures = true;
+  for (const node of nodes) {
+    const text = node.nodeValue;
+    const frag = document.createDocumentFragment();
+    let last = 0;
+    FIGURE.lastIndex = 0;
+    let hit;
+    while ((hit = FIGURE.exec(text))) {
+      const before = hit.index ? text[hit.index - 1] : "";
+      const after = text[hit.index + hit[0].length] || "";
+      // A figure glued to a word or to URL escapes ("2025-12-02%20") is an identifier, not an amount.
+      if (/[\w%]/.test(before) || /[0-9%]/.test(after)) continue;
+      if (hit.index > last) frag.append(text.slice(last, hit.index));
+      const span = document.createElement("span");
+      span.className = "fig";
+      span.textContent = hit[0];
+      frag.append(span);
+      last = hit.index + hit[0].length;
+    }
+    if (!last) continue;
+    if (last < text.length) frag.append(text.slice(last));
+    node.replaceWith(frag);
+  }
+  markingFigures = false;
+}
+
+new MutationObserver((records) => {
+  for (const record of records) {
+    for (const added of record.addedNodes) {
+      markFigures(added.nodeType === 1 ? added : added.parentElement);
+    }
+  }
+}).observe(document.body, { childList: true, subtree: true });
+
 /* ---------- start ---------- */
 
 async function render() {

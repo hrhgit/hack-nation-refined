@@ -486,3 +486,8 @@ h1 { letter-spacing: -.02em; }
 .browse li button { padding: 9px 0; color: var(--ink); font-size: 17px; font-weight: 500; }
 .browse li button span:last-child { color: var(--ink-3); font-size: 14px; }
 /* ===== END BOLD HIERARCHY ===== */
+
+/* ---------- key figures in their own ink ----------
+   Amounts, rates and dates read as figures: teal-green, never a background or a box. */
+.fig { color: var(--figure); }
+.row-sum .fig, .row-key .fig { font-weight: 600; }
