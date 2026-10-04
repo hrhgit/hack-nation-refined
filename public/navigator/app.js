@@ -140,7 +140,6 @@ function rowMore(rule, answer, reason, flags) {
     return `<p class="note review"><b>${esc(t(key))}.</b> ${esc(body)}</p>`;
   }).join("");
   return `<div class="row-more">
-    ${answer && answer.result ? `<p class="meaning">${esc(t("r_" + answer.result + "_d"))}</p>` : ""}
     ${reason ? `<p><b>${esc(t("run_why"))}</b> ${esc(reason)}</p>` : ""}
     <p><b>${esc(t("run_rule"))}</b> ${esc(rule.requirement)}</p>
     ${notes}
@@ -310,11 +309,9 @@ function landingHtml() {
   }).join("");
   return `<section class="landing">
     <h1>${esc(t("landing_title"))}</h1>
-    <p class="lead">${esc(t("landing_lead", { n: state.meta.addresses.length }))}</p>
     ${finderHtml(true)}
     <div class="landing-cols">
       <section><h2>${esc(t("browse_title"))}</h2><div class="browse">${states}</div></section>
-      <section><h2>${esc(t("legend_title"))}</h2><dl class="legend">${RESULT_ORDER.map((result) => `<div><dt>${st(result)}</dt><dd>${esc(t("r_" + result + "_d"))}</dd></div>`).join("")}</dl></section>
     </div>
   </section>`;
 }
@@ -376,14 +373,13 @@ function answerHtml(data) {
       </div>
       <div class="filters" role="group" aria-label="${esc(t("filter_label"))}">${RESULT_ORDER.filter((result) => counts[result]).map((result) => `<button class="filter" data-act="filter" data-result="${result}" aria-pressed="false" title="${esc(t("r_" + result + "_d"))}"><b class="num">${counts[result]}</b>${st(result)}</button>`).join("")}</div>
     </div>
-    ${data.snapshot_note ? `<p class="note caution">This online version shows saved answers for ${esc(showDate(data.as_of))} with the listed building facts. Other dates and entered facts need the full local engine.</p>` : ""}
+    ${data.snapshot_note ? `<p class="note caution">${esc(t("snapshot_note", { d: showDate(data.as_of) }))}</p>` : ""}
     ${partial(data.extraction)}
     ${entered ? `<p class="note caution">${esc(t("entered_note", { facts: entered }))} <button class="linkbtn" data-act="remove-entries">${esc(t("remove_entries"))}</button></p>` : ""}
     <div id="enacted">${register(enacted, "no_rule_category")}</div>
-    ${pending.length ? `<section id="pending" class="pending"><h2>${esc(t("sec_pending"))}</h2><p class="hint">${esc(t("sec_pending_hint"))}</p>${register(pending)}</section>` : ""}
-    ${data.left_out.length ? `<details class="leftout"><summary>${esc(t("left_summary", { n: data.left_out.length }))}</summary><p class="hint">${esc(t("left_hint"))}</p>
+    ${pending.length ? `<section id="pending" class="pending"><h2>${esc(t("sec_pending"))}</h2>${register(pending)}</section>` : ""}
+    ${data.left_out.length ? `<details class="leftout"><summary>${esc(t("left_summary", { n: data.left_out.length }))}</summary>
       ${register(data.left_out.map((item) => ({ rule: item.rule, answer: { result: null, steps: item.steps, missing_facts: [] } })))}</details>` : ""}
-    <p class="fine">${esc(t("computed", { ms: data.computed_ms }))} ${esc(data.disclaimer)}</p>
   </section>`;
 }
 
@@ -440,7 +436,7 @@ function closeDatePop() {
 
 function openSheet(html) {
   const sheet = $("#sheet");
-  sheet.innerHTML = `<div class="sheet-in">${html}<p class="fine sheet-foot">${esc(t("not_legal_advice"))} ${esc(t("foot_body"))}</p></div>`;
+  sheet.innerHTML = `<div class="sheet-in">${html}</div>`;
   if (!sheet.open) sheet.showModal();
   $(".sheet-body", sheet).scrollTop = 0;
 }
@@ -499,7 +495,7 @@ async function showContext(box) {
   const source = state.cards.get(box.closest("[data-rule]").dataset.rule).rule.sources[Number(box.dataset.index)];
   try {
     const found = await api("/api/source", { doc_id: source.doc_id, quote: source.quoted_span });
-    panel.innerHTML = found.found ? `<div class="context">${esc(found.before)}<mark>${esc(found.match)}</mark>${esc(found.after)}</div><p class="fine">${esc(t("ctx_note", { n: CONTEXT_CHARS }))}</p>`
+    panel.innerHTML = found.found ? `<div class="context">${esc(found.before)}<mark>${esc(found.match)}</mark>${esc(found.after)}</div>`
       : `<p class="note review">${esc(t("quote_not_found"))}</p>`;
     const mark = $("mark", panel);
     if (mark) $(".context", panel).scrollTop = mark.offsetTop - 60;
@@ -543,7 +539,7 @@ async function renderChanges(request) {
   const data = await api("/api/changes");
   if (request !== state.request) return;
   const cityOf = new Map(state.meta.addresses.map((a) => [a.address_id, a.legal_city || "—"]));
-  view.innerHTML = `<header class="page-head"><h1>${esc(t("tab_changes"))}</h1><p>${esc(t("changes_intro"))}</p>${data.snapshot_note ? `<p class="note caution">This online version shows saved answers for ${esc(showDate(data.as_of))} with the listed building facts. Other dates and entered facts need the full local engine.</p>` : ""}
+  view.innerHTML = `<header class="page-head"><h1>${esc(t("tab_changes"))}</h1>${data.snapshot_note ? `<p class="note caution">${esc(t("snapshot_note", { d: showDate(data.as_of) }))}</p>` : ""}
     ${partial(data.extraction)}</header>
     ${data.tests.map((item) => {
       const dates = item.query_dates;
@@ -587,7 +583,7 @@ async function renderRules(request) {
   // State first, then its cities: the same order as the jurisdiction stack of an address.
   const places = STATE_ORDER.flatMap((code) => [code, ...[...new Set(data.rules.map((rule) => rule.jurisdiction))].filter((place) => place.endsWith(", " + code)).sort()]);
   const statuses = [...new Set(data.rules.map((rule) => rule.status))].sort();
-  view.innerHTML = `<header class="page-head"><h1>${esc(t("tab_rules"))}</h1><p>${esc(t("rules_intro", { d: showDate(data.as_of) }))}</p>${data.snapshot_note ? `<p class="note caution">This online version shows saved answers for ${esc(showDate(data.as_of))} with the listed building facts. Other dates and entered facts need the full local engine.</p>` : ""}
+  view.innerHTML = `<header class="page-head"><h1>${esc(t("tab_rules"))}</h1><p>${esc(t("rules_intro", { d: showDate(data.as_of) }))}</p>${data.snapshot_note ? `<p class="note caution">${esc(t("snapshot_note", { d: showDate(data.as_of) }))}</p>` : ""}
     ${partial(data.extraction)}</header>
     <div class="toolbar">
       <input id="lib-text" type="search" placeholder="${esc(t("search_rules"))}" aria-label="${esc(t("search_rules"))}">
@@ -632,7 +628,7 @@ async function renderPipeline(request) {
   const answers = Object.values(d.lookups).reduce((a, b) => a + b, 0);
   const stage = (number, title, lines) => `<li class="group"><div class="side"><span class="stage-n num">${number}</span>${esc(t(title))}</div><div class="stage-body">${lines.map((line) => `<p>${esc(line)}</p>`).join("")}</div></li>`;
   const tally = (label, entries) => `<p class="counts"><span>${esc(t(label))}</span>${entries.map(([mark, n]) => `<span class="count-item"><b class="num">${count(n)}</b>${mark}</span>`).join("")}</p>`;
-  view.innerHTML = `<header class="page-head"><h1>${esc(t("tab_pipeline"))}</h1><p>${esc(t("pipe_intro"))}</p></header>
+  view.innerHTML = `<header class="page-head"><h1>${esc(t("tab_pipeline"))}</h1></header>
     <ol class="stages">
       ${stage(1, "p1", [t("p1_a", { n: d.corpus.manifest_documents, m: d.corpus.manifest_with_text }), t("p1_b", { n: d.corpus.added_documents })])}
       ${stage(2, "p2", [t("p2_a", { n: x.packets_done, m: x.packets_total }), t("p2_b", { n: x.records_parsed, t: x.ran_at })])}

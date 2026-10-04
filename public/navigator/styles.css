@@ -110,7 +110,7 @@ input, select { padding: 7px 10px; border: 1px solid var(--line-strong); border-
 .landing h1 { max-width: 20ch; font-size: clamp(30px, 4.6vw, 44px); line-height: 1.1; letter-spacing: -.015em; }
 .lead { max-width: 62ch; margin-top: 14px; color: var(--ink-2); font-size: 17px; }
 .landing .finder { margin-top: 28px; }
-.landing-cols { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 40px 56px; margin-top: 52px; }
+.landing-cols { display: grid; grid-template-columns: minmax(0, 1fr); margin-top: 48px; }
 .landing h2 { padding-bottom: 10px; border-bottom: 1px solid var(--line-strong); font-size: 15px; }
 .browse { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 28px; margin-top: 14px; }
 .browse-state { padding: 0; border: 0; background: none; color: var(--ink); font-size: 15px; font-weight: 700; }
