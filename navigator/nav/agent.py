@@ -85,8 +85,11 @@ def outcome(rule: Dict[str, Any], facts: Dict[str, Any], as_of: str) -> str:
 
 def describe_conditions(a: Dict[str, Any]) -> str:
     keys = ["built_on_or_before", "built_before", "built_after", "built_on_or_after", "min_units", "max_units",
-            "exempt_if_newer_than_years", "owner_exempt_if_units_at_most", "date_basis"]
+            "exempt_if_newer_than_years", "covered_if_newer_than_years", "owner_exempt_if_units_at_most", "date_basis"]
     parts = ["%s=%s" % (k, a[k]) for k in keys if a.get(k) is not None]
+    for item in a.get("alternatives") or []:
+        limit = ", ".join("%s=%s" % (k, v) for k, v in item["flats"].items() if k != "date_basis")
+        parts.append("covered if %s; a building outside that limit stays an open question because the text also covers: %s" % (limit, item["also"]))
     if a.get("owner_dependent"):
         parts.append("owner_dependent" + ("" if a.get("owner_exempt_if_units_at_most") is not None
                                           else " (no size limit: every building comes out unknown)"))

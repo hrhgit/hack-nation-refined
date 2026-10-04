@@ -263,6 +263,38 @@ class PrecedenceAndAuditTests(unittest.TestCase):
         r = rule(applicability={"deferred": [conditional], "contract": 2})
         self.assertEqual(engine([r], {"A": address(year_built=1990)}).lookup("A")[0]["result"], "unknown")   # filing needed: open, not excluded
 
+    def test_a_limit_with_another_covered_kind_leaves_outside_buildings_open_not_excluded(self):
+        # "built on or before 1978, as well as replacement units": a newer building may still be a replacement unit
+        r = rule(applicability={"alternatives": [{"flats": {"built_on_or_before": "1978-10-01", "date_basis": "construction_date"},
+                                                  "also": "replacement units under section 151.28"}], "contract": 2})
+        got = {y: engine([r], {"A": address(year_built=y)}).lookup("A") for y in (1950, 1990, None)}
+        self.assertEqual(got[1950][0]["result"], "applies")
+        self.assertEqual(got[1990][0]["result"], "unknown")                       # not left out
+        self.assertIn("replacement units under section 151.28", got[1990][0]["explanation"])
+        self.assertEqual(got[None][0]["result"], "unknown")
+        # a plain covered limit (no `also`) still leaves the newer building out
+        plain = rule(applicability={"built_on_or_before": "1978-10-01", "date_basis": "construction_date", "contract": 2})
+        self.assertEqual(engine([plain], {"A": address(year_built=1990)}).lookup("A"), [])
+
+    def test_a_rule_that_is_a_benefit_for_new_buildings_covers_only_the_new_ones(self):
+        r = rule(applicability={"covered_if_newer_than_years": 30, "date_basis": "construction_date", "contract": 2})
+        got = {y: engine([r], {"A": address(year_built=y)}).lookup("A") for y in (2005, 1960, 1996, None)}
+        self.assertEqual(got[2005][0]["result"], "applies")
+        self.assertEqual(got[1960], [])                                           # too old for the benefit
+        self.assertEqual(got[1996][0]["result"], "unknown")                       # the boundary year (2026 minus 30)
+        self.assertEqual(got[None][0]["result"], "unknown")
+
+    def test_conflicting_unit_counts_do_not_settle_a_threshold(self):
+        # exact count 2, but the land-use description says at least 93 units
+        fee = rule(applicability={"min_units": 3, "contract": 2})
+        row = engine([fee], {"A": address(units=2, units_at_least=93)}).lookup("A")
+        self.assertEqual(row[0]["result"], "unknown")                             # not "left out" by the exact count of 2
+        self.assertIn("cannot both be right", row[0]["explanation"])
+        # when both readings agree there is no conflict to report
+        self.assertEqual(engine([fee], {"A": address(units=8, units_at_least=5)}).lookup("A")[0]["result"], "applies")
+        owner = rule(applicability={"owner_dependent": True, "owner_exempt_if_units_at_most": 4, "contract": 2})
+        self.assertEqual(engine([owner], {"A": address(units=2, units_at_least=93)}).lookup("A")[0]["result"], "unknown")
+
     def test_program_notes_do_not_change_the_answer_but_reach_the_explanation(self):
         r = rule(applicability={"program_notes": ["housing restricted by deed as affordable"], "contract": 2})
         row = engine([r]).lookup("A")[0]
@@ -359,6 +391,11 @@ class ChangeTests(unittest.TestCase):
         self.rules.append(rule("bad-cap", "MA"))
         with self.assertRaisesRegex(ValueError, "涨租上限"):
             ChangeTracker(engine(self.rules, self.rows)).run()
+
+    def test_a_state_ban_on_local_rent_control_is_not_a_rent_cap(self):
+        ban = rule("ban", "MA", relations=[{"type": "preempts_local", "quote": "No city or town may enact, maintain or enforce rent control of any kind"}])
+        self.rules.append(ban)
+        ChangeTracker(engine(self.rules, self.rows)).run()                      # applies in MA, but it is not a cap: no failure
 
     def test_known_precedence_suppresses_only_that_conflict_pair(self):
         rel = relationship(category="algorithmic_rent_setting", state="NJ", yielding={"jurisdiction": "NJ"}, prevailing={"jurisdiction": "Hoboken, NJ"})

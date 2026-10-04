@@ -1,19 +1,32 @@
 # Rental Housing Law Navigator
 
+## 安装与启动
+
+后端已经迁移到 TypeScript：网页服务、原文处理、模型调用、地址判断和变更追踪都直接运行在 Node.js 上。前端、数据格式和已有处理进度继续沿用。
+
+```bash
+cd /Users/herh/MyFiles/Projects/hack-nation/navigator
+npm ci
+npm run build
+npm start                         # http://127.0.0.1:8000
+```
+
+需要 Node.js 22 或更新版本。`npm test` 运行原生测试，不需要 Python；`npm run verify` 另运行 Python 基准及两个版本的对照测试，需要 Python 3。迁移范围和验证证据见 [迁移核对报告](docs/TYPESCRIPT_MIGRATION.md)。
+
 ## 三个阶段
 
 | 阶段 | 负责什么 | 入口 |
 |---|---|---|
-| 第一阶段（Module A） | 从法律原文提取规则 | `python3 run.py ingest`；提取流程见下文 |
-| 第二阶段（Module B） | 确定城市、按查询日期判断规则是否覆盖某个地址 | `python3 -m lookup resolve`；`python3 -m lookup lookup --address-id A0001` |
-| 第三阶段（Module C） | 比较实际查询结论、判断变更影响和需复核的州/市关系 | `python3 -m changes` |
+| 第一阶段（Module A） | 从法律原文提取规则 | `npm run nav -- ingest`；提取流程见下文 |
+| 第二阶段（Module B） | 确定城市、按查询日期判断规则是否覆盖某个地址 | `npm run lookup -- resolve`；`npm run lookup -- lookup --address-id A0001` |
+| 第三阶段（Module C） | 比较实际查询结论、判断变更影响和需复核的州/市关系 | `npm run changes --` |
 
-第二、三阶段按地址覆盖和变更题的需求独立实现，仅用 Python 标准库、不调用模型。已有 Census 缓存后，可离线重新生成全部提交文件：
+第二、三阶段按地址覆盖和变更题的需求独立实现，仅用 Node.js 自带功能、不调用模型。已有 Census 缓存后，可离线重新生成全部提交文件：
 
 ```bash
 cd /Users/herh/MyFiles/Projects/hack-nation/navigator
-python3 -m lookup build --offline
-python3 -m unittest tests.test_stage23 tests.test_stage23_acceptance -q
+npm run lookup -- build --offline
+npm run test:parity
 ```
 
 输入事实、运行方式和目前的规则缺口见 [第二、三阶段说明](docs/STAGE2_3.md)。每个界面和导出结论均带“非法律意见”。
@@ -22,11 +35,11 @@ python3 -m unittest tests.test_stage23 tests.test_stage23_acceptance -q
 
 ```bash
 cd /Users/herh/MyFiles/Projects/hack-nation/navigator
-python3 -m web            # 打开 http://127.0.0.1:8000 ；换端口用 --port
-python3 -m unittest tests.test_web -q
+npm start --            # 打开 http://127.0.0.1:8000 ；换端口用 --port
+npm run test:parity
 ```
 
-只用 Python 标准库，不需要安装任何东西，也不调用模型。网页不读 `outputs/` 里已生成的文件：每次打开页面都用当前的 `work/rules_enriched.json` 和地址文件现场调用查询程序，所以重新提取规则后刷新页面就是新结果。
+由 Node.js 直接运行，不需要模型 SDK，也不调用模型。网页不读 `outputs/` 里已生成的文件：每次打开页面都用当前的 `work/rules_enriched.json` 和地址文件现场调用查询程序，所以重新提取规则后刷新页面就是新结果。
 
 | 页面 | 内容 |
 |---|---|
@@ -64,7 +77,7 @@ corpus ──prepare──▶ packets ──bundle──▶ 粘贴文件 ──(
                          └── api ──▶ DeepSeek Flash ──▶ 保存回答 + 自动检查/修正 ──▶ outputs/rules.json
 ```
 
-只用 Python 标准库(3.9+)。
+后端使用 TypeScript，由 Node.js（22 或更新版本）直接运行；运行时没有额外依赖。
 
 ## 固定的部分(不用模型)
 
@@ -82,18 +95,18 @@ corpus ──prepare──▶ packets ──bundle──▶ 粘贴文件 ──(
 
 ## 直接调用 DeepSeek Flash API
 
-在 `navigator/.env` 中填入 `DEEPSEEK_API_KEY`，默认模型是 `deepseek-flash`。配置文件模板见 `.env.example`；不需要安装额外 Python 库。
+在 `navigator/.env` 中填入 `DEEPSEEK_API_KEY`，默认模型是 `deepseek-flash`。配置文件模板见 `.env.example`；不需要安装模型 SDK。
 
 ```bash
 cd /Users/herh/MyFiles/Projects/hack-nation/navigator
 cp .env.example .env                 # 仅第一次配置；已有 .env 时不要覆盖
 chmod 600 .env
 # 编辑 .env，填入自己的密钥
-python3 run.py api --dry-run          # 查看还有哪些分包未完成，不调用 API
-python3 run.py api                    # 直接处理未完成分包，保存回答、检查并生成结果
+npm run nav -- api --dry-run          # 查看还有哪些分包未完成，不调用 API
+npm run nav -- api                    # 直接处理未完成分包，保存回答、检查并生成结果
 ```
 
-已有 `work/index.json` 时直接运行即可；全新语料先执行 `python3 run.py prepare`。API 每次处理一个完整分包，不需要 `bundle`，不发送给文件代理的 DELIVERY 指令。
+已有 `work/index.json` 时直接运行即可；全新语料先执行 `npm run nav -- prepare`。API 每次处理一个完整分包，不需要 `bundle`，不发送给文件代理的 DELIVERY 指令。
 
 - 跳过已完成的分包，包括订阅模型已经做完的部分；退出后用同一条命令继续。
 - 检查未通过的回答会附带问题清单，再交回模型修正，直到所选范围全部完成。没有固定重试次数或应用层时间、回答长度限制；服务本身仍可能限制回答长度。
@@ -108,8 +121,8 @@ python3 run.py api                    # 直接处理未完成分包，保存回�
 
 ```bash
 cd navigator
-python3 run.py prepare      # 1. 清洗+分块(只需一次;语料变了再跑)
-python3 run.py bundle       # 2. 生成 work/paste/BATCH-*.md (默认约 15 个)
+npm run nav -- prepare      # 1. 清洗+分块(只需一次;语料变了再跑)
+npm run nav -- bundle       # 2. 生成 work/paste/BATCH-*.md (默认约 15 个)
 ```
 
 3. 打开一个 `BATCH-*.md`,**整份**粘给订阅模型(提示词已在文件开头)。
@@ -117,9 +130,9 @@ python3 run.py bundle       # 2. 生成 work/paste/BATCH-*.md (默认约 15 个)
 4. 全部做完(或每做几批)运行:
 
 ```bash
-python3 run.py ingest       # 校验 → outputs/rules.json + work/report.md
-python3 run.py status       # 哪些包 done / 还要补
-python3 run.py bundle       # 只为"没做完/被拒"的包重新生成粘贴文件,问题清单已写在包前面
+npm run nav -- ingest       # 校验 → outputs/rules.json + work/report.md
+npm run nav -- status       # 哪些包 done / 还要补
+npm run nav -- bundle       # 只为"没做完/被拒"的包重新生成粘贴文件,问题清单已写在包前面
 ```
 
 循环到 `status` 全是 `done`。`work/report.md` 里 **Rules to check by hand** 是需要你人工看一眼的规则。
@@ -144,9 +157,9 @@ python3 run.py bundle       # 只为"没做完/被拒"的包重新生成粘贴�
 ## 参数
 
 ```bash
-python3 run.py prepare --max-chars 24000 --budget 80000   # 分包大小 / 超大文档预算
-python3 run.py bundle  --paste-chars 50000                # 一个粘贴文件的容量;模型上下文小就调小,大就调大(如 80000 → 9 个文件)
-python3 run.py ingest  --as-of 2026-10-01 --rules-format wrapped   # wrapped={"rules":[...]} (同模板) / list=裸数组 (同 README 文字)
+npm run nav -- prepare --max-chars 24000 --budget 80000   # 分包大小 / 超大文档预算
+npm run nav -- bundle  --paste-chars 50000                # 一个粘贴文件的容量;模型上下文小就调小,大就调大(如 80000 → 9 个文件)
+npm run nav -- ingest  --as-of 2026-10-01 --rules-format wrapped   # wrapped={"rules":[...]} (同模板) / list=裸数组 (同 README 文字)
 ```
 
 ## 缺失原文怎么办 / 第 16 小时的新条例
@@ -155,24 +168,28 @@ python3 run.py ingest  --as-of 2026-10-01 --rules-format wrapped   # wrapped={"r
 没有原文就**提不出规则也没有可引用的 quoted_span**。自己打开页面、复制正文(阅读允许,不要批量爬取),存成 txt:
 
 ```bash
-python3 run.py add-doc --file ordinance.txt --jurisdiction "Cambridge, MA" --url https://...   # 得到 X001
-python3 run.py prepare --only X001
-python3 run.py api --only X001                          # 用 API 提取新文档并自动检查
+npm run nav -- add-doc --file ordinance.txt --jurisdiction "Cambridge, MA" --url https://...   # 得到 X001
+npm run nav -- prepare --only X001
+npm run nav -- api --only X001                          # 用 API 提取新文档并自动检查
 # 或使用订阅模型：bundle → 模型保存回答 → ingest
 ```
 
 ## 目录
 
 ```
-nav/              流水线代码
+src/nav/          TypeScript 提取流程
+src/lookup/       TypeScript 地址解析和规则判断
+src/changes/      TypeScript 变更追踪
+src/web/          TypeScript 网页服务
+nav/ lookup/ changes/ web/*.py  Python 对照实现，保留给测试和离线研究脚本
 RUN_EXTRACTION.md 全自动总控文档 (给能读写文件的代理)
 RUN_API.md        直接调用 DeepSeek Flash API 的操作说明
 .env.example     API 配置模板（复制为 .env 后填写密钥）
-prompts/          extract_prompt.md (提取提示词模板), delivery.md (每个批次里的保存/执行说明)
-tests/            python3 -m unittest discover -s tests   (含本地 HTTP 请求和完整流程测试)
+prompts/          extract_prompt.md (提取提示词模板), delivery.typescript.md (当前批次的保存/执行说明)
+tests/            npm run verify   (含本地 HTTP 请求和完整流程测试)
 work/PROMPT.md    渲染好的提示词 (as-of 已填入)
 work/packets/     分包 (可再生,不进 git)       work/paste/  粘贴文件 (可再生)
-work/out/         模型原始回答 (审计证据,要进 git)
+work/out/         模型原始回答 (只保留在本地，不进 git)
 work/api/         API 完整返回、用量、输入哈希（不含密钥）
 work/report.md    本次运行报告                  work/rules_enriched.json  含 applicability/penalty/来源/警告,供 Module B 使用
 outputs/rules.json  提交用,严格符合 schema

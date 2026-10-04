@@ -1,6 +1,6 @@
 # 第一阶段输出给第二、三阶段的约定（版本 2）
 
-读者：做地址查询和变更追踪的人或 AI。第一阶段提取每条规则时，除了题目要求的字段，还会输出下面这些字段，程序（`nav/ingest.py`、`nav/conditions.py`）检查之后写进 `work/rules_enriched.json`。
+读者：做地址查询和变更追踪的人或 AI。第一阶段提取每条规则时，除了题目要求的字段，还会输出下面这些字段，程序（`src/nav/ingest.ts`、`src/nav/conditions.ts`）检查之后写进 `work/rules_enriched.json`。TypeScript 迁移保留这些字段和判断方式，核对结果见 [迁移报告](TYPESCRIPT_MIGRATION.md)。
 
 ## 为什么要改
 
@@ -25,14 +25,22 @@
 | type | 例子（原文 → 写法） |
 |---|---|
 | `built` | "入住证在 1979 年 6 月 13 日之后的单元豁免" → `{"type":"built","role":"exempt","op":"after","date":"1979-06-13","basis":"certificate_of_occupancy"}`。`op` 取原文用词：`on_or_before` / `before` / `after` / `on_or_after` |
-| `built_within_years` | "入住证在过去 15 年内的住房豁免" → `{"type":"built_within_years","role":"exempt","years":15,"basis":"certificate_of_occupancy"}`；"新建筑豁免 30 年" 也写成 30 |
+| `built_within_years` | "入住证在过去 15 年内的住房豁免" → `{"type":"built_within_years","role":"exempt","years":15,"basis":"certificate_of_occupancy"}`；"新建筑豁免 30 年" 也写成 30。**`role` 也可以是 `covered`**：规则本身就是给新楼的好处（"新建多户住宅 30 年内免受地方租金管制"，NJ 2A:42-84.5），它适用的正是 30 年内建成的楼，写 `covered`、`years` 30；写成 `exempt` 会让这条规则在它要管的楼上消失 |
 | `units` | "4 个单元及以下豁免" → `{"type":"units","role":"exempt","op":"at_most","n":4}`。`op`：`at_least` / `more_than` / `at_most` / `fewer_than` |
 | `owner` | "房东自住、不超过 4 个单元的房产豁免" → `{"type":"owner","role":"exempt","who":"owner-occupied","unit_limit":4}`；原文没写单元数就 `null` |
 | `other` | 年份、单元数、房东都判断不了、但可能决定整栋楼是否覆盖的条件，例如"只适用于有补贴的住房""豁免需要向政府备案" |
 
 任何 `built`、`built_within_years`、`units` 的豁免条件可以加 `"conditional":true`：原文说这个豁免要业主先备案、登记、通知租客才生效。楼宇数据看不出有没有备案，所以程序不会据此把楼排除掉：落在这个豁免范围里的楼答"不确定"，在范围外的楼不受影响。
 
-`other` 里写的条件，程序按字面再分两类：**涉及"哪一类住房"的**（平价、补贴、公共住房、机构住房、单独持有的单户或公寓、已受地方租金管制的）记成 `program_notes`，**只写进解释提醒，不改变结论**；其余（要备案、房东身份说不清、缺事实）仍然判"不确定"。原因：数据里看不出哪栋楼是平价住房，若都判不确定，加州租金上限对所有加州地址都不确定，题目点名的"被取代"就一个也出不来。判断用的词表在 `nav/conditions.py` 的 `PROGRAM_NOTE`，核对表里能看到每条规则的归类。
+`role` 为 `covered` 的 `built` 或 `units` 条件可以加 `"also":"原文里同一句话覆盖的另一类建筑"`。例：洛杉矶 RSO "1978-10-01 当天或之前建成的出租房，以及 §151.28 的替代住宅" → `{"type":"built","role":"covered","op":"on_or_before","date":"1978-10-01","also":"replacement units under LAMC Section 151.28"}`。有 `also` 时这条限制不再直接把楼排除：限制之内照常覆盖，**限制之外的楼记为"不确定"**（它可能属于另一类建筑，数据看不出），而不是悄悄消失。这类条件单独存在 `applicability.alternatives`（每项含换算后的条件和 `also` 原文）。
+
+`other` 里写的条件，程序按字面再分两类：**涉及"哪一类住房"的**（平价、补贴、公共住房、机构住房、单独持有的单户或公寓、已受地方租金管制的）记成 `program_notes`，**只写进解释提醒，不改变结论**；其余（要备案、房东身份说不清、缺事实）仍然判"不确定"。原因：数据里看不出哪栋楼是平价住房，若都判不确定，加州租金上限对所有加州地址都不确定，题目点名的"被取代"就一个也出不来。判断用的词表在 `src/nav/conditions.ts` 的 `PROGRAM_NOTE`，核对表里能看到每条规则的归类。
+
+**政府或住房局所有的住房是房屋类型，不是房东身份。** 提示词让模型把它写成 `other`（`exempt`）；代码再兜一层：`owner` 的 `exempt` 条件没有户数上限、文字里是政府 / 公共住房 / 住房局 / 市县州所有（`OWNER_KIND`）时，同样记成 `program_notes`，不让整栋楼变成"不确定"（洛杉矶 JCO "some properties owned by HACLA or the government" 曾因此让搬迁补助对 80 个地址全部不确定）。
+
+**只写决定"这条规则管不管这栋楼"的条件。** 规则本身是在禁止或限制市、县、机构（例如州禁止地方租金管制），原文接着列出"仍被允许的地方方案"能管什么、不能管什么（麻州 40P："房东名下少于 10 套、租金超过 $400 的不管"），这些是那个地方方案的限制，不是禁令自己的适用范围：`conditions` 写 `[]`，需要时放进 `per_tenancy`。
+
+**联邦法不记。** 提示词本来就说联邦法、县法不在范围内；现在导入时也强制：`citation` 全部由联邦法条组成（`U.S.C.`、`C.F.R.`、`Pub. L.`）的记录会被拒收，要求模型删掉（`src/nav/ingest.ts` 的 `FEDERAL_CITATION`）。州条文旁边顺带提到联邦法条的，不受影响。
 
 `per_tenancy`：只影响个别租约或触发条件的说明（租约何时开始、租客年龄、什么行为触发义务），**只作提示，不改变结论**。
 
@@ -51,16 +59,20 @@
 | 需备案才生效的豁免 | 单独存在 `applicability.deferred`（每项含换算后的条件和一句说明）。第二阶段对落在豁免范围内的楼答"不确定"，范围外照常；真正的排除条件仍然优先 |
 | 出错不拒收 | 这些新字段写错只会变成警告，**不会让整条规则被拒收**，所以不影响一次通过率 |
 | 多个来源合并 | 同一部法律在几份文件里出现时，按字段补全，**不覆盖**；两份来源的数值不同会记警告 |
+| 同一个豁免写了两次 | 一份文件写全（日期窗口 + 30 年上限），另一份只写了日期窗口：窗口条件是另一份的子集时，**保留条件更全的那份**（`conditions.add_deferred`）。否则范围更大的简写版会一直生效，已超过 30 年的楼也被当成"可能豁免" |
 
 换算后的平铺字段（第二阶段读的就是这些）：
 
-`built_on_or_before`、`built_before`、`built_after`、`built_on_or_after`、`date_basis`、`min_units`、`max_units`、`exempt_if_newer_than_years`、`owner_dependent`、`owner_exempt_if_units_at_most`、`other`、`program_notes`、`per_tenancy`、`coverage_quotes`、`deferred`、`contract`（=2 表示按新格式提取）。
+`built_on_or_before`、`built_before`、`built_after`、`built_on_or_after`、`date_basis`、`min_units`、`max_units`、`exempt_if_newer_than_years`、`covered_if_newer_than_years`、`owner_dependent`、`owner_exempt_if_units_at_most`、`other`、`program_notes`、`per_tenancy`、`coverage_quotes`、`deferred`、`alternatives`、`contract`（=2 表示按新格式提取）。
 
 ## 第二阶段怎么用
 
 - 四个日期字段都支持；入住证日期只有年份时，**截止年份那一年一律"不确定"**（题目要求）。
 - `other` 在新格式下一律判"不确定"（旧格式才按关键词区分）；`per_tenancy` 写进解释，不改变结论。
 - `relations` 里有 `preempts_local` 的州级规则，和同州同类别的市级规则自动配成"需人工复核"的一对，原文句子就是依据。不再需要手写 `review_pairs.json`（现在是空列表，留给人工复核后的补充）。
+- `covered_if_newer_than_years`：规则只管最近 N 年内建成的楼（滚动，按查询日期重算）；更老的楼不在范围内，跨边界那一年"不确定"。
+- `alternatives`：楼在限制之内 → 覆盖；在限制之外或缺年份 → "不确定"，解释里写明"文本还覆盖：……，数据看不出"。
+- 单元数据自相矛盾（`units` 小于从用途描述读出的 `units_at_least`，样本里只有 A0227：2 对 ≥93）时，门槛只有在两种读法结论一致时才下结论，否则"不确定"并写明矛盾；不替数据选一个。
 - `yields_to_local` 只存档，取代关系仍由 `lookup/precedence.json` 判断（要比较州和市的上限数值，需要人确认）。
 
 ## 已知限制
@@ -68,3 +80,9 @@
 - **模型会读错。** 试跑中见过：把"转换用途的建筑"的日期当成所有建筑的截止日期、把软件服务商定义里的豁免当成房东豁免。提示词里已加了针对性的规则，但不能保证没有。对策是 `coverage_quotes` 让人能核对，重新提取后会出一张条件核对表。
 - **丢规则比多报更贵。** 误判成"豁免"会让规则悄悄消失，所以对照原文失败时宁可答"不确定"。
 - **`other` 会让很多结论变成"不确定"**，例如加州涨租上限的"受契约限制的平价住房豁免"。这是否该算"不确定"需要你判断，见重新提取后的核对表。
+
+## 合并规则（导入这一步，用代码做，不靠模型）
+
+- **同一章的几节是一条法律**：市法典里 Hoboken §155-4、-13、-14 ... 合成一条"ch. 155"，Newark §19:2-x 合成"ch. 19:2"，Berkeley §13.76.110 并入"ch. 13.76"。每一节的例外条件（新建筑、备案、房东、提示）取并集，各节的引用留在 `sub_rules`。只对**城市**的代码式引用生效；条例编号（"Ord. 2026-31"）、议会文件、法案、州法不合并（州法每一节是不同的法律）。
+- **同一条法律的两种写法是一条**：例如 "AB 1482 (Cal. Civ. Code §1947.12)" 和 "Cal. Civ. Code §1947.12"，或 "N.J.S.A. 46:8-19 to 46:8-21.2" 和 "N.J.S.A. 46:8-21.2"。一个引用的数字全包含在另一个里，就并成一条，保留数字最少的那个写法（通常是法典节号）。
+- 两种合并都在 `notes` 里留了记录，核对表和 `rules_enriched.json` 里能看到。

@@ -101,6 +101,18 @@ class AgentTest(unittest.TestCase):
         self.assertIn("built_after=2027-01-01", text)
         self.assertIn("built 1950, 5 units -> NOT in the results", text)
 
+    def test_a_record_that_cites_only_federal_law_is_rejected(self):
+        index = load_index(self.paths)
+        validator = Validator(load_corpus(self.paths), index, load_schema(self.paths), index["as_of"])
+        lock = threading.Lock()
+        for federal in ("15 U.S.C.A. § 1681m", "24 C.F.R. § 982.310", "42 USC 3604; 24 CFR 100.50"):
+            text = check_record(validator, lock, json.dumps(rec(quoted_span=SPAN, citation=federal), ensure_ascii=False))
+            self.assertTrue(text.startswith("REJECTED"), federal)
+            self.assertIn("federal law", text)
+        # a state citation, or one that also mentions federal law next to a state provision, is not touched
+        for ok in ("N.J.S.A. 46:8-21.2", "N.J.S.A. 10:5-12; 42 U.S.C. § 3604"):
+            self.assertTrue(check_record(validator, lock, json.dumps(rec(quoted_span=SPAN, citation=ok), ensure_ascii=False)).startswith("ACCEPTED"), ok)
+
     def test_core_and_cards_are_consistent(self):
         core = render_core("2026-10-01")
         self.assertNotIn("{{", core)

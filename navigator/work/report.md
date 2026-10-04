@@ -1,121 +1,90 @@
 # Extraction report
 
 - as of **2026-10-01**
-- answer files read: 41 | records parsed: 54 | accepted: 54 | rejected and still open: 0 (+0 rejected earlier and since fixed) | rules after merging: **43**
-- packets done: **41 / 108**
+- answer files read: 109 | records parsed: 150 | accepted: 143 | rejected and still open: 0 (+1 rejected earlier and since fixed) | rules after merging: **97**
+- packets done: **108 / 108**
 
-## Packets still open (67)
+## Packets still open (0)
 
-States: pending 67
+None. Every packet has a complete, clean answer.
 
-| packet | state | detail |
-|---|---|---|
-| D043-02 | pending | no answer yet |
-| D044-01 | pending | no answer yet |
-| D045-01 | pending | no answer yet |
-| D046-01 | pending | no answer yet |
-| D047-01 | pending | no answer yet |
-| D048-01 | pending | no answer yet |
-| D049-01 | pending | no answer yet |
-| D049-02 | pending | no answer yet |
-| D049-03 | pending | no answer yet |
-| D050-01 | pending | no answer yet |
-| D051-01 | pending | no answer yet |
-| D052-01 | pending | no answer yet |
-| D052-02 | pending | no answer yet |
-| D053-01 | pending | no answer yet |
-| D056-01 | pending | no answer yet |
-| D056-02 | pending | no answer yet |
-| D057-01 | pending | no answer yet |
-| D058-01 | pending | no answer yet |
-| D061-01 | pending | no answer yet |
-| D061-02 | pending | no answer yet |
-| D062-01 | pending | no answer yet |
-| D063-01 | pending | no answer yet |
-| D064-01 | pending | no answer yet |
-| D065-01 | pending | no answer yet |
-| D066-01 | pending | no answer yet |
-| D067-01 | pending | no answer yet |
-| D067-02 | pending | no answer yet |
-| D067-03 | pending | no answer yet |
-| D067-04 | pending | no answer yet |
-| D068-01 | pending | no answer yet |
-| D069-01 | pending | no answer yet |
-| D070-01 | pending | no answer yet |
-| D070-02 | pending | no answer yet |
-| D070-03 | pending | no answer yet |
-| D070-04 | pending | no answer yet |
-| D071-01 | pending | no answer yet |
-| D071-02 | pending | no answer yet |
-| D072-01 | pending | no answer yet |
-| D072-02 | pending | no answer yet |
-| D073-01 | pending | no answer yet |
-| D073-02 | pending | no answer yet |
-| D074-01 | pending | no answer yet |
-| D075-01 | pending | no answer yet |
-| D076-01 | pending | no answer yet |
-| D078-01 | pending | no answer yet |
-| D079-01 | pending | no answer yet |
-| D080-01 | pending | no answer yet |
-| D081-01 | pending | no answer yet |
-| D082-01 | pending | no answer yet |
-| D083-01 | pending | no answer yet |
-| D084-01 | pending | no answer yet |
-| D085-01 | pending | no answer yet |
-| D086-01 | pending | no answer yet |
-| D086-02 | pending | no answer yet |
-| X001-01 | pending | no answer yet |
-| X002-01 | pending | no answer yet |
-| X002-02 | pending | no answer yet |
-| X002-03 | pending | no answer yet |
-| X003-01 | pending | no answer yet |
-| X004-01 | pending | no answer yet |
-| X005-01 | pending | no answer yet |
-| X006-01 | pending | no answer yet |
-| X006-02 | pending | no answer yet |
-| X007-01 | pending | no answer yet |
-| X008-01 | pending | no answer yet |
-| X101-01 | pending | no answer yet |
-| X102-01 | pending | no answer yet |
+## Rules to check by hand (12 of 97)
 
-Run `python run.py bundle` to get paste files for exactly these packets.
-
-## Rules to check by hand (4 of 43)
-
+- **r-0022** CA | rent_increase_limits | Cal. Civ. Code §1947.12
+    - warning: applicability.date_basis differs between sources: D024 says certificate_of_occupancy, D040 says construction_date
+    - conflict: Sources disagree: effective_date: D024 says 2024-04-01, D040 says 2024-08-01; key_value: D024 says '5% + CPI, or 10%, whichever is lower, per 12 months', D040 says '5% + CPI, max 10%; 8.9% for Aug 1, 2024 – Jul 31, 2025'
 - **r-0005** CA | application_screening_fees | Cal. Civ. Code §1950.6
     - conflict: Sources disagree: effective_date: D026 says 2026-01-01, D005 says 2026; key_value: D026 says '$30 per applicant, CPI-adjusted annually since January 1, 1998', D005 says '$68.96 for 2026'
+- **r-0040** MA | just_cause_eviction | Mass. Gen. Laws ch. 186, §31
+    - warning: quoted_span realigned to the source (fuzzy match, 1.00)
+- **r-0061** NJ | security_deposits | N.J.S.A. 46:8-21.2
+    - conflict: Sources disagree: key_value: D063 says "1 1/2 times 1 month's rent; additional deposit max 10% of current deposit per year", D067 says "1.5 months' rent; yearly increase max 10%"
+- **r-0164** NJ | security_deposits | N.J.S.A. 46:8-26
+    - warning: D064 never mentions anything about security_deposits
+- **r-0136** Berkeley, CA | rent_increase_limits | Berkeley Mun. Code ch. 13.76
+    - conflict: Sources disagree: key_value: D006 says '5% maximum annual AGA', D008 says '1.0% for 2026'
 - **r-0134** Berkeley, CA | just_cause_eviction | Berkeley Mun. Code ch. 13.76
     - conflict: Sources disagree: key_value: D004 says '$19,413 standard; $6,471 additional for qualifying households; 1.5% CPI adjustment for 2026', D006 says "1 month's Fair Market Rent nonpayment threshold"
 - **r-0125** Boston, MA | screening_restrictions | Boston Fair Chance Tenant Selection Policy
     - conflict: The policy states that where federal or state law imposes a conflicting criminal history requirement, that law preempts this policy.
 - **r-0154** Los Angeles, CA | rent_increase_limits | Los Angeles Rent Stabilization Ordinance (L.A.M.C. §151.00 et seq.)
-    - conflict: Sources disagree: key_value: D041 says 'once every 12 months at the allowable rent increase percentage', D042 says '3% (July 1, 2025 through June 30, 2026)'
+    - conflict: Sources disagree: effective_date: D041 says 2026-02-02, D042 says 2025-07-01; key_value: D041 says 'once every 12 months; no utility add-on after 2026-02-02', D042 says '3% (July 1, 2025 through June 30, 2026)'
+- **r-0188** San Diego, CA | algorithmic_rent_setting | San Diego Mun. Code §§98.1101–98.1104
+    - conflict: Sources disagree: lifecycle: D074 says enacted, D076 says pending_bill
+- **r-0191** San Francisco, CA | rent_increase_limits | S.F. Admin. Code ch. 37
+    - conflict: Sources disagree: key_value: D080 says '1.6% (3/1/2026-2/28/2027)', D083 says '1.6% (March 1, 2026 – February 28, 2027)'
+- **r-0194** San Francisco, CA | just_cause_eviction | S.F. Admin. Code ch. 37
+    - conflict: Sources disagree: key_value: D082 says '$11,110.05 per tenant; up to $33,330.13 per unit; plus $7,443.90 elderly (62+) or disabled tenant (3/1/26–2/28/27)', D083 says '$8,245/tenant (max $24,733/unit) + $5,497; Ellis Act: $11,110.05/tenant (max $33,330.13) + $7,443.90'
 
 ## Sources that disagree
 
 - Berkeley, CA / just_cause_eviction Berkeley Mun. Code ch. 13.76
     - key_value: D004 says '$19,413 standard; $6,471 additional for qualifying households; 1.5% CPI adjustment for 2026', D006 says "1 month's Fair Market Rent nonpayment threshold"
+- Berkeley, CA / rent_increase_limits Berkeley Mun. Code ch. 13.76
+    - key_value: D006 says '5% maximum annual AGA', D008 says '1.0% for 2026'
 - CA / application_screening_fees Cal. Civ. Code §1950.6
     - effective_date: D026 says 2026-01-01, D005 says 2026
     - key_value: D026 says '$30 per applicant, CPI-adjusted annually since January 1, 1998', D005 says '$68.96 for 2026'
+- CA / rent_increase_limits Cal. Civ. Code §1947.12
+    - effective_date: D024 says 2024-04-01, D040 says 2024-08-01
+    - key_value: D024 says '5% + CPI, or 10%, whichever is lower, per 12 months', D040 says '5% + CPI, max 10%; 8.9% for Aug 1, 2024 – Jul 31, 2025'
 - Los Angeles, CA / rent_increase_limits Los Angeles Rent Stabilization Ordinance (L.A.M.C. §151.00 et seq.)
-    - key_value: D041 says 'once every 12 months at the allowable rent increase percentage', D042 says '3% (July 1, 2025 through June 30, 2026)'
+    - effective_date: D041 says 2026-02-02, D042 says 2025-07-01
+    - key_value: D041 says 'once every 12 months; no utility add-on after 2026-02-02', D042 says '3% (July 1, 2025 through June 30, 2026)'
+- NJ / security_deposits N.J.S.A. 46:8-21.2
+    - key_value: D063 says "1 1/2 times 1 month's rent; additional deposit max 10% of current deposit per year", D067 says "1.5 months' rent; yearly increase max 10%"
+- San Diego, CA / algorithmic_rent_setting San Diego Mun. Code §§98.1101–98.1104
+    - lifecycle: D074 says enacted, D076 says pending_bill
+- San Francisco, CA / rent_increase_limits S.F. Admin. Code ch. 37
+    - key_value: D080 says '1.6% (3/1/2026-2/28/2027)', D083 says '1.6% (March 1, 2026 – February 28, 2027)'
+- San Francisco, CA / just_cause_eviction S.F. Admin. Code ch. 37
+    - key_value: D082 says '$11,110.05 per tenant; up to $33,330.13 per unit; plus $7,443.90 elderly (62+) or disabled tenant (3/1/26–2/28/27)', D083 says '$8,245/tenant (max $24,733/unit) + $5,497; Ellis Act: $11,110.05/tenant (max $33,330.13) + $7,443.90'
+
+## Possible duplicates (same jurisdiction and category, overlapping citations)
+
+- MA / just_cause_eviction: `G.L. c. 186, §11` vs `G.L. c. 186, §12`
+- MA / just_cause_eviction: `G.L. c. 186, §11` vs `G.L. c. 186, §18`
+- MA / just_cause_eviction: `G.L. c. 186, §11` vs `Mass. Gen. Laws ch. 186, §31`
+- MA / just_cause_eviction: `G.L. c. 186, §12` vs `G.L. c. 186, §18`
+- MA / just_cause_eviction: `G.L. c. 186, §12` vs `Mass. Gen. Laws ch. 186, §31`
+- MA / just_cause_eviction: `G.L. c. 186, §18` vs `Mass. Gen. Laws ch. 186, §31`
+- MA / screening_restrictions: `803 CMR 5.00` vs `803 CMR 5.16`
 
 ## Coverage matrix
 
 | jurisdiction | rent | just cause | deposit | app fees | screening | algo |
 |---|---|---|---|---|---|---|
-| CA | 2 | 1 | 2 | 1 | 3 | 1 |
-| NJ | · | · | · | · | · | · |
-| MA | 1 (1F) | 1 (1F) | · | · | · | · |
-| Los Angeles, CA | 1 | 4 | · | · | 1 | 1 (1P) |
-| San Francisco, CA | · | · | · | · | · | · |
-| San Diego, CA | · | · | · | · | · | · |
-| Berkeley, CA | 2 | 2 | 1 | 1 | 1 | 1 |
-| Santa Ana, CA | · | · | · | · | · | · |
+| CA | 1 | 2 | 2 | 1 | 3 | 1 |
+| NJ | 3 | 10 | 4 | 2 | 3 | 1 (1N) |
+| MA | 3 (2F) | 5 (1F) | 1 | 2 | 4 | 2 (2P) |
+| Los Angeles, CA | 1 | 4 | 1 | · | 2 | 1 (1P) |
+| San Francisco, CA | 1 | 3 | 1 | · | 1 | 1 |
+| San Diego, CA | · | 2 | · | · | 1 | 1 |
+| Berkeley, CA | 1 | 2 | 1 | 1 | 1 | 1 |
+| Santa Ana, CA | 2 | 2 | · | · | · | 2 |
 | Jersey City, NJ | 1 | · | · | · | · | 1 |
-| Hoboken, NJ | 8 | · | · | · | · | 1 |
-| Newark, NJ | · | · | · | · | · | · |
+| Hoboken, NJ | 2 | · | · | · | · | 1 |
+| Newark, NJ | 2 | 1 | · | · | 1 | · |
 | Boston, MA | · | 1 | · | · | 2 | · |
 | Cambridge, MA | · | 1 | · | · | 1 | · |
 

@@ -18,13 +18,18 @@ def _conditions(rule):
               ("built_after", "covered if built after %s"), ("built_on_or_after", "covered if built on or after %s"),
               ("min_units", "at least %s units"), ("max_units", "at most %s units"),
               ("exempt_if_newer_than_years", "exempt if newer than %s years"),
+              ("covered_if_newer_than_years", "covered only if built within the last %s years"),
               ("owner_exempt_if_units_at_most", "owner exemption up to %s units")]
     for key, text in labels:
         if a.get(key) is not None:
             parts.append(text % a[key])
     if a.get("owner_dependent") and a.get("owner_exempt_if_units_at_most") is None:
         parts.append("owner-dependent, no size limit (unknown for every address)")
-    if a.get("date_basis") and any(a.get(k) for k in ("built_on_or_before", "built_before", "built_after", "built_on_or_after", "exempt_if_newer_than_years")):
+    for item in a.get("alternatives") or []:
+        limit = ", ".join("%s=%s" % (k, v) for k, v in item["flats"].items() if k != "date_basis")
+        parts.append("covered if %s, or also (open question outside the limit): %s" % (limit, item["also"]))
+    if a.get("date_basis") and any(a.get(k) for k in ("built_on_or_before", "built_before", "built_after", "built_on_or_after",
+                                                         "exempt_if_newer_than_years", "covered_if_newer_than_years")):
         parts.append("date basis: %s" % a["date_basis"])
     for item in a.get("deferred") or []:
         parts.append("exemption only if the owner filed (open question inside its reach): %s" % item["note"])
@@ -89,6 +94,8 @@ def render(engine, as_of=DEFAULT_DATE):
                  "- 地址结果（共 %d 个在范围内）：%s" % (scope, "，".join("%s %d" % (k, v) for k, v in sorted(c.items())) or "—")]
         if why:
             lines.append("- **注意：%s**" % "；".join(why))
+        for src in rule.get("coverage_sources") or []:
+            lines.append("- 手写补充条目 `%s`（不是模型提取）：%s；来源：%s" % (src.get("id"), " ".join(str(src.get("basis")).split())[:300], src.get("source")))
         for q in (rule.get("applicability") or {}).get("coverage_quotes") or []:
             lines.append("- 原文：> %s" % " ".join(q.split())[:420])
         for r in rule.get("relations") or []:

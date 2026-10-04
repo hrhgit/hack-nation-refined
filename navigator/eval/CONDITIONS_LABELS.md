@@ -55,7 +55,7 @@
 | 虚构地址 | 不能出错的范围 | 最准确的答案 | 依据或缺失的事实（英文原样） |
 |---|---|---|---|
 | 1950 年建，20 个单元 | 适用、不确定 | **待定**（key 没有定死） | built before the cutoff year, and the replacement-unit clause only adds coverage; but the page also lists a luxury exemption granted on the landlord's application, which the data cannot show, so the strict reading says unknown |
-| 1990 年建，20 个单元 | 不确定、规则被排除（结果里不出现） | **待定**（key 没有定死） | after the cutoff; a replacement unit under LAMC 151.28 could still be covered, which the data cannot show |
+| 1990 年建，20 个单元 | 不确定 | 不确定 | after the cutoff; a replacement unit under LAMC 151.28 could still be covered, which the data cannot show. Changed on 2026-10-04: the key used to accept 'excluded' here; a reviewer pointed out that this silently drops the rule for replacement units, and `also` now lets the record say so |
 | 1978 年建，20 个单元 | 不确定 | 不确定 | 1978 straddles the cutoff of October 1, 1978 |
 | 没有建成年份，20 个单元 | 不确定 | 不确定 | without a year the cutoff cannot be applied |
 
@@ -285,4 +285,65 @@
 - 来源依据（英文）：AG listing: 25-21 An Initiative Petition to Protect Tenants by Limiting Rent Increases; SJC-13893 rescript 06/23/2026 enjoins placing it on the 2026 ballot
 - 页面：`X101-01`
 - 还要核对：状态 = failed
+
+## LA-RSO-eviction — Los Angeles, CA
+
+- 说明：洛杉矶 RSO 驱逐保护（§151.09）：同一句话也覆盖 §151.28 的替代住宅，所以 1978 年之后建成的楼不能直接排除。
+- 来源依据（英文）：LAHD: the RSO applies to rental properties first built on or before October 1, 1978, as well as replacement units under LAMC 151.28
+- 页面：`D041-01`
+
+| 虚构地址 | 不能出错的范围 | 最准确的答案 | 依据或缺失的事实（英文原样） |
+|---|---|---|---|
+| 1950 年建，20 个单元 | 适用、不确定 | **待定**（key 没有定死） | built before the cutoff; the page also lists a luxury exemption granted on the landlord's application, which the data cannot show |
+| 1990 年建，20 个单元 | 不确定 | 不确定 | after the cutoff; a replacement unit under LAMC 151.28 could still be covered, which the data cannot show |
+| 1978 年建，20 个单元 | 不确定 | 不确定 | 1978 straddles the cutoff of October 1, 1978 |
+| 没有建成年份，20 个单元 | 不确定 | 不确定 | without a year the cutoff cannot be applied |
+
+## MA-40P — MA
+
+- 说明：麻州 40P 第 4 节：禁止市镇实行租金管制；后面列的“房东名下少于 10 套、租金超过 $400”是被允许的地方方案的限制，不是这条禁令的适用范围。
+- 来源依据（英文）：G.L. c.40P s.4: no city or town may enact, maintain or enforce rent control; a town that accepts the chapter may adopt rent control with limits, including that it may not apply to a unit owned by a person owning fewer than ten rental units or with a fair market rent above $400
+- 页面：`D048-01`
+- 还要核对：必须有关系 `preempts_local`
+
+| 虚构地址 | 不能出错的范围 | 最准确的答案 | 依据或缺失的事实（英文原样） |
+|---|---|---|---|
+| 1950 年建，20 个单元 | 适用 | 适用 | the ban reaches every city and town; the owner-size and rent limits describe the local program that is still allowed |
+| 没有建成年份，没有单元数 | 适用 | 适用 | no condition depends on the unit count |
+
+## NJ-2A:42-84.5 — NJ
+
+- 说明：新泽西新建多户住宅法：新建多户住宅 30 年内免受地方租金管制。这条规则本身就是给新楼的豁免，所以它适用于 30 年内建成的楼，而不是排除它们。
+- 来源依据（英文）：NJ guide: newly constructed multiple dwellings shall be exempt from any local rent control ordinances for a period of 30 years following completion of construction
+- 页面：`D067-02`
+
+| 虚构地址 | 不能出错的范围 | 最准确的答案 | 依据或缺失的事实（英文原样） |
+|---|---|---|---|
+| 2015 年建，20 个单元 | 适用、不确定 | 适用 | the rule gives the exemption to buildings completed in the previous 30 years; 2015 is well inside |
+| 1990 年建，20 个单元 | 规则被排除（结果里不出现） | 规则被排除（结果里不出现） | completed more than 30 years before the query date (boundary 1996), so the rule has nothing to say about it |
+| 1996 年建，20 个单元 | 不确定 | 不确定 | 1996 straddles the boundary 30 years before the query date |
+| 没有建成年份，20 个单元 | 不确定 | 不确定 | without a year the 30-year reach cannot be applied |
+
+## LA-relocation — Los Angeles, CA
+
+- 说明：洛杉矶无过错驱逐搬迁补助：针对受 RSO 或 JCO 管辖的单元，对普通公寓楼没有额外的建筑条件。
+- 来源依据（英文）：LAHD bulletin: all tenant not-at-fault evictions require relocation assistance for units covered by the Rent Stabilization Ordinance (RSO) or the Just Cause Ordinance (JCO)
+- 页面：`D043-01`
+
+| 虚构地址 | 不能出错的范围 | 最准确的答案 | 依据或缺失的事实（英文原样） |
+|---|---|---|---|
+| 1950 年建，20 个单元 | 适用、不确定 | 适用 | RSO covers old buildings, JCO most others: either way the duty applies |
+| 2015 年建，20 个单元 | 适用、不确定 | 适用 | JCO covers most newer buildings |
+| 没有建成年份，20 个单元 | 适用、不确定 | 适用 | no condition depends on the year |
+
+## LA-JCO — Los Angeles, CA
+
+- 说明：洛杉矶正当理由驱逐条例（JCO）：管辖大多数不受 RSO 管辖的住宅；政府或住房局所有的住房是“房屋类型”，不是房东身份，只作说明。
+- 来源依据（英文）：LAHD: the JCO covers most residential properties in the City that are not regulated by the RSO; some properties owned by HACLA or the government are not covered
+- 页面：`D040-01`
+
+| 虚构地址 | 不能出错的范围 | 最准确的答案 | 依据或缺失的事实（英文原样） |
+|---|---|---|---|
+| 2000 年建，20 个单元 | 适用、不确定 | 适用 | government-owned housing is a kind of housing the data cannot show: a note, not an unknown |
+| 没有建成年份，20 个单元 | 适用、不确定 | 适用 | no building-level condition the data could settle |
 

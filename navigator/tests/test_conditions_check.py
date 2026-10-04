@@ -34,9 +34,10 @@ class CheckerTests(unittest.TestCase):
                "applicability": {"conditions": conditions, "per_tenancy": None, "coverage_quotes": [self.quote]}, "relations": []}
         return json.dumps(rec)
 
-    def test_a_correct_cutoff_passes_every_probe(self):
+    def test_a_correct_cutoff_with_replacement_units_passes_every_probe(self):
         checks, wrong = self.cc.check_label(self.ctx, self.label, self.answer(
-            [{"type": "built", "role": "covered", "op": "on_or_before", "date": "1978-10-01", "basis": "construction"}]))
+            [{"type": "built", "role": "covered", "op": "on_or_before", "date": "1978-10-01", "basis": "construction",
+              "also": "replacement units under LAMC 151.28"}]))
         self.assertTrue(all(ok for _, ok, _ in checks), [c for c in checks if not c[1]])
         self.assertEqual(wrong, 0)
 

@@ -4,28 +4,31 @@
 
 ## 运行
 
-在 `navigator/` 下执行，只需要 Python 3.9+ 标准库：
+在 `navigator/` 下执行，需要 Node.js 22 或更新版本。先安装并编译 TypeScript 后端：
 
 ```bash
+npm ci
+npm run build
+
 # 第一次确定地址属于哪个城市，需要联网；查询全部500行，不截断
-python3 -m lookup resolve
+npm run lookup -- resolve
 
 # 当前已保存全部地址的 Census 返回，下面可完全离线运行
-python3 -m lookup resolve --offline
-python3 -m lookup build --offline
+npm run lookup -- resolve --offline
+npm run lookup -- build --offline
 
 # 按日期查看单个地址
-python3 -m lookup lookup --address-id A0001 --as-of 2026-10-01
-python3 -m lookup lookup --address-id A0002 --as-of 2027-07-02
+npm run lookup -- lookup --address-id A0001 --as-of 2026-10-01
+npm run lookup -- lookup --address-id A0002 --as-of 2027-07-02
 
 # 只重新计算变更题
-python3 -m changes
+npm run changes --
 
-# 本次功能的测试，含500行真实样本及离线重跑
-python3 -m unittest tests.test_stage23 tests.test_stage23_acceptance -q
+# 原生完整流程测试，不需要 Python
+npm test
 
-# 全项目测试；既有评测目录会导致一个原有测试失败，详见后文
-python3 -m unittest
+# 参考实现及两种后端的完整核对；这一步另需 Python 3
+npm run verify
 ```
 
 `build --as-of` 改变地址查询和提交规则表的日期。变更题使用题目文件里各自的日期。要改变变更比较日期，可以传入 `--date-overrides dates.json`，例如：
@@ -38,21 +41,21 @@ python3 -m unittest
 ```
 
 ```bash
-python3 -m changes --date-overrides dates.json
+npm run changes -- --date-overrides dates.json
 ```
 
 这个例子两个日期相同，T1 和 T3 的受影响列表均为空；程序实际比较规则结论，没有直接按州填写地址编号。日期覆盖不改原题文件。
 
 ## 从后两个阶段的需要设计
 
-`LookupEngine` 接收“规则事实、已解析地址、取代关系”，它可以直接使用独立的测试规则，不依赖第一阶段代码。它需要的是规则是否通过、生效时间、覆盖条件和出处，不使用提取时的状态快照或冲突标记。当前第一阶段文件由 `load_rules` 读取，在有依据的情况下补充后续判断需要的事实。
+`LookupEngine` 接收“规则事实、已解析地址、取代关系”，它可以直接使用独立的测试规则，不依赖第一阶段代码。它需要的是规则是否通过、生效时间、覆盖条件和出处，不使用提取时的状态快照或冲突标记。当前第一阶段文件由 `loadRules` 读取，在有依据的情况下补充后续判断需要的事实。
 
-```python
-from lookup import LookupEngine, lookup
+```typescript
+import {LookupEngine, lookup} from './dist/lookup/engine.js';
 
-answers = lookup("A0001", as_of="2026-10-01")
-engine = LookupEngine.from_files()
-answers = engine.lookup("A0002", as_of="2027-07-02")
+const first = lookup('A0001', '2026-10-01');
+const engine = LookupEngine.fromFiles();
+const second = engine.lookup('A0002', '2027-07-02');
 ```
 
 按地区、通过状态、生效时间、覆盖条件、取代关系的顺序判断。失败的规则始终不输出。已通过但还未生效、提案和缺事实的规则分别输出对应状态。确定不满足条件才省略；未知结论逐项说明缺哪个事实。
@@ -66,7 +69,7 @@ answers = engine.lookup("A0002", as_of="2027-07-02")
 | `units_at_least` | 用明确的用途描述判断下限；不能把下限当作准确数量 |
 | 房东身份 | 样本没有，通常保留不确定；只有明确的单元数上限已经使例外不可能时才排除该例外 |
 
-`applicability` 支持交接要求的建筑日期、单元数、房东和其他条件，以及 `exempt_if_newer_than_years`。滚动年限按每次查询日期重算。补充字段 `owner_exempt_if_units_at_most` 表示有原文依据的房东例外单元数上限。无法表达的条件通过 `coverage_missing` 保留不确定并提出需求。纯文字条件不在程序里猜测。
+`applicability` 支持交接要求的建筑日期、单元数、房东和其他条件，以及 `exempt_if_newer_than_years`（该年限内的新楼豁免）、`covered_if_newer_than_years`（规则只管该年限内的新楼）、`alternatives`（带"另一类也覆盖"的限制，限制之外是不确定而不是排除）。单元数的准确值小于用途描述的下限时视为数据矛盾，不据此下结论（见 `docs/STAGE1_CONTRACT.md`）。滚动年限按每次查询日期重算。补充字段 `owner_exempt_if_units_at_most` 表示有原文依据的房东例外单元数上限。无法表达的条件通过 `coverage_missing` 保留不确定并提出需求。纯文字条件不在程序里猜测。
 
 只给年或月的生效日期保留一个可能区间，查询日位于区间内时答不确定，不编造某一天。已知只针对特定期间的数字用 `valid_through` 限定；过期后不继续拿旧数字回答。导出规则日期若无法写成题目允许的状态，会明确停止并要求补事实。
 
@@ -98,11 +101,13 @@ answers = engine.lookup("A0002", as_of="2027-07-02")
 
 取代关系在 `lookup/precedence.json`；必须有原文依据和来源，且只在更严的规则确实适用时判断让位。更严规则也不确定时，下层规则一并保留不确定。提交规则的 `overrides` 采用“本规则取代的让位规则编号”，方向由 `interaction` 说明。
 
-覆盖条件补充放在 `lookup/coverage_facts.json`，都有依据，按地区、类别、引用或来源文档匹配。它们不新增法律记录，不绕过第一阶段的引文检查。题目编号对照在 `changes/test_rule_map.json`，按地区、类别、引用匹配；没有写死 `r-xxxx` 编号。
+覆盖条件补充放在 `lookup/coverage_facts.json`（现在只剩一条，旧金山的租金管制截止日，因为那句话在另一份文件里；其余十一条在模型自己能读出同样条件后已删除，每次构建的核对报告会列出补充条目改写了哪些提取值），都有依据，按地区、类别、引用或来源文档匹配。它们不新增法律记录，不绕过第一阶段的引文检查。题目编号对照在 `changes/test_rule_map.json`，按地区、类别、引用匹配；没有写死 `r-xxxx` 编号。
 
 复核标记只给 `lookup/review_pairs.json` 里列出的州/市规则组合，每一项必须有原文依据（现在只有一项：新泽西 FAIR 法写明市政府不得制定与之冲突的条例，所以它和同类市级禁令的关系需人工复核）。不再因为“同类别里州和市都有规则”就标记。尚未生效的已通过规则也参与判断，提案和失败记录不参与。变更题只检查它指定的那组州/市关系，避免被其他规则的复核标记带偏。
 
-## 目前的事实缺口
+## 该阶段最初运行的事实缺口（历史记录）
+
+下面保留该阶段最初运行的结果；之后第一阶段继续更新了规则。TypeScript 迁移使用并行修改结束后的 97 条规则和 108 个分包，最新核对结果见 [迁移报告](TYPESCRIPT_MIGRATION.md)。
 
 交接时旧文件有114条。按要求用当前第一阶段重新生成后，有91条通过检查、41条记录尚未通过，41/65个分包完成。后两个阶段使用通过检查的规则；受拒收或尚未提取的规则影响的覆盖范围还不能宣称完整。
 
@@ -120,7 +125,7 @@ AB 325 的2026-01-01沿用交接中的有依据更正。新泽西 FAIR 法的202
 
 本次新增测试覆盖五种结论、失败规则排除、两种日期边界、滚动年限、单元数下限、房东例外、取代方向、未来州法的复核标记、五道变更题和缺规则处理。独立构造的 Hoboken/Jersey City 法规验证补齐规则后的 T2/T3行为；不把这些构造规则加入真实输出。两个完整离线生成过程，包括记录文件，逐字节相同。
 
-全项目在本次改动前已有一个失败：`test_explore_mode_skips_the_gate_but_never_touches_the_climb_folder` 要求 `eval/extraction/baseline` 不存在，但该目录已有实际评测结果。保留这些已有结果，不通过删除目录改变测试结论。
+最初全项目有一个测试失败：`test_explore_mode_skips_the_gate_but_never_touches_the_climb_folder` 要求 `eval/extraction/baseline` 不存在，但该目录已有实际评测结果。迁移前已将测试改为检查这些已有文件逐字节不变，没有删除评测结果；最终全项目测试通过。
 
 > 第一阶段输出给本阶段的字段、方向规则和校验方式见 [STAGE1_CONTRACT.md](STAGE1_CONTRACT.md)（版本 2）。下面关于关键词分类的说明只适用于按旧格式提取的规则。
 

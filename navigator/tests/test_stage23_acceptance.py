@@ -108,10 +108,16 @@ class SampleAcceptanceTests(unittest.TestCase):
             expected = sorted(aid for aid, address in self.resolved.items() if address["state"] == state)
             self.assertEqual(self.changes[test_id]["affected_address_ids"], expected)
         self.assertEqual(self.changes["T5"]["affected_address_ids"], [])
+        # The supplied negative case is explicitly about its own query date.
+        # Newly extracted laws may be in force on DEFAULT_DATE but not on T5's date.
+        negative_date = self.change_audit["tests"]["T5"]["query_dates"]["as_of"]
         for aid, address in self.resolved.items():
             if address["state"] == "MA":
-                for row in self.lookups["lookups"][aid]:
-                    self.assertFalse(row["result"] == "applies" and self.engine.by_id[row["team_rule_id"]]["category"] == "rent_increase_limits")
+                for row in self.engine.lookup(aid, negative_date):
+                    rule = self.engine.by_id[row["team_rule_id"]]
+                    # a state rule that bars cities from regulating rent (Massachusetts c. 40P) is the opposite of a cap
+                    bars_local = any(r.get("type") == "preempts_local" for r in rule.get("relations") or [])
+                    self.assertFalse(row["result"] == "applies" and rule["category"] == "rent_increase_limits" and not bars_local)
 
     def test_missing_laws_are_explicit_and_supplied_dates_are_actually_used(self):
         for test_id, case in self.change_audit["tests"].items():

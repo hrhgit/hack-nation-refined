@@ -91,7 +91,9 @@ class ChangeTracker:
                             continue
                         for row in rows:
                             rule = self.engine.by_id[row["team_rule_id"]]
-                            if row["result"] == "applies" and rule["category"] == "rent_increase_limits":
+                            # a state rule that bars cities from regulating rent (Massachusetts c. 40P) is the opposite of a cap
+                            bars_local = any(r.get("type") == "preempts_local" for r in rule.get("relations") or [])
+                            if row["result"] == "applies" and rule["category"] == "rent_increase_limits" and not bars_local:
                                 violations.append((aid, row["team_rule_id"]))
                     if violations:
                         raise ValueError("反例检查失败：麻州地址出现适用的涨租上限: %s" % violations)

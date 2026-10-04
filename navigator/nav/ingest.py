@@ -17,12 +17,14 @@ from . import facts, schema as jschema
 from .config import KNOWN_JURISDICTIONS, LIFECYCLES, PIPELINE_VERSION, STATE_NAMES, Paths, categories, load_schema
 from .corpus import Doc, load_corpus
 from .keywords import score_text
-from . import conditions
+from . import chapters, conditions
 from .packets import load_index
 from .parse import classify, extract_json_objects
 from .spans import DocIndex
 
 NULLISH = {"", "null", "none", "n/a", "na", "unknown", "not stated", "not specified", "not applicable", "-"}
+# a citation made only of federal statutes or regulations (15 U.S.C. § 1681m, 24 C.F.R. § 982.1): the prompt says federal law is out of scope
+FEDERAL_CITATION = re.compile(r"\bU\.?\s?S\.?\s?C\b|\bC\.?\s?F\.?\s?R\b(?!\w)|\bPub(?:lic|\.)\s?L(?:aw|\.)", re.I)
 APPL_KEYS = conditions.APPL_KEYS
 DATE_BASES = conditions.DATE_BASES
 LIFECYCLE_ALIASES = {
@@ -235,6 +237,9 @@ class Validator:
         citation, aspect = facts.split_citation(facts.normalize_citation(g("citation") or ""))
         if g("citation") and not citation:
             errors.append("citation is empty after cleanup")
+        parts = [x for x in re.split(r"\s*;\s*", citation or "") if x]
+        if parts and all(FEDERAL_CITATION.search(x) for x in parts):
+            errors.append("citation %r is a federal law; this program records only state and city rules (federal law is ignored): leave this record out" % citation)
         if aspect:
             notes.append("citation descriptor moved out of the citation: %s" % aspect)
 
@@ -330,6 +335,41 @@ def _group_key(r: Dict[str, Any]) -> Tuple[str, str, str]:
     return (r["jurisdiction"], r["category"], facts.citation_key(r["citation"]))
 
 
+def _full_tokens(citation: str) -> frozenset:
+    """Every number in a citation, including the code section a bill or act names in brackets."""
+    return frozenset(t.strip(".:-").lower() for t in re.findall(r"[0-9][0-9A-Za-z.:\-]*", citation or "") if t.strip(".:-"))
+
+
+def _fold_nested(groups: "OrderedDict[Tuple[str, str, str], List[Dict[str, Any]]]") -> "OrderedDict[Tuple[str, str, str], List[Dict[str, Any]]]":
+    """One law cited two ways is one law: 'AB 1482 (Civ. Code §1947.12)' and 'Civ. Code §1947.12', or 'N.J.S.A. 46:8-19 to 46:8-21.2'
+    and 'N.J.S.A. 46:8-21.2'. A group whose numbers are all contained in another group's (same place and category) joins that group."""
+    toks = {k: frozenset().union(*(_full_tokens(r["citation"]) for r in g)) for k, g in groups.items()}
+    target: Dict[Tuple[str, str, str], Tuple[str, str, str]] = {}
+    for k in sorted(groups, key=lambda k: len(toks[k])):
+        smaller = toks[k]
+        if len("".join(smaller)) < 5:
+            continue
+        bigger = [o for o in groups if o != k and o[:2] == k[:2] and smaller < toks[o]]
+        if bigger:
+            target[k] = min(bigger, key=lambda o: len(toks[o]))
+    if not target:
+        return groups
+    def root(k):
+        while k in target:
+            k = target[k]
+        return k
+    out: "OrderedDict[Tuple[str, str, str], List[Dict[str, Any]]]" = OrderedDict()
+    for k, g in groups.items():
+        out.setdefault(root(k), []).extend(g)
+    return out
+
+
+def _merge_key(r: Dict[str, Any]) -> Tuple[str, str, str]:
+    """Which records are parts of one law when the rules are put together: the sections of one municipal code chapter are one law."""
+    chapter = chapters.chapter_of(r["citation"]) if r["level"] == "city" else None
+    return (r["jurisdiction"], r["category"], "ch:" + chapter) if chapter else _group_key(r)
+
+
 class _Positions(object):
     """Where each record's quote sits in its document: the main clause usually comes first."""
 
@@ -412,10 +452,26 @@ def _consolidate(group: List[Dict[str, Any]], docs: Dict[str, Doc], pos: "_Posit
     primary["sources"] = [{"doc_id": did, "url": h["source_url"], "retrieved": h["retrieved"], "quoted_span": h["quoted_span"],
                            "effective_date": h["effective_date"], "key_value": h["key_value"], "lifecycle": h["lifecycle"]}
                           for did, h in heads]
-    primary["sub_rules"] = [{"doc_id": x["source_doc_id"], "aspect": x.get("aspect"), "title": x["title"],
+    primary["sub_rules"] = [{"doc_id": x["source_doc_id"], "aspect": x.get("aspect"), "citation": x["citation"], "title": x["title"],
                              "key_value": x["key_value"], "effective_date": x["effective_date"],
                              "quoted_span": x["quoted_span"]} for x in subs]
     primary["merged_from"] = len(group)
+    cited = {g["citation"] for g in group}
+    number_sets = {_full_tokens(g["citation"]) for g in group}
+    chain = all(x <= y or y <= x for x in number_sets for y in number_sets)       # one citation is just a fuller form of the other
+    chapter = chapters.chapter_of(primary["citation"]) if primary["level"] == "city" else None
+    if len(number_sets) > 1 and chain:
+        # the same law cited with different amounts of detail: keep the plainest citation (fewest numbers), usually the code section
+        plainest = sorted(cited, key=lambda c: (len(_full_tokens(c)), len(c)))[0]
+        primary["notes"].append("citations %s merged; kept %s" % ("; ".join(sorted(cited))[:200], plainest))
+        primary["citation"] = plainest
+    elif chapter and len(number_sets) > 1:
+        # several sections of one chapter: one rule that cites the chapter, with every section's exceptions folded in
+        for x in subs:
+            conditions.merge(primary, x, x["source_doc_id"], [], [])
+        primary["notes"].append("%d sections of chapter %s merged into one rule: %s" % (len(cited), chapter, "; ".join(sorted(cited))[:300]))
+        primary["citation"] = chapters.chapter_citation(primary["citation"], chapter)
+        primary["citation_kind"] = "numbered"
     return primary, conflicts
 
 
@@ -636,7 +692,8 @@ def run_ingest(paths: Paths, as_of: Optional[str] = None, persist_ids: bool = Tr
 
     groups: "OrderedDict[Tuple[str, str, str], List[Dict[str, Any]]]" = OrderedDict()
     for r in pool:
-        groups.setdefault(_group_key(r), []).append(r)
+        groups.setdefault(_merge_key(r), []).append(r)
+    groups = _fold_nested(groups)
     merged: List[Dict[str, Any]] = []
     conflicts: List[Tuple[str, List[str]]] = []
     for key, grp in groups.items():

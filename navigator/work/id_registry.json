@@ -1,5 +1,5 @@
 {
- "next": 212,
+ "next": 230,
  "ids": {
   "CA|security_deposits|12": "r-0001",
   "CA|security_deposits|california state law photographs after regaining possession": "r-0002",
@@ -211,6 +211,24 @@
   "Hoboken, NJ|rent_increase_limits|155": "r-0208",
   "Los Angeles, CA|just_cause_eviction|los angeles rent stabilization ordinance l a m c 151 00 et seq los angeles just cause ordinance l a m c 165 00 et seq": "r-0209",
   "Los Angeles, CA|just_cause_eviction|los angeles resident protections ordinance l a ordinances 188481 188482": "r-0210",
-  "CA|rent_increase_limits|1482": "r-0211"
+  "CA|rent_increase_limits|1482": "r-0211",
+  "MA|application_screening_fees|1|112|2|87ddd": "r-0212",
+  "MA|screening_restrictions|5.16|803": "r-0213",
+  "NJ|security_deposits|46:8-19|46:8-21.2": "r-0214",
+  "NJ|screening_restrictions|new jersey law against discrimination lad": "r-0215",
+  "NJ|just_cause_eviction|2a:18-61.22|61.39": "r-0216",
+  "NJ|just_cause_eviction|2a:18-61.40|61.59": "r-0217",
+  "NJ|algorithmic_rent_setting|2026|43": "r-0218",
+  "Newark, NJ|rent_increase_limits|19:2-3.1": "r-0219",
+  "Newark, NJ|rent_increase_limits|19:2-18.1": "r-0220",
+  "Newark, NJ|rent_increase_limits|19:2-18.2": "r-0221",
+  "Newark, NJ|rent_increase_limits|19:2-18.3": "r-0222",
+  "Newark, NJ|screening_restrictions|2:31-1": "r-0223",
+  "San Francisco, CA|screening_restrictions|san francisco s fair chance ordinance": "r-0224",
+  "Jersey City, NJ|rent_increase_limits|260-21": "r-0225",
+  "Los Angeles, CA|screening_restrictions|45.42": "r-0226",
+  "Newark, NJ|rent_increase_limits|19:2": "r-0227",
+  "Newark, NJ|just_cause_eviction|19:2": "r-0228",
+  "Newark, NJ|screening_restrictions|2:31": "r-0229"
  }
 }

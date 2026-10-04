@@ -39,7 +39,7 @@ def requests_report(engine, audit, changes_audit, supplements=None):
     lines += ["## 需要第一阶段核对的输入条件", ""]
     for rule in engine.rules:
         a = rule.get("applicability") or {}
-        if rule.get("exemptions") and not any(a.get(k) for k in ("owner_dependent", "other", "built_on_or_before", "built_after", "exempt_if_newer_than_years", "min_units", "max_units")):
+        if rule.get("exemptions") and not any(a.get(k) for k in ("owner_dependent", "other", "built_on_or_before", "built_after", "exempt_if_newer_than_years", "covered_if_newer_than_years", "min_units", "max_units", "deferred", "alternatives")):
             matching = sorted(aid for aid, address in engine.addresses.items() if address["state"] == (rule["jurisdiction"] if rule["level"] == "state" else rule["jurisdiction"].rsplit(", ", 1)[-1]) and (rule["level"] == "state" or address.get("legal_city") == rule["jurisdiction"]))
             lines.append("- %s（%s）：有豁免文字，但没有对应结构条件。请确认是建筑覆盖条件还是行为/义务条件，不要把豁免条件反写成适用条件。可能相关地址：%s。原文摘录：%s" % (rule["team_rule_id"], rule["citation"], ", ".join(matching) or "样本暂无", rule["exemptions"]))
     if supplements is not None:

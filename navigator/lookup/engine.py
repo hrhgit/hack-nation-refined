@@ -127,7 +127,7 @@ class LookupEngine:
             if (rule["level"] == "city") != (", " in rule["jurisdiction"]):
                 raise ValueError("规则地区与级别不一致: " + rule["team_rule_id"])
             applicability = rule.get("applicability") or {}
-            for field in ("min_units", "max_units", "exempt_if_newer_than_years", "owner_exempt_if_units_at_most"):
+            for field in ("min_units", "max_units", "exempt_if_newer_than_years", "covered_if_newer_than_years", "owner_exempt_if_units_at_most"):
                 value = applicability.get(field)
                 if value is not None and (type(value) is not int or value < 0):
                     raise ValueError("%s.%s 必须是非负整数" % (rule["team_rule_id"], field))
@@ -227,6 +227,7 @@ class LookupEngine:
 
         year = address.get("year_built")
         units, lower = address.get("units"), address.get("units_at_least")
+        conflict = units is not None and lower is not None and units < lower
         OP_WORDS = {"on_or_before": "on or before", "before": "before", "after": "after", "on_or_after": "on or after"}
 
         def tests(src, add):
@@ -272,9 +273,30 @@ class LookupEngine:
                 elif outcome == "excluded":
                     why = "the building dates from %s, inside the rule's exemption for housing first occupied in the previous %s years" % (built, years)
                 add("exempt_if_newer_than_years", fact, outcome, why)
+            if src.get("covered_if_newer_than_years") is not None:
+                # the rule is a benefit for new buildings (new construction exempt from a local cap): it reaches housing first occupied in the previous N years
+                years = src["covered_if_newer_than_years"]
+                target_year = day.year - years
+                boundary = day.replace(year=target_year, day=min(day.day, calendar.monthrange(target_year, day.month)[1]))
+                outcome, fact, why = decide(boundary.isoformat(), "after")
+                built = actual.year if actual else year
+                if outcome == "met":
+                    why = "the building dates from %s, inside the previous %s years the rule reaches" % (built, years)
+                elif outcome == "excluded":
+                    why = "the building dates from %s, older than the previous %s years the rule reaches" % (built, years)
+                add("covered_if_newer_than_years", fact, outcome, why)
             for field, is_min in (("min_units", True), ("max_units", False)):
                 threshold = src.get(field)
                 if threshold is None:
+                    continue
+                if conflict:
+                    # the record's exact count and the land-use description cannot both be right: settle the threshold only if both agree
+                    by_count = "met" if (units >= threshold if is_min else units <= threshold) else "excluded"
+                    by_lower = ("met" if lower >= threshold else "unknown") if is_min else ("excluded" if lower > threshold else "unknown")
+                    add(field, {"units": units, "units_at_least": lower}, by_count if by_count == by_lower else "unknown",
+                        "the data gives %s units for the building but its land-use description shows at least %s; the two cannot both be right, so the threshold of %s units is not settled by them"
+                        % (units, lower, threshold) if by_count != by_lower else
+                        "the exact count (%s) and the land-use minimum (%s) agree on the threshold of %s units" % (units, lower, threshold))
                     continue
                 if units is not None:
                     passed = units >= threshold if is_min else units <= threshold
@@ -313,9 +335,25 @@ class LookupEngine:
             else:
                 add("deferred:" + note, facts_seen, "unknown", "the data cannot place the building inside or outside an exemption (%s)" % note)
 
+        # A limit that says who is covered, with another kind of building the text also covers ("built before 1979, as well as replacement
+        # units"): inside the limit the building is covered; outside it, it may still be covered through the other kind, which the data
+        # cannot show, so it stays an open question instead of being left out.
+        for item in a.get("alternatives") or []:
+            got = []
+            tests(dict(item["flats"]), lambda field, fact, outcome, explanation, _g=got: _g.append((field, fact, outcome, explanation)))
+            kinds = {o for _, _, o, _ in got}
+            seen = got[0][1] if got else None
+            label = "alternative:" + item["also"]
+            if "excluded" in kinds:
+                add(label, seen, "unknown", "the stated limit leaves this building out, but the text also covers %s, which the data cannot show" % item["also"])
+            elif "unknown" in kinds:
+                add(label, seen, "unknown", next(e for _, _, o, e in got if o == "unknown"))
+            else:
+                add(label, seen, "met", got[0][3] if got else "the building is inside the stated limit")
+
         if a.get("owner_dependent"):
             maximum = a.get("owner_exempt_if_units_at_most")
-            known_lower = units if units is not None else lower
+            known_lower = (units if not conflict else None) if units is not None else lower
             if maximum is not None and known_lower is not None and known_lower > maximum:
                 add("owner_dependent", {"units_lower": known_lower, "exemption_max_units": maximum}, "met",
                     "the building has at least %s units, so the owner-based exception (limited to %s units) cannot apply" % (known_lower, maximum))

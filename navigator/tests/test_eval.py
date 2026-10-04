@@ -307,11 +307,19 @@ class RunnerTests(unittest.TestCase):
     def test_explore_mode_skips_the_gate_but_never_touches_the_climb_folder(self):
         explore = self.tmp / "explore"
         import run_eval
+        # Existing evaluation results are user data. Check that they stay byte-for-byte
+        # unchanged rather than assuming the user's baseline directory is empty.
+        climb = ROOT / "eval" / "extraction" / "baseline"
+        def snapshot():
+            return {str(p.relative_to(climb)): p.read_bytes() for p in climb.rglob("*") if p.is_file()}
+        before = snapshot()
+        existed = climb.exists()
         common = ["--variant", "baseline", "--base-url", self.base, "--env-file", str(self.tmp / "env"), "--cases", "D069-01", "--reps", "1"]
         self.assertEqual(run_eval.main(["--flow", str(explore), "--explore", *common]), 0)
         self.assertEqual(len((explore / "baseline" / "results.jsonl").read_text().splitlines()), 1)
         self.assertEqual(run_eval.main(["--flow", str(ROOT / "eval" / "extraction"), "--explore", *common]), 1)
-        self.assertFalse((ROOT / "eval" / "extraction" / "baseline").exists())
+        self.assertEqual(climb.exists(), existed)
+        self.assertEqual(snapshot(), before)
 
     def test_changing_the_harness_stops_the_next_run(self):
         self.assertEqual(self.run_eval("--approve-harness"), 0)

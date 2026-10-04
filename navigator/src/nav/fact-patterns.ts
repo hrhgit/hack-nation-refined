@@ -1,0 +1,23 @@
+// Source patterns and vocabulary from the fixed Python baseline.
+export const MONTHS: Record<string, number> = {"january": 1, "jan": 1, "february": 2, "feb": 2, "march": 3, "mar": 3, "april": 4, "apr": 4, "may": 5, "june": 6, "jun": 6, "july": 7, "jul": 7, "august": 8, "aug": 8, "september": 9, "sept": 9, "sep": 9, "october": 10, "oct": 10, "november": 11, "nov": 11, "december": 12, "dec": 12};
+export const WORDS: Record<string, number> = {"zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14, "fifteen": 15, "sixteen": 16, "seventeen": 17, "eighteen": 18, "nineteen": 19, "twenty": 20, "thirty": 30, "forty": 40, "fifty": 50, "sixty": 60, "seventy": 70, "eighty": 80, "ninety": 90, "hundred": 100};
+export const ORDINALS: Record<string, number> = {"first": 1, "second": 2, "third": 3, "fourth": 4, "fifth": 5, "sixth": 6, "seventh": 7, "eighth": 8, "ninth": 9, "tenth": 10, "eleventh": 11, "twelfth": 12, "thirteenth": 13, "fourteenth": 14, "fifteenth": 15, "sixteenth": 16, "seventeenth": 17, "eighteenth": 18, "nineteenth": 19, "twentieth": 20, "twenty-first": 21, "twenty-second": 22, "twenty-third": 23, "twenty-fourth": 24, "thirtieth": 30, "sixtieth": 60, "ninetieth": 90};
+export const RX_MDY = new RegExp("\\b(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sept?(?:ember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\\.?\\s+(\\d{1,2})(?:st|nd|rd|th)?,?\\s+(\\d{4})\\b", "i");
+export const RX_DMY = new RegExp("\\b(\\d{1,2})(?:st|nd|rd|th)?\\s+(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sept?(?:ember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\\.?,?\\s+(\\d{4})\\b", "i");
+export const RX_SLASH = new RegExp("\\b(\\d{1,2})/(\\d{1,2})/(\\d{4}|\\d{2})\\b", "");
+export const RX_ISO = new RegExp("\\b(\\d{4})-(\\d{2})-(\\d{2})\\b", "");
+export const RX_HYPHEN = new RegExp("(?<![\\d:.-])(\\d{1,2})-(\\d{1,2})-(\\d{4})(?![\\d-])", "");
+export const RX_MY = new RegExp("\\b(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sept?(?:ember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\\.?,?\\s+(\\d{4})\\b", "i");
+export const RX_YEAR = new RegExp("\\b(1[89]\\d{2}|20\\d{2})\\b", "");
+export const ISO_FULL = new RegExp("^\\d{4}-\\d{2}-\\d{2}$", "");
+export const ISO_ANY = new RegExp("^\\d{4}(-\\d{2}(-\\d{2})?)?$", "");
+export const RX_NUM = new RegExp("(?<![\\w.])\\d[\\d,]*(?:\\.\\d+)?", "");
+export const SUBDIV = new RegExp("(?<=[0-9A-Za-z])(?:\\s*\\((?:[a-z]|[0-9]{1,2}|[ivx]{1,4}|[A-Z])\\))+", "");
+export const SUBD_WORDS = new RegExp(",?\\s*(?:subd\\.|subdivision|subsection|subsec\\.|para\\.|paragraph)\\s*\\(?[\\w.]+\\)?", "i");
+export const ASPECT_COLON = new RegExp(":\\s+(?=[A-Za-z])", "");
+export const CITE_CONTINUES = new RegExp("^(?:\u00a7|ch\\.|c\\.|art\\.|sec\\.|section|subd\\.|div\\.|no\\.|#|\\d)", "i");
+export const RX_NTH_MONTH = new RegExp("\\btakes?\\s+effect\\s+on\\s+the\\s+first\\s+day\\s+of\\s+the\\s+(?<n>\\d{1,2}(?:st|nd|rd|th)|[a-z]+(?:-[a-z]+)?)\\s+month\\s+next\\s+following\\s+(?:the\\s+date\\s+of\\s+)?(?:its\\s+)?(?:final\\s+)?(?:passage|adoption|enactment|approval)", "i");
+export const RX_IMMEDIATE = new RegExp("\\btakes?\\s+effect\\s+immediately\\b", "i");
+export const RX_DAYS_AFTER = new RegExp("\\b(?:takes?\\s+effect|(?:shall\\s+(?:be|become)\\s+|is\\s+|becomes?\\s+)?effective)\\s+(?:on\\s+the\\s+)?(?:(?<n>\\d{1,3}(?:st|nd|rd|th)?|[a-z]+(?:[- ][a-z]+)?)\\s*(?:\\(\\s*(?<d>\\d{1,3})\\s*\\)\\s*)?)days?\\s+(?:next\\s+)?(?:after|following)\\s+(?:the\\s+date\\s+of\\s+)?(?:its\\s+)?(?:final\\s+)?(?:passage|adoption|enactment|approval)", "i");
+export const RX_APPROVED = new RegExp("\\b(?:approved|passed(?:\\s+to\\s+be\\s+ordained)?|adopted|enacted|signed)(?:\\s+by\\s+(?:the\\s+)?[a-z .]{3,40}?)?\\s+(?:on\\s+)?(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sept?(?:ember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\\.?\\s+(\\d{1,2}),?\\s+(\\d{4})", "i");
+export const RX_ADOPTED_DAY_OF = new RegExp("\\b(?:approved|passed|adopted|enacted|signed)\\s+this\\s+(\\d{1,2})(?:st|nd|rd|th)?\\s+day\\s+of\\s+(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sept?(?:ember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?),?\\s+(\\d{4})", "i");

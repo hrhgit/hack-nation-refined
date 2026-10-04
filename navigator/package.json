@@ -1,0 +1,25 @@
+{
+  "name": "rental-housing-law-navigator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "start": "node dist/web/server.js",
+    "nav": "node dist/nav/cli.js",
+    "lookup": "node dist/lookup/cli.js",
+    "changes": "node dist/changes/cli.js",
+    "test": "npm run build && node --test tests/typescript/*.test.mjs",
+    "test:python": "node scripts/test-python.mjs",
+    "test:parity": "node scripts/test-python.mjs --typescript",
+    "verify": "npm test && npm run test:python && npm run test:parity"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.4",
+    "typescript": "7.0.2"
+  }
+}

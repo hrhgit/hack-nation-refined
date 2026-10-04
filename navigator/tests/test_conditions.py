@@ -287,6 +287,37 @@ class IngestTests(unittest.TestCase):
         self.assertEqual(r["valid_through"], "2027-02-28")
         self.assertEqual(r["relations"][0]["type"], "preempts_local")
 
+    def test_sections_of_one_city_chapter_become_one_rule_with_the_exceptions_folded_in(self):
+        deposit = self.record(category="security_deposits", citation="Cambridge Mun. Code §155-4", applicability={"conditions": [
+            {"type": "units", "role": "exempt", "op": "at_most", "n": 2}], "per_tenancy": None, "coverage_quotes": []})
+        second = self.record(category="security_deposits", citation="Cambridge Mun. Code §155-13", title="Exempt buildings",
+                             quoted_span="The annual rent increase may not exceed 3 percent for the period March 1, 2026 through February 28, 2027.",
+                             applicability={"conditions": [{"type": "owner", "role": "exempt", "who": "owner-occupied", "unit_limit": 2}], "per_tenancy": None, "coverage_quotes": []})
+        res = self.ingest(deposit, second)
+        self.assertEqual(len(res.rules), 1, res.rejected)
+        r = res.rules[0]
+        self.assertEqual(r["citation"], "Cambridge Mun. Code ch. 155")
+        self.assertEqual(r["applicability"]["min_units"], 3)                 # from the first section
+        self.assertTrue(r["applicability"]["owner_dependent"])               # folded in from the second
+        self.assertEqual(r["merged_from"], 2)
+        self.assertEqual(len(r["sub_rules"]), 1)
+        # ordinance numbers and a single section are left alone
+        single = self.ingest(self.record(citation="Cambridge Mun. Code §155-4"))
+        self.assertEqual(single.rules[0]["citation"], "Cambridge Mun. Code §155-4")
+
+    def test_one_law_cited_with_and_without_the_act_number_is_one_rule(self):
+        plain = self.record(citation="Cambridge Mun. Code §8.99.010")
+        detailed = self.record(citation="Ordinance 2026-31 (Cambridge Mun. Code §8.99.010)", title="Same law, cited with its ordinance number",
+                               quoted_span="The annual rent increase may not exceed 3 percent for the period March 1, 2026 through February 28, 2027.")
+        res = self.ingest(plain, detailed)
+        self.assertEqual(len(res.rules), 1, [r["citation"] for r in res.rules])
+        self.assertEqual(res.rules[0]["citation"], "Cambridge Mun. Code §8.99.010")      # the plainest form is kept
+        # sections of one STATE statute are different laws and stay separate; sections of one city chapter merge (the test above)
+        state_a = self.record(jurisdiction="MA", citation="G.L. c. 186, §15B")
+        state_b = self.record(jurisdiction="MA", citation="G.L. c. 186, §15C", title="Another section",
+                              quoted_span="The annual rent increase may not exceed 3 percent for the period March 1, 2026 through February 28, 2027.")
+        self.assertEqual(len(self.ingest(state_a, state_b).rules), 2)
+
     def test_wrong_fields_never_reject_the_record(self):
         bad = self.record(valid_through="someday", relations="yes",
                           applicability={"conditions": [{"type": "units", "role": "exempt", "op": "at_most", "n": 99}],
@@ -300,6 +331,59 @@ class IngestTests(unittest.TestCase):
         self.assertIn("could not be matched", r["applicability"]["other"])
         self.assertEqual(r["applicability"]["coverage_quotes"], [])
         self.assertTrue(r["warnings"])
+
+
+
+
+class CoveredAlternativesAndMergeTests(unittest.TestCase):
+    def test_covered_limit_with_also_is_kept_apart(self):
+        out, w = parse([{"type": "built", "role": "covered", "op": "on_or_before", "date": "1978-10-01", "basis": "construction",
+                         "also": "replacement units under section 151.28"}])
+        self.assertIsNone(out["built_on_or_before"])                   # the limit alone no longer leaves buildings out
+        self.assertEqual(out["alternatives"], [{"flats": {"built_on_or_before": "1978-10-01", "date_basis": "construction_date"},
+                                                "also": "replacement units under section 151.28"}])
+        self.assertEqual(out["date_basis"], "construction_date")
+        plain, _ = parse([{"type": "built", "role": "covered", "op": "on_or_before", "date": "1978-10-01"}])
+        self.assertEqual((plain["built_on_or_before"], plain["alternatives"]), ("1978-10-01", []))
+        units, _ = parse([{"type": "units", "role": "covered", "op": "at_least", "n": 3, "also": "any building owned by a corporation"}])
+        self.assertIsNone(units["min_units"])
+        self.assertEqual(units["alternatives"][0]["flats"], {"min_units": 3})
+
+    def test_covered_years_and_government_owner_note(self):
+        out, w = parse([{"type": "built_within_years", "role": "covered", "years": 15, "basis": "construction"}])
+        self.assertEqual((out["covered_if_newer_than_years"], out["exempt_if_newer_than_years"]), (15, None))
+        self.assertEqual(w, [])
+        out, _ = parse([{"type": "owner", "role": "exempt", "who": "owned by a housing authority or the government", "unit_limit": None}])
+        self.assertFalse(out["owner_dependent"])                       # a kind of housing: a note, not the owner's status
+        self.assertEqual(out["program_notes"], ["owned by a housing authority or the government"])
+        out, _ = parse([{"type": "owner", "role": "exempt", "who": "owner-occupied buildings", "unit_limit": None}])
+        self.assertTrue(out["owner_dependent"])                        # real owner status still counts
+
+    def test_the_same_exemption_written_short_and_in_full_keeps_the_full_one(self):
+        short = {"flats_all": [{"built_before": "1987-06-25"}, {"built_after": "1992-06-25"}], "note": "dates", "conditional": True}
+        full = {"flats_all": [{"built_before": "1987-06-25", "date_basis": "construction_date"}, {"built_after": "1992-06-25"},
+                              {"exempt_if_newer_than_years": 30}], "note": "dates and 30 years", "conditional": True}
+        for first, second in ((short, full), (full, short)):
+            items = []
+            conditions.add_deferred(items, first)
+            conditions.add_deferred(items, second)
+            self.assertEqual(items, [full])
+        other = {"flats": {"min_units": 5}, "note": "five units", "conditional": True}
+        items = [full]
+        conditions.add_deferred(items, other)
+        self.assertEqual(len(items), 2)                                # a different exemption stays separate
+
+
+class OcrSpacingTest(unittest.TestCase):
+    def test_spaced_thousands_and_parentheses(self):
+        from nav import facts
+        self.assertEqual(facts.numbers_in("a fee of $ 1, 000 within ( 30) days") & {"1000", "30"}, {"1000", "30"})
+
+    def test_effective_days_after_adoption_with_adopted_this_day(self):
+        from nav import facts
+        text = "This ordinance shall be effective thirty ( 30) days after its adoption.\nADOPTED this 3rd day of March, 2026."
+        a = facts.act_dates(text)
+        self.assertEqual((a.approved, a.effective), ("2026-03-03", "2026-04-02"))
 
 
 if __name__ == "__main__":

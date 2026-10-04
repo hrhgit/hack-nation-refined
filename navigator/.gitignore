@@ -4,9 +4,14 @@ __pycache__/
 .env.*
 !.env.example
 worklog/
-# regenerable from the corpus; keep work/out/ (raw model answers = audit trail) and outputs/
+# Regenerable packets; raw answers under work/out/ stay local (root ignore rules).
 work/packets/
 work/paste/
-# 76 MB, rebuilt by `python3 -m lookup build --offline`
+# Rebuilt by `npm run lookup -- build --offline`.
 work/lookup_audit.json
 work/geocode_cache/
+
+# Local migration runs, compiled JavaScript and coverage
+tests/.migration/
+dist/
+coverage/

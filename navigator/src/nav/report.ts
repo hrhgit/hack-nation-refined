@@ -1,0 +1,23 @@
+import type {Data} from '../types.js';
+import type {IngestResult} from './ingest.js';
+import {counter, pyStr, readJson, slice, sortedEntries, unique} from '../util.js';
+import {KNOWN_JURISDICTIONS, Paths, categories, loadSchema} from './config.js';
+const SHORT: Data = {rent_increase_limits: 'rent', just_cause_eviction: 'just cause', security_deposits: 'deposit', application_screening_fees: 'app fees', screening_restrictions: 'screening', algorithmic_rent_setting: 'algo'};
+const STATUS_MARK: Data = {not_yet_effective: 'N', pending: 'P', failed: 'F'};
+function matrix(paths: Paths, res: IngestResult): string[] {
+  const cats = categories(loadSchema(paths)), rows = [...KNOWN_JURISDICTIONS, ...unique<string>(res.rules.map(r => r.jurisdiction)).filter(j => !KNOWN_JURISDICTIONS.includes(j)).sort()], out = ['| jurisdiction | ' + cats.map(c => SHORT[c] || c).join(' | ') + ' |', '|---|' + '---|'.repeat(cats.length)];
+  for (const j of rows) {const cols = cats.map(c => {const sts = res.rules.filter(r => r.jurisdiction === j && r.category === c).map(r => r.status); if (!sts.length) return '·'; const marks = sortedEntries(counter(sts.filter(s => STATUS_MARK[s]).map(s => STATUS_MARK[s]))), extra = marks.length ? ' (' + marks.map(([k, v]) => v + k).join(',') + ')' : ''; return sts.length + extra;}); out.push(`| ${j} | ${cols.join(' | ')} |`);}
+  return [...out, '', '`·` = no rule extracted. N = not yet effective, P = pending bill, F = failed. An empty cell is correct for some cells (e.g. MA has no rent control): check, do not assume.'];
+}
+export function renderReport(paths: Paths, res: IngestResult): string {
+  const idx = readJson(paths.index_file), c = res.counts, out = ['# Extraction report', '', `- as of **${res.as_of}**`, `- answer files read: ${c.files} | records parsed: ${c.records_parsed} | accepted: ${c.accepted} | rejected and still open: ${c.rejected} (+${c.rejected_fixed} rejected earlier and since fixed) | rules after merging: **${c.rules}**`, `- packets done: **${c.packets_done} / ${c.packets_total}**`, ''];
+  const notdone = Object.entries(res.states).filter(([, s]) => s.state !== 'done'); out.push(`## Packets still open (${notdone.length})`, '');
+  if (notdone.length) {out.push('States: ' + sortedEntries(counter(notdone.map(([, s]) => s.state))).map(([k, v]) => `${k} ${v}`).join(', '), '', '| packet | state | detail |', '|---|---|---|'); for (const [p, s] of notdone.slice(0, 200)) out.push(`| ${p} | ${s.state} | ${s.detail} |`); out.push('', 'Run `npm run nav -- bundle` to get paste files for exactly these packets.');} else out.push('None. Every packet has a complete, clean answer.'); out.push('');
+  if (res.parse_problems.length) out.push('## Answer-file problems', '', ...res.parse_problems.map(([f, p]) => `- \`${f}\`: ${p}`), '');
+  const rejected = res.rejected.filter(r => r.open); if (rejected.length) {out.push(`## Rejected records (${rejected.length})`, '', 'These did not enter rules.json. `bundle` asks the model to fix them.', ''); for (const r of rejected.slice(0, 100)) out.push(`- **${r.packet_id}** \`${slice(pyStr(r.record.citation), 0, 50)}\` ${slice(pyStr(r.record.title), 0, 50)}: ${r.reasons.join('; ')}`); out.push('');}
+  const flagged = res.rules.filter(r => r.warnings.length || r.conflict_flag); out.push(`## Rules to check by hand (${flagged.length} of ${res.rules.length})`, ''); for (const r of flagged) {out.push(`- **${r.team_rule_id}** ${r.jurisdiction} | ${r.category} | ${r.citation}`, ...r.warnings.map((w: string) => '    - warning: ' + w)); if (r.conflict_flag) out.push('    - conflict: ' + r.conflict_note);} out.push('');
+  if (res.conflicts.length) {out.push('## Sources that disagree', ''); for (const [name, notes] of res.conflicts) out.push('- ' + name, ...notes.map(n => '    - ' + n)); out.push('');}
+  if (res.near_duplicates.length) out.push('## Possible duplicates (same jurisdiction and category, overlapping citations)', '', ...res.near_duplicates.map(([n, a, b]) => `- ${n}: \`${a}\` vs \`${b}\``), ''); out.push('## Coverage matrix', '', ...matrix(paths, res), '');
+  const dropped = Object.entries<Data>(idx.docs).filter(([, v]) => v.dropped_blocks?.length); if (dropped.length) {out.push('## Blocks left out of very long documents (check nothing you need is here)', ''); for (const [d, v] of dropped) {out.push(`- ${d}: ${v.dropped_blocks.length} of ${v.blocks} blocks left out (${v.dropped_blocks.reduce((n: number, b: Data) => n + b.chars, 0).toLocaleString('en-US')} chars)`); for (const b of v.dropped_blocks.slice(0, 40)) out.push(`    - block ${b.idx} (${b.chars} chars): ${b.heading}`);} out.push('');}
+  return out.join('\n') + '\n';
+}

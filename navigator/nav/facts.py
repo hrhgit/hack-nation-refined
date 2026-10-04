@@ -135,9 +135,17 @@ def _canon(x: float) -> str:
     return ("%g" % x)
 
 
+def unspace_numbers(text: str) -> str:
+    """Close gaps that scanned pages put inside numbers: '$ 1, 000' -> '$1,000', '( 30)' -> '(30)'."""
+    text = re.sub(r"(?<=\d)\s*,\s*(?=\d{3}\b)", ",", text)
+    text = re.sub(r"\$\s+(?=\d)", "$", text)
+    return re.sub(r"\(\s+(?=\d)|(?<=\d)\s+\)", lambda m: "(" if m.group().startswith("(") else ")", text)
+
+
 def numbers_in(text: str) -> Set[str]:
     """Numeric tokens in text, digits and spelled-out, canonicalised ('1,500' -> '1500', 'five' -> '5')."""
     out: Set[str] = set()
+    text = unspace_numbers(text)
     for m in RX_NUM.finditer(text):
         tok = m.group().replace(",", "")
         try:
@@ -287,7 +295,7 @@ RX_NTH_MONTH = re.compile(
 RX_IMMEDIATE = re.compile(r"\btakes?\s+effect\s+immediately\b", re.I)
 # "on the thirtieth day after final passage", "90 days after enactment", "ninety (90) days after its final passage"
 RX_DAYS_AFTER = re.compile(
-    r"\btakes?\s+effect\s+(?:on\s+the\s+)?(?:" + _COUNT + r"\s*(?:\((?P<d>\d{1,3})\)\s*)?)days?\s+(?:next\s+)?"
+    r"\b(?:takes?\s+effect|(?:shall\s+(?:be|become)\s+|is\s+|becomes?\s+)?effective)\s+(?:on\s+the\s+)?(?:" + _COUNT + r"\s*(?:\(\s*(?P<d>\d{1,3})\s*\)\s*)?)days?\s+(?:next\s+)?"
     r"(?:after|following)\s+(?:the\s+date\s+of\s+)?(?:its\s+)?" + _EVENT, re.I)
 RX_APPROVED = re.compile(
     r"\b(?:approved|passed(?:\s+to\s+be\s+ordained)?|adopted|enacted|signed)(?:\s+by\s+(?:the\s+)?[a-z .]{3,40}?)?"
@@ -324,6 +332,10 @@ class ActDates(object):
         self.approved, self.effective, self.clause, self.method = approved, effective, clause, method
 
 
+RX_ADOPTED_DAY_OF = re.compile(
+    r"\b(?:approved|passed|adopted|enacted|signed)\s+this\s+(\d{1,2})(?:st|nd|rd|th)?\s+day\s+of\s+%s,?\s+(\d{4})" % _MON, re.I)
+
+
 def act_dates(text: str) -> Optional[ActDates]:
     """Effective date of a whole act when it is written as a rule ('first day of the twelfth month next following
     the date of enactment') together with the act's approval date. None unless the text has exactly one such
@@ -335,6 +347,7 @@ def act_dates(text: str) -> Optional[ActDates]:
     if len(clauses) != 1:
         return None
     approved = sorted({_iso(int(m.group(3)), _mon(m.group(1)), int(m.group(2))) for m in RX_APPROVED.finditer(text)} - {None})
+    approved = sorted(set(approved) | ({_iso(int(m.group(3)), _mon(m.group(2)), int(m.group(1))) for m in RX_ADOPTED_DAY_OF.finditer(text)} - {None}))
     if len(approved) != 1:
         return None
     kind, m = clauses[0]

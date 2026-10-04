@@ -8,21 +8,22 @@ Repository: `/Users/herh/MyFiles/Projects/hack-nation/navigator`. Run every comm
 
 ```
 cd /Users/herh/MyFiles/Projects/hack-nation/navigator
-python3 -m unittest discover -s tests
-python3 run.py status
+npm ci
+npm test
+npm run nav -- status
 ```
 
-The tests must end with `OK`. `status` shows how many packets are `pending` (65 on a fresh start; fewer if a previous run already did some). All progress lives in files, so you can stop and resume at any time: after a restart or a context reset, run `status` and continue at step 1.
+The tests must pass without failures. `status` shows how many packets are `pending` (65 on a fresh start; fewer if a previous run already did some). All progress lives in files, so you can stop and resume at any time: after a restart or a context reset, run `status` and continue at step 1.
 
 ## 1. The loop (one batch at a time)
 
-1. `python3 run.py bundle`
+1. `npm run nav -- bundle`
    It prints the names of batch files in `work/paste/`. Each one covers only packets that still need an answer.
 2. Open the **first** batch file and read all of it. It has three parts: the extraction instructions, a `# DELIVERY` section with the exact output path for this batch, and the source packets.
    - If your file reader cuts the file off, read it in slices (for example with `sed -n '1,400p'`) until you have seen everything. Never answer from a partial read.
-   - If your context is small (under about 100k tokens), run `python3 run.py bundle --paste-chars 25000` instead, to get smaller batches.
+   - If your context is small (under about 100k tokens), run `npm run nav -- bundle --paste-chars 25000` instead, to get smaller batches.
 3. Write the answer: **UTF-8 JSON Lines, saved to the path named in the batch's DELIVERY section** (always `work/out/<batch name>.jsonl`). Use your file-writing tool, not a shell heredoc. For each packet, in order: its rule records, then its one receipt line. No markdown fences, no headings, no commentary inside the file. The field definitions, categories and rules are in the batch file; follow them exactly.
-4. `python3 run.py ingest`
+4. `npm run nav -- ingest`
    It validates every record against the source text and prints one summary line, for example `answer files: 3 | records: 40 | accepted: 36 | rejected (open): 4 | rules: 31 | packets done: 12/65`. It also writes `outputs/rules.json` and `work/report.md`.
 5. Go back to step 1. The next `bundle` automatically drops packets that are `done` and brings back any packet that was rejected, cut off or miscounted, with the problems listed above that packet. Answer those problems like any other batch.
 
@@ -65,11 +66,11 @@ After **three** failed attempts on the same packet, stop retrying that packet an
 
 ## 5. When to stop
 
-- `python3 run.py status` shows every packet as `done`, or
+- `npm run nav -- status` shows every packet as `done`, or
 - only packets you gave up on after three attempts remain, or
 - a blocker: the tests fail, a script crashes with a traceback, or a file named above is missing. Stop and report the exact error. Do not try to repair the pipeline yourself.
 
-Then run `python3 run.py ingest` one last time.
+Then run `npm run nav -- ingest` one last time.
 
 ## 6. Final message to the user (at most 25 lines)
 

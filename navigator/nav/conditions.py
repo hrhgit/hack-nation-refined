@@ -16,8 +16,9 @@ from . import facts
 CONTRACT_VERSION = 2
 
 APPL_KEYS = ["built_on_or_before", "built_before", "built_after", "built_on_or_after", "date_basis",
-             "min_units", "max_units", "exempt_if_newer_than_years", "owner_dependent",
-             "owner_exempt_if_units_at_most", "other", "program_notes", "per_tenancy", "coverage_quotes", "deferred", "contract"]
+             "min_units", "max_units", "exempt_if_newer_than_years", "covered_if_newer_than_years", "owner_dependent",
+             "owner_exempt_if_units_at_most", "other", "program_notes", "per_tenancy", "coverage_quotes", "deferred", "alternatives",
+             "contract"]
 DATE_KEYS = ["built_on_or_before", "built_before", "built_after", "built_on_or_after"]
 DATE_BASES = {"certificate_of_occupancy", "construction_date", "unspecified"}
 RELATION_TYPES = {"preempts_local", "yields_to_local"}
@@ -54,6 +55,7 @@ def empty() -> Dict[str, Any]:
     out["owner_dependent"] = False
     out["coverage_quotes"] = []
     out["deferred"] = []
+    out["alternatives"] = []
     out["program_notes"] = []
     return out
 
@@ -103,7 +105,11 @@ def _stricter(key: str, old: Optional[str], new: str) -> str:
     return old if ((a <= b) == keep_earlier) else new
 
 
-OWNER_KIND = re.compile(r"single.family|condominium|alienable|mobile ?home", re.I)
+# An owner exemption with no size limit that names a KIND of housing (single homes, condominiums, housing owned by a government body
+# or a housing authority) is a note, like the same words in an `other` condition; it is not the owner's status.
+OWNER_KIND = re.compile(r"single.family|condominium|alienable|mobile ?home|government|public(?:ly)?[- ]owned|public housing|housing authority|"
+                        r"(?:city|county|state|municipal)[- ]owned", re.I)
+MAX_ALSO = 200
 
 
 def _apply_flats(out: Dict[str, Any], flats: Dict[str, Any]) -> None:
@@ -116,6 +122,27 @@ def _apply_flats(out: Dict[str, Any], flats: Dict[str, Any]) -> None:
             out[k] = v if out[k] is None else min(out[k], v)
         elif k == "exempt_if_newer_than_years":
             out[k] = v if out[k] is None else max(out[k], v)
+        elif k == "covered_if_newer_than_years":
+            out[k] = v if out[k] is None else min(out[k], v)
+
+
+def _also(c: Dict[str, Any]) -> Optional[str]:
+    """The other kind of building a `covered` limit does not reach but the text covers anyway ("as well as replacement units")."""
+    v = c.get("also")
+    text = _text(v) if isinstance(v, str) else None
+    return text[:MAX_ALSO] if text else None
+
+
+def _covered(c: Dict[str, Any], flats: Dict[str, Any], out: Dict[str, Any]) -> None:
+    """A limit that says who is covered. With an `also`, a building outside the limit may still be covered through the other kind, so
+    the limit is kept apart in `alternatives`: the lookup treats a building outside it as an open question, never as left out."""
+    also = _also(c)
+    if also is None:
+        _apply_flats(out, flats)
+        return
+    item = {"flats": dict(flats), "also": also}
+    if item not in out["alternatives"]:
+        out["alternatives"].append(item)
 
 
 def _finish_exempt(out: Dict[str, Any], members: List[Dict[str, Any]], conditional: bool, note: str,
@@ -138,8 +165,7 @@ def _finish_exempt(out: Dict[str, Any], members: List[Dict[str, Any]], condition
     else:
         item = {"flats_all": [dict(m, **({"date_basis": basis_name} if basis_name else {})) for m in members],
                 "note": note, "conditional": conditional}
-    if item not in out["deferred"]:
-        out["deferred"].append(item)
+    add_deferred(out["deferred"], item)
 
 
 def _exempt(c: Dict[str, Any], flats: Dict[str, Any], note: str, basis_name: Optional[str], out: Dict[str, Any],
@@ -181,16 +207,23 @@ def _condition(c: Any, out: Dict[str, Any], unresolved: List[str], basis: List[s
         b = BASIS_NAMES.get((_text(c.get("basis")) or "").lower())
         if role == "exempt":
             return _exempt(c, {key: date}, "built %s %s" % (op.replace("_", " "), date), b, out, groups, basis)
-        out[key] = _stricter(key, out[key], date)
+        _covered(c, dict({key: date}, **({"date_basis": b} if b else {})), out)
         if b:
             basis.append(b)
     elif kind == "built_within_years":
         years = _int(c.get("years"))
-        if role != "exempt" or years is None:
-            return doubt("only an exemption for housing newer than N years can be tested")
+        if role not in ROLES or years is None:
+            return doubt("needs role covered/exempt and a whole number of years")
         if not _number_supported(years, nums):
             return doubt("%s years is not in the source" % years)
         b = BASIS_NAMES.get((_text(c.get("basis")) or "").lower())
+        if role == "covered":
+            # a rule that is itself a benefit for new buildings ("new construction is exempt from rent control for 30 years") applies
+            # to the buildings it names: those built within the last N years
+            _apply_flats(out, {"covered_if_newer_than_years": years})
+            if b:
+                basis.append(b)
+            return
         _exempt(c, {"exempt_if_newer_than_years": years}, "built within the last %d years" % years, b, out, groups, basis)
     elif kind == "units":
         op = (_text(c.get("op")) or "").lower()
@@ -207,7 +240,7 @@ def _condition(c: Any, out: Dict[str, Any], unresolved: List[str], basis: List[s
         if role == "exempt":
             return _exempt(c, {"min_units": lo} if lo is not None else {"max_units": hi},
                            "%s %d units" % (op.replace("_", " "), n), None, out, groups, basis)
-        _apply_flats(out, {"min_units": lo} if lo is not None else {"max_units": hi})
+        _covered(c, {"min_units": lo} if lo is not None else {"max_units": hi}, out)
     elif kind == "owner":
         who = _text(c.get("who"))
         limit = _int(c.get("unit_limit")) if c.get("unit_limit") is not None else None
@@ -331,11 +364,34 @@ def parse_relations(raw: Any, warns: List[str], locate: Optional[Locate] = None)
     return out
 
 
+def _window(item: Dict[str, Any]) -> Set[str]:
+    """The conditions of one deferred exemption, without the date basis, so two descriptions of it can be compared."""
+    members = item.get("flats_all") or [item.get("flats") or {}]
+    return {repr(sorted((k, v) for k, v in m.items() if k != "date_basis")) for m in members}
+
+
+def add_deferred(items: List[Dict[str, Any]], new: Dict[str, Any]) -> None:
+    """Add an exemption window to a rule. Two documents can describe the SAME exemption, one in full (a window of dates and a 30-year
+    limit) and one in short (the dates alone). Keeping both would read as two exemptions and the shorter one, which reaches more
+    buildings, would win; so when one description holds all the conditions of the other and more, the fuller one replaces it."""
+    mine = _window(new)
+    for i, old in enumerate(items):
+        theirs = _window(old)
+        if mine == theirs:
+            return
+        if theirs < mine:
+            items[i] = new
+            return
+        if mine < theirs:
+            return
+    items.append(new)
+
+
 def merge(primary: Dict[str, Any], other: Dict[str, Any], doc_id: str, notes: List[str], warns: List[str]) -> None:
     """Fill the primary record's conditions from another document about the same law. Never overwrite."""
     a, b = primary["applicability"], other["applicability"]
-    for k in DATE_KEYS + ["min_units", "max_units", "exempt_if_newer_than_years", "owner_exempt_if_units_at_most",
-                          "date_basis"]:
+    for k in DATE_KEYS + ["min_units", "max_units", "exempt_if_newer_than_years", "covered_if_newer_than_years",
+                          "owner_exempt_if_units_at_most", "date_basis"]:
         if a.get(k) is None and b.get(k) is not None:
             a[k] = b[k]
             notes.append("applicability.%s taken from %s" % (k, doc_id))
@@ -352,8 +408,10 @@ def merge(primary: Dict[str, Any], other: Dict[str, Any], doc_id: str, notes: Li
         if q not in a["coverage_quotes"] and len(a["coverage_quotes"]) < MAX_QUOTES:
             a["coverage_quotes"].append(q)
     for item in b.get("deferred") or []:
-        if item not in a["deferred"]:
-            a["deferred"].append(item)
+        add_deferred(a["deferred"], item)
+    for item in b.get("alternatives") or []:
+        if item not in a.setdefault("alternatives", []):
+            a["alternatives"].append(item)
     for text in b.get("program_notes") or []:
         if text not in a["program_notes"]:
             a["program_notes"].append(text)
