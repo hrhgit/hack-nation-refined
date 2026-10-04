@@ -12,7 +12,7 @@
   --amber: #9a5b00; --amber-wash: #fff4da; --red: #b3261e; --red-wash: #fdecea; --hl: #ffe873;
   --shadow: 0 14px 36px rgba(18, 26, 43, .18), 0 2px 6px rgba(18, 26, 43, .08);
   --sans: "Libre Franklin", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --serif: "Literata", "Iowan Old Style", "Palatino Linotype", Georgia, "Songti SC", serif;
+  --serif: "Literata", "Noto Serif SC", "Iowan Old Style", "Palatino Linotype", Georgia, "Songti SC", serif;
   --r: 7px;
 }
 @media (prefers-color-scheme: dark) {
@@ -28,7 +28,7 @@
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
 html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--page); color: var(--ink); font: 15px/1.5 var(--sans); }
+body { margin: 0; background: var(--page); color: var(--ink); font: 15px/1.5 var(--sans); font-variant-numeric: tabular-nums; }
 h1, h2, h3, p, ul, ol, dl, dd, figure, blockquote { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
 a { color: var(--accent); text-underline-offset: 3px; }
