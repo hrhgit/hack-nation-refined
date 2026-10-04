@@ -78,6 +78,6 @@ export async function handle(request: Request): Promise<Response> {
     try { return json(200, routes[url.pathname]!(q)); }
     catch (e) { const err = e as Error; return json(e instanceof nav.NotFound ? 404 : "code" in err ? 500 : 400, { error: err.message }); }
   } finally {
-    await flushPersisted().catch(() => {});
+    await flushPersisted().catch((e) => console.error("nav flush failed", e));
   }
 }

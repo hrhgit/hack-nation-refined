@@ -24,6 +24,7 @@ export async function loadPersisted(): Promise<void> {
 }
 
 export async function flushPersisted(): Promise<void> {
+  console.error("nav flush", dirty.size, removed.size);
   if (!dirty.size && !removed.size) return;
   const client = await db();
   const write = [...dirty], gone = [...removed];
