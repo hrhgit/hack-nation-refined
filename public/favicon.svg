@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#1740b0"/>
+  <rect x="3.5" y="3.5" width="25" height="25" rx="3.5" fill="none" stroke="#fff" stroke-opacity=".85" stroke-width="1.5"/>
+  <text x="16" y="23" text-anchor="middle" font-family="Georgia,serif" font-size="19" font-weight="700" fill="#fff">§</text>
+</svg>
