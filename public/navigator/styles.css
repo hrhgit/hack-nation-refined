@@ -448,3 +448,5 @@ body > main { flex: 1 0 auto; width: 100%; }
 .tally thead th, .docs thead th { color: var(--ink-3); font-size: 12px; font-weight: 600; letter-spacing: .03em; }
 
 .landing .browse-state, .browse > div > button.browse-state { color: var(--ink-3); font-size: 12.5px; letter-spacing: .03em; }
+.note { border-radius: 0; }
+.case-body p b:first-child { color: var(--ink-2); font-weight: 600; }
