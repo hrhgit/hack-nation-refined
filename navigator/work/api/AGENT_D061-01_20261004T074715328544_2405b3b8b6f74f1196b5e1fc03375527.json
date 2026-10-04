@@ -1,0 +1,131 @@
+{
+  "packet_id": "D061-01",
+  "model": "deepseek-flash",
+  "as_of": "2026-10-01",
+  "prompt_sha256": "53c560f245304eed3b15a2f403223aa4d375abc6f1a5bdaab0d25903198a34e6",
+  "steps": 3,
+  "cards_read": [
+    "citations",
+    "relations",
+    "owner_and_exceptions"
+  ],
+  "checks": 1,
+  "usage": [
+    {
+      "prompt_tokens": 8651,
+      "completion_tokens": 2374,
+      "total_tokens": 11025,
+      "prompt_tokens_details": {
+        "cached_tokens": 3584
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2276
+      },
+      "prompt_cache_hit_tokens": 3584,
+      "prompt_cache_miss_tokens": 5067
+    },
+    {
+      "prompt_tokens": 12525,
+      "completion_tokens": 379,
+      "total_tokens": 12904,
+      "prompt_tokens_details": {
+        "cached_tokens": 11008
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 22
+      },
+      "prompt_cache_hit_tokens": 11008,
+      "prompt_cache_miss_tokens": 1517
+    },
+    {
+      "prompt_tokens": 13080,
+      "completion_tokens": 353,
+      "total_tokens": 13433,
+      "prompt_tokens_details": {
+        "cached_tokens": 12800
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 12
+      },
+      "prompt_cache_hit_tokens": 12800,
+      "prompt_cache_miss_tokens": 280
+    }
+  ],
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "This packet is NJ Law Against Discrimination 10:5-12. Relevant categories? The packet is about unlawful discrimination in employment, public accommodation, real property. Screening restrictions - source of income protections. Subsection g(4) and h(4): refusing to accept lawful income source, or applying a minimum income requirement not based exclusively on the portion of rent to be paid by tenant. That's a screening restriction (income screening / source of income protection).\n\nAlso there's housing for older persons exemption.\n\nWhich categories apply? screening_restrictions: source-of-income / voucher protections, income screening limits. Yes — subsection g.(4) and h.(4) about source of lawful income and minimum income requirements. That's one law (10:5-12), category screening_restrictions.\n\napplication_screening_fees? Nothing about fees here. No.\n\nrent_increase_limits? No.\n\nSo one record: NJ, screening_restrictions, law 10:5-12.\n\nBut wait, \"Write exactly one record for each law and category.\" The packet includes g and h both being parts of the same law section 10:5-12. So one record.\n\nQuoted span: \"To refuse to sell, rent, lease, assign, or sublease or otherwise to deny to or withhold from any person or group of persons any real property or part or portion thereof because of the source of any lawful income received by the person or the source of any lawful rent payment to be paid for the real property, including, but not limited to, by refusing to accept as payment any source of lawful income, or by applying, in assessing eligibility for the rental of housing, any minimum income requirement or financial standard that is not based exclusively on the portion of the rent to be paid by the tenant\".\n\nThat's long, over 400 chars maybe. Let's count roughly. It's about 600 chars. The guidance says aim 40-400. Hmm, minimum 20. Maybe pick a shorter portion. Let me choose from h.(4) which is similar. Actually maybe pick a shorter contiguous segment. Could I quote: \"or by applying, in assessing eligibility for the rental of housing, any minimum income requirement or financial standard that is not based exclusively on the portion of the rent to be paid by the tenant\"? That's ~200 chars. But it's mid-sentence. It's fine — contiguous.\n\nActually let me count: \"or by applying, in assessing eligibility for the rental of housing, any minimum income requirement or financial standard that is not based exclusively on the portion of the rent to be paid by the tenant;\" ~ 200 characters. Good. But key value? There's no number. key_value null.\n\nHmm, but maybe better to quote the source-of-income refusal part. Let's combine? Both are contiguous within g.(4). Let me just use a span under 400. The full g.(4):\n\n\"To refuse to sell, rent, lease, assign, or sublease or otherwise to deny to or withhold from any person or group of persons any real property or part or portion thereof because of the source of any lawful income received by the person or the source of any lawful rent payment to be paid for the real property, including, but not limited to, by refusing to accept as payment any source of lawful income, or by applying, in assessing eligibility for the rental of housing, any minimum income requirement or financial standard that is not based exclusively on the portion of the rent to be paid by the tenant; or\"\n\nCount: let's estimate. It's long, ~560 chars. Over 400. Let me instead take a portion: \"To refuse to sell, rent, lease, assign, or sublease or otherwise to deny to or withhold from any person or group of persons any real property or part or portion thereof because of the source of any lawful income received by the person or the source of any lawful rent payment to be paid for the real property, including, but not limited to, by refusing to accept as payment any source of lawful income\" — count ~390? Let me count carefully.\n\n\"To refuse to sell, rent, lease, assign, or sublease or otherwise to deny to or withhold from any person or group of persons any real property or part or portion thereof because of the source of any lawful income received by the person or the source of any lawful rent payment to be paid for the real property, including, but not limited to, by refusing to accept as payment any source of lawful income\"\n\nCount: \n\"To refuse to sell, rent, lease, assign, or sublease\" = 50\n\" or otherwise to deny to or withhold from any person or group of persons\" ≈ 69 → 119\n\" any real property or part or portion thereof\" ≈ 46 → 165\n\" because of the source of any lawful income received by the person\" ≈ 66 → 231\n\" or the source of any lawful rent payment to be paid for the real property,\" ≈ 78 → 309\n\" including, but not limited to, by refusing to accept as payment any source of lawful income\" ≈ 96 → 405.\n\nSlightly over 400. Hmm. Could trim to end at \"...real property\" and then add the income requirement clause? Not contiguous if I skip. Let me just use the shorter fragment:\n\n\"because of the source of any lawful income received by the person or the source of any lawful rent payment to be paid for the real property, including, but not limited to, by refusing to accept as payment any source of lawful income, or by applying, in assessing eligibility for the rental of housing, any minimum income requirement or financial standard that is not based exclusively on the portion of the rent to be paid by the tenant\"\n\nCount: ~440. Still a bit over. Hmm.\n\nLet's just use the income-requirement portion alone (~200 chars), which carries the core requirement. Actually the core requirement about source of income is the \"refusing to accept as payment any source of lawful income\" - and the minimum income requirement clause. The span must support the record on its own. The income requirement fragment alone doesn't include source of income. Maybe better to include both but keep near 400.\n\nLet me pick: \"including, but not limited to, by refusing to accept as payment any source of lawful income, or by applying, in assessing eligibility for the rental of housing, any minimum income requirement or financial standard that is not based exclusively on the portion of the rent to be paid by the tenant;\" \n\nCount: \"including, but not limited to, by refusing to accept as payment any source of lawful income,\" ≈ 92. \" or by applying, in assessing eligibility for the rental of housing,\" ≈ 66 → 158. \" any minimum income requirement or financial standard that is not based exclusively on the portion of the rent to be paid by the tenant;\" ≈ 138 → 296. Good, ~296 chars. That covers both. \n\nNow let me consider: is there a second record for this law? The packet also covers discrimination in real property generally (g.(1),(2),(3)) — that's general discrimination law, not screening. The screening_restrictions category covers \"source-of-income / voucher protections.\" So g.(4) and h.(4) belong. Those are two subsections of the same law — but the rule says one record per law and category. So merge into one.\n\nActually, wait: are g and h different \"laws\"? No, both are subdivisions of 10:5-12. One record.\n\nAlso, subsection i is about credit/loans discrimination but that's financial institutions for loans — not rental screening. Ignore.\n\nSo one rule record. Then receipt.\n\nNow applicability: {\"conditions\":[],\"per_tenancy\":null,\"coverage_quotes\":[]}. The law applies to any person including owners, lessees, managing agents of real property. Does it set conditions on buildings? No building age/size limits. There's exemption for housing for older persons (paragraph (5) exemption, and references subsection mm of section 5). But the source-of-income provision doesn't have that exemption. Hmm, the \"housing for older persons\" exemption applies to paragraph (5) only (familial status/children). So not relevant to source of income.\n\nSo conditions [] is fine.\n\nExemptions: none specific to source-of-income rule. Could say null.\n\nCitation: \"N.J.S.A. 10:5-12\" — section level, no subdivision letters. Use \"N.J.S.A. § 10:5-12\" or \"N.J. Stat. Ann. § 10:5-12\". The card citations might guide format. Let me read the citations card.\n\nInteraction/relations: does the packet mention relations with other levels of law? It references P.L.1945. Not levels. relations [].\n\neffective_date: none in packet. null. valid_through null.\n\npenalty: The packet mentions penalties for private club alcoholic beverage license violators — not relevant. No penalty stated for source-of-income. null.\n\nconfidence: operative statutory text, numbers not relevant → 0.9? The source-of-income protection explicitly stated. Confidence 0.9.\n\nconflict_flag false.\n\nlifecycle enacted.\n\ntitle: \"Law Against Discrimination source-of-income and income-screening prohibition\".\n\ncoverage_conditions: \"Applies to any person with the right to sell, rent, lease, assign or sublease real property, and to real estate brokers or salespersons; prohibits refusing housing or applying income standards not based exclusively on the tenant's rent share.\" At most 40 words. Hmm, that's a description of who's covered. Let me phrase: \"Any person holding the right to sell, rent, lease, assign or sublease real property, and real estate brokers or salespersons; covers refusal to accept lawful income sources and minimum income standards not based on the tenant's rent portion.\" ~38 words. OK.\n\nLet me read the cards: citations, relations, owner_and_exceptions maybe, building_age_and_size? The packet doesn't limit buildings by age/size. There's an owner type scope (any owner, lessee, managing agent). No conditions. I should read owner_and_exceptions? It says read when the packet makes coverage depend on who owns... Hmm, this packet's coverage is broad - \"any person\". Maybe not needed. But the instruction says \"If the packet limits or exempts buildings in any way, read the cards building_age_and_size and owner_and_exceptions\". It doesn't really limit. I'll skip. But let me read citations and relations to be safe.\n\nLet me call read_card for citations and relations.\n\nAlso should I check for screening of criminal history? The packet doesn't mention criminal history. Only source of income and income standards. So one record.\n\nWait — is employment/public accommodation discrimination out of scope? Yes, general discrimination law ignored. Only the housing screening piece matters.\n\nLet me call tools.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_sQJjsrqVGGu79EzcaSaQ1310",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"citations\"}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_PPiU5aXjVbS9jGcdJ8MZ2409",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"relations\"}"
+          }
+        },
+        {
+          "index": 2,
+          "id": "call_02_84zrTm0RQRAmAxbPYazs0319",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"owner_and_exceptions\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_sQJjsrqVGGu79EzcaSaQ1310",
+      "content": "# Card: citations\n\n- `citation`: the legal provision the rule comes from, at section level with no subdivision letters (see CITATIONS).\n- Citation style, one provision per citation: `Cal. Civ. Code § 1947.12`, `Cal. Gov. Code § 12955`, `N.J.S.A. 2A:18-61.1`, `P.L. 2021, c. 110`, `G.L. c. 186, § 15B`, `S.F. Admin. Code § 37.9`, `San Diego Mun. Code § 98.0703`, `Berkeley Mun. Code ch. 13.63`. For a bill give its number, then the code section it adds in parentheses if the text shows one: `AB 325 (Cal. Bus. & Prof. Code § 16729)`, `H.5222`, `S.2983`. Use the form the text itself uses when none of these fits.\n\nWhen the packet prints no code citation, name the law as follows.\n\nWhen the packet prints a code citation for a law, use the packet's. When it does not, and the page is about one of the programs below, cite the law as shown in the right-hand column. The list only names laws: it tells you nothing about what a law says. If the packet does not state a rule, there is no rule. A program that is not on the list is cited by its name exactly as the page names it.\n\n| the law, as pages call it | cite as |\n|---|---|\n| San Francisco Rent Ordinance (rent increases, just cause, relocation, deposit interest, algorithmic devices) | S.F. Admin. Code ch. 37 |\n| Los Angeles Rent Stabilization Ordinance (RSO) | Los Angeles Rent Stabilization Ordinance (L.A.M.C. §151.00 et seq.) |\n| Los Angeles Just Cause Ordinance (JCO), relocation assistance | Los Angeles Just Cause Ordinance (L.A.M.C. §165.00 et seq.) |\n| Berkeley Rent Ordinance, Measure BB | Berkeley Mun. Code ch. 13.76 |\n| Berkeley tenant screening and application fees | Berkeley Mun. Code ch. 13.78 |\n| Berkeley Fair Chance | Berkeley Mun. Code ch. 13.106 |\n| Berkeley coordinated pricing algorithms | Berkeley Mun. Code ch. 13.63 |\n| San Diego tenant protections (just cause) | San Diego Mun. Code §98.0701 et seq. |\n| San Diego automated rent price-fixing ban | San Diego Mun. Code §§98.1101–98.1104 |\n| Jersey City Rent Control Ordinance | Jersey City Mun. Code ch. 260 |\n| Cambridge Fair Housing Ordinance | Cambridge Mun. Code ch. 14.04 |\n| Boston Housing Stability Notification Act | Boston Mun. Code §10-11.7 |\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_01_PPiU5aXjVbS9jGcdJ8MZ2409",
+      "content": "# Card: relations to other levels of law\n\n- `interaction`: how this rule relates to other levels of law, only if the text says so (e.g. `\"State cap yields to this local ordinance\"`, `\"May be preempted by the state act once it takes effect\"`). At most 30 words, else `null`.\n- `relations`: a list, `[]` when none. One entry for each sentence of the packet that says how this law fits with other levels of law: `{\"type\":\"preempts_local\",\"quote\":\"...\"}` when the text bars local governments from regulating this subject or from enacting rules that conflict with this law (it needs an explicit bar such as \"shall not\", \"prohibited\" or \"void\"; a sentence that only says the law does not authorize, require or affect local action is not a relation, so leave it out); `{\"type\":\"yields_to_local\",\"quote\":\"...\"}` when the text says this rule does not apply where a local rule on the same subject governs. The quote is copied character for character from the packet. Attach it to the record of the law the sentence belongs to; if the sentence sits in another section of the same act, attach it to that act's record.\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_02_84zrTm0RQRAmAxbPYazs0319",
+      "content": "# Card: owner conditions and other exceptions\n\n  `{\"type\":\"owner\",\"role\":\"covered\"|\"exempt\",\"who\":\"short words from the text\",\"unit_limit\":N|null}` when coverage or an exemption depends on who owns or lives in the rented building (owner-occupied, small landlord, natural person, corporate owner). It is about the building's owner or landlord, not about software providers, brokers, agencies or tenants: a carve-out inside the definition of a service provider or intermediary is not an owner condition, and neither is an exemption for a licensee, broker or agent who is not the landlord (who collects a fee is a note for `per_tenancy`). Use `owner` only when who owns or lives in the building takes the WHOLE building out of the rule (owner-occupied buildings up to a size, small landlords, corporate owners). A tenancy where the owner or a relative shares a bathroom or kitchen with the tenant, or one unit lived in by the owner's relative, concerns a single tenancy or unit: write it in `per_tenancy`. `unit_limit` is the largest building the exemption reaches, from the text (\"owner-occupied premises of not more than four dwelling units\" gives 4, an owner-occupied duplex gives 2); `null` if the text sets no size.\n  `{\"type\":\"other\",\"text\":\"at most 25 words\"}` for a scope limit or exemption that could decide whether an ordinary apartment building is covered but that year, units and owner cannot settle: for example only subsidized or income-restricted housing is covered, an exemption that needs a government filing, housing already under a lower rent cap set by another agency. Do NOT use it for dormitories, hotels, mobile homes or institutions, for the event that triggers a duty, for \"all residential rentals\", or to repeat an owner, date or unit condition that already has its own entry.\n  `per_tenancy`: conditions that depend on the individual tenancy or tenant (when the lease began, tenant age or income, which kind of lease), on the event that triggers a duty (an eviction for demolition, charging an application fee), on what conduct is covered (an exemption for certain actions rather than certain buildings), or on one unit inside a building (a unit held in trust for, or lived in by, the owner's relative; a unit let to a student or an employee). The program judges the whole building, so an exception that reaches only particular units is a note here, never an `owner` or `other` condition. It is shown to readers as a note and does not change who is covered. `null` if there are none.\n  `coverage_quotes`: up to 3 passages copied from the packet character for character (same rules as QUOTED SPAN, at least 15 characters each) that state the conditions above. `[]` when `conditions` is `[]`.\n"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "Now build the record. Citation: N.J.S.A. 10:5-12.\n\nCheck record.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_2lvjVm17XVage7428FG77800",
+          "type": "function",
+          "function": {
+            "name": "check_record",
+            "arguments": "{\"record_json\": \"{\\\"packet_id\\\":\\\"D061-01\\\",\\\"doc_id\\\":\\\"D061\\\",\\\"jurisdiction\\\":\\\"NJ\\\",\\\"category\\\":\\\"screening_restrictions\\\",\\\"lifecycle\\\":\\\"enacted\\\",\\\"title\\\":\\\"Law Against Discrimination source-of-income and income-standard protection in housing\\\",\\\"requirement\\\":\\\"A landlord, broker, or agent may not refuse to rent or otherwise deny housing because of a lawful income source, refuse to accept any lawful income as rent payment, or apply a minimum income requirement or financial standard not based exclusively on the portion of rent the tenant pays.\\\",\\\"key_value\\\":null,\\\"coverage_conditions\\\":\\\"Applies to any person with the right to sell, rent, lease, assign or sublease real property, and to real estate brokers or salespersons; covers refusal to accept lawful income sources and minimum income standards not based on the tenant's rent portion.\\\",\\\"applicability\\\":{\\\"conditions\\\":[],\\\"per_tenancy\\\":null,\\\"coverage_quotes\\\":[]},\\\"exemptions\\\":null,\\\"penalty\\\":null,\\\"effective_date\\\":null,\\\"valid_through\\\":null,\\\"citation\\\":\\\"N.J.S.A. 10:5-12\\\",\\\"quoted_span\\\":\\\"including, but not limited to, by refusing to accept as payment any source of lawful income, or by applying, in assessing eligibility for the rental of housing, any minimum income requirement or financial standard that is not based exclusively on the portion of the rent to be paid by the tenant;\\\",\\\"interaction\\\":null,\\\"relations\\\":[],\\\"confidence\\\":0.9,\\\"conflict_flag\\\":false,\\\"conflict_note\\\":null}\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_2lvjVm17XVage7428FG77800",
+      "content": "ACCEPTED.\nHow a program reads it: citation 'N.J.S.A. 10:5-12'; lifecycle enacted; effective_date None; valid_through None.\nConditions it will test: none (the rule covers every building)\nWhat the conditions do to made-up buildings on 2026-10-01 (year built, units):\n  built 2022, 20 units -> applies\n  built 2005, 20 units -> applies\n  built 1990, 20 units -> applies\n  built 1970, 20 units -> applies\n  built unknown year, 20 units -> applies\n  built 1950, 2 units -> applies\n  built 1950, 5 units -> applies\n  built 1950, unknown units -> applies"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"packet_id\":\"D061-01\",\"doc_id\":\"D061\",\"jurisdiction\":\"NJ\",\"category\":\"screening_restrictions\",\"lifecycle\":\"enacted\",\"title\":\"Law Against Discrimination source-of-income and income-standard protection in housing\",\"requirement\":\"A landlord, broker, or agent may not refuse to rent or otherwise deny housing because of a lawful income source, refuse to accept any lawful income as rent payment, or apply a minimum income requirement or financial standard not based exclusively on the portion of rent the tenant pays.\",\"key_value\":null,\"coverage_conditions\":\"Applies to any person with the right to sell, rent, lease, assign or sublease real property, and to real estate brokers or salespersons; covers refusal to accept lawful income sources and minimum income standards not based on the tenant's rent portion.\",\"applicability\":{\"conditions\":[],\"per_tenancy\":null,\"coverage_quotes\":[]},\"exemptions\":null,\"penalty\":null,\"effective_date\":null,\"valid_through\":null,\"citation\":\"N.J.S.A. 10:5-12\",\"quoted_span\":\"including, but not limited to, by refusing to accept as payment any source of lawful income, or by applying, in assessing eligibility for the rental of housing, any minimum income requirement or financial standard that is not based exclusively on the portion of the rent to be paid by the tenant;\",\"interaction\":null,\"relations\":[],\"confidence\":0.9,\"conflict_flag\":false,\"conflict_note\":null}\n{\"packet_id\":\"D061-01\",\"n_rules\":1,\"note\":null}",
+      "reasoning_content": "Record accepted. Output final.\n\nOne record, then receipt."
+    }
+  ]
+}

@@ -1,32 +1,16 @@
 # Extraction report
 
 - as of **2026-10-01**
-- answer files read: 58 | records parsed: 74 | accepted: 74 | rejected and still open: 0 (+0 rejected earlier and since fixed) | rules after merging: **58**
-- packets done: **58 / 108**
+- answer files read: 74 | records parsed: 111 | accepted: 111 | rejected and still open: 0 (+0 rejected earlier and since fixed) | rules after merging: **89**
+- packets done: **74 / 108**
 
-## Packets still open (50)
+## Packets still open (34)
 
-States: pending 50
+States: pending 34
 
 | packet | state | detail |
 |---|---|---|
 | D033-01 | pending | no answer yet |
-| D061-01 | pending | no answer yet |
-| D061-02 | pending | no answer yet |
-| D062-01 | pending | no answer yet |
-| D063-01 | pending | no answer yet |
-| D064-01 | pending | no answer yet |
-| D065-01 | pending | no answer yet |
-| D066-01 | pending | no answer yet |
-| D067-01 | pending | no answer yet |
-| D067-02 | pending | no answer yet |
-| D067-03 | pending | no answer yet |
-| D067-04 | pending | no answer yet |
-| D068-01 | pending | no answer yet |
-| D069-01 | pending | no answer yet |
-| D070-01 | pending | no answer yet |
-| D070-02 | pending | no answer yet |
-| D070-03 | pending | no answer yet |
 | D070-04 | pending | no answer yet |
 | D071-01 | pending | no answer yet |
 | D071-02 | pending | no answer yet |
@@ -63,7 +47,7 @@ States: pending 50
 
 Run `python run.py bundle` to get paste files for exactly these packets.
 
-## Rules to check by hand (6 of 58)
+## Rules to check by hand (7 of 89)
 
 - **r-0022** CA | rent_increase_limits | Cal. Civ. Code §1947.12
     - warning: applicability.date_basis differs between sources: D024 says certificate_of_occupancy, D040 says construction_date
@@ -72,6 +56,8 @@ Run `python run.py bundle` to get paste files for exactly these packets.
     - conflict: Sources disagree: effective_date: D026 says 2026-01-01, D005 says 2026; key_value: D026 says '$30 per applicant, CPI-adjusted annually', D005 says '$68.96 (2026)'
 - **r-0160** MA | application_screening_fees | 803 CMR 5.18
     - warning: D056 never mentions anything about application_screening_fees
+- **r-0164** NJ | security_deposits | N.J.S.A. 46:8-26
+    - warning: D064 never mentions anything about security_deposits
 - **r-0136** Berkeley, CA | rent_increase_limits | Berkeley Mun. Code ch. 13.76
     - warning: applicability.built_on_or_before differs between sources: D006 says 1980, D009 says 1980-06
 - **r-0134** Berkeley, CA | just_cause_eviction | Berkeley Mun. Code ch. 13.76
@@ -107,7 +93,7 @@ Run `python run.py bundle` to get paste files for exactly these packets.
 | jurisdiction | rent | just cause | deposit | app fees | screening | algo |
 |---|---|---|---|---|---|---|
 | CA | 1 | 1 | 2 | 1 | 3 | 1 |
-| NJ | · | · | · | · | · | · |
+| NJ | 3 | 10 | 5 | 3 | 4 | 1 (1N) |
 | MA | 2 (1F) | 5 (1F) | 1 | 3 | 4 | 2 (2P) |
 | Los Angeles, CA | 1 | 4 | 1 | · | 1 | 1 (1P) |
 | San Francisco, CA | · | · | · | · | · | · |
@@ -116,7 +102,7 @@ Run `python run.py bundle` to get paste files for exactly these packets.
 | Santa Ana, CA | · | · | · | · | · | · |
 | Jersey City, NJ | 1 | · | · | · | · | 1 |
 | Hoboken, NJ | 9 | 1 | · | · | · | 1 |
-| Newark, NJ | · | · | · | · | · | · |
+| Newark, NJ | 3 | 2 | · | · | · | · |
 | Boston, MA | · | 1 | · | · | 2 | · |
 | Cambridge, MA | · | · | · | · | 1 | · |
 

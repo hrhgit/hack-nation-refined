@@ -1,5 +1,5 @@
 {
- "next": 164,
+ "next": 181,
  "ids": {
   "CA|security_deposits|12": "r-0001",
   "CA|security_deposits|california state law photographs after regaining possession": "r-0002",
@@ -163,6 +163,23 @@
   "MA|application_screening_fees|5.18|803": "r-0160",
   "MA|screening_restrictions|5.17|803": "r-0161",
   "MA|screening_restrictions|5.00|803": "r-0162",
-  "MA|screening_restrictions|15b|186": "r-0163"
+  "MA|screening_restrictions|15b|186": "r-0163",
+  "NJ|security_deposits|46:8-26": "r-0164",
+  "NJ|just_cause_eviction|110|2021": "r-0165",
+  "NJ|application_screening_fees|110|2021": "r-0166",
+  "NJ|screening_restrictions|110|2021": "r-0167",
+  "NJ|just_cause_eviction|2a:39-1": "r-0168",
+  "NJ|screening_restrictions|new jersey law against discrimination": "r-0169",
+  "NJ|just_cause_eviction|5:27-3.3": "r-0170",
+  "NJ|just_cause_eviction|2a:18-61.40": "r-0171",
+  "NJ|just_cause_eviction|2a:50-69": "r-0172",
+  "NJ|application_screening_fees|15|1681m": "r-0173",
+  "NJ|screening_restrictions|15|1681m": "r-0174",
+  "NJ|algorithmic_rent_setting|043|2026": "r-0175",
+  "Newark, NJ|rent_increase_limits|19:2-8": "r-0176",
+  "Newark, NJ|rent_increase_limits|19:2-18": "r-0177",
+  "Newark, NJ|just_cause_eviction|19:2-11": "r-0178",
+  "Newark, NJ|just_cause_eviction|19:2-14": "r-0179",
+  "Newark, NJ|rent_increase_limits|19:2-3": "r-0180"
  }
 }

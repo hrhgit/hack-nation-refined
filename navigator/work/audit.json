@@ -1,7 +1,7 @@
 {
   "pipeline_version": "0.1.0",
   "as_of": "2026-10-01",
-  "ran_at": "2026-10-04 07:47:01 UTC",
+  "ran_at": "2026-10-04 07:51:40 UTC",
   "inputs": [
     {
       "name": "AGENT_D001-01_20261004T073625911462_0dd48d1394644641b2ab9f7299d68c45.jsonl",
@@ -350,19 +350,115 @@
       "sha256": "71445119f85192678ee0d585419d16f87b44cee3d4787ec37c492d352db51ce4",
       "bytes": 4785,
       "objects": 4
+    },
+    {
+      "name": "AGENT_D061-01_20261004T074715328544_2405b3b8b6f74f1196b5e1fc03375527.jsonl",
+      "sha256": "5b54ed1ce73c355feafd5038d5efc5cbdf63358d72490c06a3578054617d2370",
+      "bytes": 1445,
+      "objects": 2
+    },
+    {
+      "name": "AGENT_D063-01_20261004T074722596442_61db426a1cc94617a3f2dac2d20611ec.jsonl",
+      "sha256": "f37076f08441fb51247ecc3e0ecd0f617e6ff4a3006ee65753a731a0c6987453",
+      "bytes": 1189,
+      "objects": 2
+    },
+    {
+      "name": "AGENT_D062-01_20261004T074744953551_03df9d4644a2446384f010e58df96c17.jsonl",
+      "sha256": "1606ffcdeac393b859493b51928ef37ac4e7b769e0a622549f35305fd5ea380d",
+      "bytes": 2392,
+      "objects": 2
+    },
+    {
+      "name": "AGENT_D064-01_20261004T074747521619_a5936513605d4a77900ef9495fdd1d1a.jsonl",
+      "sha256": "2116259f7e9037db7dab0a34d170c317ce4342026879f5503727b67de5a0e443",
+      "bytes": 1860,
+      "objects": 2
+    },
+    {
+      "name": "AGENT_D066-01_20261004T074803335976_187229993f954779b9f3c39144289fe7.jsonl",
+      "sha256": "319674d4d738c85295114bc80e7f6409ba5c1d046285941642a00f79c2000202",
+      "bytes": 1910,
+      "objects": 2
+    },
+    {
+      "name": "AGENT_D061-02_20261004T074809726857_19ba88e0e22448df8d2141a67c1f03a2.jsonl",
+      "sha256": "fbca4572767a3920109a22eb3d40c957342d30ce68458daa178d4f3a22909def",
+      "bytes": 1329,
+      "objects": 2
+    },
+    {
+      "name": "AGENT_D065-01_20261004T074822062563_f3166668778f4b0a860f2a759d03e71d.jsonl",
+      "sha256": "649606b21cf3039a8dda3c1be69decbd38d98896b9e8f52b69f0c06e885cb07d",
+      "bytes": 4962,
+      "objects": 4
+    },
+    {
+      "name": "AGENT_D067-01_20261004T074845462493_ac09f53762164f30ac41f36956b0f269.jsonl",
+      "sha256": "f4416a8640543249153575337ff875f3fcb7ea3bff960ceb5256bb5a6b1c910e",
+      "bytes": 3186,
+      "objects": 3
+    },
+    {
+      "name": "AGENT_D067-03_20261004T074943305553_2f600211ed21430299a9246205ff4b24.jsonl",
+      "sha256": "658d66178af875383fd3bf6fdd50ccbea764356010215a042fc26e9f0a541e46",
+      "bytes": 5548,
+      "objects": 4
+    },
+    {
+      "name": "AGENT_D068-01_20261004T075001162699_2fa700a721ca4045be81fbb20e76972f.jsonl",
+      "sha256": "4f8b72bfa4cac7a55eb295630a21d46c931659875a3de9796b3ba69e896ad684",
+      "bytes": 2241,
+      "objects": 2
+    },
+    {
+      "name": "AGENT_D067-04_20261004T075014211147_777d3370a5f34b55813f99f30528a43b.jsonl",
+      "sha256": "911c455e85a2dfd27b4b4be35a393424d25202cc115398c2707ebb68def641ac",
+      "bytes": 11957,
+      "objects": 9
+    },
+    {
+      "name": "AGENT_D067-02_20261004T075021929400_89eb9917280d4fef9028972648f6621a.jsonl",
+      "sha256": "d3324443647773683ac54dea8b6058f44a5c96b92803c0330086d0aa1160d510",
+      "bytes": 11287,
+      "objects": 9
+    },
+    {
+      "name": "AGENT_D069-01_20261004T075038652870_e2ef4070467c4a54afbf410501297b6f.jsonl",
+      "sha256": "36071f116747e7825befa8690fbf61294684edcd601a384e468e6af781911352",
+      "bytes": 1930,
+      "objects": 2
+    },
+    {
+      "name": "AGENT_D070-02_20261004T075113632588_2d7fadfc63024bc59b3505eec8704121.jsonl",
+      "sha256": "48d582a06c07d1c708a3bc55f549f80b05d000f003ac3ee3412aa84e9c0b20a5",
+      "bytes": 1335,
+      "objects": 2
+    },
+    {
+      "name": "AGENT_D070-03_20261004T075128558261_27f12d8bdec54238b57a1ba8b7380383.jsonl",
+      "sha256": "7d1e64612fba7ff2574b826c1fb082278bcc1c5070805cef0ababd5ed3f898f0",
+      "bytes": 5176,
+      "objects": 4
+    },
+    {
+      "name": "AGENT_D070-01_20261004T075139139955_058c1fc265a14fd2a871ce3a6fc4707e.jsonl",
+      "sha256": "9fd28578ffb2b7f5796451c106807caec60db5fde7f14068af1491c6cb4a2864",
+      "bytes": 2689,
+      "objects": 2
     }
   ],
   "counts": {
-    "files": 58,
-    "records_parsed": 74,
-    "accepted": 74,
+    "files": 74,
+    "records_parsed": 111,
+    "accepted": 111,
     "rejected": 0,
     "rejected_fixed": 0,
-    "rules": 58,
+    "rules": 89,
     "packets_total": 108,
-    "packets_done": 58
+    "packets_done": 74
   },
   "outputs": {
-    "rules.json": "5284959d80c7eba0246d2e65c0cfd891c321b963791104602e11f1c5e5e19bc1"
+    "rules.json": "1ed36e540113f8da8c8fa41ca6ccd72b4300b711b267bd6f778e8a189b319d48"
   }
 }
