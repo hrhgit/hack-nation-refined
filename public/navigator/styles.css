@@ -158,6 +158,44 @@ input, select { padding: 7px 10px; border: 1px solid var(--line-strong); border-
 
 /* ---------- the answer ---------- */
 
+/* Reserve space before generation starts; new paragraphs never push the rules.
+   The whole answer stays readable inside the keyboard-accessible scroll area. */
+.law-summary { margin: 18px 0; padding: 16px; border: 1px solid var(--line); border-radius: var(--r); background: var(--wash); }
+.law-summary header h3 { font-size: 17px; }
+.law-summary header .hint { margin-top: 4px; }
+.summary-scroll { height: 19rem; overflow: auto; overflow-anchor: none; scrollbar-gutter: stable; margin-top: 12px; padding-right: 8px; }
+.summary-scroll .note { margin: 0 0 12px; }
+.summary-status { min-height: 1.5em; }
+.summary-sections h4 { margin: 16px 0 8px; font-size: 15px; }
+.summary-paragraph + .summary-paragraph { margin-top: 14px; }
+.summary-paragraph p { white-space: pre-wrap; overflow-wrap: anywhere; }
+.summary-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 8px; font-size: 12px; color: var(--ink-2); }
+.legend-applies { color: var(--accent); }
+.legend-review { color: var(--amber); }
+.summary-inline-refs { margin: 0 2px; }
+.summary-citation { display: inline-flex; align-items: center; gap: 3px; width: auto; padding: 2px 4px; margin: 0 2px; border: 1px solid currentColor; border-radius: 3px; font: 600 10px/1.05 var(--sans); vertical-align: .2em; white-space: nowrap; background: var(--page); }
+.summary-citation:hover, .summary-citation[aria-expanded="true"] { outline: 1px solid currentColor; outline-offset: 1px; }
+.summary-citation sup { font-size: 8px; line-height: 1; }
+.ref-status { font-size: 10px; font-weight: 700; }
+.ref-applies { color: var(--accent); background: var(--accent-wash); }
+.ref-review { color: var(--amber); background: var(--amber-wash); }
+.ref-inactive { color: var(--ink-2); background: var(--wash); }
+.ref-excluded { color: var(--ink-3); }
+.ref-conflict { color: var(--amber); background: var(--amber-wash); }
+.ref-extra { border-style: dashed; }
+.summary-error { margin-top: 12px; }
+.law-summary[data-status="error"] { border-color: var(--amber); }
+.summary-reference-popover { position: fixed; width: min(360px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); overflow: auto; padding: 14px; font-size: 13px; }
+.summary-reference-popover header { display: flex; justify-content: space-between; align-items: start; gap: 10px; }
+.summary-reference-popover header .cite { color: var(--ink-2); overflow-wrap: anywhere; }
+.summary-reference-popover h4 { margin: 10px 0 8px; font-size: 14px; line-height: 1.4; }
+.reference-status { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+.reference-caution { color: var(--amber); }
+.reference-key { margin-top: 10px; overflow-wrap: anywhere; }
+.summary-reference-popover .hint { margin-top: 8px; font-size: 12px; }
+.reference-source { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); color: var(--ink-2); font-size: 11px; overflow-wrap: anywhere; }
+.reference-details { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; margin-top: 12px; }
+
 .answer { margin-top: 26px; }
 .answer-head { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; padding: 12px 0; border-bottom: 1px solid var(--line-strong); background: var(--page); }
 #enacted > .group:first-child { margin-top: 0; border-top: 0; }
