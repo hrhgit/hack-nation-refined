@@ -67,7 +67,7 @@ def check_label(ctx, label, text):
     if rule is None:
         why = "no matching record" + ("; rejected: %s" % json.dumps(rejected, ensure_ascii=False)[:200] if rejected else "")
         return ([("found", False, why)] + [("probe: " + p["why"], False, "law missing") for p in label["probes"]]
-                + [("exact: " + p["why"], False, "law missing") for p in label["probes"] if p["exact"] is not None]), 0
+                + [("exact: " + p["why"], False, "law missing") for p in label["probes"] if p["exact"] is not None]), sum("excluded" not in p["ok"] for p in label["probes"])
     checks = [("found", True, rule["citation"])]
     for key in ("lifecycle", "effective_date", "valid_through"):
         if key in label:
@@ -105,6 +105,7 @@ def main() -> int:
     ctx = load_ctx()
     total = passed = wrong_total = exact_total = exact_passed = 0
     per_label, failures = [], []
+    missing_rules = 0
     for label in COND_LABELS:
         files = sorted((vdir / "traces").glob("%s_rep*.json" % label["packet"]))
         if args.tries is not None:
@@ -117,6 +118,7 @@ def main() -> int:
             text = json.loads(f.read_text(encoding="utf-8"))[2]["content"]
             checks, wrong = check_label(ctx, label, text)
             wrong_total += wrong
+            missing_rules += any(name == "found" and not ok for name, ok, _ in checks)
             for name, ok, detail in checks:
                 if name.startswith("exact:"):
                     et += 1
@@ -136,6 +138,7 @@ def main() -> int:
         print("%-14s %s" % (lid, "not run" if r is None else "%d of %d (%d tries) | %s" % (r[0], r[1], r[2], "%d of %d" % (r[3], r[4]) if r[4] else "-")))
     print("%-14s safe %d of %d = %.3f | exact %d of %d = %.3f | wrong exclusions %d" % (
         "ALL", passed, total, passed / max(total, 1), exact_passed, exact_total, exact_passed / max(exact_total, 1), wrong_total))
+    print("missing rule answers: %d (included in wrong exclusions when the law should remain visible)" % missing_rules)
     if args.verbose or failures:
         print("\nfailed checks:")
         for lid, rep, name, detail in failures:
@@ -159,7 +162,7 @@ def main() -> int:
             print("  %-12s %s" % (k, "%.3f (n=%d)" % (sum(sums[k]) / len(sums[k]), len(sums[k])) if sums[k] else "-"))
         for name, low in weak:
             print("  weak: %-14s %s" % (name, json.dumps(low, ensure_ascii=False)[:230]))
-    summary = {"variant": args.variant, "passed": passed, "total": total, "score": passed / max(total, 1),
+    summary = {"scoring_version": "conditions-v2-missing-counted", "missing_rules": missing_rules, "variant": args.variant, "passed": passed, "total": total, "score": passed / max(total, 1),
                "exact_passed": exact_passed, "exact_total": exact_total, "wrong_exclusions": wrong_total,
                "labels": {lid: (None if r is None else {"passed": r[0], "total": r[1], "tries": r[2], "exact_passed": r[3], "exact_total": r[4]}) for lid, r in per_label}}
     (vdir / "conditions_summary.json").write_text(json.dumps(summary, indent=1) + "\n", encoding="utf-8")

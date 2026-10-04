@@ -1,5 +1,6 @@
 import http from 'node:http';
 import https from 'node:https';
+import {StringDecoder} from 'node:string_decoder';
 export class HttpError extends Error {constructor(public status: number, public body: string) {super(`HTTP Error ${status}`);}}
 // Keep service calls open until the server completes or reports an error. There
 // is no application timeout, retry, redirect, or response-length truncation.
@@ -14,4 +15,26 @@ export function request(url: string, body?: string | Buffer, headers: Record<str
     });
     req.on('error', reject); req.end(data);
   });
+}
+
+// Same no-timeout/no-truncation policy as request(), with incremental decoding.
+export async function requestStream(url: string, body: string, headers: Record<string, string>, onText: (text: string) => void): Promise<void> {
+  const u = new URL(url), transport = u.protocol === 'https:' ? https : http;
+  if (!['http:', 'https:'].includes(u.protocol)) throw new Error('Unsupported URL protocol');
+  const data = Buffer.from(body);
+  const response = await new Promise<http.IncomingMessage>((resolve, reject) => {
+    const req = transport.request(u, {method: 'POST', headers: {...headers, 'Content-Length': String(data.length)}}, resolve);
+    req.on('error', reject); req.end(data);
+  });
+  const decoder = new StringDecoder('utf8'), status = response.statusCode ?? 500;
+  if (status < 200 || status >= 300) {
+    let errorBody = '';
+    for await (const chunk of response) errorBody += decoder.write(chunk);
+    throw new HttpError(status, errorBody + decoder.end());
+  }
+  if (!response.headers['content-type']?.includes('text/event-stream')) {
+    response.destroy(); throw new Error('Expected an event stream');
+  }
+  for await (const chunk of response) onText(decoder.write(chunk));
+  const tail = decoder.end(); if (tail) onText(tail);
 }

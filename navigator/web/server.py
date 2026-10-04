@@ -13,7 +13,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 from changes import ChangeTracker
-from lookup.common import DEFAULT_DATE, DISCLAIMER, PACK, ROOT, query_date, read_json
+from lookup.common import DEFAULT_DATE, DISCLAIMER, PACK, ROOT, date_interval, query_date, read_json
 from lookup.engine import LookupEngine, load_rules, state_of, status_on
 
 STATIC = Path(__file__).with_name("static")
@@ -49,6 +49,11 @@ def extraction_progress():
 def rule_view(rule, as_of, eng, docs):
     view = {field: rule.get(field) for field in RULE_FIELDS}
     view["status"] = status_on(rule, as_of)
+    if rule.get("value_valid_through"):
+        view["value_valid_through"] = rule["value_valid_through"]
+        if query_date(as_of) > date_interval(rule["value_valid_through"])[1]:
+            view["value_status"] = "missing_current_value"
+            view["requirement"] = (view.get("requirement") or "") + " " + rule["value_expiry_note"]
     sources = rule.get("sources") or [{"doc_id": rule.get("source_doc_id"), "url": rule.get("source_url"),
                                        "retrieved": rule.get("retrieved"), "quoted_span": rule.get("quoted_span")}]
     view["sources"] = [{"doc_id": s.get("doc_id"), "url": s.get("url"), "retrieved": s.get("retrieved"),

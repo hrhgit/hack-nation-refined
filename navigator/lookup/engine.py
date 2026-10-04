@@ -124,6 +124,8 @@ class LookupEngine:
                 date_interval(rule["effective_date"])
             if rule.get("valid_through"):
                 date_interval(rule["valid_through"])
+            if rule.get("value_valid_through"):
+                date_interval(rule["value_valid_through"])
             if (rule["level"] == "city") != (", " in rule["jurisdiction"]):
                 raise ValueError("规则地区与级别不一致: " + rule["team_rule_id"])
             applicability = rule.get("applicability") or {}
@@ -497,6 +499,10 @@ class LookupEngine:
             pairs.append([state_id, city_id])
         for rid, result in results.items():
             rule = self.by_id[rid]
+            if rule.get("value_valid_through") and query_date(as_of) > date_interval(rule["value_valid_through"])[1]:
+                note = rule["value_expiry_note"]
+                result["explanation"] += "; " + note
+                traces[rid]["missing_facts"].append({"field": "current_value", "explanation": note})
             if result["conflict_flag"]:
                 result["explanation"] += "; " + REVIEW_NOTE
             date_sources = sorted({correction["source"] for correction in rule.get("overrides_applied") or []
@@ -546,6 +552,11 @@ class LookupEngine:
             record["fact_corrections"] = copy.deepcopy(rule.get("overrides_applied") or [])
             if rule.get("valid_through"):
                 record["valid_through"] = rule["valid_through"]
+            if rule.get("value_valid_through"):
+                record["value_valid_through"] = rule["value_valid_through"]
+                if query_date(as_of) > date_interval(rule["value_valid_through"])[1]:
+                    record["value_status"] = "missing_current_value"
+                    record["requirement"] = (record.get("requirement") or "") + " " + rule["value_expiry_note"]
             record["disclaimer"] = DISCLAIMER
             output.append(record)
         return output

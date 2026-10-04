@@ -18,3 +18,9 @@ worklog/
 /navigator/work/api/
 /navigator/work/out/
 /navigator/work/archive_agent_run*/
+/navigator/work/summary/
+/navigator/work/law_imports/
+
+# Eval v2: keep raw runs, source responses and generated trace-linked HTML local
+/navigator/eval/v2/runs/
+/navigator/eval/v2/replay/

@@ -18,5 +18,22 @@
     },
     "basis": "This includes tenancies in newly constructed rental units that first obtained a Certificate of Occupancy after June 13, 1979, tenancies that are eligible for a rent increase under the Costa-Hawkins Rental Housing Act, and some tenancies where the rent is regulated by another government agency. Participant Guide §4.1 treats the cutoff as decidable from the year built except in the cutoff year, so tenancy-level conditions are reported as a note, not as unknown coverage.",
     "source": "starter-pack/participant-final-no-hour16 3/corpus/text/D079.txt; D080.txt: For rent-controlled units, the annual allowable increase amount effective March 1, 2026 through February 28, 2027 is 1.6%."
+  },
+  {
+    "id": "la-rso-annual-value-period",
+    "match": {
+      "jurisdiction": "Los Angeles, CA",
+      "category": "rent_increase_limits",
+      "source_doc_id": "D041",
+      "valid_through": "2026-06-30",
+      "key_value": "once every 12 months; no utility add-on after 2026-02-02"
+    },
+    "set": {
+      "valid_through": null,
+      "value_valid_through": "2026-06-30",
+      "value_expiry_note": "The current annual allowable rent increase percentage is not stated in the supplied source; the published percentage ended on 2026-06-30. The continuing RSO requirements still need to be checked against this property's coverage conditions."
+    },
+    "basis": "D041 describes ongoing RSO requirements, including one allowable increase every 12 months. D042 limits its 3% figure to July 1, 2025 through June 30, 2026; it does not end the ordinance. This correction only matches the reviewed merged record and its non-percentage headline, and must be reviewed again when either changes.",
+    "source": "starter-pack/participant-final-no-hour16 3/corpus/text/D041.txt; D042.txt"
   }
 ]

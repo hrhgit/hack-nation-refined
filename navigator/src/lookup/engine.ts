@@ -54,7 +54,7 @@ export class LookupEngine {
     for (const r of this.rules) {
       if (!CATEGORIES.has(r.category) || !['state', 'city'].includes(r.level)) throw new Error('规则类别或地区级别错误: ' + r.team_rule_id);
       if (![null, 'enacted', 'pending_bill', 'failed', 'withdrawn'].includes(r.lifecycle ?? null)) throw new Error('未知的规则通过状态: ' + r.team_rule_id);
-      if (r.effective_date) dateInterval(r.effective_date); if (r.valid_through) dateInterval(r.valid_through);
+      if (r.effective_date) dateInterval(r.effective_date); if (r.valid_through) dateInterval(r.valid_through); if (r.value_valid_through) dateInterval(r.value_valid_through);
       if ((r.level === 'city') !== r.jurisdiction.includes(', ')) throw new Error('规则地区与级别不一致: ' + r.team_rule_id);
       const a = r.applicability ?? {};
       for (const f of ['min_units', 'max_units', 'exempt_if_newer_than_years', 'covered_if_newer_than_years', 'owner_exempt_if_units_at_most']) if (a[f] != null && (!Number.isInteger(a[f]) || a[f] < 0)) throw new Error(`${r.team_rule_id}.${f} 必须是非负整数`);
@@ -217,7 +217,12 @@ export class LookupEngine {
       results[s].conflict_flag = results[c].conflict_flag = true; pairs.push([s, c]);
     }
     for (const [rid, r] of Object.entries(results)) {
-      const rule = this.by_id[rid]; if (r.conflict_flag) r.explanation += '; ' + REVIEW_NOTE;
+      const rule = this.by_id[rid];
+      if (rule.value_valid_through && queryDate(asOf) > dateInterval(rule.value_valid_through)[1]) {
+        r.explanation += '; ' + rule.value_expiry_note;
+        traces[rid].missing_facts.push({field: 'current_value', explanation: rule.value_expiry_note});
+      }
+      if (r.conflict_flag) r.explanation += '; ' + REVIEW_NOTE;
       const sources = unique<string>((rule.overrides_applied ?? []).filter((c: Data) => Object.hasOwn(c.after ?? {}, 'effective_date') && c.source).map((c: Data) => c.source)).sort(); if (sources.length) r.explanation += '; effective date taken from: ' + sources.join(', ');
       const retrieved = rule.retrieved || (rule.sources ?? []).find((s: Data) => s.retrieved)?.retrieved || 'not recorded';
       r.explanation = sentence(r.explanation) + ` Source: ${rule.citation}, ${pyStr(Object.hasOwn(rule, 'source_url') ? rule.source_url : '')} (retrieved ${retrieved}). ${DISCLAIMER}`;
@@ -236,7 +241,15 @@ export class LookupEngine {
       r.interaction = unique<string>(this.edges.filter(e => [e.yielding, e.prevailing].includes(rule.team_rule_id)).map(e => e.entry.basis)).sort().join('; ') || (rule.interaction ?? null);
       r.conflict_flag = flagged.has(rule.team_rule_id); r.conflict_note = r.conflict_flag ? sentence(REVIEW_NOTE) : null; r.retrieved = rule.retrieved ?? null;
       r.applicability = clone(rule.applicability || {}); r.coverage_sources = clone(rule.coverage_sources ?? []); r.date_source = rule.date_source ?? null; r.relations = clone(rule.relations || []); r.fact_corrections = clone(rule.overrides_applied || []);
-      if (rule.valid_through) r.valid_through = rule.valid_through; r.disclaimer = DISCLAIMER; return r;
+      if (rule.valid_through) r.valid_through = rule.valid_through;
+      if (rule.value_valid_through) {
+        r.value_valid_through = rule.value_valid_through;
+        if (queryDate(asOf) > dateInterval(rule.value_valid_through)[1]) {
+          r.value_status = 'missing_current_value';
+          r.requirement = (r.requirement || '') + ' ' + rule.value_expiry_note;
+        }
+      }
+      r.disclaimer = DISCLAIMER; return r;
     });
   }
 }

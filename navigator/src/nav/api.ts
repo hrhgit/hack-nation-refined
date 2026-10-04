@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {randomUUID} from 'node:crypto';
 import type {Data} from '../types.js';
-import {HttpError, request} from '../http.js';
+import {HttpError, request, requestStream} from '../http.js';
+import {lineReader} from '../../web/static/summary-shared.js';
 import {isObject, pyStr, sha256, writeJson, writeText} from '../util.js';
 import {Paths, ROOT} from './config.js';
 import {pendingPackets, runIngest, writeOutputs} from './ingest.js';
@@ -36,7 +37,49 @@ export class ChatClient {
     let body: unknown; try {body = JSON.parse(raw);} catch {throw new ApiError('API 返回的内容不是有效 JSON，请检查服务。');} if (!isObject(body)) throw new ApiError('API 返回的内容应为 JSON 对象。'); return body;
   }
   complete(prompt: string, packet: string): Promise<Data> {return this.post([{role: 'system', content: prompt}, {role: 'user', content: packet}]);}
+  async streamComplete(prompt: string, input: string, onDelta: (text: string) => void, options: StreamOptions = {}): Promise<StreamAnswer> {
+    let text = '', finish: string | null = null, done = false, usage: Data | null = null;
+    let callbackError: unknown;
+    let frame: string[] = [];
+    const dispatch = (): void => {
+      if (!frame.length) return;
+      const raw = frame.join('\n'); frame = [];
+      if (done) throw new ApiError('模型在结束标记后继续返回内容。');
+      if (raw === '[DONE]') {done = true; return;}
+      let body: Data;
+      try {body = JSON.parse(raw);} catch {throw new ApiError('模型返回的逐段内容无法解析。');}
+      if (!isObject(body) || body.error) throw new ApiError('模型没有返回有效的逐段回答。');
+      if (isObject(body.usage)) usage = body.usage;
+      const choice = body.choices?.find((c: Data) => c.index === 0);
+      if (!choice) {if (Array.isArray(body.choices) && !body.choices.length && body.usage) return; throw new ApiError('模型的逐段回答缺少 choices。');}
+      const delta = choice.delta?.content;
+      if (delta != null && typeof delta !== 'string') throw new ApiError('模型的逐段回答不是文字。');
+      if (delta) {if (finish) throw new ApiError('模型在回答完成后继续返回文字。'); text += delta; try {onDelta(delta);} catch (e) {callbackError = e; throw e;}}
+      if (choice.finish_reason != null) {if (finish) throw new ApiError('模型重复返回完成标记。'); finish = choice.finish_reason;}
+    };
+    const lines = lineReader(line => {
+      if (!line) {dispatch(); return;}
+      if (line.startsWith('data:')) frame.push(line.slice(5).replace(/^ /, ''));
+    });
+    try {
+      const payload: Data = {model: this.config.model, stream: true, stream_options: {include_usage: true}, messages: [{role: 'system', content: prompt}, {role: 'user', content: input}]};
+      if (options.thinking) payload.thinking = options.thinking;
+      if (options.reasoning_effort) payload.reasoning_effort = options.reasoning_effort;
+      await requestStream(this.config.endpoint, JSON.stringify(payload), {'Content-Type': 'application/json', Authorization: 'Bearer ' + this.config.key}, chunk => lines.push(chunk));
+      lines.end(); dispatch();
+    } catch (error) {
+      if (callbackError !== undefined) throw callbackError;
+      if (error instanceof ApiError) throw error;
+      if (error instanceof HttpError) throw new ApiError(`模型请求失败（HTTP ${error.status}），请检查模型配置或稍后重试。`);
+      // Never include upstream bodies/headers or credentials in a browser error.
+      throw new ApiError('模型连接中断或返回内容不完整，请重新生成。');
+    }
+    if (!done || finish !== 'stop' || !text.trim()) throw new ApiError('模型回答未完整结束，请重新生成。');
+    return {text, finish_reason: finish, usage};
+  }
 }
+export interface StreamAnswer {text: string; finish_reason: string; usage: Data | null;}
+export interface StreamOptions {thinking?: {type: 'enabled' | 'disabled'}; reasoning_effort?: 'low' | 'high' | 'max';}
 export function answer(body: Data): [string, any] {
   const c = body?.choices?.[0]; if (!isObject(c) || !isObject(c.message) || !Object.hasOwn(c.message, 'content') || !Object.hasOwn(c, 'finish_reason')) throw new ApiError('API 返回内容缺少 choices/message/content 或 finish_reason。');
   const text = c.message.content; if (typeof text !== 'string' || !text.trim()) throw new ApiError('模型没有返回可用的文字回答。'); return [text, c.finish_reason];

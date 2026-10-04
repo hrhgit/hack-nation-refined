@@ -6,7 +6,7 @@ conditions, so a wrong exemption would not show in its numbers. This key does, w
 
 | file | what it is |
 |---|---|
-| `cond_labels.py` | the key: 17 laws, 46 probes. Written by hand from the law texts, not from model answers. `held_out` marks laws from packets that no prompt edit looked at |
+| `cond_labels.py` | the key: 28 laws, 75 probes. Written by hand from the law texts, not from model answers. `held_out` records the historical split; v2 conservatively treats every existing corpus packet as development |
 | `conditions_run.py` | runs the labeled packets through the real API path and keeps the raw answers under `eval/explore/conditions/<variant>/traces/` |
 | `conditions_check.py` | reads stored answers, validates them with the current ingest code, runs each probe through the real lookup engine, counts passes and wrong exclusions |
 
@@ -42,3 +42,5 @@ still be an exception.
 Open policy question, not scored for exactness until decided: whether exemptions for public housing, deed-restricted affordable housing or other
 programs that the assessor data does not show should turn an old building's answer into "unknown" (the strict reading says yes; the organizers'
 template ignores seasonal rentals, so the key may not). Those probes are marked open in the key.
+
+Since conditions-v2-missing-counted, a missing law contributes to `wrong_exclusions` for each probe that requires the law to remain visible, and `missing_rules` separately counts missing label-answer pairs. Stored old summaries are not rewritten. The recommended versioned runner is [v2/run.py](v2/run.py); its safe count includes probes only, while this legacy checker also includes found/field checks, so denominators differ.

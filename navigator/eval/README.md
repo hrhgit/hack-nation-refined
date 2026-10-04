@@ -1,11 +1,13 @@
 # Extraction eval (prompt hill-climb)
 
+**Current recommended checks:** [v2/README.md](v2/README.md) adds document/family grouping, explicit omissions and applicability errors, new synthetic validation/final cases, and the shipped TypeScript extraction/lookup path. This directory remains the historical extraction regression suite; its old score is not a complete product acceptance result.
+
 Measures how well the extraction prompt works with the real model, without an answer key from the organisers.
 Grading is done by code (`grader.py`), never by a model. Everything the grader needs is in this folder.
 
 | file | what it is |
 |---|---|
-| `INPUTS.md` | the 69 cases (65 real packets + 4 invented rehearsal pages) and the 27 hand-made expected laws, for review |
+| `INPUTS.md` | the 69 cases (65 real packets + 4 invented rehearsal pages) and the 28 hand-made expected laws, for review |
 | `labels.py` | expected laws, written by hand from the challenge brief; a label accepts any citation that names the right law |
 | `grader.py` | scores one answer to one packet (9 parts, mean = `score`) |
 | `run_eval.py` | runs every case x try through the real API path; resumable; failures go to `errors.jsonl` |
@@ -33,4 +35,4 @@ python3 eval/compare.py --a baseline --b v4                   # the numbers behi
 Changing any file listed under `harness_paths` in `extraction/_state.json` (grader, labels, silver, runner, the checks in `nav/`)
 makes the next paid run stop until a person runs `--approve-harness` again.
 
-Known limits: see the end of `INPUTS.md` and the last section of `extraction/REPORT.md`.
+Known limits: see the end of `INPUTS.md` and the last section of `v2/README.md`.

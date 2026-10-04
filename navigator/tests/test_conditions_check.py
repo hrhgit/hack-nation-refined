@@ -51,7 +51,7 @@ class CheckerTests(unittest.TestCase):
     def test_a_missing_law_fails_every_check(self):
         checks, wrong = self.cc.check_label(self.ctx, self.label, json.dumps({"packet_id": "D041-01", "n_rules": 0, "note": None}))
         self.assertFalse(any(ok for _, ok, _ in checks))
-        self.assertEqual(wrong, 0)
+        self.assertEqual(wrong, sum("excluded" not in p["ok"] for p in self.label["probes"]))
 
     def test_every_label_names_a_packet_that_exists_and_probes_are_well_formed(self):
         index = self.ctx.index["packets"]

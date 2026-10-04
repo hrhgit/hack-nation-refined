@@ -1,9 +1,15 @@
+import {summaryFingerprint} from './summary-shared.js';
+import {receiveSummary} from './summary-client.js';
+import {citationLabel, citationKind} from './summary-citations.js';
+import {createImportsPage, IMPORT_LABELS} from './imports-client.js';
+for (const [lang, label] of Object.entries(IMPORT_LABELS)) STRINGS[lang].tab_imports = label;
+
 const STATES = { CA: "California", NJ: "New Jersey", MA: "Massachusetts" };
 const STATE_ORDER = ["CA", "NJ", "MA"];
 const RESULT_ORDER = ["applies", "unknown", "superseded", "not_yet_effective", "pending"];
 const LOW_CONFIDENCE = 0.7;
 const CONTEXT_CHARS = 1500;
-const TABS = ["lookup", "changes", "rules", "pipeline"];
+const TABS = ["lookup", "imports", "changes", "rules", "pipeline"];
 const QUIET_TABS = ["rules", "pipeline"];
 const ICON = {
   search: '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12.8 12.8 17 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
@@ -17,6 +23,8 @@ const state = {
   lang: "en", meta: null, request: 0, last: {}, data: null, cards: new Map(), filter: "",
   finder: { text: "", scope: "", active: -1, matches: [] },
   library: { place: "", category: "", status: "", text: "" },
+  summaryController: null,
+  summaryPopoverAnchor: null,
 };
 try { state.lang = localStorage.getItem("lang") || "en"; } catch (error) { /* private window */ }
 
@@ -362,12 +370,146 @@ function answerHtml(data) {
     </div>
     ${partial(data.extraction)}
     ${entered ? `<p class="note caution">${esc(t("entered_note", { facts: entered }))} <button class="linkbtn" data-act="remove-entries">${esc(t("remove_entries"))}</button></p>` : ""}
+    ${summaryHtml(data)}
     <div id="enacted">${register(enacted, "no_rule_category")}</div>
     ${pending.length ? `<section id="pending" class="pending"><h2>${esc(t("sec_pending"))}</h2><p class="hint">${esc(t("sec_pending_hint"))}</p>${register(pending)}</section>` : ""}
     ${data.left_out.length ? `<details class="leftout"><summary>${esc(t("left_summary", { n: data.left_out.length }))}</summary><p class="hint">${esc(t("left_hint"))}</p>
       ${register(data.left_out.map((item) => ({ rule: item.rule, answer: { result: null, steps: item.steps, missing_facts: [] } })))}</details>` : ""}
     <p class="fine">${esc(t("computed", { ms: data.computed_ms }))} ${esc(data.disclaimer)}</p>
   </section>`;
+}
+
+function summaryHtml(data) {
+  return `<section id="law-summary" class="law-summary" aria-labelledby="summary-title">
+    <header><h3 id="summary-title">${esc(t("summary_title"))}</h3><p class="hint">${esc(t("summary_scope"))}</p>
+      <p class="summary-legend"><span class="legend-applies">${esc(t("r_applies"))}</span><span class="legend-review">? ${esc(t("summary_review"))}</span><span class="legend-inactive">◷ ${esc(t("summary_inactive"))}</span><span class="legend-excluded">× ${esc(t("summary_excluded"))}</span><span>${esc(t("summary_extra_hint"))}</span></p>
+    </header>
+    <div class="summary-scroll" tabindex="0" role="region" aria-label="${esc(t("summary_title"))}">
+      ${data.extraction.done < data.extraction.total ? `<p class="note caution">${esc(t("summary_partial", {n: data.extraction.done, m: data.extraction.total}))}</p>` : ""}
+      <p class="summary-status hint" role="status">${esc(t("summary_loading"))}</p>
+      <div class="summary-sections"></div>
+      <div class="summary-error" hidden><p class="note caution"></p><button class="btn small" data-act="summary-retry">${esc(t("summary_retry"))}</button></div>
+    </div>
+  </section>`;
+}
+
+function showSummaryFailure(box, error = {}) {
+  box.dataset.status = "error";
+  $(".summary-status", box).textContent = t("summary_incomplete");
+  $(".summary-error", box).hidden = false;
+  $(".summary-error p", box).textContent = t(error.code === "missing_key" ? "summary_missing_key" : "summary_failed");
+}
+
+function appendSummaryParagraph(box, paragraph) {
+  const sections = $(".summary-sections", box);
+  let section = $(`[data-section="${paragraph.section}"]`, sections);
+  if (!section) {
+    section = document.createElement("section");
+    section.dataset.section = paragraph.section;
+    section.innerHTML = `<h4>${esc(t("summary_" + paragraph.section))}</h4>`;
+    sections.append(section);
+  }
+  const block = document.createElement("div");
+  block.className = "summary-paragraph";
+  block.innerHTML = `<p>${paragraph.sentences.map(sentence => `<span class="summary-sentence">${esc(sentence.text)}<span class="summary-inline-refs">${sentence.refs.map(ref => {
+    const kind = citationKind(ref);
+    const rule = state.cards.get(ref.rule_id)?.rule;
+    const short = citationLabel(ref.citation, rule);
+    const sourceNumber = rule?.sources.length > 1 ? `<sup>${ref.source_index + 1}</sup>` : "";
+    const origin = t(ref.origin === "starter" ? "official_pack" : "extra_source");
+    const result = ref.result ? t("r_" + ref.result) : t("summary_excluded");
+    const label = `${ref.citation} · ${ref.doc_id} · ${result}${ref.conflict_flag ? " · " + t("flag_review") : ""} · ${origin}`;
+    return `<button class="summary-citation ref-${kind}${ref.conflict_flag ? " ref-conflict" : ""}${ref.origin !== "starter" ? " ref-extra" : ""}" data-rule="${esc(ref.rule_id)}" data-act="summary-source" data-source-index="${ref.source_index}" title="${esc(label)}" aria-label="${esc(t("summary_open_source", {source: label}))}" aria-haspopup="dialog" aria-expanded="false">${kind !== "applies" ? `<span class="ref-status" aria-hidden="true">${{review: "?", inactive: "◷", excluded: "×"}[kind]}</span>` : ""}${esc(short)}${sourceNumber}</button>`;
+  }).join("")}</span></span>`).join(" ")}</p>`;
+  section.append(block);
+}
+
+function closeSummaryPopover(returnFocus = false) {
+  const anchor = state.summaryPopoverAnchor;
+  $("#summary-reference-popover")?.remove();
+  anchor?.setAttribute("aria-expanded", "false");
+  anchor?.removeAttribute("aria-controls");
+  state.summaryPopoverAnchor = null;
+  if (returnFocus && anchor?.isConnected) anchor.focus({preventScroll: true});
+}
+
+function summaryReferencePreview(anchor) {
+  const same = state.summaryPopoverAnchor === anchor;
+  closeSummaryPopover();
+  if (same) return;
+  const id = anchor.dataset.rule, index = Number(anchor.dataset.sourceIndex);
+  const card = state.cards.get(id), source = card?.rule.sources[index];
+  if (!source) return;
+  const {rule, answer} = card;
+  const sourceUrl = safeUrl(source.url);
+  let hostname = "";
+  try {if (sourceUrl) hostname = new URL(sourceUrl).hostname;} catch { /* the saved citation remains readable */ }
+  const reason = answer?.explanation || (answer?.result == null ? answer?.steps?.at(-1)?.explanation : "");
+  const pop = document.createElement("section");
+  pop.id = "summary-reference-popover";
+  pop.className = "pop summary-reference-popover";
+  pop.setAttribute("role", "dialog");
+  pop.setAttribute("aria-labelledby", "summary-reference-title");
+  pop.innerHTML = `<header><span class="cite">${esc(rule.citation)}</span><button class="iconbtn" data-act="summary-dismiss" aria-label="${esc(t("close"))}">${ICON.close}</button></header>
+    <h4 id="summary-reference-title">${esc(rule.title || rule.citation)}</h4>
+    <div class="reference-status">${answer?.result ? st(answer.result) : `<span class="muted">${esc(t("summary_excluded"))}</span>`}${rule.conflict_flag || answer?.conflict_flag ? `<span class="reference-caution">${esc(t("flag_review"))}</span>` : ""}</div>
+    <p class="reference-key">${esc(rule.key_value || rule.requirement)}</p>
+    ${reason && answer?.result !== "applies" ? `<p class="hint">${esc(reason)}</p>` : ""}
+    ${rule.conflict_flag || answer?.conflict_flag ? `<p class="hint reference-caution">${esc(t("note_review"))}</p>` : ""}
+    <p class="reference-source">${esc(placeName(rule))} · ${esc(source.doc_id)}${hostname ? " · " + esc(hostname) : ""}<br>${esc(t(source.origin === "starter" ? "official_pack" : "extra_source"))}</p>
+    <button class="btn small reference-details" data-act="summary-details" data-rule="${esc(id)}" data-source-index="${index}">${esc(t("summary_full_details"))}${ICON.right}</button>`;
+  document.body.append(pop);
+  state.summaryPopoverAnchor = anchor;
+  anchor.setAttribute("aria-expanded", "true");
+  anchor.setAttribute("aria-controls", pop.id);
+  const rect = anchor.getBoundingClientRect();
+  const left = Math.max(12, Math.min(rect.left, window.innerWidth - pop.offsetWidth - 12));
+  const below = rect.bottom + 8;
+  const top = below + pop.offsetHeight <= window.innerHeight - 12 ? below : Math.max(12, rect.top - pop.offsetHeight - 8);
+  pop.style.left = `${left}px`; pop.style.top = `${top}px`;
+  $(".reference-details", pop).focus({preventScroll: true});
+}
+
+async function startSummary(params, request, data) {
+  const box = $("#law-summary");
+  if (!box || request !== state.request) return;
+  closeSummaryPopover();
+  state.summaryController?.abort();
+  const controller = new AbortController(); state.summaryController = controller;
+  const current = () => !controller.signal.aborted && request === state.request && box.isConnected;
+  box.dataset.status = "loading";
+  delete box.dataset.firstParagraphMs; delete box.dataset.totalMs; delete box.dataset.cached;
+  $(".summary-sections", box).replaceChildren();
+  $(".summary-error", box).hidden = true;
+  $(".summary-status", box).textContent = t("summary_loading");
+  const started = performance.now();
+  try {
+    const fingerprint = await summaryFingerprint(data);
+    if (!current()) return;
+    const query = {address_id: params.id, as_of: data.as_of};
+    for (const field of ["year_built", "units"]) if (params[field] !== undefined && params[field] !== "") query[field] = params[field];
+    await receiveSummary({query, language: state.lang, fingerprint, signal: controller.signal, onEvent(event) {
+      if (!current()) return;
+      if (event.type === "paragraph") {
+        if (!box.dataset.firstParagraphMs) box.dataset.firstParagraphMs = String(Math.round(performance.now() - started));
+        appendSummaryParagraph(box, event.paragraph);
+      }
+      if (event.type === "complete") {
+        box.dataset.status = "complete"; box.dataset.cached = String(event.cached);
+        box.dataset.totalMs = String(Math.round(performance.now() - started));
+        $(".summary-status", box).textContent = t(event.empty ? "summary_empty" : "summary_complete");
+      }
+      if (event.type === "error") showSummaryFailure(box, event);
+    }});
+  } catch (error) {
+    if (!current()) return;
+    if (error.code === "stale_evidence") {
+      $(".summary-status", box).textContent = t("summary_refreshing");
+      void render(); // Refresh the visible laws before requesting their new summary.
+      return;
+    }
+    showSummaryFailure(box, error);
+  }
 }
 
 function applyFilter() {
@@ -382,6 +524,7 @@ function applyFilter() {
 }
 
 async function renderLookup(params, request) {
+  const started = performance.now();
   const view = $("#view");
   if (!params.id) {
     state.data = null;
@@ -405,6 +548,8 @@ async function renderLookup(params, request) {
   view.innerHTML = addressHtml(data) + answerHtml(data);
   bindFinder();
   applyFilter();
+  $("#law-summary").dataset.resultsMs = String(Math.round(performance.now() - started));
+  void startSummary(params, request, data);
 }
 
 function relook(changes) {
@@ -436,7 +581,7 @@ function stepsHtml(steps) {
   return `<ol class="steps">${steps.map((step) => `<li><span class="num">${esc(step.step)}</span><span>${esc(step.explanation)}</span>${out(step.outcome)}${lines(step.facts)}</li>`).join("")}</ol>`;
 }
 
-function ruleSheet(id, focus) {
+function ruleSheet(id, focus, sourceIndex = 0) {
   const { rule, answer } = state.cards.get(id);
   const result = answer && answer.result;
   const relation = (list) => list.map((other) => `<p><span class="cite">${esc(other.citation)}</span> <span class="muted num">${esc(other.team_rule_id)}</span><span class="basis cite">“${esc(other.basis)}”</span></p>`).join("");
@@ -467,7 +612,8 @@ function ruleSheet(id, focus) {
     </div>`);
   if (focus === "source") {
     $("#sheet-source").scrollIntoView();
-    showContext($("#sheet-source .source"));
+    const source = $(`#sheet-source .source[data-index="${sourceIndex}"]`);
+    if (source) {source.scrollIntoView({block: "start"}); showContext(source);}
   }
 }
 
@@ -526,7 +672,7 @@ async function renderChanges(request) {
   const data = await api("/api/changes");
   if (request !== state.request) return;
   const cityOf = new Map(state.meta.addresses.map((a) => [a.address_id, a.legal_city || "—"]));
-  view.innerHTML = `<header class="page-head"><h1>${esc(t("tab_changes"))}</h1><p>${esc(t("changes_intro"))}</p>${partial(data.extraction)}</header>
+  view.innerHTML = `<header class="page-head"><div class="import-heading"><h1>${esc(t("tab_changes"))}</h1><a class="btn primary" href="#/imports">${esc(t("tab_imports"))}</a></div><p>${esc(t("changes_intro"))}</p>${partial(data.extraction)}</header>
     ${data.tests.map((item) => {
       const dates = item.query_dates;
       const day = dates.as_of_after || dates.as_of;
@@ -634,7 +780,12 @@ async function renderPipeline(request) {
 
 /* ---------- start ---------- */
 
+const importsPage = createImportsPage({lang: () => state.lang, esc, t, st});
 async function render() {
+  importsPage.stop();
+  closeSummaryPopover();
+  state.summaryController?.abort(); state.summaryController = null;
+  $("#law-summary")?.remove();
   chrome();
   const { tab, params } = route();
   const request = ++state.request;
@@ -647,12 +798,14 @@ async function render() {
     if (tab === "changes") await renderChanges(request);
     if (tab === "rules") await renderRules(request);
     if (tab === "pipeline") await renderPipeline(request);
+    if (tab === "imports") await importsPage.render(params, () => request === state.request && route().tab === 'imports');
   } catch (error) {
     if (request === state.request) view.innerHTML = problem(error);
   }
 }
 
 document.addEventListener("click", (event) => {
+  if (!event.target.closest(".summary-citation, #summary-reference-popover")) closeSummaryPopover();
   if (!event.target.closest("#finder")) closeFinder();
   if (!event.target.closest(".datewrap")) closeDatePop();
   if (event.target === $("#sheet")) $("#sheet").close();
@@ -671,6 +824,10 @@ document.addEventListener("click", (event) => {
   if (act === "scope") { $("#sheet").close(); scopeFinder(target.dataset.scope); }
   if (act === "scope-clear") { state.finder.scope = ""; drawFinder(); }
   if (act === "sheet") ruleSheet(target.closest("[data-rule]").dataset.rule, target.dataset.focus);
+  if (act === "summary-source") summaryReferencePreview(target);
+  if (act === "summary-dismiss") closeSummaryPopover(true);
+  if (act === "summary-details") {closeSummaryPopover(); ruleSheet(target.dataset.rule, "source", Number(target.dataset.sourceIndex));}
+  if (act === "summary-retry" && state.data) void startSummary(route().params, state.request, state.data);
   if (act === "building") buildingSheet();
   if (act === "context") showContext(target.closest(".source"));
   if (act === "remove-entries") relook({ year_built: "", units: "" });
@@ -686,14 +843,22 @@ document.addEventListener("submit", (event) => {
   relook(Object.fromEntries(new FormData(event.target)));
 });
 document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && state.summaryPopoverAnchor) {event.preventDefault(); closeSummaryPopover(true);}
   if (event.key === "Escape") closeDatePop();
 });
+document.addEventListener("scroll", (event) => {
+  const pop = $("#summary-reference-popover");
+  if (pop && !pop.contains(event.target)) closeSummaryPopover();
+}, true);
+window.addEventListener("resize", () => closeSummaryPopover());
 $("#lang").addEventListener("change", (event) => {
   state.lang = event.target.value;
   try { localStorage.setItem("lang", state.lang); } catch (error) { /* private window */ }
   $("#view").innerHTML = "";
   render();
 });
+window.addEventListener("pagehide", () => {state.summaryController?.abort(); closeSummaryPopover();});
+window.addEventListener("pageshow", (event) => {if (event.persisted && state.meta) void render();});
 window.addEventListener("hashchange", () => {
   if ($("#sheet").open) $("#sheet").close();
   render();
