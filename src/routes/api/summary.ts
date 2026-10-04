@@ -13,9 +13,14 @@ export const Route = createFileRoute("/api/summary")({
         const id = body.query?.address_id ?? "";
         const language = (["en", "es", "zh"].includes(body.language ?? "") ? body.language : "en") as SummaryLanguage;
         if (!/^[A-Za-z0-9_-]+$/.test(id) || typeof body.fingerprint !== "string") return json({ code: "bad_request", error: "Invalid query" }, 400);
-        const snap = await fetch(new URL(`/navigator/data/lookup/${id}.json`, request.url));
-        if (!snap.ok) return json({ code: "not_found", error: "Unknown address" }, 404);
-        const data = await snap.json();
+        const q: Record<string, string[]> = Object.create(null);
+        for (const [field, value] of Object.entries(body.query ?? {})) {
+          if (!["address_id", "as_of", "year_built", "units"].includes(field) || !["string", "number"].includes(typeof value)) return json({ code: "invalid_request", error: "Invalid query" }, 400);
+          if (String(value)) q[field] = [String(value)];
+        }
+        let data: unknown;
+        try { data = await (await import("@/lib/navcore/core.server")).lookup(q); }
+        catch (e) { return json({ code: "not_found", error: (e as Error).message }, 404); }
         const encoder = new TextEncoder();
         let controller!: ReadableStreamDefaultController<Uint8Array>;
         const stream = new ReadableStream<Uint8Array>({ start(c) { controller = c; } });
