@@ -2,13 +2,13 @@ export const IMPORT_LABELS = {en: 'Parse law text', es: 'Analizar texto legal', 
 
 const WORDS = {
   en: {
-    title: 'Parse law changes', lead: 'Submit the text. The agent identifies the law, location, status and effective date; the system then checks which addresses it affects.',
+    title: 'Parse law changes', lead: 'Paste a law’s full text to see which rules it adds and which addresses it changes.',
     body: 'Law text', body_hint: 'Paste the complete text, or upload a UTF-8 .txt file. A URL alone is not accepted.', upload: 'Upload a .txt file',
     start: 'Start parsing', starting: 'Submitting…', missing: 'Please submit law text; a URL alone is not accepted.', bad_file: 'Please select a UTF-8 .txt file.', bad_utf8: 'The file is not readable UTF-8 text.', no_model: 'The server needs an extraction model configured.',
     history: 'Submitted texts', empty: 'No texts submitted yet.', back: 'Back to law changes', another: 'Submit another text',
     preparing: 'Saving the text', extracting: 'Reading and extracting rules', checking: 'Checking rules and source quotes', comparing: 'Checking address impact', ready: 'Parsing complete', failed: 'Parsing did not finish', interrupted: 'Parsing was interrupted', applied: 'Results in use',
     progress: '{done} of {total} text sections checked', live: 'You can leave this page and return to the saved task.', refresh: 'Refresh status', poll_error: 'Could not refresh the task: {msg}.',
-    raw: 'View the submitted text', extra: 'User-supplied source, outside the official distributed corpus.', preview: 'What the agent found', details: 'View source quotes and changes to existing rules', before: 'Previously recorded', after: 'Extracted from this text', absent: 'No rule previously recorded', no_answer: 'Not in the results',
+    raw: 'View the submitted text', extra: 'User-supplied source, outside the official distributed corpus.', preview: 'Extracted rules', details: 'View source quotes and changes to existing rules', before: 'Previously recorded', after: 'Extracted from this text', absent: 'No rule previously recorded', no_answer: 'Not in the results',
     apply: 'Use these results', applied_hint: 'Address queries now use these results with the dates read from the text.', recompare: 'Refresh impact', retry: 'Continue parsing',
     covered: 'Covers {n} sample addresses as of {day}.', future: 'Not yet effective on {day}. From {from}, it may cover {n} sample addresses.', proposed: 'Still a proposal. If enacted, it may cover {n} sample addresses.', failed_law: 'Failed or withdrawn. Its affected list is empty.', uncertain: 'Status or coverage needs checking; {n} potentially covered sample addresses.',
     cases: 'Track changes using the challenge examples', dates: 'Compare {before} → {after}', on_day: 'As of {day}', affected: '{n} affected addresses', review: '{n} addresses need review', ids: 'View affected addresses', missing_rules: 'Some related rules have not been extracted; this comparison is incomplete.',
@@ -19,7 +19,7 @@ const WORDS = {
     enacted: 'Enacted', pending_bill: 'Proposed, not law', not_stated: 'Not stated in the text', source_record: 'Source and date',
   },
   es: {
-    title: 'Analizar cambios legales', lead: 'Envíe el texto. El agente identifica la ley, la ubicación, el estado y la fecha de vigencia; el sistema comprueba las direcciones afectadas.',
+    title: 'Analizar cambios legales', lead: 'Pegue el texto completo de una ley para ver qué normas añade y qué direcciones cambia.',
     body: 'Texto legal', body_hint: 'Pegue el texto completo o cargue un archivo .txt en UTF-8. No se acepta solo una URL.', upload: 'Cargar archivo .txt',
     start: 'Iniciar análisis', starting: 'Enviando…', missing: 'Envíe el texto legal; no se acepta solo una URL.', bad_file: 'Seleccione un archivo .txt en UTF-8.', bad_utf8: 'El archivo no es texto UTF-8 legible.', no_model: 'Es necesario configurar el modelo en el servidor.',
     history: 'Textos enviados', empty: 'Aún no hay textos enviados.', back: 'Volver a cambios legales', another: 'Enviar otro texto',
@@ -36,7 +36,7 @@ const WORDS = {
     enacted: 'Aprobada', pending_bill: 'Propuesta, no es ley', not_stated: 'No indicado en el texto', source_record: 'Fuente y fecha',
   },
   zh: {
-    title: '解析法规变更', lead: '提交正文即可。智能体自动识别法规、所属地区、通过状态和生效日期，系统再判断变更影响哪些地址。',
+    title: '解析法规变更', lead: '粘贴法规全文，查看它新增哪些规则、改变哪些地址的结论。',
     body: '法规正文', body_hint: '粘贴完整正文，或上传 UTF-8 编码的 .txt 文件。不能只提交网址。', upload: '上传 .txt 文件',
     start: '开始解析', starting: '正在提交…', missing: '必须提交法规正文，不能只提交网址。', bad_file: '请选择 UTF-8 编码的 .txt 文件。', bad_utf8: '文件不是可读的 UTF-8 文本。', no_model: '服务端尚未配置提取模型。',
     history: '已提交的正文', empty: '还没有提交记录。', back: '返回法律变更', another: '提交另一份正文',
