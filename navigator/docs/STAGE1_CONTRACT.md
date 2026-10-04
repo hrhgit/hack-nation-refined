@@ -32,6 +32,8 @@
 
 任何 `built`、`built_within_years`、`units` 的豁免条件可以加 `"conditional":true`：原文说这个豁免要业主先备案、登记、通知租客才生效。楼宇数据看不出有没有备案，所以程序不会据此把楼排除掉：落在这个豁免范围里的楼答"不确定"，在范围外的楼不受影响。
 
+`other` 里写的条件，程序按字面再分两类：**涉及"哪一类住房"的**（平价、补贴、公共住房、机构住房、单独持有的单户或公寓、已受地方租金管制的）记成 `program_notes`，**只写进解释提醒，不改变结论**；其余（要备案、房东身份说不清、缺事实）仍然判"不确定"。原因：数据里看不出哪栋楼是平价住房，若都判不确定，加州租金上限对所有加州地址都不确定，题目点名的"被取代"就一个也出不来。判断用的词表在 `nav/conditions.py` 的 `PROGRAM_NOTE`，核对表里能看到每条规则的归类。
+
 `per_tenancy`：只影响个别租约或触发条件的说明（租约何时开始、租客年龄、什么行为触发义务），**只作提示，不改变结论**。
 
 另外两个字段在规则层：
@@ -52,7 +54,7 @@
 
 换算后的平铺字段（第二阶段读的就是这些）：
 
-`built_on_or_before`、`built_before`、`built_after`、`built_on_or_after`、`date_basis`、`min_units`、`max_units`、`exempt_if_newer_than_years`、`owner_dependent`、`owner_exempt_if_units_at_most`、`other`、`per_tenancy`、`coverage_quotes`、`deferred`、`contract`（=2 表示按新格式提取）。
+`built_on_or_before`、`built_before`、`built_after`、`built_on_or_after`、`date_basis`、`min_units`、`max_units`、`exempt_if_newer_than_years`、`owner_dependent`、`owner_exempt_if_units_at_most`、`other`、`program_notes`、`per_tenancy`、`coverage_quotes`、`deferred`、`contract`（=2 表示按新格式提取）。
 
 ## 第二阶段怎么用
 

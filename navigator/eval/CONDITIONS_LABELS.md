@@ -141,6 +141,7 @@
 | 没有建成年份，用途代码显示至少 5 个单元（没有准确数） | 适用、不确定 | **待定**（key 没有定死） | the count rules out the small-building exemption; public housing and redevelopment-area exemptions are not shown by the data |
 | 1990 年建，20 个单元 | 适用、不确定 | **待定**（key 没有定死） | the 1983 date must not exclude a 1990 building; whether it is a converted nonpermanent building is not shown |
 | 1970 年建，20 个单元 | 适用、不确定 | **待定**（key 没有定死） | no age exemption reaches a 1970 building; public housing is not shown by the data |
+| 2000 年建，20 个单元 | 适用、不确定 | **待定**（key 没有定死） | the new-construction exemption covers buildings completed between June 25, 1987 and June 25, 1992 only; public housing is not shown by the data |
 
 ## NJ-FAIR — NJ
 
@@ -245,6 +246,38 @@
 |---|---|---|---|
 | 没有建成年份，10 个单元 | 适用 | 适用 | no building-level condition; the carve-outs concern conduct |
 | 没有建成年份，没有单元数 | 适用 | 适用 | no condition depends on the unit count |
+
+## NJ-2A:18-61.2 — NJ
+
+- 说明：新泽西驱逐法（NJ 手册，没见过的页面）：这一条管的是“房东自住的两、三户住宅”，5 户的楼不在范围内。
+- 来源依据（英文）：NJ guide: tenants of landlord-occupied two- and three-family dwellings can be removed only when a court issues an order for eviction
+- 页面：`D067-04`
+
+| 虚构地址 | 不能出错的范围 | 最准确的答案 | 依据或缺失的事实（英文原样） |
+|---|---|---|---|
+| 没有建成年份，5 个单元 | 规则被排除（结果里不出现） | 规则被排除（结果里不出现） | the rule is limited to owner-occupied buildings of two or three units; 5 units is outside it |
+| 没有建成年份，3 个单元 | 不确定 | 不确定 | whether the landlord lives there would change the result |
+| 没有建成年份，没有单元数 | 不确定 | 不确定 | the unit count decides whether the rule can reach the building |
+
+## SF-just-cause — San Francisco, CA
+
+- 说明：旧金山正当理由驱逐（§37.9）：适用于“受租金条例管辖的出租单元”，对普通公寓楼没有额外条件。
+- 来源依据（英文）：SF Rent Board: to evict a tenant from a rental unit covered by the Rent Ordinance a landlord must have a just cause reason, which includes tenancies exempt from the Ordinance's rent increase limits
+- 页面：`D079-01`
+
+| 虚构地址 | 不能出错的范围 | 最准确的答案 | 依据或缺失的事实（英文原样） |
+|---|---|---|---|
+| 1950 年建，20 个单元 | 适用 | 适用 | a bare reference to units covered by the Rent Ordinance adds no condition for an ordinary apartment building |
+
+## BOS-fair-chance — Boston, MA
+
+- 说明：波士顿公平租客筛选政策：只管“接受市政府资助或土地、或有收入限制单元”的房源提供者，一般公寓是否在范围内数据看不出。
+- 来源依据（英文）：Boston Fair Chance Tenant Selection Policy applies to housing providers receiving Department of Neighborhood Development funding or land, or with income-restricted units under the inclusionary policy
+- 页面：`D010-01`
+
+| 虚构地址 | 不能出错的范围 | 最准确的答案 | 依据或缺失的事实（英文原样） |
+|---|---|---|---|
+| 没有建成年份，20 个单元 | 不确定 | 不确定 | the policy is limited to providers that receive city funding or have income-restricted units; whether this building is one cannot be read from the data |
 
 ## MA-IP25-21 — MA
 

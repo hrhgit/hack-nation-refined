@@ -1,0 +1,14 @@
+{
+  "narration_provider": "ElevenLabs",
+  "voice": "Roger - Laid-Back, Casual, Resonant",
+  "model": "Eleven v4",
+  "original_audio": "ElevenLabs_2026-10-04T08_08_12_Roger - Laid-Back, Casual, Resonant_pre_sp100_s50_sb75_v4.mp3",
+  "audio_duration_seconds": 17.240813,
+  "audio_offset_seconds": 0.6,
+  "caption_timing": "Locally transcribed with @remotion/whisper-webgpu small.en; names and text normalized against submitted narration.",
+  "remotion": "4.0.532",
+  "resolution": "1920x1080",
+  "fps": 30,
+  "duration_seconds": 20,
+  "visuals": "Authored text and simple house drawing. No participant face or product-score claims."
+}

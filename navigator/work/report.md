@@ -1,16 +1,49 @@
 # Extraction report
 
 - as of **2026-10-01**
-- answer files read: 74 | records parsed: 111 | accepted: 111 | rejected and still open: 0 (+0 rejected earlier and since fixed) | rules after merging: **89**
-- packets done: **74 / 108**
+- answer files read: 41 | records parsed: 54 | accepted: 54 | rejected and still open: 0 (+0 rejected earlier and since fixed) | rules after merging: **43**
+- packets done: **41 / 108**
 
-## Packets still open (34)
+## Packets still open (67)
 
-States: pending 34
+States: pending 67
 
 | packet | state | detail |
 |---|---|---|
-| D033-01 | pending | no answer yet |
+| D043-02 | pending | no answer yet |
+| D044-01 | pending | no answer yet |
+| D045-01 | pending | no answer yet |
+| D046-01 | pending | no answer yet |
+| D047-01 | pending | no answer yet |
+| D048-01 | pending | no answer yet |
+| D049-01 | pending | no answer yet |
+| D049-02 | pending | no answer yet |
+| D049-03 | pending | no answer yet |
+| D050-01 | pending | no answer yet |
+| D051-01 | pending | no answer yet |
+| D052-01 | pending | no answer yet |
+| D052-02 | pending | no answer yet |
+| D053-01 | pending | no answer yet |
+| D056-01 | pending | no answer yet |
+| D056-02 | pending | no answer yet |
+| D057-01 | pending | no answer yet |
+| D058-01 | pending | no answer yet |
+| D061-01 | pending | no answer yet |
+| D061-02 | pending | no answer yet |
+| D062-01 | pending | no answer yet |
+| D063-01 | pending | no answer yet |
+| D064-01 | pending | no answer yet |
+| D065-01 | pending | no answer yet |
+| D066-01 | pending | no answer yet |
+| D067-01 | pending | no answer yet |
+| D067-02 | pending | no answer yet |
+| D067-03 | pending | no answer yet |
+| D067-04 | pending | no answer yet |
+| D068-01 | pending | no answer yet |
+| D069-01 | pending | no answer yet |
+| D070-01 | pending | no answer yet |
+| D070-02 | pending | no answer yet |
+| D070-03 | pending | no answer yet |
 | D070-04 | pending | no answer yet |
 | D071-01 | pending | no answer yet |
 | D071-02 | pending | no answer yet |
@@ -47,64 +80,44 @@ States: pending 34
 
 Run `python run.py bundle` to get paste files for exactly these packets.
 
-## Rules to check by hand (7 of 89)
+## Rules to check by hand (4 of 43)
 
-- **r-0022** CA | rent_increase_limits | Cal. Civ. Code §1947.12
-    - warning: applicability.date_basis differs between sources: D024 says certificate_of_occupancy, D040 says construction_date
-    - conflict: The section is operative April 1, 2024, but subdivision (h) says it applies to rent increases occurring on or after March 15, 2019. | Sources disagree: effective_date: D024 says 2024-04-01, D040 says 2024-08-01; key_value: D024 says '5% + CPI, or 10%, whichever is lower, per 12 months', D040 says '5% + CPI, max 10%; 8.9% (Aug 1, 2024–Jul 31, 2025)'
 - **r-0005** CA | application_screening_fees | Cal. Civ. Code §1950.6
-    - conflict: Sources disagree: effective_date: D026 says 2026-01-01, D005 says 2026; key_value: D026 says '$30 per applicant, CPI-adjusted annually', D005 says '$68.96 (2026)'
-- **r-0160** MA | application_screening_fees | 803 CMR 5.18
-    - warning: D056 never mentions anything about application_screening_fees
-- **r-0164** NJ | security_deposits | N.J.S.A. 46:8-26
-    - warning: D064 never mentions anything about security_deposits
-- **r-0136** Berkeley, CA | rent_increase_limits | Berkeley Mun. Code ch. 13.76
-    - warning: applicability.built_on_or_before differs between sources: D006 says 1980, D009 says 1980-06
+    - conflict: Sources disagree: effective_date: D026 says 2026-01-01, D005 says 2026; key_value: D026 says '$30 per applicant, CPI-adjusted annually since January 1, 1998', D005 says '$68.96 for 2026'
 - **r-0134** Berkeley, CA | just_cause_eviction | Berkeley Mun. Code ch. 13.76
-    - conflict: Sources disagree: key_value: D004 says '$19,413 standard; $6,471 additional (1.5% CPI adjustment)', D006 says "at least 1 month's Fair Market Rent"
+    - conflict: Sources disagree: key_value: D004 says '$19,413 standard; $6,471 additional for qualifying households; 1.5% CPI adjustment for 2026', D006 says "1 month's Fair Market Rent nonpayment threshold"
+- **r-0125** Boston, MA | screening_restrictions | Boston Fair Chance Tenant Selection Policy
+    - conflict: The policy states that where federal or state law imposes a conflicting criminal history requirement, that law preempts this policy.
 - **r-0154** Los Angeles, CA | rent_increase_limits | Los Angeles Rent Stabilization Ordinance (L.A.M.C. §151.00 et seq.)
-    - conflict: Sources disagree: key_value: D042 says '3% (July 1, 2025 - June 30, 2026)', D041 says 'once every 12 months'
+    - conflict: Sources disagree: key_value: D041 says 'once every 12 months at the allowable rent increase percentage', D042 says '3% (July 1, 2025 through June 30, 2026)'
 
 ## Sources that disagree
 
 - Berkeley, CA / just_cause_eviction Berkeley Mun. Code ch. 13.76
-    - key_value: D004 says '$19,413 standard; $6,471 additional (1.5% CPI adjustment)', D006 says "at least 1 month's Fair Market Rent"
+    - key_value: D004 says '$19,413 standard; $6,471 additional for qualifying households; 1.5% CPI adjustment for 2026', D006 says "1 month's Fair Market Rent nonpayment threshold"
 - CA / application_screening_fees Cal. Civ. Code §1950.6
     - effective_date: D026 says 2026-01-01, D005 says 2026
-    - key_value: D026 says '$30 per applicant, CPI-adjusted annually', D005 says '$68.96 (2026)'
-- CA / rent_increase_limits Cal. Civ. Code §1947.12
-    - effective_date: D024 says 2024-04-01, D040 says 2024-08-01
-    - key_value: D024 says '5% + CPI, or 10%, whichever is lower, per 12 months', D040 says '5% + CPI, max 10%; 8.9% (Aug 1, 2024–Jul 31, 2025)'
+    - key_value: D026 says '$30 per applicant, CPI-adjusted annually since January 1, 1998', D005 says '$68.96 for 2026'
 - Los Angeles, CA / rent_increase_limits Los Angeles Rent Stabilization Ordinance (L.A.M.C. §151.00 et seq.)
-    - key_value: D042 says '3% (July 1, 2025 - June 30, 2026)', D041 says 'once every 12 months'
-
-## Possible duplicates (same jurisdiction and category, overlapping citations)
-
-- MA / just_cause_eviction: `G.L. c. 186, §11` vs `G.L. c. 186, §12`
-- MA / just_cause_eviction: `G.L. c. 186, §11` vs `G.L. c. 186, §18`
-- MA / just_cause_eviction: `G.L. c. 186, §11` vs `G.L. c. 186, §31`
-- MA / just_cause_eviction: `G.L. c. 186, §12` vs `G.L. c. 186, §18`
-- MA / just_cause_eviction: `G.L. c. 186, §12` vs `G.L. c. 186, §31`
-- MA / just_cause_eviction: `G.L. c. 186, §18` vs `G.L. c. 186, §31`
-- MA / screening_restrictions: `803 CMR 5.00` vs `803 CMR 5.17`
+    - key_value: D041 says 'once every 12 months at the allowable rent increase percentage', D042 says '3% (July 1, 2025 through June 30, 2026)'
 
 ## Coverage matrix
 
 | jurisdiction | rent | just cause | deposit | app fees | screening | algo |
 |---|---|---|---|---|---|---|
-| CA | 1 | 1 | 2 | 1 | 3 | 1 |
-| NJ | 3 | 10 | 5 | 3 | 4 | 1 (1N) |
-| MA | 2 (1F) | 5 (1F) | 1 | 3 | 4 | 2 (2P) |
-| Los Angeles, CA | 1 | 4 | 1 | · | 1 | 1 (1P) |
+| CA | 2 | 1 | 2 | 1 | 3 | 1 |
+| NJ | · | · | · | · | · | · |
+| MA | 1 (1F) | 1 (1F) | · | · | · | · |
+| Los Angeles, CA | 1 | 4 | · | · | 1 | 1 (1P) |
 | San Francisco, CA | · | · | · | · | · | · |
 | San Diego, CA | · | · | · | · | · | · |
-| Berkeley, CA | 2 | 1 | 1 | 1 | 1 | 1 |
+| Berkeley, CA | 2 | 2 | 1 | 1 | 1 | 1 |
 | Santa Ana, CA | · | · | · | · | · | · |
 | Jersey City, NJ | 1 | · | · | · | · | 1 |
-| Hoboken, NJ | 9 | 1 | · | · | · | 1 |
-| Newark, NJ | 3 | 2 | · | · | · | · |
+| Hoboken, NJ | 8 | · | · | · | · | 1 |
+| Newark, NJ | · | · | · | · | · | · |
 | Boston, MA | · | 1 | · | · | 2 | · |
-| Cambridge, MA | · | · | · | · | 1 | · |
+| Cambridge, MA | · | 1 | · | · | 1 | · |
 
 `·` = no rule extracted. N = not yet effective, P = pending bill, F = failed. An empty cell is correct for some cells (e.g. MA has no rent control): check, do not assume.
 

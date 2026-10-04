@@ -1,0 +1,31 @@
+{
+  "packet_id": "D016-02",
+  "model": "deepseek-flash",
+  "as_of": "2026-10-01",
+  "prompt_sha256": "53c560f245304eed3b15a2f403223aa4d375abc6f1a5bdaab0d25903198a34e6",
+  "steps": 1,
+  "cards_read": [],
+  "checks": 0,
+  "usage": [
+    {
+      "prompt_tokens": 4470,
+      "completion_tokens": 153,
+      "total_tokens": 4623,
+      "prompt_tokens_details": {
+        "cached_tokens": 4224
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 118
+      },
+      "prompt_cache_hit_tokens": 4224,
+      "prompt_cache_miss_tokens": 246
+    }
+  ],
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "{\"packet_id\":\"D016-02\",\"n_rules\":0,\"note\":\"Complaint filing deadlines and discrimination procedures; none of the six categories.\"}",
+      "reasoning_content": "This packet is about housing discrimination complaint procedures — time limits, HUD filings, court filing, predatory lending. None of these fall into the six categories (rent increase limits, just cause eviction, security deposits, application screening fees, screening restrictions, algorithmic rent setting). So no records — empty receipt.\n\nLet me verify: screening_restrictions hint = 5, but that was for part 1 presumably. This part 2 is about complaint filing. So n_rules 0.\n\nNo need for cards. But maybe I should just output.\n\nNote at most 15 words."
+    }
+  ]
+}

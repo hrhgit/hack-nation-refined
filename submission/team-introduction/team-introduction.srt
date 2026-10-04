@@ -1,0 +1,27 @@
+1
+00:00:00,880 --> 00:00:02,280
+Hi, I’m Ruihua,
+
+2
+00:00:02,280 --> 00:00:04,860
+the solo builder behind team whardite.
+
+3
+00:00:04,860 --> 00:00:07,180
+I’m building a Rental Housing Law Navigator
+
+4
+00:00:07,180 --> 00:00:09,520
+to help people understand rental rules
+
+5
+00:00:09,520 --> 00:00:11,620
+and check the original sources.
+
+6
+00:00:11,620 --> 00:00:14,700
+I handle the design, development, and testing,
+
+7
+00:00:14,700 --> 00:00:17,840
+with a focus on clear answers backed by evidence.

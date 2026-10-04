@@ -1,0 +1,31 @@
+{
+  "packet_id": "X006-01",
+  "model": "deepseek-flash",
+  "as_of": "2026-10-01",
+  "prompt_sha256": "53c560f245304eed3b15a2f403223aa4d375abc6f1a5bdaab0d25903198a34e6",
+  "steps": 1,
+  "cards_read": [],
+  "checks": 0,
+  "usage": [
+    {
+      "prompt_tokens": 8739,
+      "completion_tokens": 86,
+      "total_tokens": 8825,
+      "prompt_tokens_details": {
+        "cached_tokens": 3584
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 54
+      },
+      "prompt_cache_hit_tokens": 3584,
+      "prompt_cache_miss_tokens": 5155
+    }
+  ],
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "{\"packet_id\":\"X006-01\",\"n_rules\":0,\"note\":\"California Constitution Article IV on legislative branch; no housing rules.\"}",
+      "reasoning_content": "This packet is California Constitution Article IV — legislative branch. Nothing about housing. No rules in the six categories. So an empty receipt with note.\n\nLet me verify keyword hints say rent_increase_limits=3 but text says nothing. So n_rules 0."
+    }
+  ]
+}

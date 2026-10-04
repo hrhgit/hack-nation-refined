@@ -30,7 +30,9 @@ from .ingest import Validator, pending_packets, run_ingest, write_outputs
 from .packets import load_index, render_packet_input
 from .parse import classify, extract_json_objects
 
-AGENT_DIR = ROOT / "prompts" / "agent"
+import os
+
+AGENT_DIR = Path(os.environ.get("NAV_AGENT_DIR") or ROOT / "prompts" / "agent")   # the override is for A/B tests of card sets
 AS_OF = "2026-10-01"
 PROBES = [(2022, 20, None), (2005, 20, None), (1990, 20, None), (1970, 20, None), (None, 20, None),
           (1950, 2, None), (1950, 5, None), (1950, None, None)]
@@ -90,6 +92,8 @@ def describe_conditions(a: Dict[str, Any]) -> str:
                                           else " (no size limit: every building comes out unknown)"))
     if a.get("other"):
         parts.append("unresolved: %s" % a["other"])
+    if a.get("program_notes"):
+        parts.append("note only (kinds of housing the data cannot show): %s" % "; ".join(a["program_notes"])[:160])
     for d in a.get("deferred") or []:
         parts.append("exemption only if the owner filed (open inside its reach): %s" % d["note"])
     if a.get("per_tenancy"):

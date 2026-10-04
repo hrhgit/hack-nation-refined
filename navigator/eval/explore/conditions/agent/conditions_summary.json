@@ -1,8 +1,8 @@
 {
  "variant": "agent",
- "passed": 167,
- "total": 168,
- "score": 0.9940476190476191,
+ "passed": 169,
+ "total": 170,
+ "score": 0.9941176470588236,
  "exact_passed": 84,
  "exact_total": 84,
  "wrong_exclusions": 0,
@@ -71,8 +71,8 @@
    "exact_total": 2
   },
   "JC-260": {
-   "passed": 12,
-   "total": 12,
+   "passed": 14,
+   "total": 14,
    "tries": 2,
    "exact_passed": 2,
    "exact_total": 2
@@ -140,6 +140,9 @@
    "exact_passed": 4,
    "exact_total": 4
   },
+  "NJ-2A:18-61.2": null,
+  "SF-just-cause": null,
+  "BOS-fair-chance": null,
   "MA-IP25-21": {
    "passed": 4,
    "total": 4,

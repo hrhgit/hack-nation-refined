@@ -30,6 +30,8 @@ def _conditions(rule):
         parts.append("exemption only if the owner filed (open question inside its reach): %s" % item["note"])
     if a.get("other"):
         parts.append("UNRESOLVED: %s" % a["other"])
+    if a.get("program_notes"):
+        parts.append("note, does not change the answer (kinds of housing the data cannot show): %s" % "; ".join(a["program_notes"]))
     if a.get("per_tenancy"):
         parts.append("note: %s" % a["per_tenancy"])
     return parts

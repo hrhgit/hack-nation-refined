@@ -1,0 +1,226 @@
+{
+  "text": "Hi, I'm Roy Hua, the solo builder behind Team Wardite. I'm building a rental housing law navigator to help people understand rental rules and check the original sources. I handled the design, development, and testing with a focus on clear answers backed by evidence.",
+  "words": [
+    {
+      "text": "Hi,",
+      "startInSeconds": 0.28,
+      "endInSeconds": 0.46
+    },
+    {
+      "text": " I'm",
+      "startInSeconds": 0.66,
+      "endInSeconds": 0.9
+    },
+    {
+      "text": " Roy",
+      "startInSeconds": 0.9,
+      "endInSeconds": 1.2
+    },
+    {
+      "text": " Hua,",
+      "startInSeconds": 1.2,
+      "endInSeconds": 1.58
+    },
+    {
+      "text": " the",
+      "startInSeconds": 1.68,
+      "endInSeconds": 1.94
+    },
+    {
+      "text": " solo",
+      "startInSeconds": 1.94,
+      "endInSeconds": 2.26
+    },
+    {
+      "text": " builder",
+      "startInSeconds": 2.26,
+      "endInSeconds": 2.72
+    },
+    {
+      "text": " behind",
+      "startInSeconds": 2.72,
+      "endInSeconds": 3.04
+    },
+    {
+      "text": " Team",
+      "startInSeconds": 3.04,
+      "endInSeconds": 3.32
+    },
+    {
+      "text": " Wardite.",
+      "startInSeconds": 3.32,
+      "endInSeconds": 4.08
+    },
+    {
+      "text": " I'm",
+      "startInSeconds": 4.26,
+      "endInSeconds": 4.5
+    },
+    {
+      "text": " building",
+      "startInSeconds": 4.5,
+      "endInSeconds": 4.78
+    },
+    {
+      "text": " a",
+      "startInSeconds": 4.78,
+      "endInSeconds": 4.98
+    },
+    {
+      "text": " rental",
+      "startInSeconds": 4.98,
+      "endInSeconds": 5.48
+    },
+    {
+      "text": " housing",
+      "startInSeconds": 5.48,
+      "endInSeconds": 5.82
+    },
+    {
+      "text": " law",
+      "startInSeconds": 5.82,
+      "endInSeconds": 6.08
+    },
+    {
+      "text": " navigator",
+      "startInSeconds": 6.08,
+      "endInSeconds": 6.58
+    },
+    {
+      "text": " to",
+      "startInSeconds": 6.58,
+      "endInSeconds": 6.8
+    },
+    {
+      "text": " help",
+      "startInSeconds": 6.8,
+      "endInSeconds": 7.02
+    },
+    {
+      "text": " people",
+      "startInSeconds": 7.02,
+      "endInSeconds": 7.68
+    },
+    {
+      "text": " understand",
+      "startInSeconds": 7.68,
+      "endInSeconds": 8.1
+    },
+    {
+      "text": " rental",
+      "startInSeconds": 8.1,
+      "endInSeconds": 8.42
+    },
+    {
+      "text": " rules",
+      "startInSeconds": 8.42,
+      "endInSeconds": 8.92
+    },
+    {
+      "text": " and",
+      "startInSeconds": 8.92,
+      "endInSeconds": 8.92
+    },
+    {
+      "text": " check",
+      "startInSeconds": 9.18,
+      "endInSeconds": 9.36
+    },
+    {
+      "text": " the",
+      "startInSeconds": 9.36,
+      "endInSeconds": 9.72
+    },
+    {
+      "text": " original",
+      "startInSeconds": 9.72,
+      "endInSeconds": 10.18
+    },
+    {
+      "text": " sources.",
+      "startInSeconds": 10.18,
+      "endInSeconds": 10.84
+    },
+    {
+      "text": " I",
+      "startInSeconds": 11.02,
+      "endInSeconds": 11.26
+    },
+    {
+      "text": " handled",
+      "startInSeconds": 11.26,
+      "endInSeconds": 11.46
+    },
+    {
+      "text": " the",
+      "startInSeconds": 11.46,
+      "endInSeconds": 11.88
+    },
+    {
+      "text": " design,",
+      "startInSeconds": 11.88,
+      "endInSeconds": 12.2
+    },
+    {
+      "text": " development,",
+      "startInSeconds": 12.58,
+      "endInSeconds": 12.94
+    },
+    {
+      "text": " and",
+      "startInSeconds": 13.12,
+      "endInSeconds": 13.6
+    },
+    {
+      "text": " testing",
+      "startInSeconds": 13.6,
+      "endInSeconds": 14.1
+    },
+    {
+      "text": " with",
+      "startInSeconds": 14.1,
+      "endInSeconds": 14.24
+    },
+    {
+      "text": " a",
+      "startInSeconds": 14.24,
+      "endInSeconds": 14.5
+    },
+    {
+      "text": " focus",
+      "startInSeconds": 14.5,
+      "endInSeconds": 14.76
+    },
+    {
+      "text": " on",
+      "startInSeconds": 14.76,
+      "endInSeconds": 15.18
+    },
+    {
+      "text": " clear",
+      "startInSeconds": 15.18,
+      "endInSeconds": 15.68
+    },
+    {
+      "text": " answers",
+      "startInSeconds": 15.68,
+      "endInSeconds": 16.1
+    },
+    {
+      "text": " backed",
+      "startInSeconds": 16.1,
+      "endInSeconds": 16.38
+    },
+    {
+      "text": " by",
+      "startInSeconds": 16.38,
+      "endInSeconds": 16.82
+    },
+    {
+      "text": " evidence.",
+      "startInSeconds": 16.82,
+      "endInSeconds": 17.04
+    }
+  ],
+  "model": "small.en"
+}

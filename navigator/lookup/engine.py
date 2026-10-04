@@ -287,16 +287,31 @@ class LookupEngine:
                     add(field, {"units": units, "units_at_least": lower}, "unknown", "the data has no exact unit count, and the known minimum cannot settle the threshold of %s units" % threshold)
 
         tests(a, add)
-        # An exemption that holds only if the owner filed or registered something: a building inside its reach is an
-        # open question (the data cannot show a filing), a building outside its reach is unaffected.
+        # Exemptions kept apart: one that holds only if the owner filed or registered something (a building inside its reach is an
+        # open question, the data cannot show a filing), and "windows", exemptions made of several conditions that must all hold.
+        # Each condition's check says whether the building is on the covered side of it; the building is inside the exemption only
+        # when it is on the exempt side of every condition, and outside it as soon as one condition puts it on the covered side.
         for item in a.get("deferred") or []:
-            def add_deferred(field, fact, outcome, explanation, _note=item["note"]):
-                if outcome == "excluded":
-                    add("deferred:" + field, fact, "unknown",
-                        "the building may fall under an exemption that holds only if the owner filed or registered it (%s); the data cannot show a filing" % _note)
+            conditional = item.get("conditional", True)
+            members = item.get("flats_all") or [item["flats"]]
+            member_outcomes, facts_seen = [], None
+            for flats in members:
+                got = []
+                tests(dict(flats), lambda field, fact, outcome, explanation, _g=got: _g.append((field, fact, outcome, explanation)))
+                kinds = {o for _, _, o, _ in got}
+                member_outcomes.append("excluded" if "excluded" in kinds else "unknown" if "unknown" in kinds else "met")
+                facts_seen = facts_seen or (got[0][1] if got else None)
+            note = item["note"]
+            if "met" in member_outcomes:
+                add("deferred:" + note, facts_seen, "met", "the building is outside the exemption (%s)" % note)
+            elif all(o == "excluded" for o in member_outcomes):
+                if conditional:
+                    add("deferred:" + note, facts_seen, "unknown",
+                        "the building may fall under an exemption that holds only if the owner filed or registered it (%s); the data cannot show a filing" % note)
                 else:
-                    add("deferred:" + field, fact, outcome, explanation)
-            tests(dict(item["flats"]), add_deferred)
+                    add("deferred:" + note, facts_seen, "excluded", "the building falls inside an exemption (%s)" % note)
+            else:
+                add("deferred:" + note, facts_seen, "unknown", "the data cannot place the building inside or outside an exemption (%s)" % note)
 
         if a.get("owner_dependent"):
             maximum = a.get("owner_exempt_if_units_at_most")
@@ -312,6 +327,8 @@ class LookupEngine:
                 add("other", None, "unknown", "the data cannot settle this condition: %s" % a["other"])
             else:
                 add("other", None, "note", "condition stated in the source: %s" % a["other"])
+        if a.get("program_notes"):
+            add("program_notes", None, "note", "kinds of housing the data cannot show may be exempt (%s)" % "; ".join(a["program_notes"])[:300])
         if a.get("per_tenancy"):
             add("per_tenancy", None, "note", "individual tenancies can differ: %s" % a["per_tenancy"])
         if rule.get("coverage_note"):

@@ -91,6 +91,59 @@ class ConditionalExemptionTests(unittest.TestCase):
         self.assertEqual(out["deferred"], [])
 
 
+class GroupTests(unittest.TestCase):
+    WINDOW = [{"type": "built", "role": "exempt", "op": "after", "date": "1979-06-13", "group": "w"},
+              {"type": "built", "role": "exempt", "op": "before", "date": "1980", "group": "w"}]
+
+    def test_conditions_with_one_group_form_one_exemption(self):
+        out, _ = parse(self.WINDOW)
+        self.assertIsNone(out["built_on_or_before"])             # neither is a separate exclusion
+        self.assertIsNone(out["built_on_or_after"])
+        self.assertEqual(len(out["deferred"]), 1)
+        item = out["deferred"][0]
+        self.assertEqual([sorted(m) for m in item["flats_all"]], [["built_on_or_before"], ["built_on_or_after"]])
+        self.assertFalse(item["conditional"])
+
+    def test_a_conditional_window_and_a_single_condition_in_a_group(self):
+        out, _ = parse([dict(c, conditional=True) for c in self.WINDOW])
+        self.assertTrue(out["deferred"][0]["conditional"])
+        out, _ = parse([{"type": "units", "role": "exempt", "op": "at_most", "n": 4, "group": "g"}])
+        self.assertEqual(out["min_units"], 5)                    # a group of one is an ordinary exclusion
+        self.assertEqual(out["deferred"], [])
+
+
+class OwnerAndScopeTests(unittest.TestCase):
+    def test_owner_only_coverage_with_a_size_limit_caps_the_units(self):
+        out, _ = parse([{"type": "owner", "role": "covered", "who": "landlord-occupied", "unit_limit": 3}])
+        self.assertEqual((out["max_units"], out["owner_dependent"]), (3, True))
+
+    def test_single_homes_and_condominiums_are_a_kind_of_housing_not_an_owner(self):
+        out, _ = parse([{"type": "owner", "role": "exempt", "who": "single-family home or condominium owned by a natural person", "unit_limit": None}])
+        self.assertFalse(out["owner_dependent"])
+        self.assertEqual(len(out["program_notes"]), 1)
+
+    def test_a_scope_limit_stays_open_even_when_it_names_a_program(self):
+        out, _ = parse([{"type": "other", "role": "covered", "text": "only housing providers receiving city funding or with income-restricted units"},
+                        {"type": "other", "role": "exempt", "text": "housing restricted by deed as affordable"}])
+        self.assertEqual(out["other"], "only housing providers receiving city funding or with income-restricted units")
+        self.assertEqual(out["program_notes"], ["housing restricted by deed as affordable"])
+
+
+class ProgramNoteTests(unittest.TestCase):
+    def test_kinds_of_housing_are_notes_but_owner_filings_and_other_facts_stay_open(self):
+        out, _ = parse([{"type": "other", "text": "housing restricted by deed as affordable for low-income households"},
+                        {"type": "other", "text": "public housing owned by a housing authority"},
+                        {"type": "other", "text": "single-family home or condominium alienable separate from other titles"},
+                        {"type": "other", "text": "only units that the landlord registered with the board before first rental"}])
+        self.assertEqual(len(out["program_notes"]), 3)
+        self.assertEqual(out["other"], "only units that the landlord registered with the board before first rental")
+
+    def test_a_note_alone_leaves_other_empty(self):
+        out, _ = parse([{"type": "other", "text": "units with Section 8 subsidies"}])
+        self.assertIsNone(out["other"])
+        self.assertEqual(out["program_notes"], ["units with Section 8 subsidies"])
+
+
 class SourceCheckTests(unittest.TestCase):
     def test_a_number_or_date_not_in_the_source_becomes_an_unresolved_condition(self):
         out, w = parse([{"type": "built", "role": "exempt", "op": "after", "date": "1991-01-01"},

@@ -17,7 +17,7 @@ CONTRACT_VERSION = 2
 
 APPL_KEYS = ["built_on_or_before", "built_before", "built_after", "built_on_or_after", "date_basis",
              "min_units", "max_units", "exempt_if_newer_than_years", "owner_dependent",
-             "owner_exempt_if_units_at_most", "other", "per_tenancy", "coverage_quotes", "deferred", "contract"]
+             "owner_exempt_if_units_at_most", "other", "program_notes", "per_tenancy", "coverage_quotes", "deferred", "contract"]
 DATE_KEYS = ["built_on_or_before", "built_before", "built_after", "built_on_or_after"]
 DATE_BASES = {"certificate_of_occupancy", "construction_date", "unspecified"}
 RELATION_TYPES = {"preempts_local", "yields_to_local"}
@@ -34,6 +34,14 @@ _COVERED_DATE = {"on_or_before": "built_on_or_before", "before": "built_before",
 _EXEMPT_DATE = {"after": "built_on_or_before", "on_or_after": "built_before",
                 "before": "built_on_or_after", "on_or_before": "built_after"}
 
+# An unresolved condition about a KIND of housing the assessor data does not show (affordable, subsidized, public or
+# institutional housing, single units held separately, housing already under a local rent cap) is a note for the reader: it
+# does not turn the whole building into "unknown". Owner status, filings and missing facts still do.
+PROGRAM_NOTE = re.compile(
+    r"affordab|subsid|deed|restrict|low.income|moderate.income|very low|public housing|housing authority|government|HUD\b|section ?8|"
+    r"\b202\b|\b811\b|nonprofit|non-profit|transitional|institution|hospital|care facility|religious|dormitor|student|hotel|motel|"
+    r"mobile ?home|condominium|single.family|alienable|rent control|rent stabilization|rent regulat|cooperative", re.I)
+
 MIN_QUOTE = 15
 MAX_QUOTE = 600
 MAX_QUOTES = 4
@@ -46,6 +54,7 @@ def empty() -> Dict[str, Any]:
     out["owner_dependent"] = False
     out["coverage_quotes"] = []
     out["deferred"] = []
+    out["program_notes"] = []
     return out
 
 
@@ -94,24 +103,62 @@ def _stricter(key: str, old: Optional[str], new: str) -> str:
     return old if ((a <= b) == keep_earlier) else new
 
 
-def _defer(c: Dict[str, Any], flats: Dict[str, Any], what: str, basis_name: Optional[str], out: Dict[str, Any]) -> bool:
-    """An exemption that holds only if the owner filed, registered or complied cannot be tested from building data.
+OWNER_KIND = re.compile(r"single.family|condominium|alienable|mobile ?home", re.I)
 
-    It is stored apart from the real exclusions. The lookup treats a building inside its reach as an open question
-    ("unknown") and a building outside its reach as unaffected; it never becomes an exclusion.
+
+def _apply_flats(out: Dict[str, Any], flats: Dict[str, Any]) -> None:
+    for k, v in flats.items():
+        if k in DATE_KEYS:
+            out[k] = _stricter(k, out[k], v)
+        elif k == "min_units":
+            out[k] = v if out[k] is None else max(out[k], v)
+        elif k == "max_units":
+            out[k] = v if out[k] is None else min(out[k], v)
+        elif k == "exempt_if_newer_than_years":
+            out[k] = v if out[k] is None else max(out[k], v)
+
+
+def _finish_exempt(out: Dict[str, Any], members: List[Dict[str, Any]], conditional: bool, note: str,
+                   basis_name: Optional[str], basis: List[str]) -> None:
+    """Record an exemption that is made of one condition, or of several that must all hold ("a window").
+
+    One unconditional condition becomes an ordinary exclusion. A conditional one (it holds only if the owner filed,
+    registered or complied) or a window is kept apart in `deferred`: the lookup judges them as a whole, and a building
+    inside a conditional exemption's reach is an open question, never an exclusion.
     """
-    if c.get("conditional") is not True:
-        return False
-    item = {"flats": dict(flats), "note": what}
-    if basis_name:
-        item["flats"]["date_basis"] = basis_name
+    if len(members) == 1 and not conditional:
+        _apply_flats(out, members[0])
+        if basis_name:
+            basis.append(basis_name)
+        return
+    if len(members) == 1:
+        item: Dict[str, Any] = {"flats": dict(members[0]), "note": note, "conditional": True}
+        if basis_name:
+            item["flats"]["date_basis"] = basis_name
+    else:
+        item = {"flats_all": [dict(m, **({"date_basis": basis_name} if basis_name else {})) for m in members],
+                "note": note, "conditional": conditional}
     if item not in out["deferred"]:
         out["deferred"].append(item)
-    return True
+
+
+def _exempt(c: Dict[str, Any], flats: Dict[str, Any], note: str, basis_name: Optional[str], out: Dict[str, Any],
+            groups: Dict[str, Dict[str, Any]], basis: List[str]) -> None:
+    gid = _text(c.get("group")) if isinstance(c.get("group"), str) else None
+    conditional = c.get("conditional") is True
+    if gid:
+        g = groups.setdefault(gid, {"members": [], "conditional": False, "notes": [], "basis": []})
+        g["members"].append(dict(flats))
+        g["conditional"] = g["conditional"] or conditional
+        g["notes"].append(note)
+        if basis_name:
+            g["basis"].append(basis_name)
+        return
+    _finish_exempt(out, [dict(flats)], conditional, note, basis_name, basis)
 
 
 def _condition(c: Any, out: Dict[str, Any], unresolved: List[str], basis: List[str], warns: List[str],
-               dates: Optional[Set[str]], nums: Optional[Set[str]]) -> None:
+               dates: Optional[Set[str]], nums: Optional[Set[str]], groups: Dict[str, Dict[str, Any]]) -> None:
     if not isinstance(c, dict):
         warns.append("applicability condition %r is not an object: ignored" % (c,))
         return
@@ -132,8 +179,8 @@ def _condition(c: Any, out: Dict[str, Any], unresolved: List[str], basis: List[s
             return doubt("date %s is not in the source" % date)
         key = (_COVERED_DATE if role == "covered" else _EXEMPT_DATE)[op]
         b = BASIS_NAMES.get((_text(c.get("basis")) or "").lower())
-        if role == "exempt" and _defer(c, {key: date}, "built %s %s" % (op.replace("_", " "), date), b, out):
-            return
+        if role == "exempt":
+            return _exempt(c, {key: date}, "built %s %s" % (op.replace("_", " "), date), b, out, groups, basis)
         out[key] = _stricter(key, out[key], date)
         if b:
             basis.append(b)
@@ -144,12 +191,7 @@ def _condition(c: Any, out: Dict[str, Any], unresolved: List[str], basis: List[s
         if not _number_supported(years, nums):
             return doubt("%s years is not in the source" % years)
         b = BASIS_NAMES.get((_text(c.get("basis")) or "").lower())
-        if _defer(c, {"exempt_if_newer_than_years": years}, "built within the last %d years" % years, b, out):
-            return
-        old = out["exempt_if_newer_than_years"]
-        out["exempt_if_newer_than_years"] = years if old is None else max(old, years)
-        if b:
-            basis.append(b)
+        _exempt(c, {"exempt_if_newer_than_years": years}, "built within the last %d years" % years, b, out, groups, basis)
     elif kind == "units":
         op = (_text(c.get("op")) or "").lower()
         n = _int(c.get("n"))
@@ -162,13 +204,10 @@ def _condition(c: Any, out: Dict[str, Any], unresolved: List[str], basis: List[s
             lo, hi = {"at_least": (n, None), "more_than": (n + 1, None), "at_most": (None, n), "fewer_than": (None, n - 1)}[op]
         else:
             lo, hi = {"at_most": (n + 1, None), "fewer_than": (n, None), "at_least": (None, n - 1), "more_than": (None, n)}[op]
-        if role == "exempt" and _defer(c, {"min_units": lo} if lo is not None else {"max_units": hi},
-                                       "%s %d units" % (op.replace("_", " "), n), None, out):
-            return
-        if lo is not None:
-            out["min_units"] = lo if out["min_units"] is None else max(out["min_units"], lo)
-        if hi is not None:
-            out["max_units"] = hi if out["max_units"] is None else min(out["max_units"], hi)
+        if role == "exempt":
+            return _exempt(c, {"min_units": lo} if lo is not None else {"max_units": hi},
+                           "%s %d units" % (op.replace("_", " "), n), None, out, groups, basis)
+        _apply_flats(out, {"min_units": lo} if lo is not None else {"max_units": hi})
     elif kind == "owner":
         who = _text(c.get("who"))
         limit = _int(c.get("unit_limit")) if c.get("unit_limit") is not None else None
@@ -176,16 +215,23 @@ def _condition(c: Any, out: Dict[str, Any], unresolved: List[str], basis: List[s
             return doubt("needs role covered/exempt and who")
         if limit is not None and not _number_supported(limit, nums):
             return doubt("%s units is not in the source" % limit)
+        if role == "exempt" and limit is None and OWNER_KIND.search(who):
+            out["program_notes"].append(who)         # a kind of housing (single homes, condominiums), not the owner's status
+            return
         out["owner_dependent"] = True
         if role == "exempt":
             if limit is None:
                 out["_owner_unbounded"] = True
             elif out["owner_exempt_if_units_at_most"] is None or limit > out["owner_exempt_if_units_at_most"]:
                 out["owner_exempt_if_units_at_most"] = limit
+        elif limit is not None:
+            _apply_flats(out, {"max_units": limit})  # the rule covers only owner-occupied buildings of up to this size
     elif kind == "other":
         text = _text(c.get("text"))
         if text:
-            unresolved.append(text)
+            # a scope limit (role covered) always stays open; an exemption for a kind of housing is a note; with no role, the words decide
+            note = role != "covered" and bool(PROGRAM_NOTE.search(text))
+            (out["program_notes"] if note else unresolved).append(text)
     else:
         warns.append("applicability condition of unknown type ignored: %s" % label[:120])
 
@@ -207,8 +253,11 @@ def parse(a: Any, warns: List[str], dates: Optional[Set[str]] = None, nums: Opti
     if conds is not None and not isinstance(conds, list):
         warns.append("applicability.conditions is not a list: ignored")
         conds = None
+    groups: Dict[str, Dict[str, Any]] = {}
     for c in conds or []:
-        _condition(c, out, unresolved, basis, warns, dates, nums)
+        _condition(c, out, unresolved, basis, warns, dates, nums, groups)
+    for g in groups.values():
+        _finish_exempt(out, g["members"], g["conditional"], " and ".join(g["notes"]), (g["basis"] or [None])[0], basis)
     # An answer in the first format (flat keys) still reads; the list wins where both say something.
     for k in DATE_KEYS:
         v = _text(a.get(k))
@@ -233,6 +282,7 @@ def parse(a: Any, warns: List[str], dates: Optional[Set[str]] = None, nums: Opti
     if legacy_other:
         unresolved.append(legacy_other)
     out["other"] = "; ".join(dict.fromkeys(unresolved)) or None
+    out["program_notes"] = list(dict.fromkeys(out["program_notes"]))
     out["per_tenancy"] = _text(a.get("per_tenancy"))
     quotes = a.get("coverage_quotes")
     if quotes is not None and not isinstance(quotes, list):
@@ -304,6 +354,9 @@ def merge(primary: Dict[str, Any], other: Dict[str, Any], doc_id: str, notes: Li
     for item in b.get("deferred") or []:
         if item not in a["deferred"]:
             a["deferred"].append(item)
+    for text in b.get("program_notes") or []:
+        if text not in a["program_notes"]:
+            a["program_notes"].append(text)
     if a.get("contract") is None:
         a["contract"] = b.get("contract")
     for k in ("valid_through",):

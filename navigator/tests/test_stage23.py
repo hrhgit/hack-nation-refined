@@ -250,6 +250,27 @@ class PrecedenceAndAuditTests(unittest.TestCase):
         both = rule(applicability={"deferred": deferred, "min_units": 10, "contract": 2})
         self.assertEqual(engine([both], {"A": address(year_built=2015, units=4)}).lookup("A"), [])
 
+    def test_a_window_exemption_judges_the_building_against_all_its_conditions(self):
+        window = {"flats_all": [{"built_on_or_before": "1987-06-25"}, {"built_on_or_after": "1992-06-25"}], "note": "built between 1987 and 1992",
+                  "conditional": False}
+        r = rule(applicability={"deferred": [window], "contract": 2})
+        got = {y: engine([r], {"A": address(year_built=y)}).lookup("A") for y in (1970, 1990, 2005, None)}
+        self.assertEqual(got[1970][0]["result"], "applies")      # before the window
+        self.assertEqual(got[2005][0]["result"], "applies")      # after the window
+        self.assertEqual(got[1990], [])                          # inside it: the exemption is certain, the rule is left out
+        self.assertEqual(got[None][0]["result"], "unknown")
+        conditional = dict(window, conditional=True)
+        r = rule(applicability={"deferred": [conditional], "contract": 2})
+        self.assertEqual(engine([r], {"A": address(year_built=1990)}).lookup("A")[0]["result"], "unknown")   # filing needed: open, not excluded
+
+    def test_program_notes_do_not_change_the_answer_but_reach_the_explanation(self):
+        r = rule(applicability={"program_notes": ["housing restricted by deed as affordable"], "contract": 2})
+        row = engine([r]).lookup("A")[0]
+        self.assertEqual(row["result"], "applies")
+        self.assertIn("housing restricted by deed as affordable", row["explanation"])
+        both = rule(applicability={"program_notes": ["public housing"], "other": "needs a filing", "contract": 2})
+        self.assertEqual(engine([both]).lookup("A")[0]["result"], "unknown")      # an unresolved fact still makes it unknown
+
     def test_new_format_other_is_unresolved_even_without_keywords_and_per_tenancy_is_a_note(self):
         row = engine([rule(applicability={"other": "any housing accommodation", "contract": 2})]).lookup("A")[0]
         self.assertEqual(row["result"], "unknown")

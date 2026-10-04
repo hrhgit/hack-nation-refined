@@ -1,0 +1,146 @@
+{
+  "packet_id": "D036-01",
+  "model": "deepseek-flash",
+  "as_of": "2026-10-01",
+  "prompt_sha256": "53c560f245304eed3b15a2f403223aa4d375abc6f1a5bdaab0d25903198a34e6",
+  "steps": 3,
+  "cards_read": [
+    "building_age_and_size",
+    "owner_and_exceptions",
+    "citations",
+    "dates"
+  ],
+  "checks": 1,
+  "usage": [
+    {
+      "prompt_tokens": 5280,
+      "completion_tokens": 662,
+      "total_tokens": 5942,
+      "prompt_tokens_details": {
+        "cached_tokens": 5120
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 533
+      },
+      "prompt_cache_hit_tokens": 5120,
+      "prompt_cache_miss_tokens": 160
+    },
+    {
+      "prompt_tokens": 8456,
+      "completion_tokens": 1390,
+      "total_tokens": 9846,
+      "prompt_tokens_details": {
+        "cached_tokens": 5888
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1044
+      },
+      "prompt_cache_hit_tokens": 5888,
+      "prompt_cache_miss_tokens": 2568
+    },
+    {
+      "prompt_tokens": 10033,
+      "completion_tokens": 368,
+      "total_tokens": 10401,
+      "prompt_tokens_details": {
+        "cached_tokens": 9728
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 38
+      },
+      "prompt_cache_hit_tokens": 9728,
+      "prompt_cache_miss_tokens": 305
+    }
+  ],
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "Let me analyze this packet. It's a Jersey City landlord/tenant relations page. It mentions the Rent Control Ordinance, Chapter 260 of the Jersey City Municipal Code. It says all 1-4 unit properties are exempt from rent control. Also mentions NJ Statute §40A:10A-1 about liability insurance (not in our categories). \n\nThe page mentions:\n- Rent Control Ordinance, Chapter 260, administers and enforces\n- All 1-4 Unit Properties are exempt from rent control\n- Rent Control Exemption Request\n- There's a mention of landlord applications for rent increases\n\nDoes it give a rent cap number? No specific cap number. The keyword hint says rent_increase_limits=17 but that seems rough and wrong.\n\nSo for the rent_increase_limits category, we have the Rent Control Ordinance Chapter 260 with exemptions for 1-4 unit properties. That's one law: Jersey City Rent Ordinance.\n\nLet me think about what records to write. The page is a city website (official guide/summary at most 0.8 confidence). It describes the Rent Control Ordinance Chapter 260.\n\nRecords: \n- rent_increase_limits: Jersey City Rent Control Ordinance, Chapter 260. key_value: null (no number given). Coverage: all residential rental units except 1-4 unit properties. Exemption: 1-4 unit properties exempt.\n\nHmm, is there any other category covered? Security deposits? No. Just cause eviction? No. Application fees? No. Screening? No. Algorithmic rent setting? No.\n\nLet me read the cards. The packet limits buildings by unit count (1-4 unit properties exempt). So read building_age_and_size and owner_and_exceptions. Also dates card since there's mention of dates (August 5, 2022; February 28, 2023) — but those relate to insurance, not our category. citations card since I'm writing a citation (Chapter 260). relations card — does the packet say how the law fits with other levels? Not really.\n\nLet me read the cards I need.\n\nActually the packet is quite thin. Let me think about whether this deserves a record at all. The page explains the Rent Control Ordinance exists, administers and enforces, and 1-4 units exempt. That's a rule: rent control coverage with exemption. Category rent_increase_limits. It's \"rent control / stabilization coverage\" which is explicitly in the category description.\n\nLet me read cards building_age_and_size, owner_and_exceptions, citations, dates.\n\nLet me call them.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_p8KKDGMKQ7IZilrIyJVn0415",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"building_age_and_size\"}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_6suIDOu02EJ7aZMjmaMo7159",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"owner_and_exceptions\"}"
+          }
+        },
+        {
+          "index": 2,
+          "id": "call_02_45tbHahyfl4K5sYQ0TJ40916",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"citations\"}"
+          }
+        },
+        {
+          "index": 3,
+          "id": "call_03_TntmE6azpL3BLHiNczat5734",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"dates\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_p8KKDGMKQ7IZilrIyJVn0415",
+      "content": "# Card: building age and size\n\n- `applicability`: the same coverage as machine-readable conditions, which a program tests against a building's year built, certificate-of-occupancy date, unit count and owner. `{\"conditions\":[...],\"per_tenancy\":\"short text\"|null,\"coverage_quotes\":[...]}`. All three keys are required; `conditions` is `[]` when the text sets no condition. Copy each condition in the direction the text states it: if the text says a rule covers only some buildings, write role `covered`; if it says some buildings are exempt, excluded or not covered, write role `exempt`. Role `covered` is only for wording that limits the rule to those buildings (\"applies only to\", \"limited to\", \"does not apply to any other\"). A sentence or table row that merely names a kind of covered building (\"most units built before 1990 are covered\", \"generally applies to\") limits nothing, and writing it as `covered` would wrongly leave buildings out. When the text also states an exemption for the same date or size, write only the exemption. Never turn one into the other and never do arithmetic: copy the number or date as printed.\n  Each condition is one of:\n  `{\"type\":\"built\",\"role\":\"covered\"|\"exempt\",\"op\":\"on_or_before\"|\"before\"|\"after\"|\"on_or_after\",\"date\":\"YYYY[-MM[-DD]]\",\"basis\":\"certificate_of_occupancy\"|\"construction\"|\"unspecified\"}` for a cutoff on when the building was built or first received its certificate of occupancy. `op` is the text's own word. `basis` is `certificate_of_occupancy` when the text names the certificate, `construction` when it says built, constructed or first occupied. Use it only for a cutoff that applies to ordinary apartment buildings. A date that applies only to a special kind of building (converted hotels, rehabilitated units, buildings in a redevelopment area, mobile homes) is an `other` condition, not a `built` condition.\n  `{\"type\":\"built_within_years\",\"role\":\"exempt\",\"years\":N,\"basis\":\"certificate_of_occupancy\"|\"construction\"}` when housing built or certified within the previous N years is exempt. Use it too for a new-construction exemption that expires: \"exempt for 20 years after construction, or until the construction loan is paid off if sooner\" is years 20 (the longest period the text gives); do not turn it into a fixed cutoff date.\n  `{\"type\":\"units\",\"role\":\"covered\"|\"exempt\",\"op\":\"at_least\"|\"more_than\"|\"at_most\"|\"fewer_than\",\"n\":N}` for a limit on the number of units in the building (\"four or fewer units are exempt\" is role exempt, op at_most, n 4).\n  Add `\"conditional\":true` to a `built`, `built_within_years` or `units` condition with role `exempt` when the text makes the exemption depend on something the owner must have done (filed a notice, registered, certified, notified tenants). Building data cannot show that, so the program treats the exemption as an open question and does not leave the building out. Leave the key out in every other case.\n  Give the same short `\"group\"` label (for example `\"w\"`) to the `exempt` conditions that together define ONE exemption: an exemption for buildings first built after one date and before another is two `built` conditions with the same group (add a third with the same group for \"for 20 years after construction\"); the building is exempt only if all of them hold. Conditions without a group are separate exemptions, and any one of them is enough.\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_01_6suIDOu02EJ7aZMjmaMo7159",
+      "content": "# Card: owner conditions and other exceptions\n\n  `{\"type\":\"owner\",\"role\":\"covered\"|\"exempt\",\"who\":\"short words from the text\",\"unit_limit\":N|null}` when coverage or an exemption depends on who owns or lives in the rented building (owner-occupied, small landlord, natural person, corporate owner). It is about the building's owner or landlord, not about software providers, brokers, agencies or tenants: a carve-out inside the definition of a service provider or intermediary is not an owner condition, and neither is an exemption for a licensee, broker or agent who is not the landlord (who collects a fee is a note for `per_tenancy`). Use `owner` only when who owns or lives in the building takes the WHOLE building out of the rule (owner-occupied buildings up to a size, small landlords, corporate owners). A tenancy where the owner or a relative shares a bathroom or kitchen with the tenant, or one unit lived in by the owner's relative, concerns a single tenancy or unit: write it in `per_tenancy`. `unit_limit` is the largest building the exemption reaches, from the text (\"owner-occupied premises of not more than four dwelling units\" gives 4, an owner-occupied duplex gives 2); `null` if the text sets no size. If instead the rule covers ONLY owner-occupied buildings up to a size (\"applies to landlord-occupied two- and three-family dwellings\"), write role `covered` with that `unit_limit`. A single-family home, a condominium or a unit that can be sold separately is a kind of housing, not the owner's status: write it as an `other` with role `exempt`.\n  `{\"type\":\"other\",\"role\":\"covered\"|\"exempt\",\"text\":\"at most 25 words\"}` for a scope limit or exemption that could decide whether an ordinary apartment building is covered but that year, units and owner cannot settle: for example only subsidized or income-restricted housing is covered, an exemption that needs a government filing, housing already under a lower rent cap set by another agency. `role` is `covered` when the text limits the rule to those buildings or providers (only subsidized housing, only providers that receive city funds) and `exempt` when it exempts them. Do NOT use it for dormitories, hotels, mobile homes or institutions, for a bare reference to units \"covered by\" another named law with no further limit, for the event that triggers a duty, for \"all residential rentals\", or to repeat an owner, date or unit condition that already has its own entry.\n  `per_tenancy`: conditions that depend on the individual tenancy or tenant (when the lease began, tenant age or income, which kind of lease), on the event that triggers a duty (an eviction for demolition, charging an application fee), on what conduct is covered (an exemption for certain actions rather than certain buildings), or on one unit inside a building (a unit held in trust for, or lived in by, the owner's relative; a unit let to a student or an employee). The program judges the whole building, so an exception that reaches only particular units is a note here, never an `owner` or `other` condition. It is shown to readers as a note and does not change who is covered. `null` if there are none.\n  `coverage_quotes`: up to 3 passages copied from the packet character for character (same rules as QUOTED SPAN, at least 15 characters each) that state the conditions above. `[]` when `conditions` is `[]`.\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_02_45tbHahyfl4K5sYQ0TJ40916",
+      "content": "# Card: citations\n\n- `citation`: the legal provision the rule comes from, at section level with no subdivision letters (see CITATIONS).\n- Citation style, one provision per citation: `Cal. Civ. Code § 1947.12`, `Cal. Gov. Code § 12955`, `N.J.S.A. 2A:18-61.1`, `P.L. 2021, c. 110`, `G.L. c. 186, § 15B`, `S.F. Admin. Code § 37.9`, `San Diego Mun. Code § 98.0703`, `Berkeley Mun. Code ch. 13.63`. For a bill give its number, then the code section it adds in parentheses if the text shows one: `AB 325 (Cal. Bus. & Prof. Code § 16729)`, `H.5222`, `S.2983`. Use the form the text itself uses when none of these fits.\n\nWhen the packet prints no code citation, name the law as follows.\n\nWhen the packet prints a code citation for a law, use the packet's. When it does not, and the page is about one of the programs below, cite the law as shown in the right-hand column. The list only names laws: it tells you nothing about what a law says. If the packet does not state a rule, there is no rule. A program that is not on the list is cited by its name exactly as the page names it.\n\n| the law, as pages call it | cite as |\n|---|---|\n| San Francisco Rent Ordinance (rent increases, just cause, relocation, deposit interest, algorithmic devices) | S.F. Admin. Code ch. 37 |\n| Los Angeles Rent Stabilization Ordinance (RSO) | Los Angeles Rent Stabilization Ordinance (L.A.M.C. §151.00 et seq.) |\n| Los Angeles Just Cause Ordinance (JCO), relocation assistance | Los Angeles Just Cause Ordinance (L.A.M.C. §165.00 et seq.) |\n| Berkeley Rent Ordinance, Measure BB | Berkeley Mun. Code ch. 13.76 |\n| Berkeley tenant screening and application fees | Berkeley Mun. Code ch. 13.78 |\n| Berkeley Fair Chance | Berkeley Mun. Code ch. 13.106 |\n| Berkeley coordinated pricing algorithms | Berkeley Mun. Code ch. 13.63 |\n| San Diego tenant protections (just cause) | San Diego Mun. Code §98.0701 et seq. |\n| San Diego automated rent price-fixing ban | San Diego Mun. Code §§98.1101–98.1104 |\n| Jersey City Rent Control Ordinance | Jersey City Mun. Code ch. 260 |\n| Cambridge Fair Housing Ordinance | Cambridge Mun. Code ch. 14.04 |\n| Boston Housing Stability Notification Act | Boston Mun. Code §10-11.7 |\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_03_TntmE6azpL3BLHiNczat5734",
+      "content": "# Card: dates\n\n- `effective_date`: the date the requirement described in `key_value` began (or will begin) to apply, as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. For an amended law use the amendment's date if the amendment created the current value. Do not use the signing date unless the text says that is when it takes effect. A code-publisher history note such as `[Adopted 4-2-2024 by Ord. No. 123]` gives the adoption date, not the effective date: use it only if the text says the rule takes effect on that day. If the text gives no date, `null`: never guess a date from memory.\n- `valid_through`: for a value that is published for a period (an annual allowable increase, a yearly interest rate), the last day of that period as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. `null` for a rule with no stated end.\n- Use only dates and numbers that appear in the packet. If the packet gives two different dates for the same rule, use the one in the legal text, set `conflict_flag` true and name the other date in `conflict_note`. If the date is relative (\"90 days after enactment\") and the anchor is not in the packet, use `null` and say so in `conflict_note`.\n"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "Let me think about the records.\n\nThe packet is the Jersey City Landlord/Tenant Relations page. It governs the Rent Control Ordinance Chapter 260.\n\nRent increase limits category: The Rent Control Ordinance governs rent control. Coverage: all residential rental units, but 1-4 unit properties are exempt. key_value: null (no cap number). effective_date: null. citation: \"Jersey City Mun. Code ch. 260\".\n\nQuoted span: \"(Please Note: All 1-4 Unit Properties are exempt from rent control)\" — this carries the coverage condition. Or use the sentence about the Ordinance. Let me choose the sentence: \"The Office of Landlord Tenant Relations administers and enforces the Rent Control Ordinance, Chapter 260 of the Jersey City Municipal Code and provides education, information and referrals to city residents in connection with landlord/tenant issues.\"\n\nHmm but the quoted span must support the key number/date/prohibition. There's no number. The exemption is the key fact. Let me use: \"(Please Note: All 1-4 Unit Properties are exempt from rent control)\". That supports the coverage condition.\n\nActually maybe combine: \"The Rent Control Ordinance provides certain exemptions from rent regulation. A \"Rent Control Exemption Request\" can be submitted...\" Hmm.\n\nI think the best quoted span carrying the coverage rule: \"The Office of Landlord Tenant Relations administers and enforces the Rent Control Ordinance, Chapter 260 of the Jersey City Municipal Code and provides education, information and referrals to city residents in connection with landlord/tenant issues.\" That's 40-400 chars. Good.\n\nBut we also want the exemption. Well, one span only. Let me pick the one that carries the rule. The rule is the rent control ordinance exists and covers; exemption for 1-4 units. I'll use the 1-4 exemption note since it's a concrete coverage limit. Actually both. I could pick the sentence about the ordinance. Hmm.\n\nMaybe best: use the 1-4 unit exemption note as the quoted span since it's the concrete limit with a number. Actually the requirement's key content is \"rent control applies to residential rentals except 1-4 unit properties.\" The span \"(Please Note: All 1-4 Unit Properties are exempt from rent control)\" is verbatim. Let me use that.\n\nWait — is there really a rule here worth recording? The category coverage \"laws that forbid local rent control\" - no. \"rent control / stabilization coverage\" - yes. The page states the Rent Control Ordinance exists and applies. It's an official guide. Confidence 0.7.\n\nNow, is there another law in the packet? The NJ statute §40A:10A-1 about liability insurance — not in our categories, ignore.\n\nThe Rent Control Exemption Request, hardship increase, illegal rent petition — all part of the Rent Control Ordinance Chapter 260. One law.\n\nSo one record: rent_increase_limits.\n\nHmm, should we also consider a just_cause_eviction record? No eviction content. Security deposits? No.\n\nSo one record.\n\napplicability: conditions: units exempt at_most 4. coverage_quotes: the verbatim sentence. Note the card says give group label only when multiple conditions together define one exemption. Single condition, no group needed.\n\nper_tenancy: null.\n\ncoverage_quotes: [\"(Please Note: All 1-4 Unit Properties are exempt from rent control)\"]. Wait, is this at least 15 chars? Yes.\n\nActually, could also include \"All 1-4 Unit Properties are exempt from rent control\". Let me copy exactly with the parentheses.\n\nNote the applicability condition: {\"type\":\"units\",\"role\":\"exempt\",\"op\":\"at_most\",\"n\":4}.\n\nLet me construct the record and check.\n\njurisdiction: \"Jersey City, NJ\" (the enacting body is the city).\n\nlifecycle: \"enacted\".\n\ntitle: \"Jersey City Rent Control Ordinance coverage\".\n\nrequirement: \"The Office of Landlord/Tenant Relations administers and enforces the Jersey City Rent Control Ordinance, Chapter 260, which regulates residential rents; all 1-4 unit properties are exempt from rent control.\"\n\nkey_value: null.\n\ncoverage_conditions: \"Residential rental properties subject to the Jersey City Rent Control Ordinance; all 1-4 unit properties are exempt from rent control.\"\n\nexemptions: \"1-4 unit properties; property owners may also submit a Rent Control Exemption Request if they meet permitted exemption criteria.\"\n\npenalty: null.\n\neffective_date: null.\n\ncitation: \"Jersey City Mun. Code ch. 260\".\n\nquoted_span: verbatim.\n\ninteraction: null. relations: [].\n\nconfidence: 0.7.\n\nconflict_flag: false.\n\nLet me check with check_record. Let me also consider whether \"conditions\" should be empty since the text says \"All 1-4 Unit Properties are exempt from rent control\" — that's clearly a units exempt condition.\n\nLet me run check_record.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_6BNgx51daawyqZXc7lSB4467",
+          "type": "function",
+          "function": {
+            "name": "check_record",
+            "arguments": "{\"record_json\": \"{\\\"packet_id\\\":\\\"D036-01\\\",\\\"doc_id\\\":\\\"D036\\\",\\\"jurisdiction\\\":\\\"Jersey City, NJ\\\",\\\"category\\\":\\\"rent_increase_limits\\\",\\\"lifecycle\\\":\\\"enacted\\\",\\\"title\\\":\\\"Jersey City Rent Control Ordinance coverage\\\",\\\"requirement\\\":\\\"The Office of Landlord/Tenant Relations administers and enforces the Jersey City Rent Control Ordinance, Chapter 260, which regulates residential rents; all 1-4 unit properties are exempt from rent control.\\\",\\\"key_value\\\":null,\\\"coverage_conditions\\\":\\\"Residential rental properties subject to the Jersey City Rent Control Ordinance; all 1-4 unit properties are exempt from rent control.\\\",\\\"applicability\\\":{\\\"conditions\\\":[{\\\"type\\\":\\\"units\\\",\\\"role\\\":\\\"exempt\\\",\\\"op\\\":\\\"at_most\\\",\\\"n\\\":4}],\\\"per_tenancy\\\":null,\\\"coverage_quotes\\\":[\\\"(Please Note: All 1-4 Unit Properties are exempt from rent control)\\\"]},\\\"exemptions\\\":\\\"1-4 unit properties are exempt from rent control; an owner may submit a Rent Control Exemption Request if the property meets one of the permitted exemptions.\\\",\\\"penalty\\\":null,\\\"effective_date\\\":null,\\\"valid_through\\\":null,\\\"citation\\\":\\\"Jersey City Mun. Code ch. 260\\\",\\\"quoted_span\\\":\\\"(Please Note: All 1-4 Unit Properties are exempt from rent control)\\\",\\\"interaction\\\":null,\\\"relations\\\":[],\\\"confidence\\\":0.7,\\\"conflict_flag\\\":false,\\\"conflict_note\\\":null}\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_6BNgx51daawyqZXc7lSB4467",
+      "content": "ACCEPTED.\nHow a program reads it: citation 'Jersey City Mun. Code ch. 260'; lifecycle enacted; effective_date None; valid_through None.\nConditions it will test: min_units=5\nWhat the conditions do to made-up buildings on 2026-10-01 (year built, units):\n  built 2022, 20 units -> applies\n  built 2005, 20 units -> applies\n  built 1990, 20 units -> applies\n  built 1970, 20 units -> applies\n  built unknown year, 20 units -> applies\n  built 1950, 2 units -> NOT in the results (the building is left out)\n  built 1950, 5 units -> applies\n  built 1950, unknown units -> unknown (a fact is missing)"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"packet_id\":\"D036-01\",\"doc_id\":\"D036\",\"jurisdiction\":\"Jersey City, NJ\",\"category\":\"rent_increase_limits\",\"lifecycle\":\"enacted\",\"title\":\"Jersey City Rent Control Ordinance coverage\",\"requirement\":\"The Office of Landlord/Tenant Relations administers and enforces the Jersey City Rent Control Ordinance, Chapter 260, which regulates residential rents; all 1-4 unit properties are exempt from rent control.\",\"key_value\":null,\"coverage_conditions\":\"Residential rental properties subject to the Jersey City Rent Control Ordinance; all 1-4 unit properties are exempt from rent control.\",\"applicability\":{\"conditions\":[{\"type\":\"units\",\"role\":\"exempt\",\"op\":\"at_most\",\"n\":4}],\"per_tenancy\":null,\"coverage_quotes\":[\"(Please Note: All 1-4 Unit Properties are exempt from rent control)\"]},\"exemptions\":\"1-4 unit properties are exempt from rent control; an owner may submit a Rent Control Exemption Request if the property meets one of the permitted exemptions.\",\"penalty\":null,\"effective_date\":null,\"valid_through\":null,\"citation\":\"Jersey City Mun. Code ch. 260\",\"quoted_span\":\"(Please Note: All 1-4 Unit Properties are exempt from rent control)\",\"interaction\":null,\"relations\":[],\"confidence\":0.7,\"conflict_flag\":false,\"conflict_note\":null}\n{\"packet_id\":\"D036-01\",\"n_rules\":1,\"note\":null}",
+      "reasoning_content": "The record is accepted. The program reads min_units=5, meaning buildings with 1-4 units are left out. Good.\n\nNow the final answer: one record + receipt."
+    }
+  ]
+}

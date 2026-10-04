@@ -1,0 +1,146 @@
+{
+  "packet_id": "D074-01",
+  "model": "deepseek-flash",
+  "as_of": "2026-10-01",
+  "prompt_sha256": "53c560f245304eed3b15a2f403223aa4d375abc6f1a5bdaab0d25903198a34e6",
+  "steps": 3,
+  "cards_read": [
+    "citations",
+    "dates",
+    "relations",
+    "owner_and_exceptions"
+  ],
+  "checks": 1,
+  "usage": [
+    {
+      "prompt_tokens": 5165,
+      "completion_tokens": 246,
+      "total_tokens": 5411,
+      "prompt_tokens_details": {
+        "cached_tokens": 4992
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 120
+      },
+      "prompt_cache_hit_tokens": 4992,
+      "prompt_cache_miss_tokens": 173
+    },
+    {
+      "prompt_tokens": 7228,
+      "completion_tokens": 1872,
+      "total_tokens": 9100,
+      "prompt_tokens_details": {
+        "cached_tokens": 5376
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1478
+      },
+      "prompt_cache_hit_tokens": 5376,
+      "prompt_cache_miss_tokens": 1852
+    },
+    {
+      "prompt_tokens": 9286,
+      "completion_tokens": 382,
+      "total_tokens": 9668,
+      "prompt_tokens_details": {
+        "cached_tokens": 9088
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 4
+      },
+      "prompt_cache_hit_tokens": 9088,
+      "prompt_cache_miss_tokens": 198
+    }
+  ],
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "Let me analyze this packet. It's San Diego Municipal Code Division 11 prohibiting anti-competitive automated rent price-fixing.\n\nCategory: algorithmic_rent_setting.\n\nOne law: Division 11. One record for algorithmic_rent_setting.\n\nLet me read cards: dates, citations, relations? Let me check citations and dates.\n\nLet me consider whether rent_increase_limits applies. The keyword hint says rent_increase_limits=2, but text doesn't really cap rent increases — purpose mentions \"unfair rent increases\" but no cap. So no record.\n\nLet me read cards.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_hEXpU0pOmbOJQ9JDkNrW8735",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"citations\"}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_H1zeE5GfUsxBcyTq0pVR8922",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"dates\"}"
+          }
+        },
+        {
+          "index": 2,
+          "id": "call_02_NW73UnhwU65h6UCwVzUs9946",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"relations\"}"
+          }
+        },
+        {
+          "index": 3,
+          "id": "call_03_NVdgbu3jzyqK8IwTzGoU2544",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"owner_and_exceptions\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_hEXpU0pOmbOJQ9JDkNrW8735",
+      "content": "# Card: citations\n\n- `citation`: the legal provision the rule comes from, at section level with no subdivision letters (see CITATIONS).\n- Citation style, one provision per citation: `Cal. Civ. Code § 1947.12`, `Cal. Gov. Code § 12955`, `N.J.S.A. 2A:18-61.1`, `P.L. 2021, c. 110`, `G.L. c. 186, § 15B`, `S.F. Admin. Code § 37.9`, `San Diego Mun. Code § 98.0703`, `Berkeley Mun. Code ch. 13.63`. For a bill give its number, then the code section it adds in parentheses if the text shows one: `AB 325 (Cal. Bus. & Prof. Code § 16729)`, `H.5222`, `S.2983`. Use the form the text itself uses when none of these fits.\n\nWhen the packet prints no code citation, name the law as follows.\n\nWhen the packet prints a code citation for a law, use the packet's. When it does not, and the page is about one of the programs below, cite the law as shown in the right-hand column. The list only names laws: it tells you nothing about what a law says. If the packet does not state a rule, there is no rule. A program that is not on the list is cited by its name exactly as the page names it.\n\n| the law, as pages call it | cite as |\n|---|---|\n| San Francisco Rent Ordinance (rent increases, just cause, relocation, deposit interest, algorithmic devices) | S.F. Admin. Code ch. 37 |\n| Los Angeles Rent Stabilization Ordinance (RSO) | Los Angeles Rent Stabilization Ordinance (L.A.M.C. §151.00 et seq.) |\n| Los Angeles Just Cause Ordinance (JCO), relocation assistance | Los Angeles Just Cause Ordinance (L.A.M.C. §165.00 et seq.) |\n| Berkeley Rent Ordinance, Measure BB | Berkeley Mun. Code ch. 13.76 |\n| Berkeley tenant screening and application fees | Berkeley Mun. Code ch. 13.78 |\n| Berkeley Fair Chance | Berkeley Mun. Code ch. 13.106 |\n| Berkeley coordinated pricing algorithms | Berkeley Mun. Code ch. 13.63 |\n| San Diego tenant protections (just cause) | San Diego Mun. Code §98.0701 et seq. |\n| San Diego automated rent price-fixing ban | San Diego Mun. Code §§98.1101–98.1104 |\n| Jersey City Rent Control Ordinance | Jersey City Mun. Code ch. 260 |\n| Cambridge Fair Housing Ordinance | Cambridge Mun. Code ch. 14.04 |\n| Boston Housing Stability Notification Act | Boston Mun. Code §10-11.7 |\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_01_H1zeE5GfUsxBcyTq0pVR8922",
+      "content": "# Card: dates\n\n- `effective_date`: the date the requirement described in `key_value` began (or will begin) to apply, as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. For an amended law use the amendment's date if the amendment created the current value. Do not use the signing date unless the text says that is when it takes effect. A code-publisher history note such as `[Adopted 4-2-2024 by Ord. No. 123]` gives the adoption date, not the effective date: use it only if the text says the rule takes effect on that day. If the text gives no date, `null`: never guess a date from memory.\n- `valid_through`: for a value that is published for a period (an annual allowable increase, a yearly interest rate), the last day of that period as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. `null` for a rule with no stated end.\n- Use only dates and numbers that appear in the packet. If the packet gives two different dates for the same rule, use the one in the legal text, set `conflict_flag` true and name the other date in `conflict_note`. If the date is relative (\"90 days after enactment\") and the anchor is not in the packet, use `null` and say so in `conflict_note`.\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_02_NW73UnhwU65h6UCwVzUs9946",
+      "content": "# Card: relations to other levels of law\n\n- `interaction`: how this rule relates to other levels of law, only if the text says so (e.g. `\"State cap yields to this local ordinance\"`, `\"May be preempted by the state act once it takes effect\"`). At most 30 words, else `null`.\n- `relations`: a list, `[]` when none. One entry for each sentence of the packet that says how this law fits with other levels of law: `{\"type\":\"preempts_local\",\"quote\":\"...\"}` when the text bars local governments from regulating this subject or from enacting rules that conflict with this law (it needs an explicit bar such as \"shall not\", \"prohibited\" or \"void\"; a sentence that only says the law does not authorize, require or affect local action is not a relation, so leave it out); `{\"type\":\"yields_to_local\",\"quote\":\"...\"}` when the text says this rule does not apply where a local rule on the same subject governs. The quote is copied character for character from the packet. Attach it to the record of the law the sentence belongs to; if the sentence sits in another section of the same act, attach it to that act's record.\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_03_NVdgbu3jzyqK8IwTzGoU2544",
+      "content": "# Card: owner conditions and other exceptions\n\n  `{\"type\":\"owner\",\"role\":\"covered\"|\"exempt\",\"who\":\"short words from the text\",\"unit_limit\":N|null}` when coverage or an exemption depends on who owns or lives in the rented building (owner-occupied, small landlord, natural person, corporate owner). It is about the building's owner or landlord, not about software providers, brokers, agencies or tenants: a carve-out inside the definition of a service provider or intermediary is not an owner condition, and neither is an exemption for a licensee, broker or agent who is not the landlord (who collects a fee is a note for `per_tenancy`). Use `owner` only when who owns or lives in the building takes the WHOLE building out of the rule (owner-occupied buildings up to a size, small landlords, corporate owners). A tenancy where the owner or a relative shares a bathroom or kitchen with the tenant, or one unit lived in by the owner's relative, concerns a single tenancy or unit: write it in `per_tenancy`. `unit_limit` is the largest building the exemption reaches, from the text (\"owner-occupied premises of not more than four dwelling units\" gives 4, an owner-occupied duplex gives 2); `null` if the text sets no size.\n  `{\"type\":\"other\",\"text\":\"at most 25 words\"}` for a scope limit or exemption that could decide whether an ordinary apartment building is covered but that year, units and owner cannot settle: for example only subsidized or income-restricted housing is covered, an exemption that needs a government filing, housing already under a lower rent cap set by another agency. Do NOT use it for dormitories, hotels, mobile homes or institutions, for the event that triggers a duty, for \"all residential rentals\", or to repeat an owner, date or unit condition that already has its own entry.\n  `per_tenancy`: conditions that depend on the individual tenancy or tenant (when the lease began, tenant age or income, which kind of lease), on the event that triggers a duty (an eviction for demolition, charging an application fee), on what conduct is covered (an exemption for certain actions rather than certain buildings), or on one unit inside a building (a unit held in trust for, or lived in by, the owner's relative; a unit let to a student or an employee). The program judges the whole building, so an exception that reaches only particular units is a note here, never an `owner` or `other` condition. It is shown to readers as a note and does not change who is covered. `null` if there are none.\n  `coverage_quotes`: up to 3 passages copied from the packet character for character (same rules as QUOTED SPAN, at least 15 characters each) that state the conditions above. `[]` when `conditions` is `[]`.\n"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "Now build record. Category: algorithmic_rent_setting. Jurisdiction: San Diego, CA.\n\nCoverage conditions: residential rental property in the City of San Diego; applies to persons selling/licensing algorithmic devices to landlords and landlords using them.\n\napplicability conditions: The rule covers all residential rental property in the city. There are exclusions inside the definition of \"algorithmic device\" (software for reports of historical data >90 days old, affordable housing program guidelines, appraisals). These are carve-outs inside a definition of a software product, not building conditions. Per owner_and_exceptions card: carve-out inside definition of service provider isn't owner condition. These are conduct-based exceptions → per_tenancy maybe. Actually they define what an algorithmic device is; they're exemptions from the rule. I'd put them in `exemptions` and perhaps `per_tenancy`. Hmm. Let's think.\n\napplicability.conditions: could be `{\"type\":\"other\",\"text\":\"...\"}` for the affordable housing program software? The card says do NOT use other for \"the event that triggers a duty\" or \"what conduct is covered\". These are conduct carve-outs. Actually they are definitional exclusions. I think conditions [] with per_tenancy describing? Hmm, per_tenancy is for conditions depending on individual tenancy/tenant, event that triggers duty, or what conduct is covered (an exemption for certain actions rather than certain buildings). Yes! \"an exemption for certain actions rather than certain buildings\" → per_tenancy. So the exclusions (reporting software, affordable-housing software, appraisal software) are conduct-based exemptions → per_tenancy.\n\nBut per_tenancy is a \"short text\". Let me put: \"Excludes software used only to publish reports from data more than 90 days old or public data, software that sets rates under affordable housing program guidelines, and appraisal software.\"\n\nconditions: [] . coverage_quotes: [] when conditions [].\n\nHmm, but the rule covers \"residential rental property\" — no building conditions. So conditions [] is right.\n\nkey_value: \"$1,000 per violation\" — civil penalties up to $1,000 per violation. Actually the headline could be the prohibition. key_value should be headline number or formula: \"$1,000 per violation\". I'll use that.\n\neffective_date: 2025-06-21.\n\ncitation: \"San Diego Mun. Code §§98.1101–98.1104\" per card.\n\nquoted_span: pick the operative prohibition: \"It is unlawful for a landlord to use an algorithmic device to set rental rates or occupancy levels for residential rental property.\" Also include the sale part? One contiguous passage. Let me use:\n\n\"(a)    It is unlawful for a person to sell, license, or otherwise provide an algorithmic device to a landlord.\" — hmm that's short (a) part.\n\nBetter use §98.1103(b): \"It is unlawful for a landlord to use an algorithmic device to set rental rates or occupancy levels for residential rental property.\" That's contiguous. Good, carries the prohibition. But key number $1,000 appears in remedies. The span guidance: carries core requirement, cap, date, prohibition. The prohibition is fine.\n\nMaybe use the longer span covering both (a) and (b). Character for character including whitespace. Risky with formatting. I'll include just (b) portion plus maybe the separate violation sentence. Let me quote:\n\n\"It is unlawful for a landlord to use an algorithmic device to set rental rates or occupancy levels for residential rental property.\"\n\nThat ends with period. Verbatim: in text it's \"for residential rental property.\" Yes.\n\nActually the exact text: \"(b)    It is unlawful for a landlord to use an algorithmic device to set rental rates or occupancy levels for residential rental property.\" I'll start at \"It is unlawful\". Good.\n\npenalty: \"Tenant may seek injunctive relief, damages, or civil penalties of up to $1,000 per violation; each month and each property is a separate violation. City may enforce under Chapter 1, Article 2.\"\n\nexemptions: the algorithmic device definition exclusions. \"Software that only publishes reports from data over 90 days old or public data; software setting rates under affordable housing program guidelines; appraisal software.\"\n\nHmm, exemptions vs per_tenancy — I could put in both, but they might duplicate. I'll put in exemptions and per_tenancy briefly. Actually maybe leave per_tenancy null and put in exemptions. The card says conduct-based exceptions go to per_tenancy. But these are definitional exclusions from \"algorithmic device.\" I'll put them in exemptions and set per_tenancy to a short note. Hmm, risk of duplication. Let me put per_tenancy null and exemptions describing them. Actually the applicability tool might want per_tenancy. Given conditions [], the check might be fine. I'll set per_tenancy: null and exemptions covering it. Hmm, but instructions: applicability per_tenancy \"conditions that depend on ... what conduct is covered (an exemption for certain actions rather than certain buildings)\". This suggests these should be per_tenancy. I'll put a short per_tenancy note and keep exemptions as the same content — duplication might look odd. Let me put exemptions null? No, the text clearly lists exclusions. I'll put them in exemptions and a brief per_tenancy.\n\nLet me just put per_tenancy: \"Excludes reporting software from data over 90 days old or public data, affordable-housing-program rate software, and appraisal software.\" And exemptions: \"Software publishing reports from nonpublic data more than 90 days old or public data; software setting rates or income limits under affordable housing program guidelines; appraisal software.\"\n\nHmm that's redundant. I'll drop the per_tenancy and set it null, keep exemptions. Actually maybe better: exemptions null and per_tenancy describes exclusions since they're conduct-based. The applicability object is what the program tests. I think putting them in per_tenancy is more aligned. But then exemptions field would be null even though text lists exclusions. The schema's exemptions: \"what is exempt, as listed in the text\". These exclusions are exemptions. I'll fill exemptions and per_tenancy both — acceptable I think. Let me go with putting them in exemptions and per_tenancy null to avoid duplication. Hmm.\n\nI'll decide: exemptions filled; per_tenancy null. The conditions [] are fine. Let's check with check_record.\n\ninteraction: does the packet say how it relates to other levels of law? \"(b) cumulative and in addition to any other remedies in this Division or at law, statute, or ordinance.\" That's not a relation about preemption. Leave interaction null, relations [].\n\nconflict_flag false.\n\nconfidence: 0.95 (operative ordinance text).\n\ncoverage_conditions: \"All residential rental property in the City of San Diego; applies to any person who sells or licenses algorithmic devices to landlords and to landlords who use them.\"\n\nLet me write and check.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_cY5KV6d9vbVHCA7XG0AU5566",
+          "type": "function",
+          "function": {
+            "name": "check_record",
+            "arguments": "{\"record_json\": \"{\\\"packet_id\\\":\\\"D074-01\\\",\\\"doc_id\\\":\\\"D074\\\",\\\"jurisdiction\\\":\\\"San Diego, CA\\\",\\\"category\\\":\\\"algorithmic_rent_setting\\\",\\\"lifecycle\\\":\\\"enacted\\\",\\\"title\\\":\\\"San Diego anti-competitive automated rent price-fixing ban\\\",\\\"requirement\\\":\\\"A person may not sell, license or provide an algorithmic device to a landlord, and a landlord may not use an algorithmic device to set rental rates or occupancy levels for residential rental property.\\\",\\\"key_value\\\":\\\"$1,000 per violation\\\",\\\"coverage_conditions\\\":\\\"All residential rental property in the City of San Diego; applies to any person who sells or licenses algorithmic devices to landlords and to landlords who use them.\\\",\\\"applicability\\\":{\\\"conditions\\\":[],\\\"per_tenancy\\\":null,\\\"coverage_quotes\\\":[]},\\\"exemptions\\\":\\\"Software that only publishes reports from nonpublic data more than 90 days old or from public information and does not recommend future rates; software setting rates or income limits under affordable housing program guidelines; appraisal software that does not recommend rates while running.\\\",\\\"penalty\\\":\\\"Tenant may seek injunctive relief, damages, or civil penalties up to $1,000 per violation; each month and each property is a separate violation. City may also enforce under Chapter 1, Article 2.\\\",\\\"effective_date\\\":\\\"2025-06-21\\\",\\\"valid_through\\\":null,\\\"citation\\\":\\\"San Diego Mun. Code §§98.1101–98.1104\\\",\\\"quoted_span\\\":\\\"It is unlawful for a landlord to use an algorithmic device to set rental rates or occupancy levels for residential rental property.\\\",\\\"interaction\\\":null,\\\"relations\\\":[],\\\"confidence\\\":0.95,\\\"conflict_flag\\\":false,\\\"conflict_note\\\":null}\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_cY5KV6d9vbVHCA7XG0AU5566",
+      "content": "ACCEPTED.\nHow a program reads it: citation 'San Diego Mun. Code §§98.1101–98.1104'; lifecycle enacted; effective_date 2025-06-21; valid_through None.\nConditions it will test: none (the rule covers every building)\nWhat the conditions do to made-up buildings on 2026-10-01 (year built, units):\n  built 2022, 20 units -> applies\n  built 2005, 20 units -> applies\n  built 1990, 20 units -> applies\n  built 1970, 20 units -> applies\n  built unknown year, 20 units -> applies\n  built 1950, 2 units -> applies\n  built 1950, 5 units -> applies\n  built 1950, unknown units -> applies"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"packet_id\":\"D074-01\",\"doc_id\":\"D074\",\"jurisdiction\":\"San Diego, CA\",\"category\":\"algorithmic_rent_setting\",\"lifecycle\":\"enacted\",\"title\":\"San Diego anti-competitive automated rent price-fixing ban\",\"requirement\":\"A person may not sell, license or provide an algorithmic device to a landlord, and a landlord may not use an algorithmic device to set rental rates or occupancy levels for residential rental property.\",\"key_value\":\"$1,000 per violation\",\"coverage_conditions\":\"All residential rental property in the City of San Diego; applies to any person who sells or licenses algorithmic devices to landlords and to landlords who use them.\",\"applicability\":{\"conditions\":[],\"per_tenancy\":null,\"coverage_quotes\":[]},\"exemptions\":\"Software that only publishes reports from nonpublic data more than 90 days old or from public information and does not recommend future rates; software setting rates or income limits under affordable housing program guidelines; appraisal software that does not recommend rates while running.\",\"penalty\":\"Tenant may seek injunctive relief, damages, or civil penalties up to $1,000 per violation; each month and each property is a separate violation. City may also enforce under Chapter 1, Article 2.\",\"effective_date\":\"2025-06-21\",\"valid_through\":null,\"citation\":\"San Diego Mun. Code §§98.1101–98.1104\",\"quoted_span\":\"It is unlawful for a landlord to use an algorithmic device to set rental rates or occupancy levels for residential rental property.\",\"interaction\":null,\"relations\":[],\"confidence\":0.95,\"conflict_flag\":false,\"conflict_note\":null}\n{\"packet_id\":\"D074-01\",\"n_rules\":1,\"note\":null}",
+      "reasoning_content": "Good. Output."
+    }
+  ]
+}

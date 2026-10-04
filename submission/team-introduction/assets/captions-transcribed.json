@@ -1,0 +1,310 @@
+[
+  {
+    "text": "Hi,",
+    "startMs": 280,
+    "endMs": 460,
+    "timestampMs": 370,
+    "confidence": null
+  },
+  {
+    "text": " I'm",
+    "startMs": 660,
+    "endMs": 900,
+    "timestampMs": 780,
+    "confidence": null
+  },
+  {
+    "text": " Roy",
+    "startMs": 900,
+    "endMs": 1200,
+    "timestampMs": 1050,
+    "confidence": null
+  },
+  {
+    "text": " Hua,",
+    "startMs": 1200,
+    "endMs": 1580,
+    "timestampMs": 1390,
+    "confidence": null
+  },
+  {
+    "text": " the",
+    "startMs": 1680,
+    "endMs": 1940,
+    "timestampMs": 1810,
+    "confidence": null
+  },
+  {
+    "text": " solo",
+    "startMs": 1940,
+    "endMs": 2260,
+    "timestampMs": 2100,
+    "confidence": null
+  },
+  {
+    "text": " builder",
+    "startMs": 2260,
+    "endMs": 2720,
+    "timestampMs": 2490,
+    "confidence": null
+  },
+  {
+    "text": " behind",
+    "startMs": 2720,
+    "endMs": 3040,
+    "timestampMs": 2880,
+    "confidence": null
+  },
+  {
+    "text": " Team",
+    "startMs": 3040,
+    "endMs": 3320,
+    "timestampMs": 3180,
+    "confidence": null
+  },
+  {
+    "text": " Wardite.",
+    "startMs": 3320,
+    "endMs": 4080,
+    "timestampMs": 3700,
+    "confidence": null
+  },
+  {
+    "text": " I'm",
+    "startMs": 4260,
+    "endMs": 4500,
+    "timestampMs": 4380,
+    "confidence": null
+  },
+  {
+    "text": " building",
+    "startMs": 4500,
+    "endMs": 4780,
+    "timestampMs": 4640,
+    "confidence": null
+  },
+  {
+    "text": " a",
+    "startMs": 4780,
+    "endMs": 4980,
+    "timestampMs": 4880,
+    "confidence": null
+  },
+  {
+    "text": " rental",
+    "startMs": 4980,
+    "endMs": 5480,
+    "timestampMs": 5230,
+    "confidence": null
+  },
+  {
+    "text": " housing",
+    "startMs": 5480,
+    "endMs": 5820,
+    "timestampMs": 5650,
+    "confidence": null
+  },
+  {
+    "text": " law",
+    "startMs": 5820,
+    "endMs": 6080,
+    "timestampMs": 5950,
+    "confidence": null
+  },
+  {
+    "text": " navigator",
+    "startMs": 6080,
+    "endMs": 6580,
+    "timestampMs": 6330,
+    "confidence": null
+  },
+  {
+    "text": " to",
+    "startMs": 6580,
+    "endMs": 6800,
+    "timestampMs": 6690,
+    "confidence": null
+  },
+  {
+    "text": " help",
+    "startMs": 6800,
+    "endMs": 7020,
+    "timestampMs": 6910,
+    "confidence": null
+  },
+  {
+    "text": " people",
+    "startMs": 7020,
+    "endMs": 7680,
+    "timestampMs": 7350,
+    "confidence": null
+  },
+  {
+    "text": " understand",
+    "startMs": 7680,
+    "endMs": 8100,
+    "timestampMs": 7890,
+    "confidence": null
+  },
+  {
+    "text": " rental",
+    "startMs": 8100,
+    "endMs": 8420,
+    "timestampMs": 8260,
+    "confidence": null
+  },
+  {
+    "text": " rules",
+    "startMs": 8420,
+    "endMs": 8920,
+    "timestampMs": 8670,
+    "confidence": null
+  },
+  {
+    "text": " and",
+    "startMs": 8920,
+    "endMs": 8920,
+    "timestampMs": 8920,
+    "confidence": null
+  },
+  {
+    "text": " check",
+    "startMs": 9180,
+    "endMs": 9360,
+    "timestampMs": 9270,
+    "confidence": null
+  },
+  {
+    "text": " the",
+    "startMs": 9360,
+    "endMs": 9720,
+    "timestampMs": 9540,
+    "confidence": null
+  },
+  {
+    "text": " original",
+    "startMs": 9720,
+    "endMs": 10180,
+    "timestampMs": 9950,
+    "confidence": null
+  },
+  {
+    "text": " sources.",
+    "startMs": 10180,
+    "endMs": 10840,
+    "timestampMs": 10510,
+    "confidence": null
+  },
+  {
+    "text": " I",
+    "startMs": 11020,
+    "endMs": 11260,
+    "timestampMs": 11140,
+    "confidence": null
+  },
+  {
+    "text": " handled",
+    "startMs": 11260,
+    "endMs": 11460,
+    "timestampMs": 11360,
+    "confidence": null
+  },
+  {
+    "text": " the",
+    "startMs": 11460,
+    "endMs": 11880,
+    "timestampMs": 11670,
+    "confidence": null
+  },
+  {
+    "text": " design,",
+    "startMs": 11880,
+    "endMs": 12200,
+    "timestampMs": 12040,
+    "confidence": null
+  },
+  {
+    "text": " development,",
+    "startMs": 12580,
+    "endMs": 12940,
+    "timestampMs": 12760,
+    "confidence": null
+  },
+  {
+    "text": " and",
+    "startMs": 13120,
+    "endMs": 13600,
+    "timestampMs": 13360,
+    "confidence": null
+  },
+  {
+    "text": " testing",
+    "startMs": 13600,
+    "endMs": 14100,
+    "timestampMs": 13850,
+    "confidence": null
+  },
+  {
+    "text": " with",
+    "startMs": 14100,
+    "endMs": 14240,
+    "timestampMs": 14170,
+    "confidence": null
+  },
+  {
+    "text": " a",
+    "startMs": 14240,
+    "endMs": 14500,
+    "timestampMs": 14370,
+    "confidence": null
+  },
+  {
+    "text": " focus",
+    "startMs": 14500,
+    "endMs": 14760,
+    "timestampMs": 14630,
+    "confidence": null
+  },
+  {
+    "text": " on",
+    "startMs": 14760,
+    "endMs": 15180,
+    "timestampMs": 14970,
+    "confidence": null
+  },
+  {
+    "text": " clear",
+    "startMs": 15180,
+    "endMs": 15680,
+    "timestampMs": 15430,
+    "confidence": null
+  },
+  {
+    "text": " answers",
+    "startMs": 15680,
+    "endMs": 16100,
+    "timestampMs": 15890,
+    "confidence": null
+  },
+  {
+    "text": " backed",
+    "startMs": 16100,
+    "endMs": 16380,
+    "timestampMs": 16240,
+    "confidence": null
+  },
+  {
+    "text": " by",
+    "startMs": 16380,
+    "endMs": 16820,
+    "timestampMs": 16600,
+    "confidence": null
+  },
+  {
+    "text": " evidence.",
+    "startMs": 16820,
+    "endMs": 17040,
+    "timestampMs": 16930,
+    "confidence": null
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "navigator-web",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", "cd navigator && exec python3 -m web --port 8765"],
+      "port": 8765
+    }
+  ]
+}

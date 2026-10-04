@@ -1,0 +1,1 @@
+{"packet_id":"X008-01","n_rules":0,"note":"Ordinance bars immigration-status inquiries and disclosure; falls outside the six categories."}

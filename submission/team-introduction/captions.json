@@ -1,0 +1,58 @@
+[
+  {
+    "text": "Hi, I’m Ruihua,",
+    "startMs": 880,
+    "endMs": 2280,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "the solo builder behind team whardite.",
+    "startMs": 2280,
+    "endMs": 4860,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "I’m building a Rental Housing Law Navigator",
+    "startMs": 4860,
+    "endMs": 7180,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "to help people understand rental rules",
+    "startMs": 7180,
+    "endMs": 9520,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "and check the original sources.",
+    "startMs": 9520,
+    "endMs": 11620,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "I handle the design, development, and testing,",
+    "startMs": 11620,
+    "endMs": 14700,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "with a focus on clear answers backed by evidence.",
+    "startMs": 14700,
+    "endMs": 17840,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": true
+  }
+]

@@ -1,0 +1,131 @@
+{
+  "packet_id": "D038-01",
+  "model": "deepseek-flash",
+  "as_of": "2026-10-01",
+  "prompt_sha256": "53c560f245304eed3b15a2f403223aa4d375abc6f1a5bdaab0d25903198a34e6",
+  "steps": 3,
+  "cards_read": [
+    "citations",
+    "dates",
+    "relations"
+  ],
+  "checks": 1,
+  "usage": [
+    {
+      "prompt_tokens": 5302,
+      "completion_tokens": 2212,
+      "total_tokens": 7514,
+      "prompt_tokens_details": {
+        "cached_tokens": 5120
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2117
+      },
+      "prompt_cache_hit_tokens": 5120,
+      "prompt_cache_miss_tokens": 182
+    },
+    {
+      "prompt_tokens": 8714,
+      "completion_tokens": 1216,
+      "total_tokens": 9930,
+      "prompt_tokens_details": {
+        "cached_tokens": 7424
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 803
+      },
+      "prompt_cache_hit_tokens": 7424,
+      "prompt_cache_miss_tokens": 1290
+    },
+    {
+      "prompt_tokens": 10110,
+      "completion_tokens": 411,
+      "total_tokens": 10521,
+      "prompt_tokens_details": {
+        "cached_tokens": 9856
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 14
+      },
+      "prompt_cache_hit_tokens": 9856,
+      "prompt_cache_miss_tokens": 254
+    }
+  ],
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "Let me analyze this packet. It's Los Angeles Municipal Code SEC. 45.65-45.69, a source of income discrimination ordinance. Category: screening_restrictions (source-of-income / voucher protections).\n\nLet me look at the categories. This is about prohibiting discrimination based on source of income. That falls under `screening_restrictions` — \"source-of-income / voucher protections\".\n\nActually wait — is source-of-income discrimination a screening restriction? The category description says: \"limits on criminal-history, credit or income screening; source-of-income / voucher protections; timing rules for screening\". Yes, source-of-income protections fall here.\n\nThe packet has sections 45.65 (findings), 45.66 (definitions), 45.67 (prohibited activities), 45.68 (remedies), 45.69 (effective date). This is one ordinance/article — one law. So one record for screening_restrictions.\n\nAre there other categories? keyword hints mention just_cause_eviction=2, security_deposits=2 — but those mentions are incidental (45.67.A mentions \"serve a notice of termination of tenancy\" based on source of income — that's part of the discrimination prohibition, not a just cause eviction law; security deposits mentioned in 45.67.B \"establishment of damage deposits\" — part of discrimination). Not separate rules for those categories.\n\nSo one record: jurisdiction \"Los Angeles, CA\", category \"screening_restrictions\", lifecycle \"enacted\", effective_date 2020-01-01.\n\nLet me read cards: citations, dates, relations, owner_and_exceptions, building_age_and_size. The packet limits coverage? \"All dwelling units... duplexes, condominiums, and single family residences in the City of Los Angeles, rented or offered for rent...\" No building age/size exemptions. So applicability conditions = [] probably. Let me read relevant cards.\n\nLet me read citations card and dates card and relations card. Also owner_and_exceptions maybe.\n\nLet me call the tools.\n\nLet me think about citation. The law is LAMC § 45.67 (prohibited activities). Citation at section level: \"Los Angeles Mun. Code § 45.67\". Let me read the citations card.\n\nLet me call read_card for citations, dates, relations.\n\nAlso check_record.\n\nLet me draft the record:\n\n{\n\"packet_id\":\"D038-01\",\n\"doc_id\":\"D038\",\n\"jurisdiction\":\"Los Angeles, CA\",\n\"category\":\"screening_restrictions\",\n\"lifecycle\":\"enacted\",\n\"title\":\"Los Angeles source-of-income discrimination prohibition\",\n\"requirement\":\"A landlord may not refuse to rent, terminate or otherwise discriminate against a tenant based on source of income, including Section 8 vouchers and other rental assistance.\",\n\"key_value\":null,\n\"coverage_conditions\":\"All dwelling units, guest rooms, suites, duplexes, condominiums and single-family residences rented or offered for rent in the City of Los Angeles, including mobile homes.\",\n\"applicability\":{\"conditions\":[],\"per_tenancy\":null,\"coverage_quotes\":[\"All dwelling units, efficiency dwelling units, guest rooms, and suites, as defined in Section 12.03 of this Code; ... and duplexes, condominiums, and single family residences in the City of Los Angeles, rented or offered for rent for living or dwelling purposes\"]},\n\"exemptions\":null,\n\"penalty\":\"Aggrieved person may sue for injunctive relief and damages; punitive damages of at least three times actual damages or three times one month's rent, whichever is higher, plus attorney fees and costs.\",\n\"effective_date\":\"2020-01-01\",\n\"valid_through\":null,\n\"citation\":\"Los Angeles Mun. Code § 45.67\",\n\"quoted_span\":\"It shall be unlawful for any person offering for rent, renting, or listing any housing accommodation to do or attempt to do any of the following: ... Based upon a person's source of income, refuse to rent or lease...\",\n\"interaction\":null,\n\"relations\":[],\n\"confidence\":0.95,\n\"conflict_flag\":false,\n\"conflict_note\":null\n}\n\nWait, quoted_span must be one contiguous passage. Let me pick contiguous text. Perhaps: \"It shall be unlawful for any person offering for rent, renting, or listing any housing accommodation to do or attempt to do any of the following:\" — but that doesn't show the prohibition. Better: 45.67.A: \"Based upon a person's source of income, refuse to rent or lease, or to continue to rent or lease, a housing accommodation; refuse to enter into or renew a rental agreement, lease or housing assistance payment contract\". That shows the prohibition. Actually could include the lead: \"It shall be unlawful for any person offering for rent, renting, or listing any housing accommodation to do or attempt to do any of the following:\" then A. Hmm, but \"A. Based upon...\" — the text has \"A. Based upon...\". Let me just use span starting at \"It shall be unlawful...\" through \"...continue to rent or lease, a housing accommodation\". That is contiguous.\n\nActually the text: \"It shall be unlawful for any person offering for rent, renting, or listing any housing accommodation to do or attempt to do any of the following:\\n\\nA. Based upon a person's source of income, refuse to rent or lease, or to continue to rent or lease, a housing accommodation; refuse to enter into or renew a rental agreement, lease or housing assistance payment contract; ...\"\n\nFor contiguous, use: \"It shall be unlawful for any person offering for rent, renting, or listing any housing accommodation to do or attempt to do any of the following:\" plus \"A. Based upon a person's source of income, refuse to rent or lease, or to continue to rent or lease, a housing accommodation\". Hmm the newline. I'll just pick one sentence: \"Based upon a person's source of income, refuse to rent or lease, or to continue to rent or lease, a housing accommodation; refuse to enter into or renew a rental agreement, lease or housing assistance payment contract;...\" Let me keep it under 400 chars.\n\nI'll use: \"A. Based upon a person's source of income, refuse to rent or lease, or to continue to rent or lease, a housing accommodation; refuse to enter into or renew a rental agreement, lease or housing assistance payment contract; refuse to execute any documents required to enter into or renew a rental agreement, lease or housing assistance payment contract; serve a notice of termination of tenancy; seek to terminate or terminate a tenancy; or otherwise deny or withhold, a housing accommodation or housing services or amenities.\"\n\nThat's ~460 chars. Too long maybe (max 400). Let me trim. Actually, \"Aim for 40 to 400 characters; the minimum is 20.\" Let me shorten to about 300:\n\n\"You can't have the leading \"A. \". Better to start at \"Based upon a person's source of income, refuse to rent or lease, or to continue to rent or lease, a housing accommodation; refuse to enter into or renew a rental agreement, lease or housing assistance payment contract;...\" \n\nCount: let me count. \"Based upon a person's source of income, refuse to rent or lease, or to continue to rent or lease, a housing accommodation; refuse to enter into or renew a rental agreement, lease or housing assistance payment contract; refuse to execute any documents required to enter into or renew a rental agreement, lease or housing assistance payment contract;\" That's roughly 350 characters. Fine, under 400. But it's not a complete sentence and might not include \"It shall be unlawful\". That's OK; it carries the core requirement.\n\nActually better to include the intro to make it readable. Let me use a shorter span: \"It shall be unlawful for any person offering for rent, renting, or listing any housing accommodation to do or attempt to do any of the following: ... Based upon a person's source of income, refuse to rent or lease, or to continue to rent or lease, a housing accommodation\". But \"...\" ellipsis not allowed (\"no ellipses\"). And can't skip text. So contiguous only.\n\nI'll use the A clause. Hmm but the leading \"A. \" — including it is fine, it's exactly from text. Actually the text starts \"A. Based upon\". So I could quote \"A. Based upon a person's source of income, refuse to rent or lease, or to continue to rent or lease, a housing accommodation; refuse to enter into or renew a rental agreement, lease or housing assistance payment contract; refuse to execute any documents required to enter into or renew a rental agreement, lease or housing assistance payment contract; serve a notice of termination of tenancy; seek to terminate or terminate a tenancy; or otherwise deny or withhold, a housing accommodation or housing services or amenities.\"\n\nLet me count roughly: that's ~480 chars. Too long. Let me stop earlier:\n\n\"A. Based upon a person's source of income, refuse to rent or lease, or to continue to rent or lease, a housing accommodation; refuse to enter into or renew a rental agreement, lease or housing assistance payment contract; refuse to execute any documents required to enter into or renew a rental agreement, lease or housing assistance payment contract;\"\n\nCount: A. (3) + rest. Let me estimate: ~290 chars. OK under 400.\n\nHmm, but the requirement should have the key prohibition and it does. Good.\n\nNow let me read the cards to be thorough. Let me call read_card for citations and dates, and relations. Also owner_and_exceptions and building_age_and_size since applicability.\n\nActually the packet doesn't limit buildings by age/size, but the card instruction: \"If the packet limits or exempts buildings in any way, read the cards...\" It does exclude... no it doesn't. Housing Accommodation includes all. So no conditions. But let me read owner_and_exceptions just in case? Not necessary. I'll read citations and dates.\n\nLet me do the tool calls.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_kRBkBEJtUmQXjqV0zYj58848",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"citations\"}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_KiJXGWXxfANYHc0jjo3O9779",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"dates\"}"
+          }
+        },
+        {
+          "index": 2,
+          "id": "call_02_HXzCQdU4PI7TI2vum3IN0210",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"relations\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_kRBkBEJtUmQXjqV0zYj58848",
+      "content": "# Card: citations\n\n- `citation`: the legal provision the rule comes from, at section level with no subdivision letters (see CITATIONS).\n- Citation style, one provision per citation: `Cal. Civ. Code § 1947.12`, `Cal. Gov. Code § 12955`, `N.J.S.A. 2A:18-61.1`, `P.L. 2021, c. 110`, `G.L. c. 186, § 15B`, `S.F. Admin. Code § 37.9`, `San Diego Mun. Code § 98.0703`, `Berkeley Mun. Code ch. 13.63`. For a bill give its number, then the code section it adds in parentheses if the text shows one: `AB 325 (Cal. Bus. & Prof. Code § 16729)`, `H.5222`, `S.2983`. Use the form the text itself uses when none of these fits.\n\nWhen the packet prints no code citation, name the law as follows.\n\nWhen the packet prints a code citation for a law, use the packet's. When it does not, and the page is about one of the programs below, cite the law as shown in the right-hand column. The list only names laws: it tells you nothing about what a law says. If the packet does not state a rule, there is no rule. A program that is not on the list is cited by its name exactly as the page names it.\n\n| the law, as pages call it | cite as |\n|---|---|\n| San Francisco Rent Ordinance (rent increases, just cause, relocation, deposit interest, algorithmic devices) | S.F. Admin. Code ch. 37 |\n| Los Angeles Rent Stabilization Ordinance (RSO) | Los Angeles Rent Stabilization Ordinance (L.A.M.C. §151.00 et seq.) |\n| Los Angeles Just Cause Ordinance (JCO), relocation assistance | Los Angeles Just Cause Ordinance (L.A.M.C. §165.00 et seq.) |\n| Berkeley Rent Ordinance, Measure BB | Berkeley Mun. Code ch. 13.76 |\n| Berkeley tenant screening and application fees | Berkeley Mun. Code ch. 13.78 |\n| Berkeley Fair Chance | Berkeley Mun. Code ch. 13.106 |\n| Berkeley coordinated pricing algorithms | Berkeley Mun. Code ch. 13.63 |\n| San Diego tenant protections (just cause) | San Diego Mun. Code §98.0701 et seq. |\n| San Diego automated rent price-fixing ban | San Diego Mun. Code §§98.1101–98.1104 |\n| Jersey City Rent Control Ordinance | Jersey City Mun. Code ch. 260 |\n| Cambridge Fair Housing Ordinance | Cambridge Mun. Code ch. 14.04 |\n| Boston Housing Stability Notification Act | Boston Mun. Code §10-11.7 |\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_01_KiJXGWXxfANYHc0jjo3O9779",
+      "content": "# Card: dates\n\n- `effective_date`: the date the requirement described in `key_value` began (or will begin) to apply, as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. For an amended law use the amendment's date if the amendment created the current value. Do not use the signing date unless the text says that is when it takes effect. A code-publisher history note such as `[Adopted 4-2-2024 by Ord. No. 123]` gives the adoption date, not the effective date: use it only if the text says the rule takes effect on that day. If the text gives no date, `null`: never guess a date from memory.\n- `valid_through`: for a value that is published for a period (an annual allowable increase, a yearly interest rate), the last day of that period as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. `null` for a rule with no stated end.\n- Use only dates and numbers that appear in the packet. If the packet gives two different dates for the same rule, use the one in the legal text, set `conflict_flag` true and name the other date in `conflict_note`. If the date is relative (\"90 days after enactment\") and the anchor is not in the packet, use `null` and say so in `conflict_note`.\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_02_HXzCQdU4PI7TI2vum3IN0210",
+      "content": "# Card: relations to other levels of law\n\n- `interaction`: how this rule relates to other levels of law, only if the text says so (e.g. `\"State cap yields to this local ordinance\"`, `\"May be preempted by the state act once it takes effect\"`). At most 30 words, else `null`.\n- `relations`: a list, `[]` when none. One entry for each sentence of the packet that says how this law fits with other levels of law: `{\"type\":\"preempts_local\",\"quote\":\"...\"}` when the text bars local governments from regulating this subject or from enacting rules that conflict with this law (it needs an explicit bar such as \"shall not\", \"prohibited\" or \"void\"; a sentence that only says the law does not authorize, require or affect local action is not a relation, so leave it out); `{\"type\":\"yields_to_local\",\"quote\":\"...\"}` when the text says this rule does not apply where a local rule on the same subject governs. The quote is copied character for character from the packet. Attach it to the record of the law the sentence belongs to; if the sentence sits in another section of the same act, attach it to that act's record.\n"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "The citation: the code prints \"SEC. 45.67.\" Let me cite \"Los Angeles Mun. Code § 45.67\". The packet uses \"SEC. 45.67.\" The card examples use \"San Diego Mun. Code § 98.0703\". For LA, the code is Los Angeles Municipal Code. I'll cite \"Los Angeles Mun. Code § 45.67\".\n\nNow relations: SEC 45.68.B mentions California Code of Civil Procedure Section 1161 as affirmative defense — this doesn't establish how the law fits with other levels (not preempt/yields). The findings mention Government Code Section 12927 in definitions. Not a relation. So relations = [].\n\ninteraction: null.\n\nNow let me write the record and check it.\n\nApplicability conditions: none. coverage_quotes verbatim from definitions. Let me pick a quote: \"duplexes, condominiums, and single family residences in the City of Los Angeles, rented or offered for rent for living or dwelling purposes\". That's verbatim.\n\nLet me now run check_record.\n\nRecord:\n{\"packet_id\":\"D038-01\",\"doc_id\":\"D038\",\"jurisdiction\":\"Los Angeles, CA\",\"category\":\"screening_restrictions\",\"lifecycle\":\"enacted\",\"title\":\"Los Angeles source-of-income discrimination prohibition\",\"requirement\":\"A landlord may not refuse to rent, renew, or terminate a tenancy, or apply different terms, based on a person's source of income, including Section 8 vouchers and other rental assistance.\",\"key_value\":null,\"coverage_conditions\":\"All dwelling units, guest rooms, suites, duplexes, condominiums and single-family residences rented or offered for rent in the City of Los Angeles, including mobile homes.\",\"applicability\":{\"conditions\":[],\"per_tenancy\":null,\"coverage_quotes\":[\"duplexes, condominiums, and single family residences in the City of Los Angeles, rented or offered for rent for living or dwelling purposes\"]},\"exemptions\":null,\"penalty\":\"Aggrieved person may bring a civil action for injunctive relief and damages; punitive damages of at least three times actual damages or three times one month's rent, whichever is higher, plus attorney fees and costs.\",\"effective_date\":\"2020-01-01\",\"valid_through\":null,\"citation\":\"Los Angeles Mun. Code § 45.67\",\"quoted_span\":\"A. Based upon a person's source of income, refuse to rent or lease, or to continue to rent or lease, a housing accommodation; refuse to enter into or renew a rental agreement, lease or housing assistance payment contract; refuse to execute any documents required to enter into or renew a rental agreement, lease or housing assistance payment contract;\",\"interaction\":null,\"relations\":[],\"confidence\":0.95,\"conflict_flag\":false,\"conflict_note\":null}\n\nLet me check quoted_span length: count characters. Approximately: \"A. Based upon a person's source of income, refuse to rent or lease, or to continue to rent or lease, a housing accommodation; refuse to enter into or renew a rental agreement, lease or housing assistance payment contract; refuse to execute any documents required to enter into or renew a rental agreement, lease or housing assistance payment contract;\" \n\nLet me count: \n\"A. Based upon a person's source of income, \" = 44\n\"refuse to rent or lease, or to continue to rent or lease, a housing accommodation; \" = 83 → 127\n\"refuse to enter into or renew a rental agreement, lease or housing assistance payment contract; \" = 97 → 224\n\"refuse to execute any documents required to enter into or renew a rental agreement, lease or housing assistance payment contract;\" = 128 → 352\n\nGood, under 400.\n\nNow run check_record.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_r4mohFgWBsDycdPcQBIA5425",
+          "type": "function",
+          "function": {
+            "name": "check_record",
+            "arguments": "{\"record_json\": \"{\\\"packet_id\\\":\\\"D038-01\\\",\\\"doc_id\\\":\\\"D038\\\",\\\"jurisdiction\\\":\\\"Los Angeles, CA\\\",\\\"category\\\":\\\"screening_restrictions\\\",\\\"lifecycle\\\":\\\"enacted\\\",\\\"title\\\":\\\"Los Angeles source-of-income discrimination prohibition\\\",\\\"requirement\\\":\\\"A landlord may not refuse to rent, renew, or terminate a tenancy, or apply different terms, based on a person's source of income, including Section 8 vouchers and other rental assistance.\\\",\\\"key_value\\\":null,\\\"coverage_conditions\\\":\\\"All dwelling units, guest rooms, suites, duplexes, condominiums and single-family residences rented or offered for rent in the City of Los Angeles, including mobile homes.\\\",\\\"applicability\\\":{\\\"conditions\\\":[],\\\"per_tenancy\\\":null,\\\"coverage_quotes\\\":[\\\"duplexes, condominiums, and single family residences in the City of Los Angeles, rented or offered for rent for living or dwelling purposes\\\"]},\\\"exemptions\\\":null,\\\"penalty\\\":\\\"Aggrieved person may bring a civil action for injunctive relief and damages; punitive damages of at least three times actual damages or three times one month's rent, whichever is higher, plus attorney fees and costs.\\\",\\\"effective_date\\\":\\\"2020-01-01\\\",\\\"valid_through\\\":null,\\\"citation\\\":\\\"Los Angeles Mun. Code § 45.67\\\",\\\"quoted_span\\\":\\\"A. Based upon a person's source of income, refuse to rent or lease, or to continue to rent or lease, a housing accommodation; refuse to enter into or renew a rental agreement, lease or housing assistance payment contract; refuse to execute any documents required to enter into or renew a rental agreement, lease or housing assistance payment contract;\\\",\\\"interaction\\\":null,\\\"relations\\\":[],\\\"confidence\\\":0.95,\\\"conflict_flag\\\":false,\\\"conflict_note\\\":null}\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_r4mohFgWBsDycdPcQBIA5425",
+      "content": "ACCEPTED.\nHow a program reads it: citation 'Los Angeles Mun. Code §45.67'; lifecycle enacted; effective_date 2020-01-01; valid_through None.\nConditions it will test: none (the rule covers every building)\nWhat the conditions do to made-up buildings on 2026-10-01 (year built, units):\n  built 2022, 20 units -> applies\n  built 2005, 20 units -> applies\n  built 1990, 20 units -> applies\n  built 1970, 20 units -> applies\n  built unknown year, 20 units -> applies\n  built 1950, 2 units -> applies\n  built 1950, 5 units -> applies\n  built 1950, unknown units -> applies"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"packet_id\":\"D038-01\",\"doc_id\":\"D038\",\"jurisdiction\":\"Los Angeles, CA\",\"category\":\"screening_restrictions\",\"lifecycle\":\"enacted\",\"title\":\"Los Angeles source-of-income discrimination prohibition\",\"requirement\":\"A landlord may not refuse to rent, renew, or terminate a tenancy, or apply different terms, based on a person's source of income, including Section 8 vouchers and other rental assistance.\",\"key_value\":null,\"coverage_conditions\":\"All dwelling units, guest rooms, suites, duplexes, condominiums and single-family residences rented or offered for rent in the City of Los Angeles, including mobile homes.\",\"applicability\":{\"conditions\":[],\"per_tenancy\":null,\"coverage_quotes\":[\"duplexes, condominiums, and single family residences in the City of Los Angeles, rented or offered for rent for living or dwelling purposes\"]},\"exemptions\":null,\"penalty\":\"Aggrieved person may bring a civil action for injunctive relief and damages; punitive damages of at least three times actual damages or three times one month's rent, whichever is higher, plus attorney fees and costs.\",\"effective_date\":\"2020-01-01\",\"valid_through\":null,\"citation\":\"Los Angeles Mun. Code § 45.67\",\"quoted_span\":\"A. Based upon a person's source of income, refuse to rent or lease, or to continue to rent or lease, a housing accommodation; refuse to enter into or renew a rental agreement, lease or housing assistance payment contract; refuse to execute any documents required to enter into or renew a rental agreement, lease or housing assistance payment contract;\",\"interaction\":null,\"relations\":[],\"confidence\":0.95,\"conflict_flag\":false,\"conflict_note\":null}\n{\"packet_id\":\"D038-01\",\"n_rules\":1,\"note\":null}",
+      "reasoning_content": "The record is accepted. One record, one receipt.\n\nFinal answer."
+    }
+  ]
+}

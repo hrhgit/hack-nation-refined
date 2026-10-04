@@ -1,0 +1,146 @@
+{
+  "packet_id": "D014-01",
+  "model": "deepseek-flash",
+  "as_of": "2026-10-01",
+  "prompt_sha256": "53c560f245304eed3b15a2f403223aa4d375abc6f1a5bdaab0d25903198a34e6",
+  "steps": 3,
+  "cards_read": [
+    "citations",
+    "dates",
+    "owner_and_exceptions",
+    "relations"
+  ],
+  "checks": 1,
+  "usage": [
+    {
+      "prompt_tokens": 5261,
+      "completion_tokens": 338,
+      "total_tokens": 5599,
+      "prompt_tokens_details": {
+        "cached_tokens": 5120
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 212
+      },
+      "prompt_cache_hit_tokens": 5120,
+      "prompt_cache_miss_tokens": 141
+    },
+    {
+      "prompt_tokens": 7566,
+      "completion_tokens": 1491,
+      "total_tokens": 9057,
+      "prompt_tokens_details": {
+        "cached_tokens": 5504
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1115
+      },
+      "prompt_cache_hit_tokens": 5504,
+      "prompt_cache_miss_tokens": 2062
+    },
+    {
+      "prompt_tokens": 9238,
+      "completion_tokens": 368,
+      "total_tokens": 9606,
+      "prompt_tokens_details": {
+        "cached_tokens": 8960
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 8
+      },
+      "prompt_cache_hit_tokens": 8960,
+      "prompt_cache_miss_tokens": 278
+    }
+  ],
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "Let me analyze this packet. It's the Boston Housing Stability Notification Act FAQ. Category: just_cause_eviction (notice requirements when ending tenancy). Let me determine one record.\n\nThe law: Housing Stability Notification Act, Boston ordinance. One record in category just_cause_eviction.\n\nKey parts: landlord must provide Notice of Tenants' Rights and Resources at same time as Notice to Quit or Notice of Non-renewal; also send copy to Office of Housing Stability; penalty $300/day after first offense; exemptions: hospital, skilled nursing, non-profit short-term treatment facilities; effective Nov 6, 2020.\n\nLet me read cards: citations, dates, owner_and_exceptions, building_age_and_size maybe.\n\nLet me call read_card for citations, dates, owner_and_exceptions.\n\nActually the packet does limit coverage (exempt properties) - read owner_and_exceptions. No building age/size limits. Dates given (Oct 2020 passed, effective Nov 6, 2020).\n\nLet me call cards.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_4KcsghzQedRNdWHmiuPx4359",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"citations\"}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_FsykfnyzRWqrNiU8oHmn8409",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"dates\"}"
+          }
+        },
+        {
+          "index": 2,
+          "id": "call_02_JJginiaucrK16zA1nRWW6895",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"owner_and_exceptions\"}"
+          }
+        },
+        {
+          "index": 3,
+          "id": "call_03_gZPG1fxueQWWClT1z3eY9825",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"relations\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_4KcsghzQedRNdWHmiuPx4359",
+      "content": "# Card: citations\n\n- `citation`: the legal provision the rule comes from, at section level with no subdivision letters (see CITATIONS).\n- Citation style, one provision per citation: `Cal. Civ. Code § 1947.12`, `Cal. Gov. Code § 12955`, `N.J.S.A. 2A:18-61.1`, `P.L. 2021, c. 110`, `G.L. c. 186, § 15B`, `S.F. Admin. Code § 37.9`, `San Diego Mun. Code § 98.0703`, `Berkeley Mun. Code ch. 13.63`. For a bill give its number, then the code section it adds in parentheses if the text shows one: `AB 325 (Cal. Bus. & Prof. Code § 16729)`, `H.5222`, `S.2983`. Use the form the text itself uses when none of these fits.\n\nWhen the packet prints no code citation, name the law as follows.\n\nWhen the packet prints a code citation for a law, use the packet's. When it does not, and the page is about one of the programs below, cite the law as shown in the right-hand column. The list only names laws: it tells you nothing about what a law says. If the packet does not state a rule, there is no rule. A program that is not on the list is cited by its name exactly as the page names it.\n\n| the law, as pages call it | cite as |\n|---|---|\n| San Francisco Rent Ordinance (rent increases, just cause, relocation, deposit interest, algorithmic devices) | S.F. Admin. Code ch. 37 |\n| Los Angeles Rent Stabilization Ordinance (RSO) | Los Angeles Rent Stabilization Ordinance (L.A.M.C. §151.00 et seq.) |\n| Los Angeles Just Cause Ordinance (JCO), relocation assistance | Los Angeles Just Cause Ordinance (L.A.M.C. §165.00 et seq.) |\n| Berkeley Rent Ordinance, Measure BB | Berkeley Mun. Code ch. 13.76 |\n| Berkeley tenant screening and application fees | Berkeley Mun. Code ch. 13.78 |\n| Berkeley Fair Chance | Berkeley Mun. Code ch. 13.106 |\n| Berkeley coordinated pricing algorithms | Berkeley Mun. Code ch. 13.63 |\n| San Diego tenant protections (just cause) | San Diego Mun. Code §98.0701 et seq. |\n| San Diego automated rent price-fixing ban | San Diego Mun. Code §§98.1101–98.1104 |\n| Jersey City Rent Control Ordinance | Jersey City Mun. Code ch. 260 |\n| Cambridge Fair Housing Ordinance | Cambridge Mun. Code ch. 14.04 |\n| Boston Housing Stability Notification Act | Boston Mun. Code §10-11.7 |\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_01_FsykfnyzRWqrNiU8oHmn8409",
+      "content": "# Card: dates\n\n- `effective_date`: the date the requirement described in `key_value` began (or will begin) to apply, as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. For an amended law use the amendment's date if the amendment created the current value. Do not use the signing date unless the text says that is when it takes effect. A code-publisher history note such as `[Adopted 4-2-2024 by Ord. No. 123]` gives the adoption date, not the effective date: use it only if the text says the rule takes effect on that day. If the text gives no date, `null`: never guess a date from memory.\n- `valid_through`: for a value that is published for a period (an annual allowable increase, a yearly interest rate), the last day of that period as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. `null` for a rule with no stated end.\n- Use only dates and numbers that appear in the packet. If the packet gives two different dates for the same rule, use the one in the legal text, set `conflict_flag` true and name the other date in `conflict_note`. If the date is relative (\"90 days after enactment\") and the anchor is not in the packet, use `null` and say so in `conflict_note`.\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_02_JJginiaucrK16zA1nRWW6895",
+      "content": "# Card: owner conditions and other exceptions\n\n  `{\"type\":\"owner\",\"role\":\"covered\"|\"exempt\",\"who\":\"short words from the text\",\"unit_limit\":N|null}` when coverage or an exemption depends on who owns or lives in the rented building (owner-occupied, small landlord, natural person, corporate owner). It is about the building's owner or landlord, not about software providers, brokers, agencies or tenants: a carve-out inside the definition of a service provider or intermediary is not an owner condition, and neither is an exemption for a licensee, broker or agent who is not the landlord (who collects a fee is a note for `per_tenancy`). Use `owner` only when who owns or lives in the building takes the WHOLE building out of the rule (owner-occupied buildings up to a size, small landlords, corporate owners). A tenancy where the owner or a relative shares a bathroom or kitchen with the tenant, or one unit lived in by the owner's relative, concerns a single tenancy or unit: write it in `per_tenancy`. `unit_limit` is the largest building the exemption reaches, from the text (\"owner-occupied premises of not more than four dwelling units\" gives 4, an owner-occupied duplex gives 2); `null` if the text sets no size. If instead the rule covers ONLY owner-occupied buildings up to a size (\"applies to landlord-occupied two- and three-family dwellings\"), write role `covered` with that `unit_limit`. A single-family home, a condominium or a unit that can be sold separately is a kind of housing, not the owner's status: write it as an `other` with role `exempt`.\n  `{\"type\":\"other\",\"role\":\"covered\"|\"exempt\",\"text\":\"at most 25 words\"}` for a scope limit or exemption that could decide whether an ordinary apartment building is covered but that year, units and owner cannot settle: for example only subsidized or income-restricted housing is covered, an exemption that needs a government filing, housing already under a lower rent cap set by another agency. `role` is `covered` when the text limits the rule to those buildings or providers (only subsidized housing, only providers that receive city funds) and `exempt` when it exempts them. Do NOT use it for dormitories, hotels, mobile homes or institutions, for a bare reference to units \"covered by\" another named law with no further limit, for the event that triggers a duty, for \"all residential rentals\", or to repeat an owner, date or unit condition that already has its own entry.\n  `per_tenancy`: conditions that depend on the individual tenancy or tenant (when the lease began, tenant age or income, which kind of lease), on the event that triggers a duty (an eviction for demolition, charging an application fee), on what conduct is covered (an exemption for certain actions rather than certain buildings), or on one unit inside a building (a unit held in trust for, or lived in by, the owner's relative; a unit let to a student or an employee). The program judges the whole building, so an exception that reaches only particular units is a note here, never an `owner` or `other` condition. It is shown to readers as a note and does not change who is covered. `null` if there are none.\n  `coverage_quotes`: up to 3 passages copied from the packet character for character (same rules as QUOTED SPAN, at least 15 characters each) that state the conditions above. `[]` when `conditions` is `[]`.\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_03_gZPG1fxueQWWClT1z3eY9825",
+      "content": "# Card: relations to other levels of law\n\n- `interaction`: how this rule relates to other levels of law, only if the text says so (e.g. `\"State cap yields to this local ordinance\"`, `\"May be preempted by the state act once it takes effect\"`). At most 30 words, else `null`.\n- `relations`: a list, `[]` when none. One entry for each sentence of the packet that says how this law fits with other levels of law: `{\"type\":\"preempts_local\",\"quote\":\"...\"}` when the text bars local governments from regulating this subject or from enacting rules that conflict with this law (it needs an explicit bar such as \"shall not\", \"prohibited\" or \"void\"; a sentence that only says the law does not authorize, require or affect local action is not a relation, so leave it out); `{\"type\":\"yields_to_local\",\"quote\":\"...\"}` when the text says this rule does not apply where a local rule on the same subject governs. The quote is copied character for character from the packet. Attach it to the record of the law the sentence belongs to; if the sentence sits in another section of the same act, attach it to that act's record.\n"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "Now build the record. Category: just_cause_eviction (the notice requirement for ending tenancy). One record.\n\nCitation: The packet prints \"Housing Stability Notification Act (Sec. 10-11.7)\". Use \"Boston Mun. Code §10-11.7\".\n\njurisdiction: Boston, MA.\n\nlifecycle: enacted.\n\neffective_date: 2020-11-06.\n\nkey_value: no single number... maybe \"$300 per day\". Hmm, key_value is headline number or formula. The headline is the notice requirement; the penalty is $300/day. I think key_value could be null, or \"$300 per day\". The rule's headline is a notice requirement, no number. I'd put null. But the penalty is a number. Let me put \"$300 per day\" for the penalty? The instruction: key_value the headline number or formula. The core requirement isn't numeric. I'll set null. Hmm, but maybe better to give the fine. I'll set null since headline is a notice duty.\n\nActually let me reconsider - key_value is for \"cap, fee, penalty\" style. Penalty $300/day is stated. But it's the penalty field. I'll use null for key_value... Hmm. Let me think - the example had a cap. For a just cause notice rule, there's no headline number. I'll set null.\n\nHmm, but they may want the number. I'll include key_value null and penalty \"$300 per day for second and subsequent offenses; warning for first offense\".\n\napplicability: conditions - exempt properties: hospital/skilled nursing/health facility; non-profit short-term treatment facility. These are \"other\" exempt conditions? Card says do NOT use \"other\" for dormitories, hotels, mobile homes or institutions. Hospital, skilled nursing facility, health facility are institutions. So maybe no conditions → conditions []. Hmm. These are exempt properties that are institutions. The card says don't use \"other\" for institutions. So conditions = [] and exemptions text captures it. per_tenancy null.\n\nActually coverage: applies to all landlords/foreclosing owners in Boston. So conditions []. coverage_quotes [] then. But the card says coverage_quotes [] when conditions []. Hmm but the packet does state exemptions. The card says use \"other\" only for scope limit that isn't institution. Institutions are excluded from \"other\". So conditions empty.\n\nHmm, but then we lose the exempt properties in applicability. That's fine; exemptions field captures it.\n\nWait - should I consider these exemptions as \"other\"? The card explicitly says do NOT use it for dormitories, hotels, mobile homes or institutions. Hospital/skilled nursing/health facility are institutions. So no.\n\nSo applicability: {\"conditions\":[],\"per_tenancy\":null,\"coverage_quotes\":[]}.\n\nHmm, \"per_tenancy\": the trigger is an event (ending tenancy). The card says per_tenancy covers \"the event that triggers a duty\". But here the rule covers all such events. per_tenancy is for conditions that depend on the individual tenancy... \"on the event that triggers a duty (an eviction for demolition...)\". I think null is fine.\n\nexemptions: \"Residences in any hospital, skilled nursing facility or health facility; non-profit facilities whose primary purpose is short-term treatment, assistance or therapy for alcohol, drug, or substance abuse.\"\n\npenalty: \"First offense: warning. Second and subsequent offenses: $300 per day.\"\n\neffective_date: 2020-11-06. valid_through null.\n\nquoted_span: pick sentence carrying the core requirement. E.g. \"The HSNA requires that landlords give this Notice of Tenants' Rights and Resources to tenants when the landlord starts the eviction process, or when the landlord decides to not offer the tenant a renewal of their lease agreement.\"\n\nLet me pick a span with content. That's fine, 265 chars. Verbatim from packet.\n\ninteraction: null. relations: [].\n\nconfidence: 0.8 (guide/FAQ, at most 0.8).\n\nconflict_flag false.\n\nNow check_record.\n\nLet me write the record.\n\nrequirement: \"A landlord or foreclosing owner ending a tenancy in Boston must deliver a Notice of Tenants' Rights and Resources to the tenant at the same time as the Notice to Quit or Notice of Non-renewal, and file a copy with the City's Office of Housing Stability.\" That's ~48 words? Count: A(1) landlord2 or3 foreclosing4 owner5 ending6 a7 tenancy8 in9 Boston10 must11 deliver12 a13 Notice14 of15 Tenants'16 Rights17 and18 Resources19 to20 the21 tenant22 at23 the24 same25 time26 as27 the28 Notice29 to30 Quit31 or32 Notice33 of34 Non-renewal,35 and36 file37 a38 copy39 with40 the41 City's42 Office43 of44 Housing45 Stability.46 46 words. Slightly over 45. Trim: remove \"in Boston\". ~44. Good.\n\ncoverage_conditions: \"Applies to all landlords and foreclosing owners intending to end a tenancy or post-foreclosure occupancy of a unit in the City of Boston.\"\n\nLet me call check_record.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_UxVdauni3vl7PtS3zTjO0890",
+          "type": "function",
+          "function": {
+            "name": "check_record",
+            "arguments": "{\"record_json\": \"{\\\"packet_id\\\":\\\"D014-01\\\",\\\"doc_id\\\":\\\"D014\\\",\\\"jurisdiction\\\":\\\"Boston, MA\\\",\\\"category\\\":\\\"just_cause_eviction\\\",\\\"lifecycle\\\":\\\"enacted\\\",\\\"title\\\":\\\"Boston Housing Stability Notification Act notice requirement\\\",\\\"requirement\\\":\\\"A landlord or foreclosing owner ending a tenancy must deliver a Notice of Tenants' Rights and Resources to the tenant at the same time as the Notice to Quit or Notice of Non-renewal, and file a copy with the City's Office of Housing Stability.\\\",\\\"key_value\\\":null,\\\"coverage_conditions\\\":\\\"Applies to all landlords and foreclosing owners intending to end a tenancy or post-foreclosure occupancy of a unit in the City of Boston.\\\",\\\"applicability\\\":{\\\"conditions\\\":[],\\\"per_tenancy\\\":null,\\\"coverage_quotes\\\":[]},\\\"exemptions\\\":\\\"Residences in any hospital, skilled nursing facility or health facility; non-profit facilities whose primary purpose is short-term treatment, assistance or therapy for alcohol, drug or other substance abuse.\\\",\\\"penalty\\\":\\\"First offense: warning. Second and subsequent offenses: $300 per day.\\\",\\\"effective_date\\\":\\\"2020-11-06\\\",\\\"valid_through\\\":null,\\\"citation\\\":\\\"Boston Mun. Code §10-11.7\\\",\\\"quoted_span\\\":\\\"The HSNA requires that landlords give this Notice of Tenants’ Rights and Resources to tenants when the landlord starts the eviction process, or when the landlord decides to not offer the tenant a renewal of their lease agreement.\\\",\\\"interaction\\\":null,\\\"relations\\\":[],\\\"confidence\\\":0.8,\\\"conflict_flag\\\":false,\\\"conflict_note\\\":null}\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_UxVdauni3vl7PtS3zTjO0890",
+      "content": "ACCEPTED.\nHow a program reads it: citation 'Boston Mun. Code §10-11.7'; lifecycle enacted; effective_date 2020-11-06; valid_through None.\nConditions it will test: none (the rule covers every building)\nWhat the conditions do to made-up buildings on 2026-10-01 (year built, units):\n  built 2022, 20 units -> applies\n  built 2005, 20 units -> applies\n  built 1990, 20 units -> applies\n  built 1970, 20 units -> applies\n  built unknown year, 20 units -> applies\n  built 1950, 2 units -> applies\n  built 1950, 5 units -> applies\n  built 1950, unknown units -> applies"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"packet_id\":\"D014-01\",\"doc_id\":\"D014\",\"jurisdiction\":\"Boston, MA\",\"category\":\"just_cause_eviction\",\"lifecycle\":\"enacted\",\"title\":\"Boston Housing Stability Notification Act notice requirement\",\"requirement\":\"A landlord or foreclosing owner ending a tenancy must deliver a Notice of Tenants' Rights and Resources to the tenant at the same time as the Notice to Quit or Notice of Non-renewal, and file a copy with the City's Office of Housing Stability.\",\"key_value\":null,\"coverage_conditions\":\"Applies to all landlords and foreclosing owners intending to end a tenancy or post-foreclosure occupancy of a unit in the City of Boston.\",\"applicability\":{\"conditions\":[],\"per_tenancy\":null,\"coverage_quotes\":[]},\"exemptions\":\"Residences in any hospital, skilled nursing facility or health facility; non-profit facilities whose primary purpose is short-term treatment, assistance or therapy for alcohol, drug or other substance abuse.\",\"penalty\":\"First offense: warning. Second and subsequent offenses: $300 per day.\",\"effective_date\":\"2020-11-06\",\"valid_through\":null,\"citation\":\"Boston Mun. Code §10-11.7\",\"quoted_span\":\"The HSNA requires that landlords give this Notice of Tenants’ Rights and Resources to tenants when the landlord starts the eviction process, or when the landlord decides to not offer the tenant a renewal of their lease agreement.\",\"interaction\":null,\"relations\":[],\"confidence\":0.8,\"conflict_flag\":false,\"conflict_note\":null}\n{\"packet_id\":\"D014-01\",\"n_rules\":1,\"note\":null}",
+      "reasoning_content": "Accepted. Output the record and receipt."
+    }
+  ]
+}

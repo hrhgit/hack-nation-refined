@@ -10,7 +10,9 @@ from common import Ctx, classify, extract_json_objects
 
 def stored_answers(ctx: Ctx) -> Dict[str, str]:
     lines: Dict[str, list] = defaultdict(list)
-    for f in sorted(ctx.paths.inbox_dir.glob("BATCH-*.jsonl")):
+    # the earlier sub-agent answers: in the inbox while they were live, in work/archive_claude_run/ since the real run replaced them
+    folders = [ctx.paths.inbox_dir, ctx.paths.work_dir / "archive_claude_run"]
+    for f in sorted(p for d in folders for p in d.glob("BATCH-*.jsonl")):
         objs, _ = extract_json_objects(f.read_text(encoding="utf-8"))
         for o in objs:
             if classify(o) != "other" and o.get("packet_id") in ctx.index["packets"]:
