@@ -20,6 +20,7 @@ RX_MDY = re.compile(r"\b%s\.?\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(\d{4})\b" % _MON,
 RX_DMY = re.compile(r"\b(\d{1,2})(?:st|nd|rd|th)?\s+%s\.?,?\s+(\d{4})\b" % _MON, re.I)
 RX_SLASH = re.compile(r"\b(\d{1,2})/(\d{1,2})/(\d{4}|\d{2})\b")
 RX_ISO = re.compile(r"\b(\d{4})-(\d{2})-(\d{2})\b")
+RX_HYPHEN = re.compile(r"(?<![\d:.-])(\d{1,2})-(\d{1,2})-(\d{4})(?![\d-])")  # 3-28-2024, as ordinance history notes print it
 RX_MY = re.compile(r"\b%s\.?,?\s+(\d{4})\b" % _MON, re.I)
 RX_YEAR = re.compile(r"\b(1[89]\d{2}|20\d{2})\b")
 
@@ -90,6 +91,8 @@ def doc_dates(text: str) -> Set[str]:
         add(_iso(y, int(m.group(1)), int(m.group(2))))
     for m in RX_ISO.finditer(text):
         add(_iso(int(m.group(1)), int(m.group(2)), int(m.group(3))))
+    for m in RX_HYPHEN.finditer(text):
+        add(_iso(int(m.group(3)), int(m.group(1)), int(m.group(2))))
     for m in RX_MY.finditer(text):
         ym = "%04d-%02d" % (int(m.group(2)), _mon(m.group(1)))
         out.add(ym)
@@ -178,13 +181,44 @@ _SUBD_WORDS = re.compile(r",?\s*(?:subd\.|subdivision|subsection|subsec\.|para\.
 
 
 def normalize_citation(c: str) -> str:
+    """Whitespace, section sign and subdivision cleanup. Spelling follows the challenge brief: '§1947.12'."""
     s = re.sub(r"\s+", " ", c or "").strip()
-    s = re.sub(r"\b(?:Section|Sec\.)\s+(?=\d)", "§ ", s, flags=re.I)
-    s = re.sub(r"§\s*(?=\S)", "§ ", s)
-    s = re.sub(r"§§\s*", "§§ ", s).replace("§ §", "§§")
+    s = re.sub(r"\b(?:Section|Sec\.)\s+(?=\d)", "§", s, flags=re.I)
+    s = re.sub(r"§\s+§", "§§", s)
+    s = re.sub(r"§§?\s+", lambda m: m.group().rstrip(), s)
     s = _SUBD_WORDS.sub("", s)
     s = _SUBDIV.sub("", s)
     return s.strip(" ,;")
+
+
+_ASPECT_COLON = re.compile(r":\s+(?=[A-Za-z])")
+_CITE_CONTINUES = re.compile(r"^(?:§|ch\.|c\.|art\.|sec\.|section|subd\.|div\.|no\.|#|\d)", re.I)
+
+
+def split_citation(c: str):
+    """Split 'Cal. Civ. Code §1950.5: service member rules' into ('Cal. Civ. Code §1950.5', 'service member rules').
+
+    A citation names a law; what one record says about it belongs in the title, not in the citation.
+    The earliest delimiter wins: a colon followed by words, or a comma followed by words that are not
+    part of the citation itself (another section, chapter or number).
+    """
+    s = re.sub(r"\s+", " ", c or "").strip()
+    cut = None
+    m = _ASPECT_COLON.search(s)
+    if m and m.start() >= 4:
+        cut = (m.start(), m.end())
+    for mm in re.finditer(r",\s+", s):
+        if cut is not None and mm.start() >= cut[0]:
+            break
+        before, after = s[:mm.start()], s[mm.end():]
+        if not after or _CITE_CONTINUES.match(after):
+            continue
+        if re.search(r"\d", before) or after[0].islower():
+            cut = (mm.start(), mm.end())
+            break
+    if cut is None:
+        return s, None
+    return s[:cut[0]].strip(" ,;"), s[cut[1]:].strip()
 
 
 def citation_key(c: str) -> str:
@@ -234,3 +268,88 @@ def level_of(jurisdiction: str) -> str:
 
 def state_of(jurisdiction: str) -> str:
     return jurisdiction[-2:].upper() if jurisdiction else ""
+
+
+# ---------------------------------------------------------------- effective dates written as a rule
+
+_ORDINALS = {
+    "first": 1, "second": 2, "third": 3, "fourth": 4, "fifth": 5, "sixth": 6, "seventh": 7, "eighth": 8,
+    "ninth": 9, "tenth": 10, "eleventh": 11, "twelfth": 12, "thirteenth": 13, "fourteenth": 14,
+    "fifteenth": 15, "sixteenth": 16, "seventeenth": 17, "eighteenth": 18, "nineteenth": 19,
+    "twentieth": 20, "twenty-first": 21, "twenty-second": 22, "twenty-third": 23, "twenty-fourth": 24,
+    "thirtieth": 30, "sixtieth": 60, "ninetieth": 90,
+}
+_COUNT = r"(?P<n>\d{1,3}(?:st|nd|rd|th)?|[a-z]+(?:[- ][a-z]+)?)"
+_EVENT = r"(?:final\s+)?(?:passage|adoption|enactment|approval)"
+RX_NTH_MONTH = re.compile(
+    r"\btakes?\s+effect\s+on\s+the\s+first\s+day\s+of\s+the\s+(?P<n>\d{1,2}(?:st|nd|rd|th)|[a-z]+(?:-[a-z]+)?)"
+    r"\s+month\s+next\s+following\s+(?:the\s+date\s+of\s+)?(?:its\s+)?" + _EVENT, re.I)
+RX_IMMEDIATE = re.compile(r"\btakes?\s+effect\s+immediately\b", re.I)
+# "on the thirtieth day after final passage", "90 days after enactment", "ninety (90) days after its final passage"
+RX_DAYS_AFTER = re.compile(
+    r"\btakes?\s+effect\s+(?:on\s+the\s+)?(?:" + _COUNT + r"\s*(?:\((?P<d>\d{1,3})\)\s*)?)days?\s+(?:next\s+)?"
+    r"(?:after|following)\s+(?:the\s+date\s+of\s+)?(?:its\s+)?" + _EVENT, re.I)
+RX_APPROVED = re.compile(
+    r"\b(?:approved|passed(?:\s+to\s+be\s+ordained)?|adopted|enacted|signed)(?:\s+by\s+(?:the\s+)?[a-z .]{3,40}?)?"
+    r"\s+(?:on\s+)?%s\.?\s+(\d{1,2}),?\s+(\d{4})" % _MON, re.I)
+
+
+def _count(word: str) -> Optional[int]:
+    w = word.strip().lower()
+    m = re.fullmatch(r"(\d{1,3})(?:st|nd|rd|th)?", w)
+    if m:
+        return int(m.group(1))
+    if w in _ORDINALS:
+        return _ORDINALS[w]
+    w = w.replace(" ", "-")
+    if w in _ORDINALS:
+        return _ORDINALS[w]
+    parts = w.split("-")
+    if len(parts) == 1 and w in _WORDS:
+        return _WORDS[w]
+    if len(parts) == 2 and parts[0] in _WORDS and parts[1] in _WORDS and _WORDS[parts[0]] >= 20:
+        return _WORDS[parts[0]] + _WORDS[parts[1]]
+    return None
+
+
+def add_months_first_day(iso: str, n: int) -> str:
+    """First day of the n-th month after the month containing `iso` ('first day of the 4th month next following')."""
+    y, m = int(iso[:4]), int(iso[5:7])
+    idx = y * 12 + (m - 1) + n
+    return "%04d-%02d-01" % (idx // 12, idx % 12 + 1)
+
+
+class ActDates(object):
+    def __init__(self, approved: str, effective: str, clause: str, method: str):
+        self.approved, self.effective, self.clause, self.method = approved, effective, clause, method
+
+
+def act_dates(text: str) -> Optional[ActDates]:
+    """Effective date of a whole act when it is written as a rule ('first day of the twelfth month next following
+    the date of enactment') together with the act's approval date. None unless the text has exactly one such
+    clause and exactly one approval date, so a multi-act page is never guessed at."""
+    clauses = []
+    for kind, rx in (("nth_month", RX_NTH_MONTH), ("immediate", RX_IMMEDIATE), ("days_after", RX_DAYS_AFTER)):
+        for m in rx.finditer(text):
+            clauses.append((kind, m))
+    if len(clauses) != 1:
+        return None
+    approved = sorted({_iso(int(m.group(3)), _mon(m.group(1)), int(m.group(2))) for m in RX_APPROVED.finditer(text)} - {None})
+    if len(approved) != 1:
+        return None
+    kind, m = clauses[0]
+    ap = approved[0]
+    if kind == "nth_month":
+        n = _count(m.group("n"))
+        if n is None:
+            return None
+        eff = add_months_first_day(ap, n)
+    elif kind == "immediate":
+        eff = ap
+    else:
+        digits = m.groupdict().get("d")
+        n = int(digits) if digits else _count(m.group("n") or "")
+        if n is None:
+            return None
+        eff = (dt.date.fromisoformat(ap) + dt.timedelta(days=n)).isoformat()
+    return ActDates(ap, eff, re.sub(r"\s+", " ", m.group(0)), kind)

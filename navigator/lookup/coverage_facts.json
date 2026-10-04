@@ -1,0 +1,189 @@
+[
+  {
+    "id": "ca-rolling-rent-cap",
+    "match": {
+      "jurisdiction": "CA",
+      "category": "rent_increase_limits",
+      "citation_contains": "1947.12"
+    },
+    "applicability": {
+      "exempt_if_newer_than_years": 15,
+      "date_basis": "certificate_of_occupancy"
+    },
+    "basis": "Housing that has been issued a certificate of occupancy within the previous 15 years, unless the housing is a mobilehome.",
+    "source": "starter-pack/participant-final-no-hour16 3/corpus/text/D024.txt, §1947.12(d)(4)"
+  },
+  {
+    "id": "ca-small-landlord-deposit",
+    "match": {
+      "jurisdiction": "CA",
+      "category": "security_deposits",
+      "citation_contains": "Assembly Bill 12"
+    },
+    "applicability": {
+      "owner_exempt_if_units_at_most": 4,
+      "other": null
+    },
+    "basis": "Starting July 1, 2024, landlords who own only two rental properties with no more than four residential units total can charge up to two months' rent for furnished and unfurnished units if ownership is held by a natural person, family trust, or limited liability company (LLC) where all members are natural persons",
+    "source": "starter-pack/participant-final-no-hour16 3/corpus/text/D007.txt, official Berkeley Rent Board"
+  },
+  {
+    "id": "la-rso-cutoff",
+    "match": {
+      "jurisdiction": "Los Angeles, CA",
+      "category": "rent_increase_limits"
+    },
+    "applicability": {
+      "built_on_or_before": "1978-10-01",
+      "date_basis": "certificate_of_occupancy"
+    },
+    "basis": "Participant Guide §4.1: Year built ≠ certificate of occupancy. Several cutoffs use the certificate date (San Francisco: on or before 1979-06-13; Los Angeles: on or before 1978-10-01). A building in the cutoff year should be unknown. LAHD D041: Generally, the RSO applies to rental properties that were first built on or before October 1, 1978, as well as replacement units under LAMC Section 151.28 Participant Guide §4.1 treats the cutoff as decidable from the year built except in the cutoff year, so tenancy-level conditions are reported as a note, not as unknown coverage.",
+    "source": "starter-pack/participant-final-no-hour16 3/README.md §4.1; corpus/text/D041.txt; replacement-unit exception needs further facts",
+    "set": {
+      "coverage_note": "whether the unit is a replacement unit under LAMC 151.28 or holds an exemption"
+    }
+  },
+  {
+    "id": "sf-rent-cap-cutoff",
+    "match": {
+      "jurisdiction": "San Francisco, CA",
+      "category": "rent_increase_limits",
+      "source_doc_id": "D080"
+    },
+    "applicability": {
+      "built_on_or_before": "1979-06-13",
+      "date_basis": "certificate_of_occupancy",
+      "other": null
+    },
+    "set": {
+      "local_cap_below_state": true,
+      "valid_through": "2027-02-28",
+      "coverage_note": "the tenancy's status under the Costa-Hawkins Act and whether another government agency regulates the rent"
+    },
+    "basis": "This includes tenancies in newly constructed rental units that first obtained a Certificate of Occupancy after June 13, 1979, tenancies that are eligible for a rent increase under the Costa-Hawkins Rental Housing Act, and some tenancies where the rent is regulated by another government agency. Participant Guide §4.1 treats the cutoff as decidable from the year built except in the cutoff year, so tenancy-level conditions are reported as a note, not as unknown coverage.",
+    "source": "starter-pack/participant-final-no-hour16 3/corpus/text/D079.txt; D080.txt: For rent-controlled units, the annual allowable increase amount effective March 1, 2026 through February 28, 2027 is 1.6%."
+  },
+  {
+    "id": "sf-residential-algorithm-ban",
+    "match": {
+      "jurisdiction": "San Francisco, CA",
+      "category": "algorithmic_rent_setting",
+      "citation_contains": "37.10C"
+    },
+    "applicability": {
+      "other": null
+    },
+    "basis": "Existing structured coverage says Residential units in San Francisco; the sample consists of residential multifamily properties. This is a geography/use condition, not an additional missing tenant or owner fact.",
+    "source": "navigator/work/rules_enriched.json, S.F. Rent Ordinance §37.10C coverage_conditions; source corpus/text/D081.txt"
+  },
+  {
+    "id": "berkeley-annual-rent-coverage",
+    "match": {
+      "jurisdiction": "Berkeley, CA",
+      "category": "rent_increase_limits",
+      "source_doc_id": "D008"
+    },
+    "applicability": {
+      "built_on_or_before": "1980-06",
+      "date_basis": "certificate_of_occupancy",
+      "owner_dependent": true
+    },
+    "set": {
+      "local_cap_below_state": true,
+      "valid_through": "2026-12-31",
+      "coverage_missing": "when the tenancy began, its status under the Costa-Hawkins Act, and other exemptions"
+    },
+    "basis": "The 2026 AGA may not adjust tenants’ rents when their tenancy began on or after January 1, 2025, and who had their rents set pursuant to the Costa-Hawkins Rental Housing Act. D009: Most units in multifamily properties built before 1980 are fully covered.",
+    "source": "starter-pack/participant-final-no-hour16 3/corpus/text/D008.txt and D009.txt; D008 allows 1.0% for 2026"
+  },
+  {
+    "id": "berkeley-measure-bb-rent-coverage",
+    "match": {
+      "jurisdiction": "Berkeley, CA",
+      "category": "rent_increase_limits",
+      "source_doc_id": "D006"
+    },
+    "applicability": {
+      "built_on_or_before": "1980-06",
+      "date_basis": "certificate_of_occupancy",
+      "owner_dependent": true
+    },
+    "set": {
+      "coverage_missing": "the tenancy, the unit type and exemptions"
+    },
+    "basis": "The maximum AGA is 5%. Coverage depends on whether the unit is fully covered; D009 coverage table distinguishes pre-1980 multifamily units, later construction and owner-dependent exemptions.",
+    "source": "starter-pack/participant-final-no-hour16 3/corpus/text/D006.txt and D009.txt"
+  },
+  {
+    "id": "ca-rent-cap-owner-exemptions",
+    "match": {
+      "jurisdiction": "CA",
+      "category": "rent_increase_limits",
+      "citation_contains": "1947.12"
+    },
+    "applicability": {
+      "owner_exempt_if_units_at_most": 2
+    },
+    "basis": "(5) Residential real property that is alienable separate from the title to any other dwelling unit ... (6) A property containing two separate dwelling units within a single structure in which the owner occupied one of the units. A sample row assessed as one multi-unit apartment parcel is not a unit alienable separate from the title to any other dwelling unit, so of the owner-based exemptions only the two-unit owner-occupied one has a unit limit to test.",
+    "source": "starter-pack/participant-final-no-hour16 3/corpus/text/D024.txt, §1947.12(d)(5)-(6)"
+  },
+  {
+    "id": "ca-just-cause-coverage",
+    "match": {
+      "jurisdiction": "CA",
+      "category": "just_cause_eviction",
+      "citation_contains": "1946.2"
+    },
+    "applicability": {
+      "owner_exempt_if_units_at_most": 2,
+      "exempt_if_newer_than_years": 15,
+      "date_basis": "certificate_of_occupancy"
+    },
+    "basis": "(6) A property containing two separate dwelling units within a single structure in which the owner occupied one of the units ... (7) Housing that has been issued a certificate of occupancy within the previous 15 years, unless the housing is a mobilehome. (8) Residential real property ... that is alienable separate from the title to any other dwelling unit. A sample row assessed as one multi-unit apartment parcel is not a unit alienable separate from the title to any other dwelling unit, so of the owner-based exemptions only the two-unit owner-occupied one has a unit limit to test.",
+    "source": "starter-pack/participant-final-no-hour16 3/corpus/text/D023.txt, §1946.2(e)(5)-(8)"
+  },
+  {
+    "id": "nj-fair-chance-owner-occupied",
+    "match": {
+      "jurisdiction": "NJ",
+      "category": "screening_restrictions",
+      "citation_regex": "46:8-(5[2-9]|6[0-4])"
+    },
+    "applicability": {
+      "owner_dependent": true,
+      "owner_exempt_if_units_at_most": 4,
+      "other": null
+    },
+    "basis": "“Rental dwelling unit” means a dwelling unit offered for rent by a housing provider for residential purposes, other than a dwelling unit in an owner-occupied premises of not more than four dwelling units.",
+    "source": "starter-pack/participant-final-no-hour16 3/corpus/text/D065.txt, C.46:8-54 definitions"
+  },
+  {
+    "id": "nj-application-fee-small-dwellings",
+    "match": {
+      "jurisdiction": "NJ",
+      "category": "application_screening_fees",
+      "citation_contains": "46:8-18.1"
+    },
+    "applicability": {
+      "min_units": 3,
+      "owner_dependent": false,
+      "other": null
+    },
+    "basis": "The requirements of subsection a. of this section shall not apply to: (1) a dwelling unit located in a one-family or two-family dwelling that is offered for rent; or (2) a licensee of the New Jersey Real Estate Commission, unless the licensee is the landlord. The licensee clause concerns who collects the fee, not which buildings are covered.",
+    "source": "starter-pack/participant-final-no-hour16 3/corpus/text/D066.txt"
+  },
+  {
+    "id": "cambridge-owner-occupied-two-family",
+    "match": {
+      "jurisdiction": "Cambridge, MA",
+      "category": "screening_restrictions",
+      "citation_contains": "14.04"
+    },
+    "applicability": {
+      "owner_dependent": true,
+      "owner_exempt_if_units_at_most": 2
+    },
+    "basis": "NOTE: there is an exemption for 2-family dwellings, when the owner lives there",
+    "source": "starter-pack/participant-final-no-hour16 3/corpus/text/D029.txt"
+  }
+]

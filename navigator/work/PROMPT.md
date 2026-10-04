@@ -34,8 +34,8 @@ Anything outside these six categories (general discrimination law, repairs, habi
 
 ```
 {"packet_id","doc_id","jurisdiction","category","lifecycle","title","requirement","key_value",
- "coverage_conditions","applicability":{...},"exemptions","penalty","effective_date","citation",
- "quoted_span","interaction","confidence","conflict_flag","conflict_note"}
+ "coverage_conditions","applicability":{...},"exemptions","penalty","effective_date","valid_through","citation",
+ "quoted_span","interaction","relations","confidence","conflict_flag","conflict_note"}
 ```
 
 - `packet_id`, `doc_id`: copy from the packet header.
@@ -46,29 +46,40 @@ Anything outside these six categories (general discrimination law, repairs, habi
 - `requirement`: one or two plain-language sentences (at most 45 words) saying what a landlord must or must not do. Your own words are fine here.
 - `key_value`: the headline number or formula, compact, in the text's own numbers: `"5% + CPI, max 10%"`, `"1 month's rent"`, `"$50 cap"`. If a rate applies to a period, include the period. `null` when there is no single headline value.
 - `coverage_conditions`: who and what is covered, as the text states it (building age or certificate-of-occupancy cutoffs, unit counts, owner type, property types). At most 40 words. If the text says it covers all residential rentals, say so.
-- `applicability`: the same coverage as machine-readable fields. Every key is required; use `null` or `false` when the text is silent:
-  `{"built_on_or_before":"YYYY[-MM-DD]"|null,"built_after":"YYYY[-MM-DD]"|null,"date_basis":"certificate_of_occupancy"|"construction_date"|"unspecified"|null,"min_units":int|null,"max_units":int|null,"owner_dependent":true|false,"other":"short text"|null}`.
-  `owner_dependent` is true when coverage or an exemption turns on who owns or occupies the property (small landlord, owner-occupied, corporate owner).
+- `applicability`: the same coverage as machine-readable conditions, which a program tests against a building's year built, certificate-of-occupancy date, unit count and owner. `{"conditions":[...],"per_tenancy":"short text"|null,"coverage_quotes":[...]}`. All three keys are required; `conditions` is `[]` when the text sets no condition. Copy each condition in the direction the text states it: if the text says a rule covers only some buildings, write role `covered`; if it says some buildings are exempt, excluded or not covered, write role `exempt`. Never turn one into the other and never do arithmetic: copy the number or date as printed.
+  Each condition is one of:
+  `{"type":"built","role":"covered"|"exempt","op":"on_or_before"|"before"|"after"|"on_or_after","date":"YYYY[-MM[-DD]]","basis":"certificate_of_occupancy"|"construction"|"unspecified"}` for a cutoff on when the building was built or first received its certificate of occupancy. `op` is the text's own word. `basis` is `certificate_of_occupancy` when the text names the certificate, `construction` when it says built, constructed or first occupied. Use it only for a cutoff that applies to ordinary apartment buildings. A date that applies only to a special kind of building (converted hotels, rehabilitated units, buildings in a redevelopment area, mobile homes) is an `other` condition, not a `built` condition.
+  `{"type":"built_within_years","role":"exempt","years":N,"basis":"certificate_of_occupancy"|"construction"}` when housing built or certified within the previous N years is exempt. Use it too for a new-construction exemption that expires: "exempt for 30 years after construction, or for the mortgage amortization period if shorter" is years 30 (the longest period the text gives); do not turn it into a fixed cutoff date. An exemption that only applies if the owner filed or registered something also gets an `other` entry saying so.
+  `{"type":"units","role":"covered"|"exempt","op":"at_least"|"more_than"|"at_most"|"fewer_than","n":N}` for a limit on the number of units in the building ("four or fewer units are exempt" is role exempt, op at_most, n 4).
+  `{"type":"owner","role":"covered"|"exempt","who":"short words from the text","unit_limit":N|null}` when coverage or an exemption depends on who owns or lives in the rented building (owner-occupied, small landlord, natural person, corporate owner). It is about the building's owner or landlord, not about software providers, brokers, agencies or tenants: a carve-out inside the definition of a pricing-software provider or coordinator is not an owner condition. `unit_limit` is the largest building the exemption reaches, from the text ("owner-occupied premises of not more than four dwelling units" gives 4, an owner-occupied duplex gives 2); `null` if the text sets no size.
+  `{"type":"other","text":"at most 25 words"}` for a scope limit or exemption that could decide whether an ordinary apartment building is covered but that year, units and owner cannot settle: for example only subsidized or income-restricted housing is covered, an exemption that needs a government filing, housing already under a lower rent cap set by another agency. Do NOT use it for dormitories, hotels, mobile homes or institutions, for the event that triggers a duty, for "all residential rentals", or to repeat an owner, date or unit condition that already has its own entry.
+  `per_tenancy`: conditions that depend on the individual tenancy or tenant (when the lease began, tenant age or income, which kind of lease), on the event that triggers a duty (an eviction for demolition, charging an application fee), or on what conduct is covered (an exemption for certain actions rather than certain buildings). It is shown to readers as a note and does not change who is covered. `null` if there are none.
+  `coverage_quotes`: up to 3 passages copied from the packet character for character (same rules as QUOTED SPAN, at least 15 characters each) that state the conditions above. `[]` when `conditions` is `[]`.
 - `exemptions`: what is exempt, as listed in the text (at most 50 words), else `null`.
 - `penalty`: remedy or penalty stated for violations, else `null`.
-- `effective_date`: the date the requirement described in `key_value` began (or will begin) to apply, as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. For an amended law use the amendment's date if the amendment created the current value. Do not use the signing date unless the text says that is when it takes effect. If the text gives no date, `null`: never guess a date from memory.
+- `effective_date`: the date the requirement described in `key_value` began (or will begin) to apply, as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. For an amended law use the amendment's date if the amendment created the current value. Do not use the signing date unless the text says that is when it takes effect. A code-publisher history note such as `[Adopted 7-9-2025 by Ord. No. B-781]` gives the adoption date, not the effective date: use it only if the text says the rule takes effect on that day. If the text gives no date, `null`: never guess a date from memory.
+- `valid_through`: for a value that is published for a period (an annual allowable increase, a yearly interest rate), the last day of that period as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. `null` for a rule with no stated end.
 - `citation`: the legal provision the rule comes from, at section level with no subdivision letters (see CITATIONS).
 - `quoted_span`: see QUOTED SPAN.
 - `interaction`: how this rule relates to other levels of law, only if the text says so (e.g. `"State cap yields to this local ordinance"`, `"May be preempted by NJ FAIR Act once effective"`). At most 30 words, else `null`.
+- `relations`: a list, `[]` when none. One entry for each sentence of the packet that says how this law fits with other levels of law: `{"type":"preempts_local","quote":"..."}` when the text bars local governments from regulating this subject or from enacting rules that conflict with this law; `{"type":"yields_to_local","quote":"..."}` when the text says this rule does not apply where a local rule on the same subject governs. The quote is copied character for character from the packet. Attach it to the record of the law the sentence belongs to; if the sentence sits in another section of the same act, attach it to that act's record.
 - `confidence`: 0.0 to 1.0. 0.9 or more: operative statutory or ordinance text with the numbers explicit. About 0.7: an official guide or summary. 0.5 or less: ambiguous or incomplete text. Anything from a guide, FAQ, press release or news page is at most 0.8.
 - `conflict_flag`, `conflict_note`: `true` plus a one-sentence note ONLY when the packet itself shows a problem: two different effective dates for the same rule, another law that may preempt or supersede it, or a summary that contradicts the operative text. Otherwise `false` and `null`.
 
 # WHAT COUNTS AS ONE RULE
 
-- One record per legal provision per category. A statute section or ordinance chapter that sets one rule is one record, however many subsections it has. Do not write a record per subsection or per sentence.
-- If one provision regulates two categories (for example a section that caps both deposits and upfront charges), write two records with the same citation, one per category, each with its own quoted span.
-- Fold definitions, procedures and penalty clauses into the rule they belong to.
-- The same law appearing twice in a packet is one record.
+A **law** is one statute section, one ordinance chapter or division, one bill, or one named program (for example "the San Francisco Rent Ordinance"). **Write exactly one record for each law and category.** No two records in your answer may share the same jurisdiction, category and law.
+
+- The parts of a law are not separate laws. Its cap, exceptions, deadlines, penalty, amendments and definitions all belong in that law's ONE record: the headline value in `key_value`, exceptions in `exemptions`, the penalty in `penalty`, the other points in `requirement`. A different limit for a special group of landlords or tenants is an exception, not a second record.
+- A guide, FAQ or news page that lists several rules or amendments of one law is still one law: one record per category.
+- A section that regulates two categories (for example one that caps both deposits and upfront charges) gives two records, one per category, each with its own quoted span.
+- Several different laws in one packet (for example a handbook that explains five statutes) give one record per law and category, and only for laws the page explains in some detail.
 - A law that forbids local governments from regulating something (for example a state ban on local rent control) is a rule of the state: write it in the matching category.
 - A page that only announces this year's value of an existing rule (annual allowable increase, relocation payment amounts, deposit-interest rate) is a record for that rule, with the value and its period in `key_value`, and `effective_date` set to the day that value starts.
-- A guide or news page that explains law is a source too: record the rule as the page states it, cite the underlying law if the page names it, otherwise cite the page title, and keep confidence at most 0.8.
+- A guide or news page that explains law is a source too: record the rule as the page states it, cite the underlying law as described under NAMING A LAW, and keep confidence at most 0.8.
+- A page about a bill, motion, petition or ballot question that is pending, failed or struck always gets its record in the matching category, with `lifecycle` `pending_bill` or `failed`, even when the page shows only its title and its history of actions. Say what it would do in `requirement` (start with "Would"), leave `effective_date` `null`, and keep `confidence` at 0.6 or below. `key_value` is `null` unless the page states the number the proposal would set (a cap, a fee, a penalty); then give that number. Quote the line that states it, or else the line that gives the title or purpose. An empty receipt for such a page is wrong: the status of the proposal is the fact to record. A bill that is not about one of the six categories still gets no record.
 - Repealed or superseded text that the packet itself marks as no longer operative is not a rule: skip it.
-- A typical document yields 0 to 6 records.
+- Most packets hold one to three laws. Before you answer, list your records by jurisdiction, category and law. If two of them match, merge them into one.
 
 # QUOTED SPAN
 
@@ -81,6 +92,25 @@ Anything outside these six categories (general discrimination law, repairs, habi
 - Use only dates and numbers that appear in the packet. If the packet gives two different dates for the same rule, use the one in the legal text, set `conflict_flag` true and name the other date in `conflict_note`. If the date is relative ("90 days after enactment") and the anchor is not in the packet, use `null` and say so in `conflict_note`.
 - Citation style, one provision per citation: `Cal. Civ. Code § 1947.12`, `Cal. Gov. Code § 12955`, `N.J.S.A. 2A:18-61.1`, `P.L. 2021, c. 110`, `G.L. c. 186, § 15B`, `S.F. Admin. Code § 37.9`, `San Diego Mun. Code § 98.0703`, `Berkeley Mun. Code ch. 13.63`. For a bill give its number, then the code section it adds in parentheses if the text shows one: `AB 325 (Cal. Bus. & Prof. Code § 16729)`, `H.5222`, `S.2983`. Use the form the text itself uses when none of these fits.
 
+# NAMING A LAW
+
+When the packet prints a code citation for a law, use the packet's. When it does not, and the page is about one of the programs below, cite the law as shown in the right-hand column. The list only names laws: it tells you nothing about what a law says. If the packet does not state a rule, there is no rule. A program that is not on the list is cited by its name exactly as the page names it.
+
+| the law, as pages call it | cite as |
+|---|---|
+| San Francisco Rent Ordinance (rent increases, just cause, relocation, deposit interest, algorithmic devices) | S.F. Admin. Code ch. 37 |
+| Los Angeles Rent Stabilization Ordinance (RSO) | Los Angeles Rent Stabilization Ordinance (L.A.M.C. §151.00 et seq.) |
+| Los Angeles Just Cause Ordinance (JCO), relocation assistance | Los Angeles Just Cause Ordinance (L.A.M.C. §165.00 et seq.) |
+| Berkeley Rent Ordinance, Measure BB | Berkeley Mun. Code ch. 13.76 |
+| Berkeley tenant screening and application fees | Berkeley Mun. Code ch. 13.78 |
+| Berkeley Fair Chance | Berkeley Mun. Code ch. 13.106 |
+| Berkeley coordinated pricing algorithms | Berkeley Mun. Code ch. 13.63 |
+| San Diego tenant protections (just cause) | San Diego Mun. Code §98.0701 et seq. |
+| San Diego automated rent price-fixing ban | San Diego Mun. Code §§98.1101–98.1104 |
+| Jersey City Rent Control Ordinance | Jersey City Mun. Code ch. 260 |
+| Cambridge Fair Housing Ordinance | Cambridge Mun. Code ch. 14.04 |
+| Boston Housing Stability Notification Act | Boston Mun. Code §10-11.7 |
+
 # HARD RULES
 
 1. Use ONLY the packet text. Never fill a gap from memory, even for a law you recognise. Silent text means `null`.
@@ -90,13 +120,16 @@ Anything outside these six categories (general discrimination law, repairs, habi
 
 # EXAMPLE (fictional jurisdiction; shows the shape only)
 
-{"packet_id":"D999-01","doc_id":"D999","jurisdiction":"Springfield, XX","category":"security_deposits","lifecycle":"enacted","title":"Springfield deposit cap","requirement":"A landlord may not demand or hold a security deposit above two months' rent and must return it within 30 days of move-out.","key_value":"2 months' rent","coverage_conditions":"All residential rental units in the city.","applicability":{"built_on_or_before":null,"built_after":null,"date_basis":null,"min_units":null,"max_units":null,"owner_dependent":false,"other":null},"exemptions":"Units owned by a government agency.","penalty":"Tenant may recover up to three times the amount wrongfully withheld.","effective_date":"2024-03-01","citation":"Springfield Mun. Code § 9.12.040","quoted_span":"No landlord shall demand or receive a security deposit exceeding two months' rent.","interaction":null,"confidence":0.95,"conflict_flag":false,"conflict_note":null}
+{"packet_id":"D999-01","doc_id":"D999","jurisdiction":"Springfield, XX","category":"security_deposits","lifecycle":"enacted","title":"Springfield deposit cap","requirement":"A landlord may not demand or hold a security deposit above two months' rent and must return it within 30 days of move-out.","key_value":"2 months' rent","coverage_conditions":"Rental buildings of three or more units, except owner-occupied buildings.","applicability":{"conditions":[{"type":"units","role":"covered","op":"at_least","n":3},{"type":"owner","role":"exempt","who":"owner-occupied","unit_limit":null},{"type":"built","role":"exempt","op":"after","date":"2019-05-01","basis":"certificate_of_occupancy"}],"per_tenancy":null,"coverage_quotes":["This article applies to buildings of three or more rental units, except buildings occupied in part by their owner, and does not apply to units first certified for occupancy after May 1, 2019."]},"exemptions":"Owner-occupied buildings; units certified for occupancy after May 1, 2019; units owned by a government agency.","penalty":"Tenant may recover up to three times the amount wrongfully withheld.","effective_date":"2024-03-01","valid_through":null,"citation":"Springfield Mun. Code § 9.12.040","quoted_span":"No landlord shall demand or receive a security deposit exceeding two months' rent.","interaction":null,"relations":[],"confidence":0.95,"conflict_flag":false,"conflict_note":null}
 {"packet_id":"D999-01","n_rules":1,"note":null}
 
 # BEFORE YOU ANSWER, CHECK
 
+- No two records share the same jurisdiction, category and law.
 - Every `quoted_span` is verbatim from the packet and shows the key number, date or prohibition.
-- Every date and number in `key_value` and `effective_date` appears in the packet.
+- Every date and number in `key_value`, `effective_date`, `valid_through` and `applicability` appears in the packet.
+- Each condition keeps the direction the text gives it (covered or exempt), and every quote in `coverage_quotes` and `relations` is verbatim.
 - Pending bills are `pending_bill`; struck or defeated measures are `failed`.
+- A page about a pending or failed bill, motion or petition has a record, not an empty receipt.
 - Each packet ends with exactly one receipt whose `n_rules` matches the records above it.
 - The output contains JSON lines and nothing else.

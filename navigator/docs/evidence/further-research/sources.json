@@ -1,0 +1,66 @@
+[
+  {
+    "file": "Cella-opinion-third-party-copy.pdf",
+    "source": "https://www.uschamber.com/assets/documents/Opinion-Cella-v.-Campbell-Mass.pdf",
+    "retrieved_utc": "2026-10-04T05:15:12.191446+00:00",
+    "sha256": "6bc6f2e3e10be5e4c4dc39edbc8bc53798ab41714182969fff6e329ee0a030ef",
+    "source_status": "third_party_hosted_court_opinion_copy",
+    "derived_files": [
+      {
+        "file": "Cella-opinion-third-party-copy.txt",
+        "sha256": "02a257d4ddcea71346a34faf8fde2e1382c2eb118182ce25988e2479c62597a4",
+        "method": "PDF text layer extraction"
+      }
+    ]
+  },
+  {
+    "file": "JC-25-098.pdf",
+    "source": "https://mcclibraryfunctions.azurewebsites.us/api/ordinanceDownload/16093/1436781/pdf?forceDownload=true",
+    "retrieved_utc": "2026-10-04T05:18:28.216884+00:00",
+    "sha256": "dc8e877aed1846ea7d8ea4b418305f60b85c30952494d967d8e9dc19c4add947",
+    "source_status": "official_code_publisher",
+    "derived_files": [
+      {
+        "file": "JC-25-098.txt",
+        "sha256": "3df2efbd3f01235a7af4af3797b019e308b8f872753c2ab4ccd23315587b3db0",
+        "method": "PDF text layer extraction"
+      }
+    ]
+  },
+  {
+    "file": "NJ-40-69A-181-excerpt.txt",
+    "source": "https://pub.njleg.state.nj.us/statutes/STATUTES-TEXT.zip",
+    "retrieved_utc": "2026-10-04T05:18:28.216884+00:00",
+    "sha256": "d9cabf89ca658f9ece94a5163e29b7859eecabc74a481b63f2ebf86da0cfe996",
+    "source_archive_sha256": "9f023fb58e395ed4ab40c066890aa7f87408a91bfb7d3649a94f6b27833d1b97",
+    "source_status": "official_legislature_section_excerpt"
+  },
+  {
+    "file": "MA-Register-1448.pdf",
+    "source": "https://archives.lib.state.ma.us/bitstreams/52909959-c92e-4864-aae5-14199d53f46e/download",
+    "retrieved_utc": "2026-10-04T05:18:28.216884+00:00",
+    "sha256": "0f6cd6a3ea18f8967b9b16bd4f0ba1e7b9cbd66b42bc6521fe71e104d4452cef",
+    "source_status": "state_library_register_copy",
+    "derived_files": [
+      {
+        "file": "MA-Register-1448.txt",
+        "sha256": "3a6376318cd4b9e652d4ab1f317c14a237024bbf9b3138dc57b80257ae5fd18f",
+        "method": "PDF text layer extraction"
+      }
+    ]
+  },
+  {
+    "file": "Hoboken-B781-effective-clause-excerpt.txt",
+    "source": "http://hobokennj.iqm2.com/Citizens/Detail_LegiFile.aspx?ID=12291",
+    "retrieved_utc": "2026-10-04T05:26:08.957853+00:00",
+    "sha256": "e51250cdf38aab80b95beb620f8914f75d1888a3cbd4e95bc2adc35cf48a81a6",
+    "source_status": "official_browser_visible_excerpt"
+  },
+  {
+    "file": "MA-Register-1448-page48-excerpt.txt",
+    "source": "https://archives.lib.state.ma.us/bitstreams/52909959-c92e-4864-aae5-14199d53f46e/download",
+    "retrieved_utc": "2026-10-04T05:26:08.957853+00:00",
+    "sha256": "2420a7fba0546fde05a360eac62a35837b005750c0312a11800d7a3dbd924720",
+    "source_status": "official_hosted_electronic_register_page_excerpt"
+  }
+]

@@ -133,6 +133,8 @@ def render_packet(p: Packet, doc: Doc, as_of: str) -> str:
 
 def render_prompt(as_of: str) -> str:
     raw = (ROOT / "prompts" / "extract_prompt.md").read_text(encoding="utf-8")
+    if "{{PRIMER}}" in raw:   # the background file is read only by a prompt that asks for it
+        raw = raw.replace("{{PRIMER}}", (ROOT / "prompts" / "primer.md").read_text(encoding="utf-8").strip())
     return (raw.replace("{{AS_OF}}", as_of)
                .replace("{{JURISDICTIONS}}", ", ".join('"%s"' % j for j in KNOWN_JURISDICTIONS)))
 

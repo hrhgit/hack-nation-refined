@@ -99,6 +99,9 @@ def cmd_api(args) -> int:
         config = load_api_config(Path(args.env_file).expanduser() if args.env_file else None,
                                  args.model, args.base_url, require_key=not args.dry_run)
         only = [x.strip() for x in args.only.split(",") if x.strip()] if args.only else None
+        if args.agent:
+            from .agent import run_agent_api
+            return run_agent_api(paths, config, only, args.once, args.dry_run, args.rules_format, args.workers)
         return run_api(paths, config, only, args.once, args.dry_run, args.rules_format)
     except (ApiError, OSError, ValueError) as e:
         print("API 流程停止：%s" % e, file=sys.stderr)
@@ -133,6 +136,8 @@ def main(argv=None) -> int:
     p.add_argument("--once", action="store_true", help="one pass, leaving validation failures for a later run")
     p.add_argument("--dry-run", action="store_true", help="show pending inputs without calling the API or requiring a key")
     p.add_argument("--rules-format", choices=["wrapped", "list"], default="wrapped")
+    p.add_argument("--agent", action="store_true", help="step-by-step mode: the model reads reference cards when it needs them and checks its own records (prompts/agent/)")
+    p.add_argument("--workers", type=int, default=1, help="packets worked on at the same time in --agent mode")
     p.set_defaults(fn=cmd_api)
 
     p = sub.add_parser("ingest", help="validate saved answers and write outputs/rules.json")

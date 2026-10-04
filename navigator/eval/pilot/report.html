@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>pilot - eval report</title><style>:root{color-scheme:light dark;--fg:#1a1a1a;--bg:#fff;--muted:#666;--line:#ddd;--pill:#eee;--warn:#b45309;--best:#ecfdf5}@media(prefers-color-scheme:dark){:root{--fg:#e6e6e6;--bg:#121212;--muted:#9a9a9a;--line:#333;--pill:#2a2a2a;--warn:#f59e0b;--best:#0f2a1f}}body{font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--fg);background:var(--bg);margin:0;padding:24px;max-width:1400px}h1{font-size:22px;margin:0 0 4px}h2{font-size:16px;margin:28px 0 8px}.meta,.hint{color:var(--muted);margin:0 0 8px}table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}th{cursor:pointer;user-select:none;white-space:nowrap}th.asc:after{content:" \25B4"}th.desc:after{content:" \25BE"}td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}td.id{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}.pill{display:inline-block;background:var(--pill);border-radius:10px;padding:0 8px;font-size:12px}.pill.warn{color:var(--warn)}tr.best td{background:var(--best)}.links{font-size:12px}.links a{margin-right:6px}td.prompt{max-width:520px}details summary{cursor:pointer;color:var(--muted)}pre{white-space:pre-wrap;font-size:12px;margin:6px 0 0}.warnings{color:var(--warn)}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}</style></head><body><header><h1>pilot</h1><p class="meta">1 variant &middot; 65 cases &middot; primary metric <code>score</code> (also: clean, one_per_law, cite_clean, cite_num, date_ok, recall, fields, nonempty, silver_f1, rec_ok) &middot; generated 2026-10-04 00:23:40 UTC &middot; lite report (no transcripts inlined; click rep links)</p></header><section><h2>Variants</h2><table><thead><tr><th data-k="s">variant</th><th data-k="s">change</th><th data-k="s">model</th><th data-k="n">mean score</th><th data-k="n">cases</th><th data-k="n">test mean</th><th data-k="n">test cases</th><th data-k="n">truncated</th><th data-k="s">failed attempts</th></tr></thead><tbody><tr><td>baseline</td><td></td><td>claude-subagent (stored answer)</td><td class="num">0.822</td><td class="num">65</td><td class="num">0.812</td><td class="num">32</td><td class="num">0</td><td>0</td></tr></tbody></table></section><section><h2>Cases</h2><p class="hint">Click a column header to sort. Per-case values are the mean of <code>score</code> over status-ok reps.</p><table id="cases"><thead><tr><th data-k="s">id</th><th data-k="s">split</th><th data-k="s">tags</th><th data-k="n">baseline</th><th data-k="s">prompt</th></tr></thead><tbody><tr><td class="id">D001-01</td><td>test</td><td><span class="pill">ordinance</span> <span class="pill">Berkeley, CA</span> <span class="pill">labeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D001-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D001-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D001-01&gt;&gt;&gt;
+doc_id: D001
+packet_id: D001-01
+part: 1 of 1
+source_url: https://berkeleyca.gov/sites/default/files/documents/2025-12-02%20Item%2001%20Ordinance%207992.pdf
+retrieved: 2026-10-01 22:44 UTC
+manifest_jurisdiction: Berkeley, CA
+as_of_date: 2026-10-01
+document_title_hint: ORDINANCE NO. 7,992-N.S.
+keyword_hints (rough, may be wrong): algorithmic_rent_setting=69
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+ORDINANCE NO. 7,992-N.S.
+AMENDING CHAPTER 13.63 OF THE BERKELEY MUNICIPAL CODE
+COORDINATED PRICING ALGORITHMS TO SET RENTS OR MANAGE
+OCCUPANCY LEVELS FOR RESIDENTIAL DWELLING UNITS
+
+BE IT ORDAINED by the Counci...</pre></details></td></tr>
+<tr><td class="id">D003-01</td><td>test</td><td><span class="pill">web_page</span> <span class="pill">Berkeley, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D003-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D003-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D003-01&gt;&gt;&gt;
+doc_id: D003
+packet_id: D003-01
+part: 1 of 1
+source_url: https://rentboard.berkeleyca.gov/Fair_Chance
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: Berkeley, CA
+as_of_date: 2026-10-01
+document_title_hint: Ronald V. Dellums Fair Chance Access to Housing Ordinance | Berkeley Rent Board
+keyword_hints (rough, may be wrong): screening_restrictions=18, rent_increase_limits=10, security_deposits=2, just_cause_eviction=1
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Ronald V. Dellums Fair Chance Access to Housing Ordinance | Berkeley Rent Board
+Skip to main content
+Skip to site search
+City of Berkeley
+Shar...</pre></details></td></tr>
+<tr><td class="id">D004-01</td><td>test</td><td><span class="pill">web_page</span> <span class="pill">Berkeley, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D004-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D004-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D004-01&gt;&gt;&gt;
+doc_id: D004
+packet_id: D004-01
+part: 1 of 1
+source_url: https://rentboard.berkeleyca.gov/elected-rent-board/news/2026-adjustments-relocation-assistance-payments
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: Berkeley, CA
+as_of_date: 2026-10-01
+document_title_hint: 2026 Adjustments of Relocation Assistance Payments | Berkeley Rent Board
+keyword_hints (rough, may be wrong): just_cause_eviction=22, rent_increase_limits=15
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+2026 Adjustments of Relocation Assistance Payments | Berkeley Rent Board
+Skip to main content
+Skip to site search
+City of Berkeley
+Share...</pre></details></td></tr>
+<tr><td class="id">D005-01</td><td>test</td><td><span class="pill">web_page</span> <span class="pill">Berkeley, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D005-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D005-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D005-01&gt;&gt;&gt;
+doc_id: D005
+packet_id: D005-01
+part: 1 of 1
+source_url: https://rentboard.berkeleyca.gov/laws-regulations/city-berkeley-ordinances-affecting-rental-properties/tenant-screening-and
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: Berkeley, CA
+as_of_date: 2026-10-01
+document_title_hint: Tenant Screening and Application Fees | Berkeley Rent Board
+keyword_hints (rough, may be wrong): application_screening_fees=10, rent_increase_limits=8, screening_restrictions=4
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Tenant Screening and Application Fees | Berkeley Rent Board
+Skip to main content
+Skip to site sear...</pre></details></td></tr>
+<tr><td class="id">D006-01</td><td>train</td><td><span class="pill">web_page</span> <span class="pill">Berkeley, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.389">0.389<div class="links"><a href="baseline/traces/D006-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D006-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D006-01&gt;&gt;&gt;
+doc_id: D006
+packet_id: D006-01
+part: 1 of 1
+source_url: https://rentboard.berkeleyca.gov/laws-regulations/measure-bb-changes-berkeleys-rent-ordinance
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: Berkeley, CA
+as_of_date: 2026-10-01
+document_title_hint: Measure BB Changes to Berkeley&#39;s Rent Ordinance | Berkeley Rent Board
+keyword_hints (rough, may be wrong): rent_increase_limits=83, just_cause_eviction=35, screening_restrictions=20
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Measure BB Changes to Berkeley&#39;s Rent Ordinance | Berkeley Rent Board
+Skip to main content
+Skip to site search
+City of Berk...</pre></details></td></tr>
+<tr><td class="id">D007-01</td><td>test</td><td><span class="pill">web_page</span> <span class="pill">Berkeley, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.587">0.587<div class="links"><a href="baseline/traces/D007-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D007-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D007-01&gt;&gt;&gt;
+doc_id: D007
+packet_id: D007-01
+part: 1 of 1
+source_url: https://rentboard.berkeleyca.gov/rights-responsibilities/security-deposits
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: Berkeley, CA
+as_of_date: 2026-10-01
+document_title_hint: Security Deposits | Berkeley Rent Board
+keyword_hints (rough, may be wrong): security_deposits=14, rent_increase_limits=10
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Security Deposits | Berkeley Rent Board
+Skip to main content
+Skip to site search
+City of Berkeley
+Share
+Print
+Security Deposits
+Learn the basics about security deposits under state law, and security de...</pre></details></td></tr>
+<tr><td class="id">D008-01</td><td>test</td><td><span class="pill">ordinance</span> <span class="pill">Berkeley, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D008-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D008-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D008-01&gt;&gt;&gt;
+doc_id: D008
+packet_id: D008-01
+part: 1 of 1
+source_url: https://rentboard.berkeleyca.gov/sites/default/files/documents/AGA%20Public%20Notice.pdf
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: Berkeley, CA
+as_of_date: 2026-10-01
+document_title_hint: 2000 Center Street, Suite 400, Berkeley, CA 94704  TEL: (510) 981-7368 (981-RENT)  TDD: (510) 981-6903  FAX: (510) 80
+keyword_hints (rough, may be wrong): rent_increase_limits=17
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+2000 Center Street, Suite 400, Berkeley, CA 94704  TEL: (510) 981-7368 (981-RENT)  TDD: (510) 981-6903  FAX: (510) 809-3921
+E...</pre></details></td></tr>
+<tr><td class="id">D009-01</td><td>test</td><td><span class="pill">ordinance</span> <span class="pill">Berkeley, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.667">0.667<div class="links"><a href="baseline/traces/D009-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D009-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D009-01&gt;&gt;&gt;
+doc_id: D009
+packet_id: D009-01
+part: 1 of 1
+source_url: https://rentboard.berkeleyca.gov/sites/default/files/documents/Rent%20Ordinance%20Coverage%20by%20Unit%20Type.pdf
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: Berkeley, CA
+as_of_date: 2026-10-01
+document_title_hint: 2000 Center Street, Suite 400, Berkeley, CA 94704 · TEL: (510) 981-7368 (981-RENT) · TDD: (510) 981-6903
+keyword_hints (rough, may be wrong): screening_restrictions=10, just_cause_eviction=6, rent_increase_limits=4, security_deposits=2
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+2000 Center Street, Suite 400, Berkeley, CA 94704...</pre></details></td></tr>
+<tr><td class="id">D010-01</td><td>train</td><td><span class="pill">web_page</span> <span class="pill">Boston, MA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.500">0.500<div class="links"><a href="baseline/traces/D010-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D010-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D010-01&gt;&gt;&gt;
+doc_id: D010
+packet_id: D010-01
+part: 1 of 1
+source_url: https://drive.google.com/file/d/1j4U3fDtmnYuwcUWhx5BMUcXc1bnKT8Ku/view?usp=sharing
+retrieved: 2026-10-01 22:44 UTC
+manifest_jurisdiction: Boston, MA
+as_of_date: 2026-10-01
+document_title_hint: Page 1 of 3 (February 2017)
+keyword_hints (rough, may be wrong): screening_restrictions=25, rent_increase_limits=1, just_cause_eviction=1
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Page 1 of 3 (February 2017)
+
+Department of Neighborhood Development (DND)
+Sheila A. Dillon, Chief &amp; Director
+
+BOSTON FAIR CHANCE TENANT SELECTION POLICY
+
+Under this policy, housing...</pre></details></td></tr>
+<tr><td class="id">D011-01</td><td>train</td><td><span class="pill">statute</span> <span class="pill">Boston, MA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D011-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D011-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D011-01&gt;&gt;&gt;
+doc_id: D011
+packet_id: D011-01
+part: 1 of 1
+source_url: https://malegislature.gov/Bills/193/H3744
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: Boston, MA
+as_of_date: 2026-10-01
+document_title_hint: Bill H.3744
+keyword_hints (rough, may be wrong): rent_increase_limits=4, just_cause_eviction=2
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Bill H.3744
+Skip to Content
+Bill H.3744
+193rd (2023 - 2024)
+Search the Legislature
+Search the Legislature
+Search
+An Act petition for a special law authorizing the city of Boston to implement rent stabilization and tenant eviction protections
+By Representative Mont...</pre></details></td></tr>
+<tr><td class="id">D012-01</td><td>train</td><td><span class="pill">web_page</span> <span class="pill">Boston, MA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.667">0.667<div class="links"><a href="baseline/traces/D012-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D012-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D012-01&gt;&gt;&gt;
+doc_id: D012
+packet_id: D012-01
+part: 1 of 1
+source_url: https://www.boston.gov/departments/fair-housing-and-equity/boston-fair-housing-regulations
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: Boston, MA
+as_of_date: 2026-10-01
+document_title_hint: Boston Fair Housing Regulations | Boston.gov
+keyword_hints (rough, may be wrong): screening_restrictions=15
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Boston Fair Housing Regulations | Boston.gov
+Skip to Main Content
+An official website of the City of Boston.
+Here&#39;s how you know
+city_hall
+Official websites use .boston.gov
+A .boston.gov website belongs...</pre></details></td></tr>
+<tr><td class="id">D013-01</td><td>train</td><td><span class="pill">web_page</span> <span class="pill">Boston, MA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.583">0.583<div class="links"><a href="baseline/traces/D013-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D013-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D013-01&gt;&gt;&gt;
+doc_id: D013
+packet_id: D013-01
+part: 1 of 1
+source_url: https://www.boston.gov/housing-stability-notification-act
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: Boston, MA
+as_of_date: 2026-10-01
+document_title_hint: Housing Stability Notification Act | Boston.gov
+keyword_hints (rough, may be wrong): just_cause_eviction=6
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Housing Stability Notification Act | Boston.gov
+Skip to Main Content
+An official website of the City of Boston.
+Here&#39;s how you know
+city_hall
+Official websites use .boston.gov
+A .boston.gov website belongs to an official government orga...</pre></details></td></tr>
+<tr><td class="id">D014-01</td><td>test</td><td><span class="pill">ordinance</span> <span class="pill">Boston, MA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.583">0.583<div class="links"><a href="baseline/traces/D014-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D014-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D014-01&gt;&gt;&gt;
+doc_id: D014
+packet_id: D014-01
+part: 1 of 1
+source_url: https://www.boston.gov/sites/default/files/file/2020/11/Housing%20Stability%20Notification%20Act%20Tenant%20FAQs.pdf
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: Boston, MA
+as_of_date: 2026-10-01
+document_title_hint: Housing Stability Notification Act
+keyword_hints (rough, may be wrong): just_cause_eviction=12
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Housing Stability Notification Act
+Frequently Asked Questions for Tenants
+1
+1. What is the Housing Stability Notification Act?
+The Housing Stability Notification Act (HSNA) is an Ordinance ...</pre></details></td></tr>
+<tr><td class="id">D016-01</td><td>test</td><td><span class="pill">guide</span> <span class="pill">CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.417">0.417<div class="links"><a href="baseline/traces/D016-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D016-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D016-01&gt;&gt;&gt;
+doc_id: D016
+packet_id: D016-01
+part: 1 of 2
+source_url: https://calcivilrights.ca.gov/housing/
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: CA
+as_of_date: 2026-10-01
+document_title_hint: Housing | CRD
+keyword_hints (rough, may be wrong): screening_restrictions=50, application_screening_fees=8, security_deposits=4, just_cause_eviction=1
+note: part 1 of 2 of a long document; the rest is in the other packets
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Housing | CRD
+Housing Discrimination
+The California Civil Rights Department (CRD) is responsible for enforcing state fair housing laws that make it ...</pre></details></td></tr>
+<tr><td class="id">D016-02</td><td>train</td><td><span class="pill">guide</span> <span class="pill">CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D016-02_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D016-02&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D016-02&gt;&gt;&gt;
+doc_id: D016
+packet_id: D016-02
+part: 2 of 2
+source_url: https://calcivilrights.ca.gov/housing/
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: CA
+as_of_date: 2026-10-01
+document_title_hint: Housing | CRD
+keyword_hints (rough, may be wrong): screening_restrictions=5
+note: part 2 of 2 of a long document; the rest is in the other packets
+preceding_heading: reasonable accommodations for ESAs under the rules described in these FAQs. This includes existing r
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+What are the time limits for filing a complaint of housing discrimination?
+In general, a complaint of h...</pre></details></td></tr>
+<tr><td class="id">D022-01</td><td>test</td><td><span class="pill">statute</span> <span class="pill">CA</span> <span class="pill">labeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D022-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D022-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D022-01&gt;&gt;&gt;
+doc_id: D022
+packet_id: D022-01
+part: 1 of 1
+source_url: https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB325
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: CA
+as_of_date: 2026-10-01
+document_title_hint: Bill Text - AB-325 Cartwright Act: violations.
+keyword_hints (rough, may be wrong): algorithmic_rent_setting=44
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Bill Text - AB-325 Cartwright Act: violations.
+[[omitted: page navigation]]
+Quick Search:
+[[omitted: page navigation]]
+PDF2
+Bill PDF
+|
+Add To My Favorites
+|
+Track Bill
+|
+Version:
+10/06/25 - Chaptered
+09/16/25 - En...</pre></details></td></tr>
+<tr><td class="id">D023-01</td><td>test</td><td><span class="pill">statute</span> <span class="pill">CA</span> <span class="pill">labeled</span></td><td class="num" data-v="0.813">0.813<div class="links"><a href="baseline/traces/D023-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D023-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D023-01&gt;&gt;&gt;
+doc_id: D023
+packet_id: D023-01
+part: 1 of 2
+source_url: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&amp;sectionNum=1946.2
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: CA
+as_of_date: 2026-10-01
+document_title_hint: California Code,  CIV 1946.2
+keyword_hints (rough, may be wrong): just_cause_eviction=57, screening_restrictions=4
+note: part 1 of 2 of a long document; the rest is in the other packets
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+California Code,  CIV 1946.2
+[[omitted: page navigation]]
+Quick Search:
+[[omitted: page navigation]]
+Code:
+[[omitted: page na...</pre></details></td></tr>
+<tr><td class="id">D023-02</td><td>train</td><td><span class="pill">statute</span> <span class="pill">CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D023-02_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D023-02&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D023-02&gt;&gt;&gt;
+doc_id: D023
+packet_id: D023-02
+part: 2 of 2
+source_url: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&amp;sectionNum=1946.2
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: CA
+as_of_date: 2026-10-01
+document_title_hint: California Code,  CIV 1946.2
+keyword_hints (rough, may be wrong): none
+note: part 2 of 2 of a long document; the rest is in the other packets
+preceding_heading: “This property is not subject to the rent limits imposed by Section 1947.12 of the Civil Code and is
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+after September 1, 2019, that is less protective ...</pre></details></td></tr>
+<tr><td class="id">D024-01</td><td>test</td><td><span class="pill">statute</span> <span class="pill">CA</span> <span class="pill">labeled</span></td><td class="num" data-v="0.813">0.813<div class="links"><a href="baseline/traces/D024-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D024-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D024-01&gt;&gt;&gt;
+doc_id: D024
+packet_id: D024-01
+part: 1 of 1
+source_url: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&amp;sectionNum=1947.12
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: CA
+as_of_date: 2026-10-01
+document_title_hint: California Code,  CIV 1947.12
+keyword_hints (rough, may be wrong): rent_increase_limits=41, screening_restrictions=6, just_cause_eviction=2
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+California Code,  CIV 1947.12
+[[omitted: page navigation]]
+Quick Search:
+[[omitted: page navigation]]
+Code:
+[[omitted: page navigation]]
+Article:
+Section:
+Code:
+[[omitted...</pre></details></td></tr>
+<tr><td class="id">D025-01</td><td>train</td><td><span class="pill">statute</span> <span class="pill">CA</span> <span class="pill">labeled</span></td><td class="num" data-v="0.567">0.567<div class="links"><a href="baseline/traces/D025-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D025-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D025-01&gt;&gt;&gt;
+doc_id: D025
+packet_id: D025-01
+part: 1 of 2
+source_url: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&amp;sectionNum=1950.5
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: CA
+as_of_date: 2026-10-01
+document_title_hint: California Code,  CIV 1950.5
+keyword_hints (rough, may be wrong): security_deposits=6, just_cause_eviction=2, application_screening_fees=2, screening_restrictions=2
+note: part 1 of 2 of a long document; the rest is in the other packets
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+California Code,  CIV 1950.5
+[[omitted: page navigation]]
+Quick Search:
+[[o...</pre></details></td></tr>
+<tr><td class="id">D025-02</td><td>test</td><td><span class="pill">statute</span> <span class="pill">CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.583">0.583<div class="links"><a href="baseline/traces/D025-02_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D025-02&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D025-02&gt;&gt;&gt;
+doc_id: D025
+packet_id: D025-02
+part: 2 of 2
+source_url: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&amp;sectionNum=1950.5
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: CA
+as_of_date: 2026-10-01
+document_title_hint: California Code,  CIV 1950.5
+keyword_hints (rough, may be wrong): security_deposits=5
+note: part 2 of 2 of a long document; the rest is in the other packets
+preceding_heading: (A) If the landlord or landlord’s employee did the work, the itemized statement shall reasonably des
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+successor in interest first makes ...</pre></details></td></tr>
+<tr><td class="id">D026-01</td><td>test</td><td><span class="pill">statute</span> <span class="pill">CA</span> <span class="pill">labeled</span></td><td class="num" data-v="0.675">0.675<div class="links"><a href="baseline/traces/D026-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D026-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D026-01&gt;&gt;&gt;
+doc_id: D026
+packet_id: D026-01
+part: 1 of 1
+source_url: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&amp;sectionNum=1950.6
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: CA
+as_of_date: 2026-10-01
+document_title_hint: California Code,  CIV 1950.6
+keyword_hints (rough, may be wrong): application_screening_fees=12, screening_restrictions=5, rent_increase_limits=2
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+California Code,  CIV 1950.6
+[[omitted: page navigation]]
+Quick Search:
+[[omitted: page navigation]]
+Code:
+[[omitted: page navigation]]
+Article:
+Section:
+Code:
+[[omi...</pre></details></td></tr>
+<tr><td class="id">D027-01</td><td>train</td><td><span class="pill">statute</span> <span class="pill">CA</span> <span class="pill">labeled</span></td><td class="num" data-v="0.688">0.688<div class="links"><a href="baseline/traces/D027-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D027-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D027-01&gt;&gt;&gt;
+doc_id: D027
+packet_id: D027-01
+part: 1 of 1
+source_url: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&amp;sectionNum=12955
+retrieved: 2026-10-01 22:35 UTC
+manifest_jurisdiction: CA
+as_of_date: 2026-10-01
+document_title_hint: California Code,  GOV 12955
+keyword_hints (rough, may be wrong): screening_restrictions=32, just_cause_eviction=1
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+California Code,  GOV 12955
+[[omitted: page navigation]]
+Quick Search:
+[[omitted: page navigation]]
+Code:
+[[omitted: page navigation]]
+Article:
+Section:
+Code:
+[[omitted: page navigation]]
+Section:
+K...</pre></details></td></tr>
+<tr><td class="id">D029-01</td><td>train</td><td><span class="pill">web_page</span> <span class="pill">Cambridge, MA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.833">0.833<div class="links"><a href="baseline/traces/D029-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D029-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D029-01&gt;&gt;&gt;
+doc_id: D029
+packet_id: D029-01
+part: 1 of 1
+source_url: https://www.cambridgema.gov/departments/humanrightscommission
+retrieved: 2026-10-01 22:36 UTC
+manifest_jurisdiction: Cambridge, MA
+as_of_date: 2026-10-01
+document_title_hint: Human Rights Commission
+keyword_hints (rough, may be wrong): screening_restrictions=18, rent_increase_limits=1, just_cause_eviction=1
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Human Rights Commission
+Skip to Navigation
+Skip to Main Content
+Skip to Footer
+Official websites use .gov
+A
+.gov
+website belongs to an official government
+organization in the United States.
+[[omitted: p...</pre></details></td></tr>
+<tr><td class="id">D031-01</td><td>train</td><td><span class="pill">web_page</span> <span class="pill">Cambridge, MA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D031-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D031-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D031-01&gt;&gt;&gt;
+doc_id: D031
+packet_id: D031-01
+part: 1 of 1
+source_url: https://www.cambridgema.gov/tenantrights
+retrieved: 2026-10-01 22:36 UTC
+manifest_jurisdiction: Cambridge, MA
+as_of_date: 2026-10-01
+document_title_hint: Tenants Rights and Resources Notification Ordinance Overview Information and FAQs - City of Cambridge, MA
+keyword_hints (rough, may be wrong): just_cause_eviction=9, screening_restrictions=2
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Tenants Rights and Resources Notification Ordinance Overview Information and FAQs - City of Cambridge, MA
+Skip to Navigation
+Skip to Main Content
+Skip to Footer
+Offic...</pre></details></td></tr>
+<tr><td class="id">D036-01</td><td>train</td><td><span class="pill">guide</span> <span class="pill">Jersey City, NJ</span> <span class="pill">unlabeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D036-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D036-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D036-01&gt;&gt;&gt;
+doc_id: D036
+packet_id: D036-01
+part: 1 of 1
+source_url: https://www.jerseycitynj.gov/landlordtenant
+retrieved: 2026-10-01 22:36 UTC
+manifest_jurisdiction: Jersey City, NJ
+as_of_date: 2026-10-01
+document_title_hint: Landlord/ Tenant Relations - City of Jersey City
+keyword_hints (rough, may be wrong): rent_increase_limits=17
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Landlord/ Tenant Relations - City of Jersey City
+Skip to Content
+{1}
+[[omitted: page navigation]]
+View City Council Agenda and Request to Speak
+Ordinances &amp; Resolutions (2019-Present)
+Ordinances &amp; Resolutions (2012-2018)
+Elections
+City Counci...</pre></details></td></tr>
+<tr><td class="id">D039-01</td><td>test</td><td><span class="pill">ordinance</span> <span class="pill">Los Angeles, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.750">0.750<div class="links"><a href="baseline/traces/D039-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D039-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D039-01&gt;&gt;&gt;
+doc_id: D039
+packet_id: D039-01
+part: 1 of 1
+source_url: https://cityclerk.lacity.org/onlinedocs/2024/24-1031_misc_9-03-24.pdf
+retrieved: 2026-10-01 22:36 UTC
+manifest_jurisdiction: Los Angeles, CA
+as_of_date: 2026-10-01
+document_title_hint: MOTION
+keyword_hints (rough, may be wrong): algorithmic_rent_setting=28, just_cause_eviction=1
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+MOTION
+SEP 0 3 2024
+I THEREFORE MOVE that the City Council instruct the Los Angeles Housing Department to
+report on the number of ownership and management entities that are using algorithm-based
+software to establish rents and the ...</pre></details></td></tr>
+<tr><td class="id">D040-01</td><td>train</td><td><span class="pill">web_page</span> <span class="pill">Los Angeles, CA</span> <span class="pill">labeled</span></td><td class="num" data-v="0.714">0.714<div class="links"><a href="baseline/traces/D040-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D040-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D040-01&gt;&gt;&gt;
+doc_id: D040
+packet_id: D040-01
+part: 1 of 1
+source_url: https://housing.lacity.gov/residents/just-cause-for-eviction-ordinance-jco
+retrieved: 2026-10-01 22:36 UTC
+manifest_jurisdiction: Los Angeles, CA
+as_of_date: 2026-10-01
+document_title_hint: Just Cause For Eviction Ordinance (JCO) – LAHD
+keyword_hints (rough, may be wrong): just_cause_eviction=24, rent_increase_limits=15
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Just Cause For Eviction Ordinance (JCO) – LAHD
+Skip to main content
+Los Angeles Housing Department
+Quick Links:
+Announcements
+Website Feedback
+Just Cause For Eviction Ordinance (JCO)
+Back
+P...</pre></details></td></tr>
+<tr><td class="id">D041-01</td><td>test</td><td><span class="pill">web_page</span> <span class="pill">Los Angeles, CA</span> <span class="pill">labeled</span></td><td class="num" data-v="0.658">0.658<div class="links"><a href="baseline/traces/D041-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D041-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D041-01&gt;&gt;&gt;
+doc_id: D041
+packet_id: D041-01
+part: 1 of 1
+source_url: https://housing.lacity.gov/residents/rso-overview
+retrieved: 2026-10-01 22:36 UTC
+manifest_jurisdiction: Los Angeles, CA
+as_of_date: 2026-10-01
+document_title_hint: RSO Overview – LAHD
+keyword_hints (rough, may be wrong): rent_increase_limits=30, just_cause_eviction=21, security_deposits=2
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+RSO Overview – LAHD
+Skip to main content
+Los Angeles Housing Department
+Quick Links:
+Announcements
+Website Feedback
+RSO Overview
+Back
+Print
+September 22nd, 2026
+|
+What Falls Under RSO
+If you own rental property in the Ci...</pre></details></td></tr>
+<tr><td class="id">D042-01</td><td>test</td><td><span class="pill">web_page</span> <span class="pill">Los Angeles, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.500">0.500<div class="links"><a href="baseline/traces/D042-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D042-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D042-01&gt;&gt;&gt;
+doc_id: D042
+packet_id: D042-01
+part: 1 of 1
+source_url: https://housing.lacity.gov/rso-rent-increase-calculator
+retrieved: 2026-10-01 22:36 UTC
+manifest_jurisdiction: Los Angeles, CA
+as_of_date: 2026-10-01
+document_title_hint: RSO Rent Increase Calculator – LAHD
+keyword_hints (rough, may be wrong): rent_increase_limits=28
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+RSO Rent Increase Calculator – LAHD
+Skip to main content
+Los Angeles Housing Department
+Quick Links:
+Announcements
+Website Feedback
+ATTN: TENANTS &amp; LANDLORDS
+Annual rent increases for rental units subject to the City of Los Angeles Rent Stabil...</pre></details></td></tr>
+<tr><td class="id">D043-01</td><td>train</td><td><span class="pill">ordinance</span> <span class="pill">Los Angeles, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.653">0.653<div class="links"><a href="baseline/traces/D043-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D043-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D043-01&gt;&gt;&gt;
+doc_id: D043
+packet_id: D043-01
+part: 1 of 2
+source_url: https://housing.lacity.gov/wp-content/uploads/2026/08/Relocation-Assistance-Bulletins-A-and-B-Combined.pdf
+retrieved: 2026-10-01 22:36 UTC
+manifest_jurisdiction: Los Angeles, CA
+as_of_date: 2026-10-01
+document_title_hint: A. RELOCATION ASSISTANCE BULLETIN
+keyword_hints (rough, may be wrong): just_cause_eviction=87, application_screening_fees=6, rent_increase_limits=4, security_deposits=3, screening_restrictions=1
+note: part 1 of 2 of a long document; the rest is in the other packets
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+A. RELOCATION ASSISTANC...</pre></details></td></tr>
+<tr><td class="id">D043-02</td><td>train</td><td><span class="pill">ordinance</span> <span class="pill">Los Angeles, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.656">0.656<div class="links"><a href="baseline/traces/D043-02_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D043-02&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D043-02&gt;&gt;&gt;
+doc_id: D043
+packet_id: D043-02
+part: 2 of 2
+source_url: https://housing.lacity.gov/wp-content/uploads/2026/08/Relocation-Assistance-Bulletins-A-and-B-Combined.pdf
+retrieved: 2026-10-01 22:36 UTC
+manifest_jurisdiction: Los Angeles, CA
+as_of_date: 2026-10-01
+document_title_hint: A. RELOCATION ASSISTANCE BULLETIN
+keyword_hints (rough, may be wrong): just_cause_eviction=32, application_screening_fees=8, screening_restrictions=1
+note: part 2 of 2 of a long document; the rest is in the other packets
+preceding_heading: OCATION ASSISTANCE
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+of rent for relocation payment...</pre></details></td></tr>
+<tr><td class="id">D045-01</td><td>train</td><td><span class="pill">statute</span> <span class="pill">MA</span> <span class="pill">labeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D045-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D045-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D045-01&gt;&gt;&gt;
+doc_id: D045
+packet_id: D045-01
+part: 1 of 1
+source_url: https://malegislature.gov/Bills/194/H5222
+retrieved: 2026-10-01 22:36 UTC
+manifest_jurisdiction: MA
+as_of_date: 2026-10-01
+document_title_hint: Bill H.5222
+keyword_hints (rough, may be wrong): algorithmic_rent_setting=3
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Bill H.5222
+Skip to Content
+Bill H.5222
+194th (Current)
+Search the Legislature
+Search the Legislature
+Search
+An Act relative to preventing algorithmic rent fixing in the rental housing market
+View Text
+Print Preview
+Download PDF
+Bill Information
+Bill Information
+Sponsor:
+Joint Committee on ...</pre></details></td></tr>
+<tr><td class="id">D046-01</td><td>test</td><td><span class="pill">statute</span> <span class="pill">MA</span> <span class="pill">labeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D046-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D046-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D046-01&gt;&gt;&gt;
+doc_id: D046
+packet_id: D046-01
+part: 1 of 1
+source_url: https://malegislature.gov/Bills/194/S2983
+retrieved: 2026-10-01 22:36 UTC
+manifest_jurisdiction: MA
+as_of_date: 2026-10-01
+document_title_hint: Bill S.2983
+keyword_hints (rough, may be wrong): algorithmic_rent_setting=9
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Bill S.2983
+Skip to Content
+Bill S.2983
+194th (Current)
+Search the Legislature
+Search the Legislature
+Search
+An Act prohibiting algorithmic rent setting
+Senate, March 12, 2026 -- The committee on Housing, to whom was referred the petitions (accompanied by bill, Senate, No. 994) of Cindy F. ...</pre></details></td></tr>
+<tr><td class="id">D047-01</td><td>test</td><td><span class="pill">statute</span> <span class="pill">MA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D047-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D047-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D047-01&gt;&gt;&gt;
+doc_id: D047
+packet_id: D047-01
+part: 1 of 1
+source_url: https://malegislature.gov/Bills/194/S2983/BillHistory
+retrieved: 2026-10-01 22:36 UTC
+manifest_jurisdiction: MA
+as_of_date: 2026-10-01
+document_title_hint: Bill S.2983
+keyword_hints (rough, may be wrong): algorithmic_rent_setting=9
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Bill S.2983
+Skip to Content
+Bill S.2983
+194th (Current)
+Search the Legislature
+Search the Legislature
+Search
+An Act prohibiting algorithmic rent setting
+Senate, March 12, 2026 -- The committee on Housing, to whom was referred the petitions (accompanied by bill, Senate, No. 994) ...</pre></details></td></tr>
+<tr><td class="id">D048-01</td><td>train</td><td><span class="pill">statute</span> <span class="pill">MA</span> <span class="pill">labeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D048-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D048-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D048-01&gt;&gt;&gt;
+doc_id: D048
+packet_id: D048-01
+part: 1 of 1
+source_url: https://malegislature.gov/Laws/GeneralLaws/PartI/TitleVII/Chapter40P/Section4
+retrieved: 2026-10-01 22:36 UTC
+manifest_jurisdiction: MA
+as_of_date: 2026-10-01
+document_title_hint: General Law - Part I, Title VII, Chapter 40P, Section 4
+keyword_hints (rough, may be wrong): rent_increase_limits=10, just_cause_eviction=1
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+General Law - Part I, Title VII, Chapter 40P, Section 4
+Skip to Content
+Section 4
+Search the Legislature
+Search the Legislature
+Search
+General Laws
+Go Directly to a General Law
+[[omitted: pag...</pre></details></td></tr>
+<tr><td class="id">D049-01</td><td>test</td><td><span class="pill">statute</span> <span class="pill">MA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.833">0.833<div class="links"><a href="baseline/traces/D049-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D049-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D049-01&gt;&gt;&gt;
+doc_id: D049
+packet_id: D049-01
+part: 1 of 3
+source_url: https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter151B/Section4
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: MA
+as_of_date: 2026-10-01
+document_title_hint: General Law - Part I, Title XXI, Chapter 151B, Section 4
+keyword_hints (rough, may be wrong): screening_restrictions=11, application_screening_fees=2, rent_increase_limits=1
+note: part 1 of 3 of a long document; the rest is in the other packets
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+General Law - Part I, Title XXI, Chapter 151B, Section 4
+Skip to Content
+Section 4
+Se...</pre></details></td></tr>
+<tr><td class="id">D049-02</td><td>train</td><td><span class="pill">statute</span> <span class="pill">MA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.583">0.583<div class="links"><a href="baseline/traces/D049-02_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D049-02&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D049-02&gt;&gt;&gt;
+doc_id: D049
+packet_id: D049-02
+part: 2 of 3
+source_url: https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter151B/Section4
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: MA
+as_of_date: 2026-10-01
+document_title_hint: General Law - Part I, Title XXI, Chapter 151B, Section 4
+keyword_hints (rough, may be wrong): screening_restrictions=41, application_screening_fees=4
+note: part 2 of 3 of a long document; the rest is in the other packets
+preceding_heading: 4A. For any person to coerce, intimidate, threaten, or interfere with another person in the exercise
+...</pre></details></td></tr>
+<tr><td class="id">D049-03</td><td>train</td><td><span class="pill">statute</span> <span class="pill">MA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D049-03_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D049-03&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D049-03&gt;&gt;&gt;
+doc_id: D049
+packet_id: D049-03
+part: 3 of 3
+source_url: https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter151B/Section4
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: MA
+as_of_date: 2026-10-01
+document_title_hint: General Law - Part I, Title XXI, Chapter 151B, Section 4
+keyword_hints (rough, may be wrong): application_screening_fees=2, screening_restrictions=1
+note: part 3 of 3 of a long document; the rest is in the other packets
+preceding_heading: 11A. For an employer, or an employer&#39;s agent, to refuse to restore certain employees to employment f
+&lt;...</pre></details></td></tr>
+<tr><td class="id">D050-01</td><td>test</td><td><span class="pill">statute</span> <span class="pill">MA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D050-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D050-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D050-01&gt;&gt;&gt;
+doc_id: D050
+packet_id: D050-01
+part: 1 of 1
+source_url: https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section11
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: MA
+as_of_date: 2026-10-01
+document_title_hint: General Law - Part II, Title I, Chapter 186, Section 11
+keyword_hints (rough, may be wrong): screening_restrictions=2, just_cause_eviction=1
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+General Law - Part II, Title I, Chapter 186, Section 11
+Skip to Content
+Section 11
+Search the Legislature
+Search the Legislature
+Search
+General Laws
+Go Directly to a General Law
+[[omitted: p...</pre></details></td></tr>
+<tr><td class="id">D051-01</td><td>train</td><td><span class="pill">statute</span> <span class="pill">MA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.583">0.583<div class="links"><a href="baseline/traces/D051-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D051-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D051-01&gt;&gt;&gt;
+doc_id: D051
+packet_id: D051-01
+part: 1 of 1
+source_url: https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section12
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: MA
+as_of_date: 2026-10-01
+document_title_hint: General Law - Part II, Title I, Chapter 186, Section 12
+keyword_hints (rough, may be wrong): just_cause_eviction=2, screening_restrictions=2
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+General Law - Part II, Title I, Chapter 186, Section 12
+Skip to Content
+Section 12
+Search the Legislature
+Search the Legislature
+Search
+General Laws
+Go Directly to a General Law
+[[omitted: p...</pre></details></td></tr>
+<tr><td class="id">D052-01</td><td>test</td><td><span class="pill">statute</span> <span class="pill">MA</span> <span class="pill">labeled</span></td><td class="num" data-v="0.667">0.667<div class="links"><a href="baseline/traces/D052-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D052-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D052-01&gt;&gt;&gt;
+doc_id: D052
+packet_id: D052-01
+part: 1 of 2
+source_url: https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: MA
+as_of_date: 2026-10-01
+document_title_hint: General Law - Part II, Title I, Chapter 186, Section 15B
+keyword_hints (rough, may be wrong): security_deposits=53, application_screening_fees=1, screening_restrictions=1
+note: part 1 of 2 of a long document; the rest is in the other packets
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+General Law - Part II, Title I, Chapter 186, Section 15B
+Skip to Content
+Section 15B
+Sea...</pre></details></td></tr>
+<tr><td class="id">D052-02</td><td>train</td><td><span class="pill">statute</span> <span class="pill">MA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.833">0.833<div class="links"><a href="baseline/traces/D052-02_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D052-02&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D052-02&gt;&gt;&gt;
+doc_id: D052
+packet_id: D052-02
+part: 2 of 2
+source_url: https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: MA
+as_of_date: 2026-10-01
+document_title_hint: General Law - Part II, Title I, Chapter 186, Section 15B
+keyword_hints (rough, may be wrong): none
+note: part 2 of 2 of a long document; the rest is in the other packets
+preceding_heading: (5) Whenever a lessor who receives a security deposit transfers his interest in the dwelling unit fo
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Upon such transfer, the lessor or his ag...</pre></details></td></tr>
+<tr><td class="id">D053-01</td><td>test</td><td><span class="pill">statute</span> <span class="pill">MA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.583">0.583<div class="links"><a href="baseline/traces/D053-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D053-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D053-01&gt;&gt;&gt;
+doc_id: D053
+packet_id: D053-01
+part: 1 of 1
+source_url: https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section18
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: MA
+as_of_date: 2026-10-01
+document_title_hint: General Law - Part II, Title I, Chapter 186, Section 18
+keyword_hints (rough, may be wrong): rent_increase_limits=2, just_cause_eviction=2
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+General Law - Part II, Title I, Chapter 186, Section 18
+Skip to Content
+Section 18
+Search the Legislature
+Search the Legislature
+Search
+General Laws
+Go Directly to a General Law
+[[omitted: pag...</pre></details></td></tr>
+<tr><td class="id">D057-01</td><td>train</td><td><span class="pill">statute</span> <span class="pill">MA</span> <span class="pill">labeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D057-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D057-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D057-01&gt;&gt;&gt;
+doc_id: D057
+packet_id: D057-01
+part: 1 of 1
+source_url: https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXVI/Chapter112/Section87DDD%201~2
+retrieved: 2026-10-01 22:56 UTC
+manifest_jurisdiction: MA
+as_of_date: 2026-10-01
+document_title_hint: General Law - Part I, Title XVI, Chapter 112, Section 87DDD 1/2
+keyword_hints (rough, may be wrong): screening_restrictions=12, application_screening_fees=8
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+General Law - Part I, Title XVI, Chapter 112, Section 87DDD 1/2
+Skip to Content
+Section 87DDD 1/2
+Search the Legislature
+Search the Legislature
+Search
+General Laws
+...</pre></details></td></tr>
+<tr><td class="id">D058-01</td><td>test</td><td><span class="pill">statute</span> <span class="pill">MA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D058-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D058-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D058-01&gt;&gt;&gt;
+doc_id: D058
+packet_id: D058-01
+part: 1 of 1
+source_url: https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section31
+retrieved: 2026-10-01 22:54 UTC
+manifest_jurisdiction: MA
+as_of_date: 2026-10-01
+document_title_hint: General Law - Part II, Title I, Chapter 186, Section 31
+keyword_hints (rough, may be wrong): just_cause_eviction=7, screening_restrictions=2
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+General Law - Part II, Title I, Chapter 186, Section 31
+Skip to Content
+Section 31
+Search the Legislature
+Search the Legislature
+Search
+General Laws
+Go Directly to a General Law
+[[omitted: p...</pre></details></td></tr>
+<tr><td class="id">D065-01</td><td>train</td><td><span class="pill">statute</span> <span class="pill">NJ</span> <span class="pill">labeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D065-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D065-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D065-01&gt;&gt;&gt;
+doc_id: D065
+packet_id: D065-01
+part: 1 of 1
+source_url: https://pub.njleg.gov/bills/2020/PL21/110_.HTM
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: NJ
+as_of_date: 2026-10-01
+document_title_hint: P.L. 2021, c.110 (S250 3R CC CC)
+keyword_hints (rough, may be wrong): screening_restrictions=35, just_cause_eviction=5, application_screening_fees=4
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+P.L. 2021, c.110 (S250 3R CC CC)
+CHAPTER 110
+(CORRECTED COPY OF
+CORRECTED COPY)
+An Act
+concerning the housing rights of certain persons with
+criminal records and supplementing
+chapter 8 of Title 46 of the Revised ...</pre></details></td></tr>
+<tr><td class="id">D066-01</td><td>train</td><td><span class="pill">statute</span> <span class="pill">NJ</span> <span class="pill">labeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D066-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D066-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D066-01&gt;&gt;&gt;
+doc_id: D066
+packet_id: D066-01
+part: 1 of 1
+source_url: https://pub.njleg.gov/bills/2024/PL25/405_.HTM
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: NJ
+as_of_date: 2026-10-01
+document_title_hint: P.L. 2025, c.405 (A4899 4R)
+keyword_hints (rough, may be wrong): rent_increase_limits=4, application_screening_fees=4
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+P.L. 2025, c.405 (A4899 4R)
+CHAPTER 405
+An Act
+limiting the
+amount of residential rental property application fees and supplementing
+chapter 8 of Title 46 of the Revised Statutes.
+Be It Enacted
+by the Senate and General Assembly of the State of...</pre></details></td></tr>
+<tr><td class="id">D067-01</td><td>train</td><td><span class="pill">guide</span> <span class="pill">NJ</span> <span class="pill">labeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D067-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D067-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D067-01&gt;&gt;&gt;
+doc_id: D067
+packet_id: D067-01
+part: 1 of 4
+source_url: https://www.nj.gov/dca/codes/publications/pdf_lti/t_i_r.pdf
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: NJ
+as_of_date: 2026-10-01
+document_title_hint: Department of Community Affairs • Division of Housing and Community Resources
+keyword_hints (rough, may be wrong): security_deposits=50, just_cause_eviction=13, rent_increase_limits=7, screening_restrictions=3
+note: part 1 of 4 of a long document; the rest is in the other packets
+note: 26 of 44 blocks of this document were left out as least relevant
+&lt;&lt;&lt;TEXT&gt;...</pre></details></td></tr>
+<tr><td class="id">D067-02</td><td>train</td><td><span class="pill">guide</span> <span class="pill">NJ</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.967">0.967<div class="links"><a href="baseline/traces/D067-02_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D067-02&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D067-02&gt;&gt;&gt;
+doc_id: D067
+packet_id: D067-02
+part: 2 of 4
+source_url: https://www.nj.gov/dca/codes/publications/pdf_lti/t_i_r.pdf
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: NJ
+as_of_date: 2026-10-01
+document_title_hint: Department of Community Affairs • Division of Housing and Community Resources
+keyword_hints (rough, may be wrong): rent_increase_limits=36, just_cause_eviction=24, security_deposits=14, screening_restrictions=13, application_screening_fees=2
+note: part 2 of 4 of a long document; the rest is in the other packets
+note: 26 of 44 blocks of this document were lef...</pre></details></td></tr>
+<tr><td class="id">D067-03</td><td>test</td><td><span class="pill">guide</span> <span class="pill">NJ</span> <span class="pill">labeled</span></td><td class="num" data-v="0.833">0.833<div class="links"><a href="baseline/traces/D067-03_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D067-03&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D067-03&gt;&gt;&gt;
+doc_id: D067
+packet_id: D067-03
+part: 3 of 4
+source_url: https://www.nj.gov/dca/codes/publications/pdf_lti/t_i_r.pdf
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: NJ
+as_of_date: 2026-10-01
+document_title_hint: Department of Community Affairs • Division of Housing and Community Resources
+keyword_hints (rough, may be wrong): just_cause_eviction=57, rent_increase_limits=14, screening_restrictions=4
+note: part 3 of 4 of a long document; the rest is in the other packets
+note: 26 of 44 blocks of this document were left out as least relevant
+preceding_heading: landlord m...</pre></details></td></tr>
+<tr><td class="id">D067-04</td><td>test</td><td><span class="pill">guide</span> <span class="pill">NJ</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.933">0.933<div class="links"><a href="baseline/traces/D067-04_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D067-04&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D067-04&gt;&gt;&gt;
+doc_id: D067
+packet_id: D067-04
+part: 4 of 4
+source_url: https://www.nj.gov/dca/codes/publications/pdf_lti/t_i_r.pdf
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: NJ
+as_of_date: 2026-10-01
+document_title_hint: Department of Community Affairs • Division of Housing and Community Resources
+keyword_hints (rough, may be wrong): just_cause_eviction=26, screening_restrictions=10, rent_increase_limits=9
+note: part 4 of 4 of a long document; the rest is in the other packets
+note: 26 of 44 blocks of this document were left out as least relevant
+preceding_heading: L. Tenancy...</pre></details></td></tr>
+<tr><td class="id">D068-01</td><td>test</td><td><span class="pill">guide</span> <span class="pill">NJ</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.667">0.667<div class="links"><a href="baseline/traces/D068-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D068-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D068-01&gt;&gt;&gt;
+doc_id: D068
+packet_id: D068-01
+part: 1 of 1
+source_url: https://www.nj.gov/oag/dcr/downloads/kyrhousing02.pdf
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: NJ
+as_of_date: 2026-10-01
+document_title_hint: The Department of Law &amp; Public Safety, through
+keyword_hints (rough, may be wrong): screening_restrictions=15, just_cause_eviction=1
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+The Department of Law &amp; Public Safety, through
+its Division on Civil Rights, is responsible for
+enforcing the law. To file a complaint, contact or
+visit the office nearest you:
+South Shore Regional Office:
+1325 Boardwalk,
+...</pre></details></td></tr>
+<tr><td class="id">D069-01</td><td>test</td><td><span class="pill">statute</span> <span class="pill">NJ</span> <span class="pill">labeled</span></td><td class="num" data-v="0.875">0.875<div class="links"><a href="baseline/traces/D069-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D069-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D069-01&gt;&gt;&gt;
+doc_id: D069
+packet_id: D069-01
+part: 1 of 1
+source_url: https://pub.njleg.state.nj.us/Bills/2026/AL26/43_.HTM
+retrieved: 2026-10-01 22:56 UTC
+manifest_jurisdiction: NJ
+as_of_date: 2026-10-01
+document_title_hint: P.L. 2026, c.043 (A3497 1R ACS)
+keyword_hints (rough, may be wrong): algorithmic_rent_setting=45, screening_restrictions=4, rent_increase_limits=2, security_deposits=2
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+P.L. 2026, c.043 (A3497 1R ACS)
+Title
+56
+Chapter
+9 (Rename)
+Antitrust
+Acts
+§§1-7
+C.56:9-20
+to
+56:9-26
+§§8,9
+Note
+P.L.
+2026, CHAPTER 43,
+approved July 20, 2026
+Assembly Committee
+Substitut...</pre></details></td></tr>
+<tr><td class="id">D073-01</td><td>train</td><td><span class="pill">ordinance</span> <span class="pill">San Diego, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D073-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D073-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D073-01&gt;&gt;&gt;
+doc_id: D073
+packet_id: D073-01
+part: 1 of 2
+source_url: https://docs.sandiego.gov/municode/municodechapter09/ch09art08division07.pdf
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: San Diego, CA
+as_of_date: 2026-10-01
+document_title_hint: Ch. Art. Div.
+keyword_hints (rough, may be wrong): just_cause_eviction=40, screening_restrictions=12
+note: part 1 of 2 of a long document; the rest is in the other packets
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Ch. Art. Div.
+9 8 7 1
+
+San Diego Municipal Code Chapter 9:  Building, Housing and Sign Regulations
+(3-2024)
+
+Article 8:  Housing
+
+Division 7:  Reside...</pre></details></td></tr>
+<tr><td class="id">D073-02</td><td>train</td><td><span class="pill">ordinance</span> <span class="pill">San Diego, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D073-02_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D073-02&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D073-02&gt;&gt;&gt;
+doc_id: D073
+packet_id: D073-02
+part: 2 of 2
+source_url: https://docs.sandiego.gov/municode/municodechapter09/ch09art08division07.pdf
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: San Diego, CA
+as_of_date: 2026-10-01
+document_title_hint: Ch. Art. Div.
+keyword_hints (rough, may be wrong): just_cause_eviction=62
+note: part 2 of 2 of a long document; the rest is in the other packets
+preceding_heading: Ch. Art. Div.
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+2023.
+(d) For a tenancy in a residential rental property subject to this Division
+commencing or renewed on or after June 24, 2023, the notice r...</pre></details></td></tr>
+<tr><td class="id">D076-01</td><td>train</td><td><span class="pill">ordinance</span> <span class="pill">San Diego, CA</span> <span class="pill">labeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D076-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D076-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D076-01&gt;&gt;&gt;
+doc_id: D076
+packet_id: D076-01
+part: 1 of 1
+source_url: https://sandiego.gov/sites/default/files/2025-04/automated-rent-price-fixing-prohibition-ordinance-materials.pdf
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: San Diego, CA
+as_of_date: 2026-10-01
+document_title_hint: The City of San Diego
+keyword_hints (rough, may be wrong): algorithmic_rent_setting=196, rent_increase_limits=10
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+The City of San Diego
+Staff Report
+1
+DATE ISSUED: February 27, 2025
+TO: City Council
+FROM: Council District 9
+SUBJECT: Prohibition of Anti-Competitive Automated Rent Price-...</pre></details></td></tr>
+<tr><td class="id">D078-01</td><td>test</td><td><span class="pill">web_page</span> <span class="pill">San Francisco, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D078-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D078-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D078-01&gt;&gt;&gt;
+doc_id: D078
+packet_id: D078-01
+part: 1 of 1
+source_url: https://sf-hrc.org/fair-chance-ordinance
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: San Francisco, CA
+as_of_date: 2026-10-01
+document_title_hint: Human Rights Commission | SF.gov
+keyword_hints (rough, may be wrong): screening_restrictions=16
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Human Rights Commission | SF.gov
+Skip to main content
+Agency
+Human Rights Commission
+Rooted in community, the Human Rights Commission works in service of the City’s anti-discrimination laws by protecting civil rights, upholding dignity, and advancing equita...</pre></details></td></tr>
+<tr><td class="id">D079-01</td><td>train</td><td><span class="pill">web_page</span> <span class="pill">San Francisco, CA</span> <span class="pill">labeled</span></td><td class="num" data-v="0.875">0.875<div class="links"><a href="baseline/traces/D079-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D079-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D079-01&gt;&gt;&gt;
+doc_id: D079
+packet_id: D079-01
+part: 1 of 1
+source_url: https://sf.gov/information/overview-just-cause-evictions
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: San Francisco, CA
+as_of_date: 2026-10-01
+document_title_hint: Overview of Just Cause Evictions | SF.gov
+keyword_hints (rough, may be wrong): just_cause_eviction=18, rent_increase_limits=12
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Overview of Just Cause Evictions | SF.gov
+Skip to main content
+Info Page
+Overview of Just Cause Evictions
+In order to evict a tenant from a rental unit covered by the Rent Ordinance, a landlord must have a &quot;jus...</pre></details></td></tr>
+<tr><td class="id">D080-01</td><td>test</td><td><span class="pill">web_page</span> <span class="pill">San Francisco, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.800">0.800<div class="links"><a href="baseline/traces/D080-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D080-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D080-01&gt;&gt;&gt;
+doc_id: D080
+packet_id: D080-01
+part: 1 of 1
+source_url: https://www.sf.gov/news--annual-rent-increase-3126-22827-announced
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: San Francisco, CA
+as_of_date: 2026-10-01
+document_title_hint: Annual Rent Increase for 3/1/26 - 2/28/27 Announced | SF.gov
+keyword_hints (rough, may be wrong): rent_increase_limits=24
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Annual Rent Increase for 3/1/26 - 2/28/27 Announced | SF.gov
+Skip to main content
+news
+Annual Rent Increase for 3/1/26 - 2/28/27 Announced
+Rent Board
+For rent-controlled units, the annual allowable increas...</pre></details></td></tr>
+<tr><td class="id">D081-01</td><td>train</td><td><span class="pill">web_page</span> <span class="pill">San Francisco, CA</span> <span class="pill">labeled</span></td><td class="num" data-v="1.000">1.000<div class="links"><a href="baseline/traces/D081-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D081-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D081-01&gt;&gt;&gt;
+doc_id: D081
+packet_id: D081-01
+part: 1 of 1
+source_url: https://www.sf.gov/news/new-law-prohibits-algorithmic-devices-used-set-rents-san-francisco
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: San Francisco, CA
+as_of_date: 2026-10-01
+document_title_hint: New law prohibits algorithmic devices used to set rents in San Francisco | SF.gov
+keyword_hints (rough, may be wrong): algorithmic_rent_setting=21, rent_increase_limits=4
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+New law prohibits algorithmic devices used to set rents in San Francisco | SF.gov
+Skip to main content
+news
+New law prohibits algori...</pre></details></td></tr>
+<tr><td class="id">D082-01</td><td>test</td><td><span class="pill">web_page</span> <span class="pill">San Francisco, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.833">0.833<div class="links"><a href="baseline/traces/D082-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D082-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D082-01&gt;&gt;&gt;
+doc_id: D082
+packet_id: D082-01
+part: 1 of 1
+source_url: https://www.sf.gov/reports--archive-relocation-rates
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: San Francisco, CA
+as_of_date: 2026-10-01
+document_title_hint: Archive of Relocation Rates | SF.gov
+keyword_hints (rough, may be wrong): just_cause_eviction=21, rent_increase_limits=8
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Archive of Relocation Rates | SF.gov
+Skip to main content
+Report
+Archive of Relocation Rates
+Rent Board
+Relocation Payments for Evictions based on Owner/Relative Move-in OR Demolition/Permanent Removal of Unit from Housi...</pre></details></td></tr>
+<tr><td class="id">D083-01</td><td>test</td><td><span class="pill">web_page</span> <span class="pill">San Francisco, CA</span> <span class="pill">labeled</span></td><td class="num" data-v="0.900">0.900<div class="links"><a href="baseline/traces/D083-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D083-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D083-01&gt;&gt;&gt;
+doc_id: D083
+packet_id: D083-01
+part: 1 of 1
+source_url: https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: San Francisco, CA
+as_of_date: 2026-10-01
+document_title_hint: Current Rates, including Rent Increase, Relocation, Sec. Deposit | SF.gov
+keyword_hints (rough, may be wrong): rent_increase_limits=30, just_cause_eviction=21, security_deposits=15
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Current Rates, including Rent Increase, Relocation, Sec. Deposit | SF.gov
+Skip to main content
+Report
+Current Rates, includi...</pre></details></td></tr>
+<tr><td class="id">D084-01</td><td>train</td><td><span class="pill">web_page</span> <span class="pill">Santa Ana, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.633">0.633<div class="links"><a href="baseline/traces/D084-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D084-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D084-01&gt;&gt;&gt;
+doc_id: D084
+packet_id: D084-01
+part: 1 of 1
+source_url: https://santa-ana.gov/departments/rent-stabilization
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: Santa Ana, CA
+as_of_date: 2026-10-01
+document_title_hint: Rent Stabilization and Just Cause Eviction - City of Santa Ana
+keyword_hints (rough, may be wrong): rent_increase_limits=37, just_cause_eviction=17
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Rent Stabilization and Just Cause Eviction - City of Santa Ana
+Rent Stabilization and Just Cause Eviction
+[[omitted: page navigation]]
+(714) 667-2209
+Contact us
+801 W Civic Center Drive, 2nd Floor
+...</pre></details></td></tr>
+<tr><td class="id">D085-01</td><td>train</td><td><span class="pill">web_page</span> <span class="pill">Santa Ana, CA</span> <span class="pill">unlabeled</span></td><td class="num" data-v="0.733">0.733<div class="links"><a href="baseline/traces/D085-01_rep0.json">rep0</a></div></td><td class="prompt"><details><summary>&lt;&lt;&lt;PACKET D085-01&gt;&gt;&gt;</summary><pre>&lt;&lt;&lt;PACKET D085-01&gt;&gt;&gt;
+doc_id: D085
+packet_id: D085-01
+part: 1 of 1
+source_url: https://santa-ana.gov/santa-ana-city-council-adopts-rent-stabilization-and-just-cause-eviction-ordinances-effective-nov-19
+retrieved: 2026-10-01 22:37 UTC
+manifest_jurisdiction: Santa Ana, CA
+as_of_date: 2026-10-01
+document_title_hint: Santa Ana City Council adopts rent stabilization and just cause eviction ordinances, effective Nov. 19 - City of Santa A
+keyword_hints (rough, may be wrong): rent_increase_limits=27, just_cause_eviction=19
+&lt;&lt;&lt;TEXT&gt;&gt;&gt;
+Santa Ana City Council adopts rent stabilization and just cause evict...</pre></details></td></tr></tbody></table></section><script>document.querySelectorAll("th[data-k]").forEach(function(th){th.addEventListener("click",function(){var t=th.closest("table"),tb=t.tBodies[0],i=Array.prototype.indexOf.call(th.parentNode.children,th);var asc=!th.classList.contains("asc");t.querySelectorAll("th").forEach(function(h){h.classList.remove("asc","desc")});th.classList.add(asc?"asc":"desc");var num=th.dataset.k==="n";var rows=Array.prototype.slice.call(tb.rows);rows.sort(function(a,b){var x=a.cells[i],y=b.cells[i];var u=num?parseFloat("v" in x.dataset?x.dataset.v:x.textContent):x.textContent.trim().toLowerCase();var w=num?parseFloat("v" in y.dataset?y.dataset.v:y.textContent):y.textContent.trim().toLowerCase();if(num){if(isNaN(u))u=-Infinity;if(isNaN(w))w=-Infinity}return (u<w?-1:u>w?1:0)*(asc?1:-1)});rows.forEach(function(r){tb.appendChild(r)})})});</script></body></html>

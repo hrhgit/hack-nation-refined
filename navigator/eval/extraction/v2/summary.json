@@ -1,0 +1,7 @@
+{
+  "description": "Round 2: a bill, motion or petition page always gets its record (pending_bill or failed)",
+  "target": "system_prompt",
+  "prompt_sha256": "8c603e561eecd3c8692064f8c5271461c9f5d5d558846977ea59d24b4effe9a7",
+  "model": "deepseek-flash",
+  "decision": "kept: bill pages 60/60 tries wrote a record (v1: 45/48 fresh); full-set score +0.023 (test) / +0.011 (train), no guardrail outside noise"
+}

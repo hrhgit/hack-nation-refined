@@ -1,0 +1,18 @@
+--- a/prompts/extract_prompt.md
++++ b/prompts/extract_prompt.md
+@@ -67,6 +67,7 @@
+ - A section that regulates two categories (for example one that caps both deposits and upfront charges) gives two records, one per category, each with its own quoted span.
+ - Several different laws in one packet (for example a handbook that explains five statutes) give one record per law and category, and only for laws the page explains in some detail.
+ - A law that forbids local governments from regulating something (for example a state ban on local rent control) is a rule of the state: write it in the matching category.
++- A statement for which the packet names no law, ordinance, bill or program to cite (for example, that a state has no law on a subject) is not a rule: write no record for it.
+ - A page that only announces this year's value of an existing rule (annual allowable increase, relocation payment amounts, deposit-interest rate) is a record for that rule, with the value and its period in `key_value`, and `effective_date` set to the day that value starts.
+ - A guide or news page that explains law is a source too: record the rule as the page states it, cite the underlying law as described under NAMING A LAW, and keep confidence at most 0.8.
+ - A page about a bill, motion, petition or ballot question that is pending, failed or struck always gets its record in the matching category, with `lifecycle` `pending_bill` or `failed`, even when the page shows only its title and its history of actions. Say what it would do in `requirement` (start with "Would"), leave `effective_date` `null`, and keep `confidence` at 0.6 or below. `key_value` is `null` unless the page states the number the proposal would set (a cap, a fee, a penalty); then give that number. Quote the line that states it, or else the line that gives the title or purpose. An empty receipt for such a page is wrong: the status of the proposal is the fact to record. A bill that is not about one of the six categories still gets no record.
+@@ -83,6 +84,7 @@
+ 
+ - Use only dates and numbers that appear in the packet. If the packet gives two different dates for the same rule, use the one in the legal text, set `conflict_flag` true and name the other date in `conflict_note`. If the date is relative ("90 days after enactment") and the anchor is not in the packet, use `null` and say so in `conflict_note`.
+ - Citation style, one provision per citation: `Cal. Civ. Code § 1947.12`, `Cal. Gov. Code § 12955`, `N.J.S.A. 2A:18-61.1`, `P.L. 2021, c. 110`, `G.L. c. 186, § 15B`, `S.F. Admin. Code § 37.9`, `San Diego Mun. Code § 98.0703`, `Berkeley Mun. Code ch. 13.63`. For a bill give its number, then the code section it adds in parentheses if the text shows one: `AB 325 (Cal. Bus. & Prof. Code § 16729)`, `H.5222`, `S.2983`. Use the form the text itself uses when none of these fits.
++- When one record covers several sections of one act, cite the section that holds its `key_value` (for example the section that states the cap), not the act's range such as `et seq.`.
+ 
+ # NAMING A LAW
+ 

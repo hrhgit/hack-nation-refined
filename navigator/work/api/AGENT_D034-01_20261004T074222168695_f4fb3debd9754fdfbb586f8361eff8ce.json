@@ -1,0 +1,160 @@
+{
+  "packet_id": "D034-01",
+  "model": "deepseek-flash",
+  "as_of": "2026-10-01",
+  "prompt_sha256": "53c560f245304eed3b15a2f403223aa4d375abc6f1a5bdaab0d25903198a34e6",
+  "steps": 3,
+  "cards_read": [
+    "citations",
+    "dates",
+    "owner_and_exceptions",
+    "relations"
+  ],
+  "checks": 2,
+  "usage": [
+    {
+      "prompt_tokens": 4766,
+      "completion_tokens": 584,
+      "total_tokens": 5350,
+      "prompt_tokens_details": {
+        "cached_tokens": 4608
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 458
+      },
+      "prompt_cache_hit_tokens": 4608,
+      "prompt_cache_miss_tokens": 158
+    },
+    {
+      "prompt_tokens": 7167,
+      "completion_tokens": 2513,
+      "total_tokens": 9680,
+      "prompt_tokens_details": {
+        "cached_tokens": 5248
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1757
+      },
+      "prompt_cache_hit_tokens": 5248,
+      "prompt_cache_miss_tokens": 1919
+    },
+    {
+      "prompt_tokens": 10040,
+      "completion_tokens": 757,
+      "total_tokens": 10797,
+      "prompt_tokens_details": {
+        "cached_tokens": 9600
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 44
+      },
+      "prompt_cache_hit_tokens": 9600,
+      "prompt_cache_miss_tokens": 440
+    }
+  ],
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "Let me analyze this packet. Hoboken, NJ Chapter 158.\n\nArticle I: § 158-1 Mandatory disclosures for rental increases over 10%. This relates to rent_increase_limits? It's a disclosure requirement for rent increases over 10%. Hmm, category: rent_increase_limits — caps or formulas on rent increases, rent control coverage, annual allowable increase. The disclosure for increases over 10% is arguably a rent increase related rule. It's not a cap though. But it's within the rent_increase_limits category arguably. The category says \"caps or formulas on rent increases, rent control / stabilization coverage, annual allowable increase, and laws that forbid local rent control\". A disclosure requirement for increases over 10% — it's about rent increases. Hmm. I think it fits best in rent_increase_limits since it regulates rent increases. Alternatively it could be ignored. The keyword hints say rent_increase_limits=10. I'll record it as rent_increase_limits.\n\nArticle II: § 158-2 Algorithmic rent fixing prohibited — algorithmic_rent_setting. Definitely.\n\nNow, are these two separate laws? Article I is Ord. No. B-750 adopted 4-2-2025; Article II is Ord. No. B-781 adopted 7-9-2025. Different ordinances, different articles. So two records: one rent_increase_limits, one algorithmic_rent_setting.\n\nAlso could the disclosure provision also be algorithmic-related? No, keep separate.\n\nLet me read cards: citations, dates, relations.\n\nLet me think about the applicability conditions. Rent increase disclosures: covers all residential landlords in Hoboken. No building age/size. So conditions = []? Actually maybe a condition: none. coverage_conditions: \"All residential landlords seeking to increase rent by more than 10% upon renewal of a lease with a current tenant.\"\n\nAlgorithmic: residential dwelling units defined as any primary residence excluding medical/long-term care or detention facilities. Conditions: exempt — medical/long-term care or detention facilities. Let me read the cards.\n\nLet me call read_card for citations and dates, and maybe owner_and_exceptions.\n\nLet me do it in one block.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_OctJSqTgCcz1V6gJdGIg0125",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"citations\"}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_LyhFzBJVFiR14uyQGUT09569",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"dates\"}"
+          }
+        },
+        {
+          "index": 2,
+          "id": "call_02_3lohDQ3uxftDQGNlrkQ17428",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"owner_and_exceptions\"}"
+          }
+        },
+        {
+          "index": 3,
+          "id": "call_03_6BhfYrpVYR1N2KqZ3THl6528",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"relations\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_OctJSqTgCcz1V6gJdGIg0125",
+      "content": "# Card: citations\n\n- `citation`: the legal provision the rule comes from, at section level with no subdivision letters (see CITATIONS).\n- Citation style, one provision per citation: `Cal. Civ. Code § 1947.12`, `Cal. Gov. Code § 12955`, `N.J.S.A. 2A:18-61.1`, `P.L. 2021, c. 110`, `G.L. c. 186, § 15B`, `S.F. Admin. Code § 37.9`, `San Diego Mun. Code § 98.0703`, `Berkeley Mun. Code ch. 13.63`. For a bill give its number, then the code section it adds in parentheses if the text shows one: `AB 325 (Cal. Bus. & Prof. Code § 16729)`, `H.5222`, `S.2983`. Use the form the text itself uses when none of these fits.\n\nWhen the packet prints no code citation, name the law as follows.\n\nWhen the packet prints a code citation for a law, use the packet's. When it does not, and the page is about one of the programs below, cite the law as shown in the right-hand column. The list only names laws: it tells you nothing about what a law says. If the packet does not state a rule, there is no rule. A program that is not on the list is cited by its name exactly as the page names it.\n\n| the law, as pages call it | cite as |\n|---|---|\n| San Francisco Rent Ordinance (rent increases, just cause, relocation, deposit interest, algorithmic devices) | S.F. Admin. Code ch. 37 |\n| Los Angeles Rent Stabilization Ordinance (RSO) | Los Angeles Rent Stabilization Ordinance (L.A.M.C. §151.00 et seq.) |\n| Los Angeles Just Cause Ordinance (JCO), relocation assistance | Los Angeles Just Cause Ordinance (L.A.M.C. §165.00 et seq.) |\n| Berkeley Rent Ordinance, Measure BB | Berkeley Mun. Code ch. 13.76 |\n| Berkeley tenant screening and application fees | Berkeley Mun. Code ch. 13.78 |\n| Berkeley Fair Chance | Berkeley Mun. Code ch. 13.106 |\n| Berkeley coordinated pricing algorithms | Berkeley Mun. Code ch. 13.63 |\n| San Diego tenant protections (just cause) | San Diego Mun. Code §98.0701 et seq. |\n| San Diego automated rent price-fixing ban | San Diego Mun. Code §§98.1101–98.1104 |\n| Jersey City Rent Control Ordinance | Jersey City Mun. Code ch. 260 |\n| Cambridge Fair Housing Ordinance | Cambridge Mun. Code ch. 14.04 |\n| Boston Housing Stability Notification Act | Boston Mun. Code §10-11.7 |\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_01_LyhFzBJVFiR14uyQGUT09569",
+      "content": "# Card: dates\n\n- `effective_date`: the date the requirement described in `key_value` began (or will begin) to apply, as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. For an amended law use the amendment's date if the amendment created the current value. Do not use the signing date unless the text says that is when it takes effect. A code-publisher history note such as `[Adopted 4-2-2024 by Ord. No. 123]` gives the adoption date, not the effective date: use it only if the text says the rule takes effect on that day. If the text gives no date, `null`: never guess a date from memory.\n- `valid_through`: for a value that is published for a period (an annual allowable increase, a yearly interest rate), the last day of that period as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. `null` for a rule with no stated end.\n- Use only dates and numbers that appear in the packet. If the packet gives two different dates for the same rule, use the one in the legal text, set `conflict_flag` true and name the other date in `conflict_note`. If the date is relative (\"90 days after enactment\") and the anchor is not in the packet, use `null` and say so in `conflict_note`.\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_02_3lohDQ3uxftDQGNlrkQ17428",
+      "content": "# Card: owner conditions and other exceptions\n\n  `{\"type\":\"owner\",\"role\":\"covered\"|\"exempt\",\"who\":\"short words from the text\",\"unit_limit\":N|null}` when coverage or an exemption depends on who owns or lives in the rented building (owner-occupied, small landlord, natural person, corporate owner). It is about the building's owner or landlord, not about software providers, brokers, agencies or tenants: a carve-out inside the definition of a service provider or intermediary is not an owner condition, and neither is an exemption for a licensee, broker or agent who is not the landlord (who collects a fee is a note for `per_tenancy`). Use `owner` only when who owns or lives in the building takes the WHOLE building out of the rule (owner-occupied buildings up to a size, small landlords, corporate owners). A tenancy where the owner or a relative shares a bathroom or kitchen with the tenant, or one unit lived in by the owner's relative, concerns a single tenancy or unit: write it in `per_tenancy`. `unit_limit` is the largest building the exemption reaches, from the text (\"owner-occupied premises of not more than four dwelling units\" gives 4, an owner-occupied duplex gives 2); `null` if the text sets no size.\n  `{\"type\":\"other\",\"text\":\"at most 25 words\"}` for a scope limit or exemption that could decide whether an ordinary apartment building is covered but that year, units and owner cannot settle: for example only subsidized or income-restricted housing is covered, an exemption that needs a government filing, housing already under a lower rent cap set by another agency. Do NOT use it for dormitories, hotels, mobile homes or institutions, for the event that triggers a duty, for \"all residential rentals\", or to repeat an owner, date or unit condition that already has its own entry.\n  `per_tenancy`: conditions that depend on the individual tenancy or tenant (when the lease began, tenant age or income, which kind of lease), on the event that triggers a duty (an eviction for demolition, charging an application fee), on what conduct is covered (an exemption for certain actions rather than certain buildings), or on one unit inside a building (a unit held in trust for, or lived in by, the owner's relative; a unit let to a student or an employee). The program judges the whole building, so an exception that reaches only particular units is a note here, never an `owner` or `other` condition. It is shown to readers as a note and does not change who is covered. `null` if there are none.\n  `coverage_quotes`: up to 3 passages copied from the packet character for character (same rules as QUOTED SPAN, at least 15 characters each) that state the conditions above. `[]` when `conditions` is `[]`.\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_03_6BhfYrpVYR1N2KqZ3THl6528",
+      "content": "# Card: relations to other levels of law\n\n- `interaction`: how this rule relates to other levels of law, only if the text says so (e.g. `\"State cap yields to this local ordinance\"`, `\"May be preempted by the state act once it takes effect\"`). At most 30 words, else `null`.\n- `relations`: a list, `[]` when none. One entry for each sentence of the packet that says how this law fits with other levels of law: `{\"type\":\"preempts_local\",\"quote\":\"...\"}` when the text bars local governments from regulating this subject or from enacting rules that conflict with this law (it needs an explicit bar such as \"shall not\", \"prohibited\" or \"void\"; a sentence that only says the law does not authorize, require or affect local action is not a relation, so leave it out); `{\"type\":\"yields_to_local\",\"quote\":\"...\"}` when the text says this rule does not apply where a local rule on the same subject governs. The quote is copied character for character from the packet. Attach it to the record of the law the sentence belongs to; if the sentence sits in another section of the same act, attach it to that act's record.\n"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "Now let me determine the records.\n\nRecord 1: rent_increase_limits for § 158-1. Hmm, is a disclosure requirement really \"rent_increase_limits\"? The category is about caps or formulas on rent increases, rent control coverage, annual allowable increase, forbidding local rent control. The 10% disclosure threshold is a rule about rent increases. I'll include it. key_value: \"disclosure required for increases over 10%\".\n\nActually wait — maybe this disclosure rule is better placed as... no, there's no other category. The keyword hints say rent_increase_limits=10. I'll go with rent_increase_limits.\n\nRecord 2: algorithmic_rent_setting for § 158-2.\n\nLet me build the records.\n\nRecord 1:\n- packet_id: D034-01, doc_id: D034\n- jurisdiction: \"Hoboken, NJ\"\n- category: \"rent_increase_limits\"\n- lifecycle: \"enacted\"\n- title: \"Hoboken rent increase disclosure requirement over 10%\"\n- requirement: \"Landlords increasing rent by more than 10% at lease renewal must itemize costs, state whether a rent algorithm was used, notify the tenant of the right to legal action, and give the Hoboken Division of Housing contact information before the increase takes effect.\"\n- key_value: \"disclosures required for increases over 10%\"\n- coverage_conditions: \"All residential landlords in Hoboken increasing rent by more than 10% upon renewal of a lease with a current tenant year over year.\"\n- applicability: conditions [] ; per_tenancy: \"increase of more than 10% upon renewal of a lease with a current tenant\" ; coverage_quotes: []? Hmm, coverage_quotes required, and can be provided. Since conditions is [], card says coverage_quotes is [] when conditions is []. Actually card: \"coverage_quotes: ... [] when conditions is [].\" So [].\n- exemptions: null\n- penalty: \"Fine not exceeding $1,000 per incident for failing to provide the disclosures.\"\n- effective_date: The ordinance was adopted 4-2-2025 by Ord. No. B-750. The dates card says adoption date is not effective date unless text says takes effect that day. There's no effective date stated in the text. So effective_date null? Hmm. The text gives \"[Adopted 4-2-2025 by Ord. No. B-750]\". That's adoption, not effective. So effective_date: null.\n\nHmm, but wait — should I consider that statute takes effect 20 days after adoption in NJ? No, don't compute from memory. Use null.\n\nActually, let's reconsider. The dates card: \"A code-publisher history note such as [Adopted 4-2-2024 by Ord. No. 123] gives the adoption date, not the effective date: use it only if the text says the rule takes effect on that day.\" So null.\n\n- valid_through: null\n- citation: \"Hoboken, N.J., Code § 158-1\" — hmm what form? The text uses \"§ 158-1\". The chapter is Chapter 158, city code. The citation format examples: \"Berkeley Mun. Code ch. 13.63\". For Hoboken: \"Hoboken Mun. Code § 158-1\". The packet prints \"§ 158-1\". I'll use \"Hoboken Mun. Code § 158-1\".\n- quoted_span: \"All residential landlords seeking to increase rent by more than 10% upon a renewal of a lease with a current tenant year over year shall be required to make the following disclosures to existing tenants either in the lease upon renewal (must be clearly indicated on the first page) or on a form provided by the Hoboken Division of Housing prior to the increase being implemented:\" — that's long, ~370 chars. Good.\n\nActually maybe better to quote a shorter span. This one covers the 10%. Good.\n\n- interaction: null, relations: []\n- confidence: 0.95 (operative ordinance). Actually it's code text, so 0.9+.\n- conflict_flag: false, conflict_note: null\n\nRecord 2:\n- jurisdiction: \"Hoboken, NJ\"\n- category: \"algorithmic_rent_setting\"\n- lifecycle: \"enacted\"\n- title: \"Hoboken algorithmic rent fixing prohibition\"\n- requirement: \"Landlords renting residential dwelling units in Hoboken may not price fix using algorithmic pricing — software, algorithms or data-sharing platforms that collect and analyze nonpublic competitor information to coordinate, recommend or implement rents, lease terms or occupancy levels.\"\n- key_value: \"fine up to $2,000\" — hmm, key_value is headline number or formula. The prohibition has no number; the penalty is $2,000. Use \"$2,000 fine\" or null? I'll put \"fine not exceeding $2,000\". Actually key_value should be headline value. Could be null. Let me put \"$2,000 fine\" since that's the number. Hmm, but there's also \"365 days\" for nonpublic info. I'll use \"$2,000 fine\".\n- coverage_conditions: \"Landlords who rent any residential dwelling unit, defined as any primary residence excluding medical/long-term care or detention facilities, in the City of Hoboken.\"\n- applicability: conditions: [{\"type\":\"other\",\"text\":\"only primary residences; excludes medical/long-term care or detention facilities\"}]? Hmm. The card says do NOT use \"other\" for dormitories, hotels, mobile homes or institutions. Medical/long-term care or detention facilities are institutions. So don't use \"other\". Instead, this is a definition carve-out. Hmm. Then conditions = []? And put it in exemptions? Or per_tenancy? \n\nThe definition: \"any primary residence excluding medical/long-term care or detention facilities\". This is excluded property types (institutions). The card says don't use \"other\" for institutions. So conditions = []. Put the exclusion in exemptions: \"Medical/long-term care and detention facilities.\" Per_tenancy null.\n\nActually maybe per_tenancy could describe it. But per card, per_tenancy is for individual tenancy/unit. This is a property type. Hmm. Since it's institutions, just leave conditions [] and note exemption.\n\n- coverage_quotes: [] (since conditions []).\n- exemptions: \"Medical/long-term care facilities and detention facilities are excluded from the definition of residential dwelling unit.\"\n- penalty: \"Upon conviction: penalties under N.J.S.A. 40:49-5, or a fine not exceeding $2,000, or community service not exceeding 90 days.\"\n- effective_date: Adopted 7-9-2025. Same issue → null.\n- valid_through: null\n- citation: \"Hoboken Mun. Code § 158-2\"\n- quoted_span: \"Landlords who rent any residential dwelling unit (defined as any primary residence excluding medical/long-term care or detention facilities) in the City of Hoboken are prohibited from price fixing using algorithmic pricing.\" Good.\n- interaction: null; relations: []. Does the text say relation to other law? It references N.J.S.A. 40:49-5 for penalties, but that's not a preemption/yield statement. So []. \n- confidence: 0.95\n- conflict_flag: false\n\nNow, should there be a third record? The chapter also has Article I disclosure about rent algorithm was used — that's part of the rent increase disclosure record. No separate.\n\nHmm, also consider: is the disclosure rule about \"rent_increase_limits\"? The category description: \"caps or formulas on rent increases, rent control / stabilization coverage, annual allowable increase, and laws that forbid local rent control\". A disclosure requirement for increases >10% arguably is a rent increase regulation but not a cap. It's borderline. Given the packet is clearly about rent increases and algorithmic rent setting, and the hints say rent_increase_limits=10, I'll include it. I think including is better than an empty receipt.\n\nLet me now run check_record for both.\n\nFor record 1, applicability conditions []. Let me check.\n\nLet me call check_record.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_ezOZqeh1OqmE2gpSQwsG7363",
+          "type": "function",
+          "function": {
+            "name": "check_record",
+            "arguments": "{\"record_json\": \"{\\\"packet_id\\\":\\\"D034-01\\\",\\\"doc_id\\\":\\\"D034\\\",\\\"jurisdiction\\\":\\\"Hoboken, NJ\\\",\\\"category\\\":\\\"rent_increase_limits\\\",\\\"lifecycle\\\":\\\"enacted\\\",\\\"title\\\":\\\"Hoboken rent increase disclosure over 10%\\\",\\\"requirement\\\":\\\"Landlords increasing rent by more than 10% upon renewal of a lease with a current tenant must itemize costs, state whether a rent algorithm was used, notify the tenant of the right to take legal action, and give Hoboken Division of Housing contact information before the increase takes effect.\\\",\\\"key_value\\\":\\\"disclosures required for increases over 10%\\\",\\\"coverage_conditions\\\":\\\"All residential landlords in Hoboken seeking to increase rent by more than 10% upon renewal of a lease with a current tenant.\\\",\\\"applicability\\\":{\\\"conditions\\\":[],\\\"per_tenancy\\\":\\\"increase of more than 10% upon renewal of a lease with a current tenant year over year\\\",\\\"coverage_quotes\\\":[]},\\\"exemptions\\\":null,\\\"penalty\\\":\\\"Fine not exceeding $1,000 per incident for failing to provide the disclosures.\\\",\\\"effective_date\\\":null,\\\"valid_through\\\":null,\\\"citation\\\":\\\"Hoboken Mun. Code § 158-1\\\",\\\"quoted_span\\\":\\\"All residential landlords seeking to increase rent by more than 10% upon a renewal of a lease with a current tenant year over year shall be required to make the following disclosures to existing tenants either in the lease upon renewal (must be clearly indicated on the first page) or on a form provided by the Hoboken Division of Housing prior to the increase being implemented:\\\",\\\"interaction\\\":null,\\\"relations\\\":[],\\\"confidence\\\":0.95,\\\"conflict_flag\\\":false,\\\"conflict_note\\\":null}\"}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_k70y6cttEwUKUqe3cj7O1470",
+          "type": "function",
+          "function": {
+            "name": "check_record",
+            "arguments": "{\"record_json\": \"{\\\"packet_id\\\":\\\"D034-01\\\",\\\"doc_id\\\":\\\"D034\\\",\\\"jurisdiction\\\":\\\"Hoboken, NJ\\\",\\\"category\\\":\\\"algorithmic_rent_setting\\\",\\\"lifecycle\\\":\\\"enacted\\\",\\\"title\\\":\\\"Hoboken algorithmic rent fixing prohibition\\\",\\\"requirement\\\":\\\"Landlords renting residential dwelling units in Hoboken may not price fix using algorithmic pricing — software, algorithms or data-sharing platforms that collect and analyze nonpublic competitor information to coordinate, recommend or implement rents, lease terms or occupancy levels.\\\",\\\"key_value\\\":\\\"$2,000 fine\\\",\\\"coverage_conditions\\\":\\\"Landlords who rent any residential dwelling unit, defined as any primary residence excluding medical/long-term care or detention facilities, in the City of Hoboken.\\\",\\\"applicability\\\":{\\\"conditions\\\":[],\\\"per_tenancy\\\":null,\\\"coverage_quotes\\\":[]},\\\"exemptions\\\":\\\"Medical/long-term care facilities and detention facilities are excluded from the definition of residential dwelling unit.\\\",\\\"penalty\\\":\\\"Upon conviction: penalties under N.J.S.A. 40:49-5, or a fine not exceeding $2,000, or community service not exceeding 90 days.\\\",\\\"effective_date\\\":null,\\\"valid_through\\\":null,\\\"citation\\\":\\\"Hoboken Mun. Code § 158-2\\\",\\\"quoted_span\\\":\\\"Landlords who rent any residential dwelling unit (defined as any primary residence excluding medical/long-term care or detention facilities) in the City of Hoboken are prohibited from price fixing using algorithmic pricing.\\\",\\\"interaction\\\":null,\\\"relations\\\":[],\\\"confidence\\\":0.95,\\\"conflict_flag\\\":false,\\\"conflict_note\\\":null}\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_ezOZqeh1OqmE2gpSQwsG7363",
+      "content": "ACCEPTED.\nHow a program reads it: citation 'Hoboken Mun. Code §158-1'; lifecycle enacted; effective_date None; valid_through None.\nConditions it will test: note: increase of more than 10% upon renewal of a lease with a current tenant year over year\nWhat the conditions do to made-up buildings on 2026-10-01 (year built, units):\n  built 2022, 20 units -> applies\n  built 2005, 20 units -> applies\n  built 1990, 20 units -> applies\n  built 1970, 20 units -> applies\n  built unknown year, 20 units -> applies\n  built 1950, 2 units -> applies\n  built 1950, 5 units -> applies\n  built 1950, unknown units -> applies"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_01_k70y6cttEwUKUqe3cj7O1470",
+      "content": "ACCEPTED.\nHow a program reads it: citation 'Hoboken Mun. Code §158-2'; lifecycle enacted; effective_date None; valid_through None.\nConditions it will test: none (the rule covers every building)\nWhat the conditions do to made-up buildings on 2026-10-01 (year built, units):\n  built 2022, 20 units -> applies\n  built 2005, 20 units -> applies\n  built 1990, 20 units -> applies\n  built 1970, 20 units -> applies\n  built unknown year, 20 units -> applies\n  built 1950, 2 units -> applies\n  built 1950, 5 units -> applies\n  built 1950, unknown units -> applies"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"packet_id\":\"D034-01\",\"doc_id\":\"D034\",\"jurisdiction\":\"Hoboken, NJ\",\"category\":\"rent_increase_limits\",\"lifecycle\":\"enacted\",\"title\":\"Hoboken rent increase disclosure over 10%\",\"requirement\":\"Landlords increasing rent by more than 10% upon renewal of a lease with a current tenant must itemize costs, state whether a rent algorithm was used, notify the tenant of the right to take legal action, and give Hoboken Division of Housing contact information before the increase takes effect.\",\"key_value\":\"disclosures required for increases over 10%\",\"coverage_conditions\":\"All residential landlords in Hoboken seeking to increase rent by more than 10% upon renewal of a lease with a current tenant.\",\"applicability\":{\"conditions\":[],\"per_tenancy\":\"increase of more than 10% upon renewal of a lease with a current tenant year over year\",\"coverage_quotes\":[]},\"exemptions\":null,\"penalty\":\"Fine not exceeding $1,000 per incident for failing to provide the disclosures.\",\"effective_date\":null,\"valid_through\":null,\"citation\":\"Hoboken Mun. Code § 158-1\",\"quoted_span\":\"All residential landlords seeking to increase rent by more than 10% upon a renewal of a lease with a current tenant year over year shall be required to make the following disclosures to existing tenants either in the lease upon renewal (must be clearly indicated on the first page) or on a form provided by the Hoboken Division of Housing prior to the increase being implemented:\",\"interaction\":null,\"relations\":[],\"confidence\":0.95,\"conflict_flag\":false,\"conflict_note\":null}\n{\"packet_id\":\"D034-01\",\"doc_id\":\"D034\",\"jurisdiction\":\"Hoboken, NJ\",\"category\":\"algorithmic_rent_setting\",\"lifecycle\":\"enacted\",\"title\":\"Hoboken algorithmic rent fixing prohibition\",\"requirement\":\"Landlords renting residential dwelling units in Hoboken may not price fix using algorithmic pricing — software, algorithms or data-sharing platforms that collect and analyze nonpublic competitor information to coordinate, recommend or implement rents, lease terms or occupancy levels.\",\"key_value\":\"$2,000 fine\",\"coverage_conditions\":\"Landlords who rent any residential dwelling unit, defined as any primary residence excluding medical/long-term care or detention facilities, in the City of Hoboken.\",\"applicability\":{\"conditions\":[],\"per_tenancy\":null,\"coverage_quotes\":[]},\"exemptions\":\"Medical/long-term care facilities and detention facilities are excluded from the definition of residential dwelling unit.\",\"penalty\":\"Upon conviction: penalties under N.J.S.A. 40:49-5, or a fine not exceeding $2,000, or community service not exceeding 90 days.\",\"effective_date\":null,\"valid_through\":null,\"citation\":\"Hoboken Mun. Code § 158-2\",\"quoted_span\":\"Landlords who rent any residential dwelling unit (defined as any primary residence excluding medical/long-term care or detention facilities) in the City of Hoboken are prohibited from price fixing using algorithmic pricing.\",\"interaction\":null,\"relations\":[],\"confidence\":0.95,\"conflict_flag\":false,\"conflict_note\":null}\n{\"packet_id\":\"D034-01\",\"n_rules\":2,\"note\":null}",
+      "reasoning_content": "Both accepted. Note the citation got normalized to \"§158-1\" but fine.\n\nNow output JSON lines with receipt.\n\nWait: record fields order — the example includes all fields. Good.\n\nLet me finalize."
+    }
+  ]
+}

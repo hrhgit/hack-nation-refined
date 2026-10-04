@@ -1,0 +1,116 @@
+{
+  "packet_id": "D039-01",
+  "model": "deepseek-flash",
+  "as_of": "2026-10-01",
+  "prompt_sha256": "53c560f245304eed3b15a2f403223aa4d375abc6f1a5bdaab0d25903198a34e6",
+  "steps": 3,
+  "cards_read": [
+    "citations",
+    "dates"
+  ],
+  "checks": 1,
+  "usage": [
+    {
+      "prompt_tokens": 4587,
+      "completion_tokens": 233,
+      "total_tokens": 4820,
+      "prompt_tokens_details": {
+        "cached_tokens": 4352
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 166
+      },
+      "prompt_cache_hit_tokens": 4352,
+      "prompt_cache_miss_tokens": 235
+    },
+    {
+      "prompt_tokens": 5748,
+      "completion_tokens": 846,
+      "total_tokens": 6594,
+      "prompt_tokens_details": {
+        "cached_tokens": 4736
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 550
+      },
+      "prompt_cache_hit_tokens": 4736,
+      "prompt_cache_miss_tokens": 1012
+    },
+    {
+      "prompt_tokens": 6660,
+      "completion_tokens": 280,
+      "total_tokens": 6940,
+      "prompt_tokens_details": {
+        "cached_tokens": 6400
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "prompt_cache_hit_tokens": 6400,
+      "prompt_cache_miss_tokens": 260
+    }
+  ],
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "This is a motion (pending, a motion by councilmember). It's about algorithmic rent setting. It's a motion that instructs LAHD to report and study feasibility of a ban. Lifecycle: pending_bill (a motion/proposal not law). Category: algorithmic_rent_setting. key_value: null (no number set). Requirement: \"Would instruct the Los Angeles Housing Department to report on the number of ownership and management entities using algorithm-based software to set rents and the feasibility of banning such software in the City.\"\n\nCitation: the motion doesn't print a code number. Read cards citations, dates maybe. Let me read citations card and dates card.\n\nLet me call read_card for citations and dates.\n\nActually the motion date SEP 03 2024. effective_date null since pending. Let's read cards.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_EBSyjpZp2xxAH41eMoSS2829",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"citations\"}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_uku3h1Bypy5n6vENXyUN4286",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"dates\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_EBSyjpZp2xxAH41eMoSS2829",
+      "content": "# Card: citations\n\n- `citation`: the legal provision the rule comes from, at section level with no subdivision letters (see CITATIONS).\n- Citation style, one provision per citation: `Cal. Civ. Code § 1947.12`, `Cal. Gov. Code § 12955`, `N.J.S.A. 2A:18-61.1`, `P.L. 2021, c. 110`, `G.L. c. 186, § 15B`, `S.F. Admin. Code § 37.9`, `San Diego Mun. Code § 98.0703`, `Berkeley Mun. Code ch. 13.63`. For a bill give its number, then the code section it adds in parentheses if the text shows one: `AB 325 (Cal. Bus. & Prof. Code § 16729)`, `H.5222`, `S.2983`. Use the form the text itself uses when none of these fits.\n\nWhen the packet prints no code citation, name the law as follows.\n\nWhen the packet prints a code citation for a law, use the packet's. When it does not, and the page is about one of the programs below, cite the law as shown in the right-hand column. The list only names laws: it tells you nothing about what a law says. If the packet does not state a rule, there is no rule. A program that is not on the list is cited by its name exactly as the page names it.\n\n| the law, as pages call it | cite as |\n|---|---|\n| San Francisco Rent Ordinance (rent increases, just cause, relocation, deposit interest, algorithmic devices) | S.F. Admin. Code ch. 37 |\n| Los Angeles Rent Stabilization Ordinance (RSO) | Los Angeles Rent Stabilization Ordinance (L.A.M.C. §151.00 et seq.) |\n| Los Angeles Just Cause Ordinance (JCO), relocation assistance | Los Angeles Just Cause Ordinance (L.A.M.C. §165.00 et seq.) |\n| Berkeley Rent Ordinance, Measure BB | Berkeley Mun. Code ch. 13.76 |\n| Berkeley tenant screening and application fees | Berkeley Mun. Code ch. 13.78 |\n| Berkeley Fair Chance | Berkeley Mun. Code ch. 13.106 |\n| Berkeley coordinated pricing algorithms | Berkeley Mun. Code ch. 13.63 |\n| San Diego tenant protections (just cause) | San Diego Mun. Code §98.0701 et seq. |\n| San Diego automated rent price-fixing ban | San Diego Mun. Code §§98.1101–98.1104 |\n| Jersey City Rent Control Ordinance | Jersey City Mun. Code ch. 260 |\n| Cambridge Fair Housing Ordinance | Cambridge Mun. Code ch. 14.04 |\n| Boston Housing Stability Notification Act | Boston Mun. Code §10-11.7 |\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_01_uku3h1Bypy5n6vENXyUN4286",
+      "content": "# Card: dates\n\n- `effective_date`: the date the requirement described in `key_value` began (or will begin) to apply, as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. For an amended law use the amendment's date if the amendment created the current value. Do not use the signing date unless the text says that is when it takes effect. A code-publisher history note such as `[Adopted 4-2-2024 by Ord. No. 123]` gives the adoption date, not the effective date: use it only if the text says the rule takes effect on that day. If the text gives no date, `null`: never guess a date from memory.\n- `valid_through`: for a value that is published for a period (an annual allowable increase, a yearly interest rate), the last day of that period as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. `null` for a rule with no stated end.\n- Use only dates and numbers that appear in the packet. If the packet gives two different dates for the same rule, use the one in the legal text, set `conflict_flag` true and name the other date in `conflict_note`. If the date is relative (\"90 days after enactment\") and the anchor is not in the packet, use `null` and say so in `conflict_note`.\n"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "No code citation printed; the motion is a City of Los Angeles motion. Cite by name: \"City of Los Angeles Council Motion (Sept. 3, 2024)\" — hmm. The card says cite by its name exactly as the page names it. It's a \"MOTION\". Perhaps cite as \"Los Angeles City Council Motion 24-1031\" — the source URL has 24-1031. But we must use only packet text. The URL contains 24-1031. I'll cite \"Los Angeles City Council Motion (Sept. 3, 2024)\".\n\nHmm, citation field perhaps null? But safest: give the motion identification from URL file name. I'll use \"Los Angeles City Council Motion 24-1031\". Actually the packet doesn't print it in text but URL is part of packet metadata. I'll keep it simple: \"Los Angeles City Council Motion (Sept. 3, 2024)\".\n\nRequirement: \"Would instruct the Los Angeles Housing Department to report on how many owners and managers use algorithm-based software to set rents and on the feasibility of banning such software in the City.\"\n\nquoted_span: \"I THEREFORE MOVE that the City Council instruct the Los Angeles Housing Department to report on the number of ownership and management entities that are using algorithm-based software to establish rents and the feasibility of instituting a ban on the use of this software to set rents in the City.\"\n\nconfidence 0.6 (pending motion, page shows title/purpose). Actually the page shows the purpose fairly clearly; still pending_bill caps at 0.6 per instructions.\n\napplicability: conditions []. per_tenancy null. coverage_quotes [] — no coverage conditions. Hmm, coverage_quotes required key; can be empty array? \"all three keys are required\"; coverage_quotes can be [].\n\nexemptions null, penalty null, effective_date null, valid_through null, interaction null, relations [], conflict_flag false.\n\nlifecycle: pending_bill.\n\nJurisdiction: \"Los Angeles, CA\".\n\nLet me check with check_record.\n\nNote n_rules = 1.\n\nLet me verify the quoted span text exactly. From packet:\n\n\"I THEREFORE MOVE that the City Council instruct the Los Angeles Housing Department to\nreport on the number of ownership and management entities that are using algorithm-based\nsoftware to establish rents and the feasibility of instituting a ban on the use of this software to set\nrents in the City.\"\n\nLine breaks - I'll join with spaces. That's fine (character for character except newlines→spaces; tool realigns minor differences).\n\nCall check_record.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_rrc3Gvo9815425fYpFI39878",
+          "type": "function",
+          "function": {
+            "name": "check_record",
+            "arguments": "{\"record_json\": \"{\\\"packet_id\\\":\\\"D039-01\\\",\\\"doc_id\\\":\\\"D039\\\",\\\"jurisdiction\\\":\\\"Los Angeles, CA\\\",\\\"category\\\":\\\"algorithmic_rent_setting\\\",\\\"lifecycle\\\":\\\"pending_bill\\\",\\\"title\\\":\\\"Los Angeles motion to study a ban on algorithm-based rent-setting software\\\",\\\"requirement\\\":\\\"Would instruct the Los Angeles Housing Department to report on the number of owners and managers using algorithm-based software to set rents and on the feasibility of banning that software in the City.\\\",\\\"key_value\\\":null,\\\"coverage_conditions\\\":null,\\\"applicability\\\":{\\\"conditions\\\":[],\\\"per_tenancy\\\":null,\\\"coverage_quotes\\\":[]},\\\"exemptions\\\":null,\\\"penalty\\\":null,\\\"effective_date\\\":null,\\\"valid_through\\\":null,\\\"citation\\\":\\\"Los Angeles City Council Motion (Sept. 3, 2024)\\\",\\\"quoted_span\\\":\\\"I THEREFORE MOVE that the City Council instruct the Los Angeles Housing Department to report on the number of ownership and management entities that are using algorithm-based software to establish rents and the feasibility of instituting a ban on the use of this software to set rents in the City.\\\",\\\"interaction\\\":null,\\\"relations\\\":[],\\\"confidence\\\":0.6,\\\"conflict_flag\\\":false,\\\"conflict_note\\\":null}\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_rrc3Gvo9815425fYpFI39878",
+      "content": "ACCEPTED.\nHow a program reads it: citation 'Los Angeles City Council Motion (Sept. 3, 2024)'; lifecycle pending_bill; effective_date None; valid_through None.\nConditions it will test: none (the rule covers every building)"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"packet_id\":\"D039-01\",\"doc_id\":\"D039\",\"jurisdiction\":\"Los Angeles, CA\",\"category\":\"algorithmic_rent_setting\",\"lifecycle\":\"pending_bill\",\"title\":\"Los Angeles motion to study a ban on algorithm-based rent-setting software\",\"requirement\":\"Would instruct the Los Angeles Housing Department to report on the number of owners and managers using algorithm-based software to set rents and on the feasibility of banning that software in the City.\",\"key_value\":null,\"coverage_conditions\":null,\"applicability\":{\"conditions\":[],\"per_tenancy\":null,\"coverage_quotes\":[]},\"exemptions\":null,\"penalty\":null,\"effective_date\":null,\"valid_through\":null,\"citation\":\"Los Angeles City Council Motion (Sept. 3, 2024)\",\"quoted_span\":\"I THEREFORE MOVE that the City Council instruct the Los Angeles Housing Department to report on the number of ownership and management entities that are using algorithm-based software to establish rents and the feasibility of instituting a ban on the use of this software to set rents in the City.\",\"interaction\":null,\"relations\":[],\"confidence\":0.6,\"conflict_flag\":false,\"conflict_note\":null}\n{\"packet_id\":\"D039-01\",\"n_rules\":1,\"note\":null}",
+      "reasoning_content": ""
+    }
+  ]
+}

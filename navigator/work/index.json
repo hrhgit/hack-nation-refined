@@ -375,6 +375,126 @@
     "algorithmic_rent_setting": 0
    }
   },
+  "D032-01": {
+   "doc_id": "D032",
+   "part": 1,
+   "parts": 4,
+   "chars": 24341,
+   "sha256": "8bc35c1dc0d60fe43fa96c172eee8dcdedeaa9044e39556730070bf7499fa9e9",
+   "hits": {
+    "rent_increase_limits": 35,
+    "just_cause_eviction": 4,
+    "security_deposits": 1,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D032-02": {
+   "doc_id": "D032",
+   "part": 2,
+   "parts": 4,
+   "chars": 22548,
+   "sha256": "34fe3e71fae6e7d621fd60debb65505cc3d7db4585cf8b59165fd177bdc9bab1",
+   "hits": {
+    "rent_increase_limits": 21,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D032-03": {
+   "doc_id": "D032",
+   "part": 3,
+   "parts": 4,
+   "chars": 24186,
+   "sha256": "89b8342c2fbe58f1280ecc6e45a1836471ea56b63d4c2519d11d980da20e8a1d",
+   "hits": {
+    "rent_increase_limits": 19,
+    "just_cause_eviction": 1,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D032-04": {
+   "doc_id": "D032",
+   "part": 4,
+   "parts": 4,
+   "chars": 8457,
+   "sha256": "c8f33f4ca4e413cd5574bbf8910bdb0efdd202d9342e34dbceb03c9e658bbb69",
+   "hits": {
+    "rent_increase_limits": 13,
+    "just_cause_eviction": 0,
+    "security_deposits": 2,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D033-01": {
+   "doc_id": "D033",
+   "part": 1,
+   "parts": 2,
+   "chars": 23894,
+   "sha256": "b887b7a445864713ac207b35efa790757aab8cdbd7aa0156a1da4170abd9246c",
+   "hits": {
+    "rent_increase_limits": 22,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D033-02": {
+   "doc_id": "D033",
+   "part": 2,
+   "parts": 2,
+   "chars": 6360,
+   "sha256": "f3078a84dd01216fa0072e38c5b7d0e62d48604e11c0b6fe4cf01391d812acee",
+   "hits": {
+    "rent_increase_limits": 4,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D034-01": {
+   "doc_id": "D034",
+   "part": 1,
+   "parts": 1,
+   "chars": 4023,
+   "sha256": "49411be9c6373692e45ffce2cf49b9e487dd7b1df5c20043509086a8413e10e8",
+   "hits": {
+    "rent_increase_limits": 10,
+    "just_cause_eviction": 0,
+    "security_deposits": 2,
+    "application_screening_fees": 0,
+    "screening_restrictions": 2,
+    "algorithmic_rent_setting": 32
+   }
+  },
+  "D035-01": {
+   "doc_id": "D035",
+   "part": 1,
+   "parts": 1,
+   "chars": 13884,
+   "sha256": "1c78dbca9325d1ec6693168ae79415a44b38ef29d05f471c08bd3d1f770c2dff",
+   "hits": {
+    "rent_increase_limits": 3,
+    "just_cause_eviction": 1,
+    "security_deposits": 2,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 34
+   }
+  },
   "D036-01": {
    "doc_id": "D036",
    "part": 1,
@@ -387,6 +507,36 @@
     "security_deposits": 0,
     "application_screening_fees": 0,
     "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D037-01": {
+   "doc_id": "D037",
+   "part": 1,
+   "parts": 1,
+   "chars": 6435,
+   "sha256": "18259f707625e9b2cdb3a5deb4e6f525312b6b735e7cb0ca0223d24a6f19ec38",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 12
+   }
+  },
+  "D038-01": {
+   "doc_id": "D038",
+   "part": 1,
+   "parts": 1,
+   "chars": 7124,
+   "sha256": "3a1a4c09bb08ab2ab754f7799651a8d826a173394e7dc7fc413fc26b382ef308",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 2,
+    "security_deposits": 2,
+    "application_screening_fees": 0,
+    "screening_restrictions": 24,
     "algorithmic_rent_setting": 0
    }
   },
@@ -477,6 +627,21 @@
     "security_deposits": 0,
     "application_screening_fees": 8,
     "screening_restrictions": 1,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D044-01": {
+   "doc_id": "D044",
+   "part": 1,
+   "parts": 1,
+   "chars": 4549,
+   "sha256": "33c2838532664410907f8695558479784ff07a0d878a37d7e22afa17993e80cd",
+   "hits": {
+    "rent_increase_limits": 2,
+    "just_cause_eviction": 1,
+    "security_deposits": 20,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
     "algorithmic_rent_setting": 0
    }
   },
@@ -660,6 +825,36 @@
     "algorithmic_rent_setting": 0
    }
   },
+  "D056-01": {
+   "doc_id": "D056",
+   "part": 1,
+   "parts": 2,
+   "chars": 23345,
+   "sha256": "688803d0c1a8a6aa1df801d3f07cfa99697a494b12b899c1bb2e3349cf150af6",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 77,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D056-02": {
+   "doc_id": "D056",
+   "part": 2,
+   "parts": 2,
+   "chars": 2776,
+   "sha256": "d5dcfaf62c8eb03601fb38d8c58a91c835bd169187d8329b1136d42332f972c5",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 10,
+    "algorithmic_rent_setting": 0
+   }
+  },
   "D057-01": {
    "doc_id": "D057",
    "part": 1,
@@ -687,6 +882,81 @@
     "security_deposits": 0,
     "application_screening_fees": 0,
     "screening_restrictions": 2,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D061-01": {
+   "doc_id": "D061",
+   "part": 1,
+   "parts": 2,
+   "chars": 23504,
+   "sha256": "c51eb47c4d465671fb4db532e8176dbf0b98d396dad684e5ddbf86bd0431d048",
+   "hits": {
+    "rent_increase_limits": 1,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 2,
+    "screening_restrictions": 19,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D061-02": {
+   "doc_id": "D061",
+   "part": 2,
+   "parts": 2,
+   "chars": 20980,
+   "sha256": "b49ceb5a5487e008f66fc24e1e09976257ae9af7db6d5417deecc8971ccee118",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 2,
+    "screening_restrictions": 14,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D062-01": {
+   "doc_id": "D062",
+   "part": 1,
+   "parts": 1,
+   "chars": 16059,
+   "sha256": "713169bb1bafdc3c697f92e7e48bd5a8393d077708b8303bc73a3e1740c8a36f",
+   "hits": {
+    "rent_increase_limits": 4,
+    "just_cause_eviction": 7,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 6,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D063-01": {
+   "doc_id": "D063",
+   "part": 1,
+   "parts": 1,
+   "chars": 928,
+   "sha256": "a91973f4394de7e3c874084ea27258cd07013240ce00a5a0e2146943899226bf",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 4,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D064-01": {
+   "doc_id": "D064",
+   "part": 1,
+   "parts": 1,
+   "chars": 857,
+   "sha256": "108fcdab77bc802b5383dc49f520f850eae950138e652ca7b252e0b879708779",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
     "algorithmic_rent_setting": 0
    }
   },
@@ -810,6 +1080,126 @@
     "algorithmic_rent_setting": 45
    }
   },
+  "D070-01": {
+   "doc_id": "D070",
+   "part": 1,
+   "parts": 4,
+   "chars": 22346,
+   "sha256": "629fa52deaa766ea8a95c71fc41d715c0473732b587cf16cfee4bfb92376f60b",
+   "hits": {
+    "rent_increase_limits": 60,
+    "just_cause_eviction": 3,
+    "security_deposits": 2,
+    "application_screening_fees": 0,
+    "screening_restrictions": 6,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D070-02": {
+   "doc_id": "D070",
+   "part": 2,
+   "parts": 4,
+   "chars": 24142,
+   "sha256": "7eed99d702d17f3fbb95acb2c5c7490b7a7447594897b2d484324df3187f26e8",
+   "hits": {
+    "rent_increase_limits": 71,
+    "just_cause_eviction": 4,
+    "security_deposits": 0,
+    "application_screening_fees": 4,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D070-03": {
+   "doc_id": "D070",
+   "part": 3,
+   "parts": 4,
+   "chars": 24362,
+   "sha256": "2d8e71900e819379ba9037ef566ae88b4ac9edeb52ca5ed97fddf059b988e371",
+   "hits": {
+    "rent_increase_limits": 80,
+    "just_cause_eviction": 8,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D070-04": {
+   "doc_id": "D070",
+   "part": 4,
+   "parts": 4,
+   "chars": 12608,
+   "sha256": "df751ecb43a5cc5f457df9138602c8084622341882ffdb515a0abdd3a1b8a1b2",
+   "hits": {
+    "rent_increase_limits": 43,
+    "just_cause_eviction": 2,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-01": {
+   "doc_id": "D071",
+   "part": 1,
+   "parts": 2,
+   "chars": 23356,
+   "sha256": "e331f03b1723ebdda09a91bf9a0be4ae26315f07f46baf6188623af06280cbfe",
+   "hits": {
+    "rent_increase_limits": 7,
+    "just_cause_eviction": 8,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 13,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-02": {
+   "doc_id": "D071",
+   "part": 2,
+   "parts": 2,
+   "chars": 19096,
+   "sha256": "87c620fc0101257abadb930c09af1850fccd372d993c2bdfa8ed3a6d291748a0",
+   "hits": {
+    "rent_increase_limits": 12,
+    "just_cause_eviction": 5,
+    "security_deposits": 0,
+    "application_screening_fees": 2,
+    "screening_restrictions": 2,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D072-01": {
+   "doc_id": "D072",
+   "part": 1,
+   "parts": 2,
+   "chars": 23713,
+   "sha256": "3bd044f5a5dd447de55f7062743e4b77967eeed34c8017c12cffdbfbfe8e8a5a",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 48,
+    "screening_restrictions": 87,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D072-02": {
+   "doc_id": "D072",
+   "part": 2,
+   "parts": 2,
+   "chars": 4194,
+   "sha256": "8cfabaf9448c7dd09a89fc7da139a3550bbb008844d0e351b21c0fee65ca7f62",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 8,
+    "algorithmic_rent_setting": 0
+   }
+  },
   "D073-01": {
    "doc_id": "D073",
    "part": 1,
@@ -837,6 +1227,36 @@
     "security_deposits": 0,
     "application_screening_fees": 0,
     "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D074-01": {
+   "doc_id": "D074",
+   "part": 1,
+   "parts": 1,
+   "chars": 7060,
+   "sha256": "d884ff744289e41561db2c863e0cdab61e75a7ae4e16019eb69ed9d09d59287c",
+   "hits": {
+    "rent_increase_limits": 2,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 47
+   }
+  },
+  "D075-01": {
+   "doc_id": "D075",
+   "part": 1,
+   "parts": 1,
+   "chars": 9715,
+   "sha256": "d89c2214713a3199dab3331297bb298fe7b049243727c297b7491f93fd4120eb",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 2,
+    "application_screening_fees": 0,
+    "screening_restrictions": 34,
     "algorithmic_rent_setting": 0
    }
   },
@@ -973,6 +1393,231 @@
     "application_screening_fees": 0,
     "screening_restrictions": 0,
     "algorithmic_rent_setting": 0
+   }
+  },
+  "D086-01": {
+   "doc_id": "D086",
+   "part": 1,
+   "parts": 2,
+   "chars": 18651,
+   "sha256": "da87cb821efd1c2790b8b0427f0f45b60a357c2cfa2de30beeffdadc44cb3073",
+   "hits": {
+    "rent_increase_limits": 8,
+    "just_cause_eviction": 3,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 12,
+    "algorithmic_rent_setting": 77
+   }
+  },
+  "D086-02": {
+   "doc_id": "D086",
+   "part": 2,
+   "parts": 2,
+   "chars": 18807,
+   "sha256": "37468db329652e754afca6a652e97aaa9a64f6e182075b7642fd5de983e0b97d",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X001-01": {
+   "doc_id": "X001",
+   "part": 1,
+   "parts": 1,
+   "chars": 9283,
+   "sha256": "d8363f9366eff7f83fc445b475ccc1a1571e808787059ca40123ba87fc259790",
+   "hits": {
+    "rent_increase_limits": 18,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X002-01": {
+   "doc_id": "X002",
+   "part": 1,
+   "parts": 3,
+   "chars": 23894,
+   "sha256": "01cd8948b38fd57c6abca97c19f75c01f0af75acdc47adf6e10e9fadd5b17b4f",
+   "hits": {
+    "rent_increase_limits": 33,
+    "just_cause_eviction": 3,
+    "security_deposits": 3,
+    "application_screening_fees": 2,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X002-02": {
+   "doc_id": "X002",
+   "part": 2,
+   "parts": 3,
+   "chars": 23630,
+   "sha256": "70d434a7d51d8a861e9c869c6679072614346bd18fafb358741594d0aa261623",
+   "hits": {
+    "rent_increase_limits": 11,
+    "just_cause_eviction": 1,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X002-03": {
+   "doc_id": "X002",
+   "part": 3,
+   "parts": 3,
+   "chars": 11300,
+   "sha256": "dbcea4cec44a30bd967214eb33a273f4c5f19fec1751a634c789ec557ab71e62",
+   "hits": {
+    "rent_increase_limits": 2,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X003-01": {
+   "doc_id": "X003",
+   "part": 1,
+   "parts": 1,
+   "chars": 7957,
+   "sha256": "369f7991ef3d9ea5da9dc890c9f0b99e93677f614ab64c2913abe69a912ecf32",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 2
+   }
+  },
+  "X004-01": {
+   "doc_id": "X004",
+   "part": 1,
+   "parts": 1,
+   "chars": 1797,
+   "sha256": "f5b44164d3a1c4101094e897ad981c095f34a8114c22fc8529f1fe921e613984",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X005-01": {
+   "doc_id": "X005",
+   "part": 1,
+   "parts": 1,
+   "chars": 1932,
+   "sha256": "a54e73cf8df68754834e7ed4801e09ce7d13a60b7d39ef30a9b3095614373c23",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 2
+   }
+  },
+  "X006-01": {
+   "doc_id": "X006",
+   "part": 1,
+   "parts": 2,
+   "chars": 23566,
+   "sha256": "8f713b46ecd39b0bee0388807bf15dc656f8c6486c60b5b81c86dc991e531fa8",
+   "hits": {
+    "rent_increase_limits": 3,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X006-02": {
+   "doc_id": "X006",
+   "part": 2,
+   "parts": 2,
+   "chars": 17319,
+   "sha256": "49ea270204aa95f57aa6236f45ed4cf7b353a23d728800980ccee2f5acb1b7d6",
+   "hits": {
+    "rent_increase_limits": 2,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 2,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X007-01": {
+   "doc_id": "X007",
+   "part": 1,
+   "parts": 1,
+   "chars": 5086,
+   "sha256": "52dd1f66b54f1b3cc6ff1f034762874ab02859bbb7ac238950a694d924fbf5ea",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X008-01": {
+   "doc_id": "X008",
+   "part": 1,
+   "parts": 1,
+   "chars": 9657,
+   "sha256": "0ce7a57f66b757fffc4b05105635e800cb86cc7273ab8c01ae03b9c502faf4db",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 1,
+    "security_deposits": 2,
+    "application_screening_fees": 0,
+    "screening_restrictions": 2,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X101-01": {
+   "doc_id": "X101",
+   "part": 1,
+   "parts": 1,
+   "chars": 1509,
+   "sha256": "fd9b700bc63c91372a391d8c236c5567e504afb91e025017d66dc207bb18a8eb",
+   "hits": {
+    "rent_increase_limits": 2,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X102-01": {
+   "doc_id": "X102",
+   "part": 1,
+   "parts": 1,
+   "chars": 7516,
+   "sha256": "5ab43d1fde825cde7e9fca7d912e8ca8d47c6a2e4c32b88d79e150954a19f7e0",
+   "hits": {
+    "rent_increase_limits": 14,
+    "just_cause_eviction": 1,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 15
    }
   }
  },
@@ -1458,40 +2103,80 @@
    "file_sha256": "65ffa9dca5815b925debf63d1ff0974f710aed6614723f28d722209094a36b20"
   },
   "D032": {
-   "no_text": true,
+   "raw_chars": 77560,
+   "clean_chars": 77496,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 43,
+   "blocks_kept": 43,
+   "dropped_blocks": [],
+   "packets": [
+    "D032-01",
+    "D032-02",
+    "D032-03",
+    "D032-04"
+   ],
+   "no_text": false,
    "jurisdictions": "Hoboken, NJ",
    "url": "https://ecode360.com/15252438",
-   "source_type": "code publisher",
-   "capture": "check-terms",
-   "status": "link-only",
-   "origin": "starter"
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "de024451dd20b2bdeb891f6f26221014d15b29fc7dbc18c0f1fd4c2d7359dfa2"
   },
   "D033": {
-   "no_text": true,
+   "raw_chars": 29377,
+   "clean_chars": 29360,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 17,
+   "blocks_kept": 17,
+   "dropped_blocks": [],
+   "packets": [
+    "D033-01",
+    "D033-02"
+   ],
+   "no_text": false,
    "jurisdictions": "Hoboken, NJ",
    "url": "https://ecode360.com/15252470",
-   "source_type": "code publisher",
-   "capture": "check-terms",
-   "status": "link-only",
-   "origin": "starter"
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "4b25a36f70e5853dc4746572ca13f13cc228db33956399cda7b65f9221fad044"
   },
   "D034": {
-   "no_text": true,
+   "raw_chars": 3619,
+   "clean_chars": 3618,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 2,
+   "blocks_kept": 2,
+   "dropped_blocks": [],
+   "packets": [
+    "D034-01"
+   ],
+   "no_text": false,
    "jurisdictions": "Hoboken, NJ",
    "url": "https://ecode360.com/46833413",
-   "source_type": "code publisher",
-   "capture": "check-terms",
-   "status": "link-only",
-   "origin": "starter"
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "571ac3279b3cac79cc85c45a4ec60c833e9d5bbd708d95e9598487df1d11701d"
   },
   "D035": {
-   "no_text": true,
+   "raw_chars": 13408,
+   "clean_chars": 13374,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 5,
+   "blocks_kept": 5,
+   "dropped_blocks": [],
+   "packets": [
+    "D035-01"
+   ],
+   "no_text": false,
    "jurisdictions": "Jersey City, NJ",
-   "url": "https://hudsoncountyview.com/jersey-city-council-approves-realpage-ban-and-increasing-benefits-for-laborers/",
-   "source_type": "secondary (law firm / news / mirror)",
-   "capture": "link-only",
-   "status": "link-only",
-   "origin": "starter"
+   "url": "https://mcclibraryfunctions.azurewebsites.us/api/ordinanceDownload/16093/1418853/pdf?forceDownload=true",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "bed90a39956de13daed83901f4d3e3b8e3f52b846124e471237feca37b6ed92e"
   },
   "D036": {
    "raw_chars": 7428,
@@ -1512,22 +2197,40 @@
    "file_sha256": "f444bed30ede0905ce671ac4b9addf27feaa31c9a74ba6ba537b7f8d77e81dce"
   },
   "D037": {
-   "no_text": true,
+   "raw_chars": 6020,
+   "clean_chars": 5990,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 5,
+   "blocks_kept": 5,
+   "dropped_blocks": [],
+   "packets": [
+    "D037-01"
+   ],
+   "no_text": false,
    "jurisdictions": "Jersey City, NJ",
-   "url": "https://www.morganlewis.com/pubs/2026/08/algorithmic-rent-pricing-litigation-expands-under-new-state-and-local-laws",
-   "source_type": "secondary (law firm / news / mirror)",
-   "capture": "link-only",
-   "status": "link-only",
-   "origin": "starter"
+   "url": "https://mcclibraryfunctions.azurewebsites.us/api/ordinanceDownload/16093/1418863/pdf?forceDownload=true",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "1ae3ea7c6495df1fe1c2eedebb4d53b719907fbca560b61294c6b04f9e0a75e1"
   },
   "D038": {
-   "no_text": true,
+   "raw_chars": 6679,
+   "clean_chars": 6678,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 2,
+   "blocks_kept": 2,
+   "dropped_blocks": [],
+   "packets": [
+    "D038-01"
+   ],
+   "no_text": false,
    "jurisdictions": "Los Angeles, CA",
    "url": "https://codelibrary.amlegal.com/codes/los_angeles/latest/lamc/0-0-0-322208",
-   "source_type": "code publisher",
-   "capture": "check-terms",
-   "status": "link-only",
-   "origin": "starter"
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "67d9c4c8f9b3bf8d658cca947d85463b3fb620959996af812cebf5aad9d61814"
   },
   "D039": {
    "raw_chars": 2975,
@@ -1621,13 +2324,22 @@
    "file_sha256": "31b7db7b0e637435a30b1c9bf6db06d8e1a4b748e335bceeaa9232da266e6f04"
   },
   "D044": {
-   "no_text": true,
+   "raw_chars": 4082,
+   "clean_chars": 4081,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 2,
+   "blocks_kept": 2,
+   "dropped_blocks": [],
+   "packets": [
+    "D044-01"
+   ],
+   "no_text": false,
    "jurisdictions": "Los Angeles, CA",
-   "url": "https://members.aagla.org/news/city-of-la-security-deposit-interest-requirement",
-   "source_type": "secondary (law firm / news / mirror)",
-   "capture": "link-only",
-   "status": "link-only",
-   "origin": "starter"
+   "url": "https://codelibrary.amlegal.com/codes/los_angeles/latest/lamc/0-0-0-195527",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "35e2baa6db93b749ad40be6cb6334041b1411c20ade68f3ce2e83b15675af259"
   },
   "D045": {
    "raw_chars": 2668,
@@ -1813,13 +2525,23 @@
    "origin": "starter"
   },
   "D056": {
-   "no_text": true,
+   "raw_chars": 25036,
+   "clean_chars": 25005,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 10,
+   "blocks_kept": 10,
+   "dropped_blocks": [],
+   "packets": [
+    "D056-01",
+    "D056-02"
+   ],
+   "no_text": false,
    "jurisdictions": "MA",
    "url": "https://www.mass.gov/doc/803-cmr-5-criminal-offender-record-information-cori-housing/download",
    "source_type": "official",
-   "capture": "yes",
-   "status": "manual: 403 Client Error: Forbidden for url: https://www.mass.gov/doc/803-cmr-5-criminal-offender-record-information-cori-housing/download",
-   "origin": "starter"
+   "origin": "extra",
+   "file_sha256": "4814ae234bf886d97b2fe12465a8445b0d0018d219ac791e83a7736bee79d1ee"
   },
   "D057": {
    "raw_chars": 2627,
@@ -1876,40 +2598,77 @@
    "origin": "starter"
   },
   "D061": {
-   "no_text": true,
+   "raw_chars": 43329,
+   "clean_chars": 43327,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 8,
+   "blocks_kept": 8,
+   "dropped_blocks": [],
+   "packets": [
+    "D061-01",
+    "D061-02"
+   ],
+   "no_text": false,
    "jurisdictions": "NJ",
-   "url": "https://law.justia.com/codes/new-jersey/title-10/section-10-5-12/",
-   "source_type": "secondary (law firm / news / mirror)",
-   "capture": "link-only",
-   "status": "link-only",
-   "origin": "starter"
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/7555/7610",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "26f22b3fe077ce49ce789564cde527f049df94b417b762432c547e32864c9ef8"
   },
   "D062": {
-   "no_text": true,
+   "raw_chars": 15624,
+   "clean_chars": 15622,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 3,
+   "blocks_kept": 3,
+   "dropped_blocks": [],
+   "packets": [
+    "D062-01"
+   ],
+   "no_text": false,
    "jurisdictions": "NJ",
-   "url": "https://law.justia.com/codes/new-jersey/title-2a/section-2a-18-61-1/",
-   "source_type": "secondary (law firm / news / mirror)",
-   "capture": "link-only",
-   "status": "link-only",
-   "origin": "starter"
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/112/670",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "54d02d80c5d285519fcacfaff867f974dbb8ab3abf084c00f01e2eeb4277c974"
   },
   "D063": {
-   "no_text": true,
+   "raw_chars": 543,
+   "clean_chars": 541,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D063-01"
+   ],
+   "no_text": false,
    "jurisdictions": "NJ",
-   "url": "https://law.justia.com/codes/new-jersey/title-46/section-46-8-21-2/",
-   "source_type": "secondary (law firm / news / mirror)",
-   "capture": "link-only",
-   "status": "link-only",
-   "origin": "starter"
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/44283/44474",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "42e23b217dc39f27e244c569f8392e98dfa3c31b8895f39a92009f24cf502cf3"
   },
   "D064": {
-   "no_text": true,
+   "raw_chars": 502,
+   "clean_chars": 500,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D064-01"
+   ],
+   "no_text": false,
    "jurisdictions": "NJ",
-   "url": "https://law.justia.com/codes/new-jersey/title-46/section-46-8-26/",
-   "source_type": "secondary (law firm / news / mirror)",
-   "capture": "link-only",
-   "status": "link-only",
-   "origin": "starter"
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/44283/44482",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "e916a9b16b0d9d682f860d771b4abd038d2f4f9e6ed884517694f7916ebad6b4"
   },
   "D065": {
    "raw_chars": 20827,
@@ -2136,31 +2895,1145 @@
    "file_sha256": "1fdbfb48743a46429c3f47dbd8d08c665739202361661e1a2f19b94bb0ec43a6"
   },
   "D070": {
-   "no_text": true,
+   "raw_chars": 120622,
+   "clean_chars": 120555,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 78,
+   "blocks_kept": 47,
+   "dropped_blocks": [
+    {
+     "idx": 5,
+     "chars": 2779,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 9,
+     "chars": 784,
+     "heading": "§ 19:2-4. RENT REBATE. [Ord. 6 PSF-A(S), 9-5-2017; amended 9-18-2024 by Ord. No."
+    },
+    {
+     "idx": 11,
+     "chars": 1357,
+     "heading": "§ 19:2-5.2. Petition for Surcharge. [Ord. 6 PSF-A(S), 9-5-2017; amended 9-18-2024 by Ord."
+    },
+    {
+     "idx": 13,
+     "chars": 713,
+     "heading": "§ 19:2-6. TAX DECREASES."
+    },
+    {
+     "idx": 14,
+     "chars": 1147,
+     "heading": "§ 19:2-6.2. Tax Appeal, Reduction. [Ord. 6 PSF-A(S), 9-5-2017; amended 9-18-2024 by Ord."
+    },
+    {
+     "idx": 15,
+     "chars": 1740,
+     "heading": "§ 19:2-7. MAJOR NEW IMPROVEMENTS; ADDITIONAL RENT."
+    },
+    {
+     "idx": 16,
+     "chars": 828,
+     "heading": "§ 19:2-7.2. Increase Prorated. [Ord. 6 PSF-A(S), 9-5-2017; amended 9-18-2024 by Ord. No."
+    },
+    {
+     "idx": 17,
+     "chars": 1133,
+     "heading": "§ 19:2-7.3. Applicability; Notification. [Ord. 6 PSF-A(S), 9-5-2017; amended 9-18-2024 by"
+    },
+    {
+     "idx": 19,
+     "chars": 757,
+     "heading": "§ 19:2-8.2. Code Violations. [Ord. 6 PSF-A(S), 9-5-2017; amended 9-18-2024 by Ord. No."
+    },
+    {
+     "idx": 21,
+     "chars": 780,
+     "heading": "§ 19:2-8.3. Submission of Records and Proofs. [Ord. 6 PSF-A(S), 9-5-2017; amended"
+    },
+    {
+     "idx": 22,
+     "chars": 2901,
+     "heading": "§ 19:2-8.3                                                                                  § 19:2-8"
+    },
+    {
+     "idx": 26,
+     "chars": 1070,
+     "heading": "§ 19:2-8.8. Excessive Purchase Price; Efficient Operator. [Ord. 6 PSF-A(S), 9-5-2017;"
+    },
+    {
+     "idx": 28,
+     "chars": 763,
+     "heading": "§ 19:2-9.2. Interests. [Ord. 6 PSF-A(S), 9-5-2017; amended 9-18-2024 by Ord. No. 6PSF-I,"
+    },
+    {
+     "idx": 41,
+     "chars": 1517,
+     "heading": "§ 19:2-12.2                                                                                § 19:2-12"
+    },
+    {
+     "idx": 42,
+     "chars": 898,
+     "heading": "§ 19:2-12.3. Minimum Percentage of Decrease. [Ord. 6 PSF-A(S), 9-5-2017; amended"
+    },
+    {
+     "idx": 43,
+     "chars": 701,
+     "heading": "§ 19:2-12.5. Conditional Decrease; Correction. [Ord. 6 PSF-A(S), 9-5-2017; amended"
+    },
+    {
+     "idx": 48,
+     "chars": 721,
+     "heading": "Section 19:2-15."
+    },
+    {
+     "idx": 50,
+     "chars": 1814,
+     "heading": "§ 19:2-16. NO EXCESSIVE RENTS. [Ord. 6 PSF-A(S), 9-5-2017; amended 9-18-2024 by"
+    },
+    {
+     "idx": 51,
+     "chars": 1084,
+     "heading": "§ 19:2-17.2. Notification of Tenants. [Ord. 6 PSF-A(S), 9-5-2017; amended 9-18-2024 by"
+    },
+    {
+     "idx": 53,
+     "chars": 777,
+     "heading": "§ 19:2-17.5. Failure to Provide Heat, Water. [Ord. 6 PSF-A(S), 9-5-2017; amended"
+    },
+    {
+     "idx": 62,
+     "chars": 1634,
+     "heading": "§ 19:2-18.4                                                                                 § 19:2-1"
+    },
+    {
+     "idx": 63,
+     "chars": 1252,
+     "heading": "§ 19:2-18.5. City Auction Manual Required Notice. [Ord. 6 PSF-A(S), 9-5-2017; amended"
+    },
+    {
+     "idx": 65,
+     "chars": 846,
+     "heading": "§ 19:2-20. LIBERALLY CONSTRUED. [Ord. 6 PSF-A(S), 9-5-2017; amended 9-18-2024"
+    },
+    {
+     "idx": 70,
+     "chars": 2205,
+     "heading": "§ 19:2-25. INSPECTIONS. [Added 5-20-2026 by Ord. No. 6PSF-B, 05-20-2026]"
+    },
+    {
+     "idx": 71,
+     "chars": 992,
+     "heading": "§ 19:2-25                                                                                   § 19:2-2"
+    },
+    {
+     "idx": 72,
+     "chars": 2336,
+     "heading": "§ 19:2-25.1. Access for Inspections and Repairs; Complaints. [Added 5-20-2026 by Ord. No."
+    },
+    {
+     "idx": 73,
+     "chars": 2733,
+     "heading": "§ 19:2-25.2. Inspection Officers; Identification and Conduct. [Added 5-20-2026 by Ord. No."
+    },
+    {
+     "idx": 74,
+     "chars": 1180,
+     "heading": "§ 19:2-26. PROHIBITIONS ON OCCUPANCY. [Added 5-20-2026 by Ord. No. 6PSF-B,"
+    },
+    {
+     "idx": 75,
+     "chars": 905,
+     "heading": "§ 19:2-28. SUPPLY AND POSTING OF CERTIFICATE OF HABITABILITY. [Added"
+    },
+    {
+     "idx": 76,
+     "chars": 960,
+     "heading": "§ 19:2-29. MAXIMUM NUMBER OF OCCUPANTS; UNLAWFUL RESIDENTS. [Added"
+    },
+    {
+     "idx": 77,
+     "chars": 1102,
+     "heading": "§ 19:2-31. ADHERENCE TO OTHER STANDARDS. [Added 5-20-2026 by Ord. No. 6PSF-"
+    }
+   ],
+   "packets": [
+    "D070-01",
+    "D070-02",
+    "D070-03",
+    "D070-04"
+   ],
+   "no_text": false,
    "jurisdictions": "Newark, NJ",
    "url": "https://ecode360.com/36623772",
-   "source_type": "code publisher",
-   "capture": "check-terms",
-   "status": "link-only",
-   "origin": "starter"
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "59755b164b20b02cfa4162fb579f94fcafbd55f4f65811ca96c84311b57eb13b"
   },
   "D071": {
-   "no_text": true,
+   "raw_chars": 372769,
+   "clean_chars": 372566,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 199,
+   "blocks_kept": 14,
+   "dropped_blocks": [
+    {
+     "idx": 0,
+     "chars": 741,
+     "heading": "City of Newark, NJ"
+    },
+    {
+     "idx": 1,
+     "chars": 2184,
+     "heading": "3.       Property Management."
+    },
+    {
+     "idx": 2,
+     "chars": 1419,
+     "heading": "§ 2:10-1.2. Division of Housing Assistance; Manager; Duties. [Ord. 6 S+FE (S), 9-16-1998"
+    },
+    {
+     "idx": 3,
+     "chars": 2995,
+     "heading": "4.       City of Newark Predatory Lending Program."
+    },
+    {
+     "idx": 4,
+     "chars": 1003,
+     "heading": "§ 2:10-1.2                                                                                     § 2:1"
+    },
+    {
+     "idx": 5,
+     "chars": 2739,
+     "heading": "5.       City of Newark Neighborhood Rehabilitation Program."
+    },
+    {
+     "idx": 8,
+     "chars": 4311,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 9,
+     "chars": 4404,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 10,
+     "chars": 1525,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 11,
+     "chars": 2441,
+     "heading": "6.       Federal HOME and ADDI Programs."
+    },
+    {
+     "idx": 12,
+     "chars": 846,
+     "heading": "§ 2:10-1.2                                                                                          "
+    },
+    {
+     "idx": 13,
+     "chars": 2471,
+     "heading": "1.       Administer all programs established by the City to encourage the construction,"
+    },
+    {
+     "idx": 14,
+     "chars": 935,
+     "heading": "§ 2:10-1.3                                                                                       § 2"
+    },
+    {
+     "idx": 15,
+     "chars": 2394,
+     "heading": "1.       Maintain a complete registry of all real property owned by the City, including"
+    },
+    {
+     "idx": 16,
+     "chars": 3162,
+     "heading": "§ 2:10-1.4                                                                                          "
+    },
+    {
+     "idx": 17,
+     "chars": 837,
+     "heading": "§ 2:10-1.4A. Abandoned Property Rehabilitation Act.2 [Ord. 6 SF-C, 11-22-2010]"
+    },
+    {
+     "idx": 18,
+     "chars": 1290,
+     "heading": "§ 2:10-1.4A                                                                                 § 2:10-1"
+    },
+    {
+     "idx": 19,
+     "chars": 755,
+     "heading": "2.       Exceptions to abandoned property."
+    },
+    {
+     "idx": 20,
+     "chars": 1322,
+     "heading": "4.       DEPARTMENT — Shall mean the New Jersey Department of Community Affairs."
+    },
+    {
+     "idx": 21,
+     "chars": 853,
+     "heading": "§ 2:10-1.4A                                                                                       § "
+    },
+    {
+     "idx": 22,
+     "chars": 2624,
+     "heading": "7.       OWNER — Shall mean the holder or holders of title to an abandoned property."
+    },
+    {
+     "idx": 23,
+     "chars": 746,
+     "heading": "2.       An abandoned property shall not be included on the abandoned property list if"
+    },
+    {
+     "idx": 24,
+     "chars": 1741,
+     "heading": "§ 2:10-1.4A                                                                                      § 2"
+    },
+    {
+     "idx": 27,
+     "chars": 4688,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 28,
+     "chars": 4236,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 29,
+     "chars": 4096,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 30,
+     "chars": 1063,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 31,
+     "chars": 1635,
+     "heading": "Section 4 of P.L. 2003, c. 210 (55:19-81) and the owner or party in interest has failed to"
+    },
+    {
+     "idx": 32,
+     "chars": 1413,
+     "heading": "1.       Documentation that the property is on the municipal abandoned property list or a"
+    },
+    {
+     "idx": 33,
+     "chars": 816,
+     "heading": "Section 4 of P.L. 2002, c.210 (C.55:19-81)."
+    },
+    {
+     "idx": 36,
+     "chars": 1100,
+     "heading": "2.       Any sums incurred or advanced for the purpose of rehabilitating the property by a"
+    },
+    {
+     "idx": 37,
+     "chars": 3858,
+     "heading": "§ 2:10-1.4A                                                                                   § 2:10"
+    },
+    {
+     "idx": 38,
+     "chars": 4333,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 40,
+     "chars": 2519,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 41,
+     "chars": 783,
+     "heading": "Section 19 of P.L.2003, c.210 (C.55:19-96) shall be distributed in the following order of"
+    },
+    {
+     "idx": 42,
+     "chars": 4572,
+     "heading": "5.       Other valid liens and security interests, in accordance with their priority; and"
+    },
+    {
+     "idx": 43,
+     "chars": 1291,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 44,
+     "chars": 3260,
+     "heading": "Section 3 of P.L. 1942, c. 112 (C.40:48-2.3 or C.40:48-2.5) or Section 1 of P.L. 1989, c. 91"
+    },
+    {
+     "idx": 45,
+     "chars": 2290,
+     "heading": "§ 2:10-1.4A                                                                                      § 2"
+    },
+    {
+     "idx": 46,
+     "chars": 2040,
+     "heading": "2.       The realistic market value of the reused property after rehabilitation or new"
+    },
+    {
+     "idx": 47,
+     "chars": 1999,
+     "heading": "§ 2:10-1.4A                                                                                      § 2"
+    },
+    {
+     "idx": 48,
+     "chars": 2087,
+     "heading": "§ 2:10-1.4B. Abandoned Property List in the City of Newark. [Ord. 6 S+FC, 3-21-2007]"
+    },
+    {
+     "idx": 49,
+     "chars": 704,
+     "heading": "§ 2:10-1.4B                                                                              § 2:10-1.4C"
+    },
+    {
+     "idx": 50,
+     "chars": 1604,
+     "heading": "§ 2:10-1.4C. City of Newark Senior Homeowner Emergency Repair Program."
+    },
+    {
+     "idx": 51,
+     "chars": 1024,
+     "heading": "§ 2:10-1.4C.2. Eligibility. [Ord. 6 S+FM, 10-1-2008 § 1B]"
+    },
+    {
+     "idx": 52,
+     "chars": 1185,
+     "heading": "3.   Editor's Note: See Section 2:10-1.4, Division of Property Management."
+    },
+    {
+     "idx": 53,
+     "chars": 1925,
+     "heading": "§ 2:10-1.4C.4. Types of Financial Assistance. [Ord. 6 S+FM, 10-1-2008 § 1D]"
+    },
+    {
+     "idx": 54,
+     "chars": 831,
+     "heading": "§ 2:10-1.4C.5. Eligibility Criteria for Property Improvements. [Ord. 6 S+FM, 10-1-2008"
+    },
+    {
+     "idx": 55,
+     "chars": 1096,
+     "heading": "§ 2:10-1.4C.5                                                                             § 2:10-1.4"
+    },
+    {
+     "idx": 56,
+     "chars": 2270,
+     "heading": "§ 2:10-1.4C.7. Annual Report to Council. [Ord. 6 S+FM, 10-1-2008 § 1G]"
+    },
+    {
+     "idx": 57,
+     "chars": 3062,
+     "heading": "§ 2:10-1.4E. MAINTENANCE                        OF     VACANT   PROPERTIES,       REGISTRATION"
+    },
+    {
+     "idx": 58,
+     "chars": 2830,
+     "heading": "§ 2:10-1.4E.1                                                                           § 2:10-1.4E."
+    },
+    {
+     "idx": 59,
+     "chars": 1280,
+     "heading": "§ 2:10-1.4E.2. General Requirements. [Ord. 6 PSF-A, 6-2-2011 § 1; Ord. 6PSF-B,"
+    },
+    {
+     "idx": 60,
+     "chars": 1409,
+     "heading": "§ 2:10-1.4E.2                                                                           § 2:10-1.4E."
+    },
+    {
+     "idx": 61,
+     "chars": 2547,
+     "heading": "§ 2:10-1.4E.3. Registration Statement Requirements; Property Inspection. [Ord. 6 PSF-"
+    },
+    {
+     "idx": 62,
+     "chars": 1388,
+     "heading": "§ 2:10-1.4E.3                                                                           § 2:10-1.4E."
+    },
+    {
+     "idx": 63,
+     "chars": 1911,
+     "heading": "§ 2:10-1.4E.4B. Commercial Fee Schedule. [Added 10-19-2022 by Ord. No. 6PSF-A,"
+    },
+    {
+     "idx": 64,
+     "chars": 1552,
+     "heading": "§ 2:10-1.4E.4B                                                                            § 2:10-1.4"
+    },
+    {
+     "idx": 65,
+     "chars": 755,
+     "heading": "Section 2:10-1.4E.1. The fee for the first renewal is $50,000, and the fee for the second"
+    },
+    {
+     "idx": 66,
+     "chars": 1014,
+     "heading": "§ 2:10-1.4E.4C. Vacant Lot Fee Schedule. [Added 8-13-2024 by Ord. No. 6PSF-A(s),"
+    },
+    {
+     "idx": 67,
+     "chars": 2384,
+     "heading": "§ 2:10-1.4E.4C                                                                                § 2:10"
+    },
+    {
+     "idx": 68,
+     "chars": 842,
+     "heading": "§ 2:10-1.4E.6. Exterior Protection. [Added 10-19-2022 by Ord. No. 6PSF-A, 10-19-2022]"
+    },
+    {
+     "idx": 69,
+     "chars": 783,
+     "heading": "§ 2:10-1.4E.6                                                                               § 2:10-1"
+    },
+    {
+     "idx": 70,
+     "chars": 1901,
+     "heading": "4.       Coverings approved by the Director of the Department of Public Safety, or the"
+    },
+    {
+     "idx": 71,
+     "chars": 1696,
+     "heading": "§ 2:10-1.4E.7. Property Inspection. [Added 10-19-2022 by Ord. No. 6PSF-A, 10-19-2022;"
+    },
+    {
+     "idx": 72,
+     "chars": 1590,
+     "heading": "2.       By designating an authorized agent under the provisions of this section the owner"
+    },
+    {
+     "idx": 73,
+     "chars": 961,
+     "heading": "§ 2:10-1.4E.8. Administration. [Ord. 6 PSF-A, 6-2-2011 § 1; Ord. 6 PSF-B, 3-18-2015;"
+    },
+    {
+     "idx": 74,
+     "chars": 703,
+     "heading": "§ 2:10-1.4E.9                                                                              § 2:10-1."
+    },
+    {
+     "idx": 75,
+     "chars": 1182,
+     "heading": "§ 2:10-1.4E.10. Violations and Penalties. [Ord. 6 PSF-A, 6-2-2011 § 1; Ord. 6 PSF-B,"
+    },
+    {
+     "idx": 76,
+     "chars": 717,
+     "heading": "§ 2:10-1.4E.11. Compliance with Other Provisions. [Ord. 6 PSF-A, 6-2-2011 § 2; Ord. 6"
+    },
+    {
+     "idx": 77,
+     "chars": 768,
+     "heading": "§ 2:10-1.4F. CARE, MAINTENANCE, SECURITY AND UPKEEP OF VACANT AND"
+    },
+    {
+     "idx": 78,
+     "chars": 951,
+     "heading": "§ 2:10-1.4F.1                                                                           § 2:10-1.4F."
+    },
+    {
+     "idx": 79,
+     "chars": 2346,
+     "heading": "§ 2:10-1.4F.3. Notification of the Municipal Clerk. [Ord. 6PSF-D, 10-15-2014]"
+    },
+    {
+     "idx": 80,
+     "chars": 1236,
+     "heading": "§ 2:10-1.4F.4. Responsibility of Creditor, If Owner of a Residential Property Vacates or"
+    },
+    {
+     "idx": 81,
+     "chars": 1171,
+     "heading": "§ 2:10-1.4F.5. Repair by City. [Ord. 6PSF-D, 10-15-2014]"
+    },
+    {
+     "idx": 82,
+     "chars": 1454,
+     "heading": "§ 2:10-1.4F.7. Violations and Penalties. [Ord. 6PSF-D, 10-15-2014]"
+    },
+    {
+     "idx": 83,
+     "chars": 4134,
+     "heading": "§ 2:10-1.4G.1                                                                            § 2:10-1.4G"
+    },
+    {
+     "idx": 84,
+     "chars": 2421,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 85,
+     "chars": 4803,
+     "heading": "§ 2:10-1.4G.2. Inspection and Registration. [Added 10-19-2022 by Ord. No. 6PSF-A,"
+    },
+    {
+     "idx": 86,
+     "chars": 4042,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 87,
+     "chars": 2443,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 88,
+     "chars": 1606,
+     "heading": "§ 2:10-1.4G.3. Maintenance Requirements. [Added 10-19-2022 by Ord. No. 6PSF-A,"
+    },
+    {
+     "idx": 89,
+     "chars": 1149,
+     "heading": "§ 2:10-1.4G.3                                                                           § 2:10-1.4G."
+    },
+    {
+     "idx": 90,
+     "chars": 2089,
+     "heading": "§ 2:10-1.4G.4. Security Requirements. [Added 10-19-2022 by Ord. No. 6PSF-A, 10-19-2022]"
+    },
+    {
+     "idx": 91,
+     "chars": 1591,
+     "heading": "THE PROPERTY MANAGER CAN BE CONTACTED"
+    },
+    {
+     "idx": 92,
+     "chars": 1025,
+     "heading": "§ 2:10-1.5. Division of City Planning; Head; Duties.4 [Ord. 6 S+FE(S), 9-16-1998]"
+    },
+    {
+     "idx": 93,
+     "chars": 1383,
+     "heading": "5.       Have custody of and maintain a current zoning map of the City; and"
+    },
+    {
+     "idx": 96,
+     "chars": 1184,
+     "heading": "§ 2:10-1.10. Director to Serve Notice of Intent to Sell Contiguous Property to Adjacent"
+    },
+    {
+     "idx": 97,
+     "chars": 1250,
+     "heading": "§ 2:10-1.10                                                                                       § "
+    },
+    {
+     "idx": 98,
+     "chars": 1145,
+     "heading": "3.       The Director, Department of Economic and Housing Development shall cause to be"
+    },
+    {
+     "idx": 99,
+     "chars": 903,
+     "heading": "§ 2:10-2. CITY OF NEWARK MUNICIPAL EMPLOYEES HOUSING ASSISTANCE"
+    },
+    {
+     "idx": 100,
+     "chars": 2510,
+     "heading": "§ 2:10-2.2. Minimum Requirements for the Program. [Ord. 6 S+FJ, 11-17-1997; Ord. 6"
+    },
+    {
+     "idx": 101,
+     "chars": 1173,
+     "heading": "§ 2:10-2.3. Authorization to Execute Documents. [Ord. 6 S+FJ, 11-17-1997; Ord. 6 S+FC,"
+    },
+    {
+     "idx": 102,
+     "chars": 2611,
+     "heading": "§ 2:10-2.4                                                                                   § 2:10-"
+    },
+    {
+     "idx": 103,
+     "chars": 4003,
+     "heading": "§ 2:10-3.2. Definitions. [Ord. 6 S+FE, 3-7-2007 § 2]"
+    },
+    {
+     "idx": 104,
+     "chars": 1862,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 105,
+     "chars": 1349,
+     "heading": "§ 2:10-3.3. Commission Established. [Ord. 6 S+FE, 3-7-2007 § 2]"
+    },
+    {
+     "idx": 106,
+     "chars": 1410,
+     "heading": "§ 2:10-3.5                                                                                     § 2:1"
+    },
+    {
+     "idx": 107,
+     "chars": 1173,
+     "heading": "§ 2:10-3.6. Rules and Organization. [Ord. 6 S+FE, 3-7-2007 § 2]"
+    },
+    {
+     "idx": 108,
+     "chars": 916,
+     "heading": "§ 2:10-3.7. Administrative Officer. [Ord. 6 S+FE, 3-7-2007 § 2; Ord. 6 S+FF(S), 9-25-2007"
+    },
+    {
+     "idx": 109,
+     "chars": 2321,
+     "heading": "§ 2:10-3.7                                                                                    § 2:10"
+    },
+    {
+     "idx": 110,
+     "chars": 771,
+     "heading": "§ 2:10-3.8. Expenses and Costs. [Ord. 6 S+FE, 3-7-2007 § 2]"
+    },
+    {
+     "idx": 111,
+     "chars": 1093,
+     "heading": "§ 2:10-3.9. Scope of Powers. [Ord. 6 S+FE, 3-7-2007 § 2; Ord. 6PSF-L, 5-18-2016]"
+    },
+    {
+     "idx": 112,
+     "chars": 2070,
+     "heading": "2.       Make recommendations to the Planning Board on the Historic Preservation Plan"
+    },
+    {
+     "idx": 113,
+     "chars": 1294,
+     "heading": "9.       Review and either approve or disapprove a Municipal Council member's proposal,"
+    },
+    {
+     "idx": 114,
+     "chars": 2181,
+     "heading": "§ 2:10-4.2. Definitions. [Ord. 6PSF-J, 11-22-2010; Ord. 6PSF-B, 9-21-2016; amended"
+    },
+    {
+     "idx": 115,
+     "chars": 1341,
+     "heading": "§ 2:10-4.3. Eligible Areas and Funding Limitations. [Ord. 6PSF-J, 11-22-2010; Ord. 6PSF-"
+    },
+    {
+     "idx": 116,
+     "chars": 745,
+     "heading": "§ 2:10-4.4. Eligible and Ineligible Activities. [Ord. 6PSF-J, 11-22-2010; Ord. 6PSF-B,"
+    },
+    {
+     "idx": 117,
+     "chars": 749,
+     "heading": "4.       Signage;"
+    },
+    {
+     "idx": 118,
+     "chars": 743,
+     "heading": "2.       Removal of illegal improvements."
+    },
+    {
+     "idx": 119,
+     "chars": 746,
+     "heading": "12. Structural repairs."
+    },
+    {
+     "idx": 120,
+     "chars": 1580,
+     "heading": "§ 2:10-4.5. Loan Amount. [Ord. 6PSF-J, 11-22-2010; Ord. 6 PSF-B, 9-21-2016]"
+    },
+    {
+     "idx": 121,
+     "chars": 849,
+     "heading": "§ 2:10-4.7. Default. [Ord. 6PSF-J, 11-22-2010; Ord. 6PSF-B, 9-21-2016; amended 1-8-2020"
+    },
+    {
+     "idx": 122,
+     "chars": 3149,
+     "heading": "2.       Applicant does not maintain its UEZ Business Certification from the date of the"
+    },
+    {
+     "idx": 123,
+     "chars": 1619,
+     "heading": "§ 2:10-4.7                                                                                    § 2:10"
+    },
+    {
+     "idx": 125,
+     "chars": 3490,
+     "heading": "§ 2:10-4.8                                                                                   § 2:10-"
+    },
+    {
+     "idx": 126,
+     "chars": 1601,
+     "heading": "1.       The applicant has secured all approvals necessary to commence the project;"
+    },
+    {
+     "idx": 127,
+     "chars": 1691,
+     "heading": "§ 2:10-4.9. Facade Improvement Program Review Committee. [Ord. 6PSF-J, 11-22-2010;"
+    },
+    {
+     "idx": 128,
+     "chars": 966,
+     "heading": "§ 2:10-4.10. Selection of Contractors. [Ord. 6PSF-J, 11-22-2010; Ord. 6PSF-B, 9-21-2016]"
+    },
+    {
+     "idx": 129,
+     "chars": 2758,
+     "heading": "§ 2:10-4.12. Disbursement of Loans. [Ord. 6PSF-J, 11-22-2010; Ord. 6PSF-B, 9-21-2016;"
+    },
+    {
+     "idx": 130,
+     "chars": 2235,
+     "heading": "§ 2:10-4.13. Prevailing Wages. [Ord. 6PSF-J, 11-22-2010; Ord. 6PSF-B, 9-21-2016]"
+    },
+    {
+     "idx": 131,
+     "chars": 1939,
+     "heading": "2.       Provide the lender with a copy of the Additional Insured Broad Endorsement Form."
+    },
+    {
+     "idx": 132,
+     "chars": 976,
+     "heading": "§ 2:10-4.14                                                                                    § 2:1"
+    },
+    {
+     "idx": 133,
+     "chars": 1093,
+     "heading": "2.       The applicant has agreed to execute a Hold Harmless Agreement prescribed by the"
+    },
+    {
+     "idx": 134,
+     "chars": 1301,
+     "heading": "§ 2:10-4.16. Waiver of Mortgage Requirement. [Ord. 6PSF-J, 11-22-2010; Ord. 6PSF-B,"
+    },
+    {
+     "idx": 135,
+     "chars": 3443,
+     "heading": "§ 2:10-4.17                                                                                        §"
+    },
+    {
+     "idx": 136,
+     "chars": 3519,
+     "heading": "6.   Editor's Note: First Amendment refers to Ord. 6PSF-B, adopted 9-21-2016."
+    },
+    {
+     "idx": 137,
+     "chars": 868,
+     "heading": "1.       Names and number of contracts entered into."
+    },
+    {
+     "idx": 138,
+     "chars": 953,
+     "heading": "1.       Renewal of Program. The Department of Economic and Housing Development is"
+    },
+    {
+     "idx": 139,
+     "chars": 1928,
+     "heading": "3.       Income Tax. No amount of any loan forgiven under the Live Newark Loan Forgiveness"
+    },
+    {
+     "idx": 141,
+     "chars": 1514,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 142,
+     "chars": 840,
+     "heading": "11. Sunset. The Live Newark Loan Forgiveness Program shall automatically terminate in"
+    },
+    {
+     "idx": 143,
+     "chars": 1471,
+     "heading": "13. Program Development and Administration. The Deputy Mayor/Director of the"
+    },
+    {
+     "idx": 144,
+     "chars": 740,
+     "heading": "16. No Conflict. No employee of the City shall be permitted to evaluate or approve an"
+    },
+    {
+     "idx": 145,
+     "chars": 1379,
+     "heading": "17. Compliance with All Applicable Laws. The Live Newark Loan Forgiveness Program"
+    },
+    {
+     "idx": 147,
+     "chars": 1126,
+     "heading": "§ 2:10-7.2                                                                                      § 2:"
+    },
+    {
+     "idx": 148,
+     "chars": 1560,
+     "heading": "6.       Disbursement of the Closing Costs Loan. Upon receipt of a Closing Costs"
+    },
+    {
+     "idx": 149,
+     "chars": 1259,
+     "heading": "7.       Forgiveness or Repayment of the Closing Costs Loan. Closing Costs Loans shall be"
+    },
+    {
+     "idx": 150,
+     "chars": 704,
+     "heading": "§ 2:10-7.2                                                                                    § 2:10"
+    },
+    {
+     "idx": 151,
+     "chars": 2920,
+     "heading": "§ 2:10-7.3. Facade Improvement Program. [Ord. 6PSF-D, 2-17-2016 § 3; amended"
+    },
+    {
+     "idx": 152,
+     "chars": 1655,
+     "heading": "§ 2:10-7.3                                                                                      § 2:"
+    },
+    {
+     "idx": 153,
+     "chars": 1144,
+     "heading": "6.       Facade Improvement Proposal. Applicant(s) who have been pre-determined to be"
+    },
+    {
+     "idx": 154,
+     "chars": 1418,
+     "heading": "7.       Approval of the Proposed Facade Improvement Project. The Deputy Mayor/Director of"
+    },
+    {
+     "idx": 155,
+     "chars": 1793,
+     "heading": "§ 2:10-7.3                                                                                    § 2:10"
+    },
+    {
+     "idx": 156,
+     "chars": 753,
+     "heading": "9.       Facade Improvement Project. The borrower(s) shall implement the Facade"
+    },
+    {
+     "idx": 157,
+     "chars": 1331,
+     "heading": "10. Access. The Deputy Mayor/Director of the Department of Economic and Housing"
+    },
+    {
+     "idx": 158,
+     "chars": 4262,
+     "heading": "11. Implementation of the Facade Improvement Project. All work in connection with the"
+    },
+    {
+     "idx": 159,
+     "chars": 885,
+     "heading": "14. Forgiveness or Repayment of the Facade Improvement Loan. Facade Improvement"
+    },
+    {
+     "idx": 160,
+     "chars": 1176,
+     "heading": "§ 2:10-7.3                                                                                         §"
+    },
+    {
+     "idx": 161,
+     "chars": 1238,
+     "heading": "§ 2:10-7.4. Terms Applicable to Loans Granted Under the Live Newark Loan Forgiveness"
+    },
+    {
+     "idx": 162,
+     "chars": 1712,
+     "heading": "3.       Rights of Prior Lenders. The City acknowledges that the borrower(s) may have a"
+    },
+    {
+     "idx": 163,
+     "chars": 3624,
+     "heading": "§ 2:10-7.4                                                                                        § "
+    },
+    {
+     "idx": 164,
+     "chars": 2719,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 165,
+     "chars": 1063,
+     "heading": "§ 2:10-8. EMPLOYEE OWNERSHIP LOAN AND LOAN GUARANTEE PROGRAM."
+    },
+    {
+     "idx": 166,
+     "chars": 3709,
+     "heading": "§ 2:10-8.0                                                                                   § 2:10-"
+    },
+    {
+     "idx": 167,
+     "chars": 949,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 168,
+     "chars": 951,
+     "heading": "§ 2:10-8.2. Employee Ownership Loans and Loan Guarantees. [Ord. 6PSF-A, 3-20-2019;"
+    },
+    {
+     "idx": 169,
+     "chars": 1501,
+     "heading": "1.       Make an employee ownership loan to the applicant for an amount which shall not"
+    },
+    {
+     "idx": 170,
+     "chars": 1058,
+     "heading": "§ 2:10-8.2                                                                                     § 2:1"
+    },
+    {
+     "idx": 171,
+     "chars": 1230,
+     "heading": "§ 2:10-8.3. Budget. [Ord. 6PSF-A, 3-20-2019]"
+    },
+    {
+     "idx": 172,
+     "chars": 1164,
+     "heading": "§ 2:10-8.4. Employee Ownership Trusts. [Ord. 6PSF-F, 6-15-2016 § 3]"
+    },
+    {
+     "idx": 173,
+     "chars": 3517,
+     "heading": "§ 2:10-8.4                                                                                       § 2"
+    },
+    {
+     "idx": 174,
+     "chars": 873,
+     "heading": "2.       Require that the employer obtain membership m one or more nonprofit associations."
+    },
+    {
+     "idx": 175,
+     "chars": 2470,
+     "heading": "6.       Appoint a trust protector or co-trustee or both to enforce the trust and approve"
+    },
+    {
+     "idx": 176,
+     "chars": 1697,
+     "heading": "§ 2:10-8.5                                                                                     § 2:1"
+    },
+    {
+     "idx": 177,
+     "chars": 1715,
+     "heading": "§ 2:10-9.2. Definitions. [Added 1-18-2023 by Ord. No. 6PSF-A, 01-18-2023]"
+    },
+    {
+     "idx": 178,
+     "chars": 3691,
+     "heading": "§ 2:10-9.2                                                                                  § 2:10-9"
+    },
+    {
+     "idx": 179,
+     "chars": 704,
+     "heading": "Downloaded from https://ecode360.com/NE4043 on 2026-10-03"
+    },
+    {
+     "idx": 181,
+     "chars": 1881,
+     "heading": "§ 2:10-9.4                                                                                     § 2:1"
+    },
+    {
+     "idx": 182,
+     "chars": 2173,
+     "heading": "3.       For any developments that have contractually agreed to abide by this section, the"
+    },
+    {
+     "idx": 183,
+     "chars": 2712,
+     "heading": "§ 2:10-9.5                                                                                § 2:10-9.6"
+    },
+    {
+     "idx": 184,
+     "chars": 718,
+     "heading": "§ 2:10-9.6. Right of First Refusal. [Added 1-18-2023 by Ord. No. 6PSF-A, 01-18-2023]"
+    },
+    {
+     "idx": 185,
+     "chars": 1239,
+     "heading": "2.       Notice Requirement. The City shall comply with the following notice requirements"
+    },
+    {
+     "idx": 186,
+     "chars": 2645,
+     "heading": "4.       If the City does not receive any notice of interest to purchase property from any"
+    },
+    {
+     "idx": 187,
+     "chars": 1485,
+     "heading": "§ 2:10-9.6                                                                                       § 2"
+    },
+    {
+     "idx": 188,
+     "chars": 2029,
+     "heading": "1.       The purchaser shall be liable for all fees, payments, and any other monetary"
+    },
+    {
+     "idx": 189,
+     "chars": 911,
+     "heading": "§ 2:10-9.8                                                                                    § 2:10"
+    },
+    {
+     "idx": 190,
+     "chars": 2212,
+     "heading": "§ 2:10-10. HOMEOWNERSHIP REVITALIZATION PROGRAM."
+    },
+    {
+     "idx": 191,
+     "chars": 2342,
+     "heading": "§ 2:10-10.2. Application. [Added 5-3-2023 by Ord. No. 6PSF-C, 05-03-2023]"
+    },
+    {
+     "idx": 192,
+     "chars": 744,
+     "heading": "1.       Source of Redevelopment Funds: Applicant must submit proof of acquisition funding"
+    },
+    {
+     "idx": 193,
+     "chars": 1147,
+     "heading": "2.       Source of Financing Acquisition of Property: Must demonstrate ability to acquire"
+    },
+    {
+     "idx": 194,
+     "chars": 2550,
+     "heading": "§ 2:10-10.4                                                                                  § 2:10-"
+    },
+    {
+     "idx": 195,
+     "chars": 1421,
+     "heading": "1.       All prospective buyers of in rem City-owned properties under this program must be"
+    },
+    {
+     "idx": 196,
+     "chars": 2063,
+     "heading": "§ 2:10-10.4                                                                                      § 2"
+    },
+    {
+     "idx": 198,
+     "chars": 837,
+     "heading": "§ 2:10-11.1                                                                            § 2:10-11.1"
+    }
+   ],
+   "packets": [
+    "D071-01",
+    "D071-02"
+   ],
+   "no_text": false,
    "jurisdictions": "Newark, NJ",
    "url": "https://ecode360.com/36637822",
-   "source_type": "code publisher",
-   "capture": "check-terms",
-   "status": "link-only",
-   "origin": "starter"
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "98d39175958b85f32786f6af1ebf9d2fc9c2e08be11830eeb11980fdeaaf094b"
   },
   "D072": {
-   "no_text": true,
+   "raw_chars": 26969,
+   "clean_chars": 26946,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 20,
+   "blocks_kept": 20,
+   "dropped_blocks": [],
+   "packets": [
+    "D072-01",
+    "D072-02"
+   ],
+   "no_text": false,
    "jurisdictions": "Newark, NJ",
    "url": "https://ecode360.com/36642000",
-   "source_type": "code publisher",
-   "capture": "check-terms",
-   "status": "link-only",
-   "origin": "starter"
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "d24b153d10e6db74ac3f95dea280943f2454635110b087010d7016c74318f4d0"
   },
   "D073": {
    "raw_chars": 38916,
@@ -2182,22 +4055,40 @@
    "file_sha256": "d1d4b9874a7c4b51a97cb81809e9ece2658f0f9e52898d904f90d48f3c1a140b"
   },
   "D074": {
-   "no_text": true,
+   "raw_chars": 6578,
+   "clean_chars": 6559,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 4,
+   "blocks_kept": 4,
+   "dropped_blocks": [],
+   "packets": [
+    "D074-01"
+   ],
+   "no_text": false,
    "jurisdictions": "San Diego, CA",
-   "url": "https://gocodebook.com/library/us/ca/san-diego-zoning/division-11-prohibition-of-anti-competitive-automated-rent-price-fixing/98.1103-use-and-sale-of-algorithmic-devices-prohibited",
-   "source_type": "code publisher",
-   "capture": "check-terms",
-   "status": "link-only",
-   "origin": "starter"
+   "url": "https://docs.sandiego.gov/municode/MuniCodeChapter09/Ch09Art08Division11.pdf",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "e9bbd000334e0f14525cf1340064e06744b52f4c303dc86ab30b6f1e931448ed"
   },
   "D075": {
-   "no_text": true,
+   "raw_chars": 9242,
+   "clean_chars": 9216,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 6,
+   "blocks_kept": 6,
+   "dropped_blocks": [],
+   "packets": [
+    "D075-01"
+   ],
+   "no_text": false,
    "jurisdictions": "San Diego, CA",
-   "url": "https://gocodebook.com/library/us/ca/san-diego-zoning/division-8-prohibition-of-discrimination-based-on-a-tenant-s-source-of-income",
-   "source_type": "code publisher",
-   "capture": "check-terms",
-   "status": "link-only",
-   "origin": "starter"
+   "url": "https://docs.sandiego.gov/municode/MuniCodeChapter09/Ch09Art08Division08.pdf",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "045ed8ebfff76d98f60c5d5bc3bdd12340078a04f38e69defbdec1ff5f987e80"
   },
   "D076": {
    "raw_chars": 23097,
@@ -2371,13 +4262,23 @@
    "file_sha256": "de9d126675c8ee1ab2809c897c8c819bfe241dc95de31ace5004b6c7973607d8"
   },
   "D086": {
-   "no_text": true,
+   "raw_chars": 36473,
+   "clean_chars": 36418,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 16,
+   "blocks_kept": 16,
+   "dropped_blocks": [],
+   "packets": [
+    "D086-01",
+    "D086-02"
+   ],
+   "no_text": false,
    "jurisdictions": "Santa Ana, CA",
-   "url": "https://www.ocbj.com/real-estate/santa-ana-bans-landlords-from-using-ai-apartment-rent-pricing-software/",
-   "source_type": "secondary (law firm / news / mirror)",
-   "capture": "link-only",
-   "status": "link-only",
-   "origin": "starter"
+   "url": "https://publicdocs.santa-ana.org/WebLink/DocView.aspx?id=549791&dbid=1&repo=Clerk",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "20227ac39993ed4d566569968dd8c93074d2ddfa0b10191a10cc90a64cfc7fc7"
   },
   "D087": {
    "no_text": true,
@@ -2387,6 +4288,189 @@
    "capture": "link-only",
    "status": "link-only",
    "origin": "starter"
+  },
+  "X001": {
+   "raw_chars": 8872,
+   "clean_chars": 8842,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 5,
+   "blocks_kept": 5,
+   "dropped_blocks": [],
+   "packets": [
+    "X001-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Jersey City, NJ",
+   "url": "https://mcclibraryfunctions.azurewebsites.us/api/ordinanceDownload/16093/1418888/pdf?forceDownload=true",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "9c212a8dbceb78d2778f51cc75b2434aff1faf59064dbd4190036f2accaae0e7"
+  },
+  "X002": {
+   "raw_chars": 57274,
+   "clean_chars": 57093,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 17,
+   "blocks_kept": 17,
+   "dropped_blocks": [],
+   "packets": [
+    "X002-01",
+    "X002-02",
+    "X002-03"
+   ],
+   "no_text": false,
+   "jurisdictions": "Jersey City, NJ",
+   "url": "https://library.municode.com/nj/jersey_city/codes/code_of_ordinances?nodeId=CH260RECO",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "41b3571b10a68f2c40cc7a6d0a1f30935bd50ece6d01e702e819a942c65fb305"
+  },
+  "X003": {
+   "raw_chars": 7586,
+   "clean_chars": 7572,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 3,
+   "blocks_kept": 3,
+   "dropped_blocks": [],
+   "packets": [
+    "X003-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "CA",
+   "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB763",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "05680b067b43b176c74491f119c86b0cf3055c8f245b6216dc05812fa3a8e825"
+  },
+  "X004": {
+   "raw_chars": 1638,
+   "clean_chars": 1389,
+   "nav_lines_removed": 17,
+   "nav_chars_removed": 280,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "X004-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "CA",
+   "url": "https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260SB763",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "ef20d3f051c6fc28cab7ac5d295280a7e0e6ac0137607d4308f9d6ca9305eb7f"
+  },
+  "X005": {
+   "raw_chars": 1747,
+   "clean_chars": 1502,
+   "nav_lines_removed": 17,
+   "nav_chars_removed": 276,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "X005-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "CA",
+   "url": "https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260AB325",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "c802d000cad0bad58fe275563aa68fbd14d849f5e7aeaeb6691493859c417918"
+  },
+  "X006": {
+   "raw_chars": 39971,
+   "clean_chars": 39679,
+   "nav_lines_removed": 40,
+   "nav_chars_removed": 259,
+   "blocks": 11,
+   "blocks_kept": 11,
+   "dropped_blocks": [],
+   "packets": [
+    "X006-01",
+    "X006-02"
+   ],
+   "no_text": false,
+   "jurisdictions": "CA",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CONS&division=&title=&part=&chapter=&article=IV",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "4eebe19790b44e345833aeb305607e37534c28ebc6b0d4ed7953d33fa203aded"
+  },
+  "X007": {
+   "raw_chars": 5064,
+   "clean_chars": 4708,
+   "nav_lines_removed": 33,
+   "nav_chars_removed": 380,
+   "blocks": 2,
+   "blocks_kept": 2,
+   "dropped_blocks": [],
+   "packets": [
+    "X007-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "MA",
+   "url": "https://www.sec.state.ma.us/divisions/elections/research-and-statistics/2026-ballot-questions.htm",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "d259896f4eb8e26e74972cd9404dfcebb115c0a1bd613339f2549447f5dc9bbb"
+  },
+  "X008": {
+   "raw_chars": 9389,
+   "clean_chars": 9226,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 5,
+   "blocks_kept": 5,
+   "dropped_blocks": [],
+   "packets": [
+    "X008-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Los Angeles, CA",
+   "url": "https://cityclerk.lacity.org/onlinedocs/2017/17-0461_ORD_185797_11-25-2018.pdf",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "f5004b135aa1daf8f60d819c710b423a616d3c02b168bbbffd81a093f9e4f1b5"
+  },
+  "X101": {
+   "raw_chars": 1094,
+   "clean_chars": 1093,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "X101-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "MA",
+   "url": "https://www.ma-appellatecourts.org/docket/SJC-13893",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "17047da3fcaa37afaf3fd337895543ddb662533d1fda79320efa3ea443a45133"
+  },
+  "X102": {
+   "raw_chars": 7293,
+   "clean_chars": 7041,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 6,
+   "blocks_kept": 6,
+   "dropped_blocks": [],
+   "packets": [
+    "X102-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Jersey City, NJ",
+   "url": "https://mcclibraryfunctions.azurewebsites.us/api/ordinanceDownload/16093/1436781/pdf?forceDownload=true",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "cb7f277446ebf1cc30e6a91df93ea8c3015d7df46d87b8cd152f41dd8555c306"
   }
  },
  "as_of": "2026-10-01",

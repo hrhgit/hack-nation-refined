@@ -1,0 +1,56 @@
+[
+  {
+    "file": "JC-2025-05-21-adoption-notice.pdf",
+    "source": "https://www.jerseycitynj.gov/common/pages/GetFile.ashx?key=ryk%2bAW7X",
+    "downloaded_utc": "2026-10-04T05:30:06.198847+00:00",
+    "sha256": "b740c15bc34fe002db01601695f5bd0a0851b4ae9bffc86f68bfe2e8104263b8",
+    "status": "official_clerk_adoption_notice_image_pdf"
+  },
+  {
+    "file": "JC-2025-07-16-adoption-notice.pdf",
+    "source": "https://www.jerseycitynj.gov/common/pages/GetFile.ashx?key=QSk%2fAYHX",
+    "downloaded_utc": "2026-10-04T05:31:00.592393+00:00",
+    "sha256": "14860c32071a70fe63aca13d033cdbe450a913d602187a754360ade4fba33bff",
+    "status": "official_clerk_adoption_notice_image_pdf"
+  },
+  {
+    "file": "JC-2025-09-24-adoption-notice.pdf",
+    "source": "https://www.jerseycitynj.gov/common/pages/GetFile.ashx?key=hHxAATuC",
+    "downloaded_utc": "2026-10-04T05:31:08.013003+00:00",
+    "sha256": "e5410cb5bc2b6b708e3edd217a6283ae1d848cc48cc818dd75bbba077f77226a",
+    "status": "official_clerk_adoption_notice_image_pdf"
+  },
+  {
+    "file": "Hoboken-B781-meeting-printout.pdf",
+    "source": "http://hobokennj.iqm2.com/Citizens/FileOpen.aspx?Type=30&ID=69209",
+    "downloaded_utc": "2026-10-04T05:31:55.542774+00:00",
+    "sha256": "f24604ecdce01db3bbf3b9a74ff3639e1398e85c5a486d0dd31982f09faff24d",
+    "status": "official_meeting_attachment_unsigned_form"
+  },
+  {
+    "file": "NJ-40-49-2-excerpt.txt",
+    "source": "https://pub.njleg.state.nj.us/statutes/STATUTES-TEXT.zip",
+    "sha256": "2571941090d488c875e409ca76f4f6d6d6b6e51802b4817ba3be27e52454588f",
+    "status": "official_statute_section_excerpt"
+  },
+  {
+    "file": "NJ-40-69A-185-excerpt.txt",
+    "source": "https://pub.njleg.state.nj.us/statutes/STATUTES-TEXT.zip",
+    "sha256": "3ec5792a2208cf8764110356009d5d7df71a9ee6080f5b1822afa5dd248424e4",
+    "status": "official_statute_section_excerpt"
+  },
+  {
+    "file": "NJPA-search-evidence.md",
+    "source": "https://www.njpublicnotices.com/Archive/ArchiveSearch.aspx",
+    "recorded_utc": "2026-10-04T05:40:28.579755+00:00",
+    "sha256": "d5fbafa2aed7ced16c7b1b861dab1cf3202184af50d47804871753a667b6aa13",
+    "status": "browser_visible_search_excerpts_and_research_notes"
+  },
+  {
+    "file": "date-derivations.json",
+    "source": null,
+    "recorded_utc": "2026-10-04T05:40:28.579944+00:00",
+    "sha256": "8b1089328db5498af464ab604c926ad78fddd99fefac04c519ceff3e2af85f32",
+    "status": "research_derivation_not_source_text"
+  }
+]

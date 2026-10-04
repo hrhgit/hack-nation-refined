@@ -1,0 +1,31 @@
+SOURCE: https://example.org/rehearsal/cambridge-ordinance-2026-31
+RETRIEVED: 2026-10-03 09:00 UTC
+
+CITY OF CAMBRIDGE
+ORDINANCE NO. 2026-31
+AN ORDINANCE PROHIBITING THE USE OF ALGORITHMIC RENT-SETTING SOFTWARE IN RESIDENTIAL RENTAL HOUSING
+
+Be it ordained by the City Council of the City of Cambridge as follows:
+
+Section 1. Findings and purpose.
+The City Council finds that software that analyzes nonpublic rental data from competing landlords to recommend rents can raise rents above competitive levels. The purpose of this ordinance is to prohibit that practice for residential rental units in the City of Cambridge.
+
+Section 2. Definitions.
+(a) "Algorithmic rent-setting device" means software that uses an algorithm to analyze nonpublic competitor rental data in order to recommend rents or occupancy levels for residential dwelling units.
+(b) "Nonpublic competitor rental data" means rental rates, occupancy levels or lease terms of units owned by a person other than the user that are not publicly available.
+(c) "Landlord" means an owner, lessor or manager of a residential dwelling unit.
+
+Section 3. Prohibition.
+It shall be unlawful for a landlord to use an algorithmic rent-setting device to set the rent or occupancy level of any residential dwelling unit in the City of Cambridge. It shall also be unlawful to sell or license such a device to a landlord for use in the City of Cambridge.
+
+Section 4. Exemptions.
+This ordinance does not apply to a unit owned by a public housing authority or to a dwelling unit in an owner-occupied building of four or fewer units.
+
+Section 5. Penalties and enforcement.
+A violation is subject to a civil penalty of up to $1,000 per violation. Each unit for which a device is used, and each month of use, is a separate violation. The City Solicitor may bring a civil action to enforce this ordinance.
+
+Section 6. Effective date.
+This ordinance shall take effect ninety (90) days after its final passage.
+
+Passed to be ordained September 14, 2026.
+Attest: City Clerk

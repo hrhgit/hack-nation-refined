@@ -1,0 +1,56 @@
+[
+  {
+    "file": "CF-22-0279-status.html",
+    "source": "https://cityclerk.lacity.org/lacityclerkconnect/index.cfm?cfnumber=22-0279&fa=ccfi.viewrecord",
+    "retrieved_utc": "2026-10-04T04:49:02.957053+00:00",
+    "sha256": "6b15ad37eca3514c2f94d5a6be64a8a6f2fa352fc26f21c68f91cbb29a670b3b"
+  },
+  {
+    "file": "CF-22-0279-motion.pdf",
+    "source": "https://cityclerk.lacity.org/onlinedocs/2022/22-0279_mot_3-09-22.pdf",
+    "retrieved_utc": "2026-10-04T04:49:03.166958+00:00",
+    "sha256": "a6630ba81a0fc1841e118d4f57078a8ce99638cc1841b302634699895f863f7b"
+  },
+  {
+    "file": "CF-22-0280-status.html",
+    "source": "https://cityclerk.lacity.org/lacityclerkconnect/index.cfm?cfnumber=22-0280&fa=ccfi.viewrecord",
+    "retrieved_utc": "2026-10-04T04:49:04.227887+00:00",
+    "sha256": "c8ea3640d46c50ed22b4a65aa85dc4641e408a4504969b80afdd735784f05929"
+  },
+  {
+    "file": "CF-22-0280-action-2024-04-09.pdf",
+    "source": "https://cityclerk.lacity.org/onlinedocs/2022/22-0280_CA.pdf",
+    "retrieved_utc": "2026-10-04T04:49:04.343056+00:00",
+    "sha256": "0dd0ea73235342d9777750e11c995648f71afc52e772cc52f5a54d791dac4ead"
+  },
+  {
+    "file": "CF-22-0265-status.html",
+    "source": "https://cityclerk.lacity.org/lacityclerkconnect/index.cfm?cfnumber=22-0265&fa=ccfi.viewrecord",
+    "retrieved_utc": "2026-10-04T04:52:44.634908+00:00",
+    "sha256": "d5bbda440541aad77460763b18b1fbe2b5817b5aec5ddf56f99b39b07883d2d5"
+  },
+  {
+    "file": "Ord-185797.pdf",
+    "source": "https://cityclerk.lacity.org/onlinedocs/2017/17-0461_ORD_185797_11-25-2018.pdf",
+    "retrieved_utc": "2026-10-04T04:57:03.304172+00:00",
+    "sha256": "1cad554c7eeeee049b0cfd935b70078f6d6bea3eca9f05821dac9d9541dd54ca"
+  },
+  {
+    "file": "CF-24-0124-report-2025-10-29.pdf",
+    "source": "https://cityclerk.lacity.org/onlinedocs/2024/24-0124_rpt_lahd_10-23-25.pdf",
+    "retrieved_utc": "2026-10-04T04:57:03.485923+00:00",
+    "sha256": "26c297ccf952eef1e87fbc868ed5e9ee553a25b174e22acf71041aac31e2263c"
+  },
+  {
+    "file": "CF-24-0124-committee-2026-07-01.pdf",
+    "source": "https://cityclerk.lacity.org/onlinedocs/2024/24-0124_rpt_hh_7-1-26.pdf",
+    "retrieved_utc": "2026-10-04T04:57:03.665781+00:00",
+    "sha256": "f4cea0f08adb50548bedeee1a480329775f2ff8655403dff8b54a70a50ffadd7"
+  },
+  {
+    "file": "CF-24-0124-action-2026-08-05.pdf",
+    "source": "https://cityclerk.lacity.org/onlinedocs/2024/24-0124_ca_08-05-26.pdf",
+    "retrieved_utc": "2026-10-04T04:57:03.781561+00:00",
+    "sha256": "2dff702e17e90866813d97c26c7ffd424249bfbcd14b276453093eb54b35f9dc"
+  }
+]

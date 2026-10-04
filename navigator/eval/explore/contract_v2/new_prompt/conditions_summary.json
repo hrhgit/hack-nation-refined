@@ -1,0 +1,62 @@
+{
+ "variant": "new_prompt",
+ "passed": 43,
+ "total": 44,
+ "score": 0.9772727272727273,
+ "wrong_exclusions": 1,
+ "labels": {
+  "CA-1947.12": {
+   "passed": 9,
+   "total": 9,
+   "tries": 1
+  },
+  "CA-1946.2": {
+   "passed": 4,
+   "total": 4,
+   "tries": 1
+  },
+  "LA-RSO": {
+   "passed": 5,
+   "total": 5,
+   "tries": 1
+  },
+  "SF-allowable": {
+   "passed": 3,
+   "total": 3,
+   "tries": 1
+  },
+  "BK-coverage": {
+   "passed": 3,
+   "total": 4,
+   "tries": 1
+  },
+  "NJ-46:8-26": null,
+  "NJ-46:8-55": {
+   "passed": 4,
+   "total": 4,
+   "tries": 1
+  },
+  "NJ-46:8-18.1": {
+   "passed": 5,
+   "total": 5,
+   "tries": 1
+  },
+  "HOB-155": null,
+  "JC-260": null,
+  "NJ-FAIR": {
+   "passed": 6,
+   "total": 6,
+   "tries": 1
+  },
+  "JC-algo": null,
+  "HOB-algo": null,
+  "SD-algo": null,
+  "NJ-2A:18-61.1": null,
+  "CAM-14.04": {
+   "passed": 4,
+   "total": 4,
+   "tries": 1
+  },
+  "MA-IP25-21": null
+ }
+}

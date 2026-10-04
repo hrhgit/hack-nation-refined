@@ -1,0 +1,90 @@
+"""Expected provisions, written by hand from the challenge brief (file.pdf).
+
+Nothing here comes from a model's output. Each entry says: when the model reads `packet`, it should write a
+record for this law. The brief's "rule categories" table lists the real examples teams will meet; where the
+brief gives a date or value it is copied here, and where only the corpus itself settles it (a date that the act
+spells out as a rule) the expectation says so. Laws whose text is not in the corpus (Santa Ana, Jersey City,
+Hoboken, Newark) are left out because no packet can contain them.
+
+fields: status / effective_date (a prefix such as 2024-10 matches 2024-10-14) / key_numbers (numbers that must
+appear in key_value).
+"""
+from __future__ import annotations
+
+BRIEF = "challenge brief, 'Rule categories, with real examples from the corpus'"
+
+LABELS = [
+    dict(id="CA-1947.12", packet="D024-01", jurisdiction="CA", category="rent_increase_limits",
+         cite_re=r"1947\.12|Tenant Protection Act|AB 1482", status="in_force", key_numbers=["5", "10"],
+         source=BRIEF + ": CA Tenant Protection Act, Civ. Code 1947.12 (5% + CPI, max 10%)"),
+    dict(id="CA-1946.2", packet="D023-01", jurisdiction="CA", category="just_cause_eviction",
+         cite_re=r"1946\.2|Tenant Protection Act|AB 1482", status="in_force",
+         source=BRIEF + ": CA Civ. Code 1946.2"),
+    dict(id="CA-1950.5", packet="D025-01", jurisdiction="CA", category="security_deposits",
+         cite_re=r"1950\.5|AB 12\b", status="in_force", effective_date="2024-07-01", key_numbers=["1", "2"],
+         source=BRIEF + ": CA Civ. Code 1950.5 as amended by AB 12 (one month; two for qualifying small landlords; eff. 7/1/2024)"),
+    dict(id="CA-1950.6", packet="D026-01", jurisdiction="CA", category="application_screening_fees",
+         cite_re=r"1950\.6", status="in_force", source=BRIEF + ": CA Civ. Code 1950.6 (CPI-adjusted cap)"),
+    dict(id="CA-FEHA", packet="D027-01", jurisdiction="CA", category="screening_restrictions",
+         cite_re=r"12955|Fair Employment and Housing|FEHA|SB 329", status="in_force",
+         source=BRIEF + ": CA source-of-income protections under FEHA (SB 329)"),
+    dict(id="CA-AB325", packet="D022-01", jurisdiction="CA", category="algorithmic_rent_setting",
+         cite_re=r"325|16729|763|Cartwright", status="in_force",
+         source=BRIEF + ": CA AB 325 / SB 763 (1/1/2026). The date itself is not in the text, so it is not checked."),
+    dict(id="NJ-AEA", packet="D067-03", jurisdiction="NJ", category="just_cause_eviction",
+         cite_re=r"2A:18-61|Anti-Eviction", status="in_force",
+         source=BRIEF + ": NJ Anti-Eviction Act, N.J.S.A. 2A:18-61.1"),
+    dict(id="NJ-SDA", packet="D067-01", jurisdiction="NJ", category="security_deposits",
+         cite_re=r"46:8-(19|21)|Security Deposit", status="in_force", key_numbers=["1.5"],
+         source=BRIEF + ": NJ N.J.S.A. 46:8-21.2 (1.5 months)"),
+    dict(id="NJ-405", packet="D066-01", jurisdiction="NJ", category="application_screening_fees",
+         cite_re=r"c\.\s?0*405|405|46:8-18\.1|application fee", status="in_force", effective_date="2026-05-01", key_numbers=["50"],
+         source=BRIEF + ": NJ P.L.2025, c.405 ($50 cap, eff. 5/1/2026)"),
+    dict(id="NJ-FCHA", packet="D065-01", jurisdiction="NJ", category="screening_restrictions",
+         cite_re=r"46:8-(5[2-9]|6[0-4])|c\.\s?0*110|Fair Chance", status="in_force", effective_date="2022-01-01",
+         source=BRIEF + ": NJ Fair Chance in Housing Act (2021). Date: the act's own clause, 7th month after approval on 2021-06-18."),
+    dict(id="NJ-FAIR", packet="D069-01", jurisdiction="NJ", category="algorithmic_rent_setting",
+         cite_re=r"c\.\s?0*43\b|FAIR|56:9", status="not_yet_effective", effective_date="2027-07-01",
+         source=BRIEF + ": NJ FAIR Act, P.L.2026, c.43 (eff. 7/1/2027), challenge test T3"),
+    dict(id="MA-40P", packet="D048-01", jurisdiction="MA", category="rent_increase_limits",
+         cite_re=r"40P", status="in_force", source=BRIEF + ": MA G.L. c.40P (state bar on local rent control)"),
+    dict(id="MA-15B-deposit", packet="D052-01", jurisdiction="MA", category="security_deposits",
+         cite_re=r"15B|186", status="in_force", source=BRIEF + ": MA G.L. c.186 15B (first month's rent)"),
+    dict(id="MA-15B-fees", packet="D052-01", jurisdiction="MA", category="application_screening_fees",
+         cite_re=r"15B|186", status="in_force", source=BRIEF + ": MA G.L. c.186 15B (upfront charges limited)"),
+    dict(id="MA-87DDD", packet="D057-01", jurisdiction="MA", category="application_screening_fees",
+         cite_re=r"87DDD|112", status="in_force", effective_date="2025-08-01",
+         source=BRIEF + ": MA broker-fee rule, G.L. c.112 87DDD1/2 (8/1/2025)"),
+    dict(id="MA-S2983", packet="D046-01", jurisdiction="MA", category="algorithmic_rent_setting",
+         cite_re=r"2983", status="pending", source=BRIEF + ": MA S.2983 (pending), challenge test T4"),
+    dict(id="MA-H5222", packet="D045-01", jurisdiction="MA", category="algorithmic_rent_setting",
+         cite_re=r"5222", status="pending", source=BRIEF + ": MA H.5222 (pending), challenge test T4"),
+    dict(id="SF-37.10C", packet="D081-01", jurisdiction="San Francisco, CA", category="algorithmic_rent_setting",
+         cite_re=r"37\.10C", status="in_force", effective_date="2024-10",
+         source=BRIEF + ": San Francisco 37.10C (Oct 2024)"),
+    dict(id="SF-rent", packet="D083-01", jurisdiction="San Francisco, CA", category="rent_increase_limits",
+         cite_re=r"37|Rent Ordinance|Rent Board", status="in_force", source=BRIEF + ": SF Rent Ordinance, Admin. Code ch. 37"),
+    dict(id="SF-37.9", packet="D079-01", jurisdiction="San Francisco, CA", category="just_cause_eviction",
+         cite_re=r"37\.9|Rent Ordinance", status="in_force", source=BRIEF + ": S.F. Admin. Code 37.9 (illustrative output)"),
+    dict(id="SD-algo", packet="D076-01", jurisdiction="San Diego, CA", category="algorithmic_rent_setting",
+         cite_re=r"98\.11", source=BRIEF + ": San Diego 98.1101-98.1104 (Jun 2025). Status not checked: the packet is a draft."),
+    dict(id="BK-13.63", packet="D001-01", jurisdiction="Berkeley, CA", category="algorithmic_rent_setting",
+         cite_re=r"13\.63", status="in_force",
+         source=BRIEF + ": Berkeley ch. 13.63 (2026). The packet prints no effective date, so none is checked."),
+    dict(id="LA-RSO", packet="D041-01", jurisdiction="Los Angeles, CA", category="rent_increase_limits",
+         cite_re=r"151|Rent Stabilization|RSO", status="in_force", source=BRIEF + ": LA Rent Stabilization Ordinance"),
+    dict(id="LA-JCO", packet="D040-01", jurisdiction="Los Angeles, CA", category="just_cause_eviction",
+         cite_re=r"165|Just Cause|JCO", status="in_force", source=BRIEF + ": LA just cause (illustrative)"),
+    # Invented documents (eval/rehearsal): the answers are known by construction.
+    dict(id="REH-cambridge", packet="R001-01", jurisdiction="Cambridge, MA", category="algorithmic_rent_setting",
+         cite_re=r"2026-31|Ordinance No", status="not_yet_effective", effective_date="2026-12-13",
+         source="rehearsal R001: passed September 14, 2026, effective 90 days after final passage"),
+    dict(id="REH-boston", packet="R002-01", jurisdiction="Boston, MA", category="application_screening_fees",
+         cite_re=r"0842|Docket", status="pending", key_numbers=["50"], source="rehearsal R002: a docket still in committee"),
+    dict(id="REH-newark", packet="R003-01", jurisdiction="Newark, NJ", category="security_deposits",
+         cite_re=r"6PSF|Newark", status="in_force", effective_date="2026-09", key_numbers=["1.5"],
+         source="rehearsal R003: six sections about one law; effective on passage (Sept 2) and publication (Sept 9)"),
+    dict(id="REH-hoboken", packet="R004-01", jurisdiction="Hoboken, NJ", category="screening_restrictions",
+         cite_re=r"Fair Chance|Hoboken", status="in_force", effective_date="2026-03-01",
+         source="rehearsal R004: a web page that prints no code number and lists two rules of one law"),
+]

@@ -1,0 +1,17 @@
+--- a/prompts/extract_prompt.md
++++ b/prompts/extract_prompt.md
+@@ -69,6 +69,7 @@
+ - A law that forbids local governments from regulating something (for example a state ban on local rent control) is a rule of the state: write it in the matching category.
+ - A page that only announces this year's value of an existing rule (annual allowable increase, relocation payment amounts, deposit-interest rate) is a record for that rule, with the value and its period in `key_value`, and `effective_date` set to the day that value starts.
+ - A guide or news page that explains law is a source too: record the rule as the page states it, cite the underlying law if the page names it, otherwise cite the page title, and keep confidence at most 0.8.
++- A page about a bill, motion, petition or ballot question that is pending, failed or struck always gets its record in the matching category, with `lifecycle` `pending_bill` or `failed`, even when the page shows only its title and its history of actions. Say what it would do in `requirement` (start with "Would"), leave `key_value` and `effective_date` `null`, quote the line that gives its title or purpose, and keep `confidence` at 0.6 or below. An empty receipt for such a page is wrong: the status of the proposal is the fact to record. A bill that is not about one of the six categories still gets no record.
+ - Repealed or superseded text that the packet itself marks as no longer operative is not a rule: skip it.
+ - Most packets hold one to three laws. Before you answer, list your records by jurisdiction, category and law. If two of them match, merge them into one.
+ 
+@@ -101,5 +102,6 @@
+ - Every `quoted_span` is verbatim from the packet and shows the key number, date or prohibition.
+ - Every date and number in `key_value` and `effective_date` appears in the packet.
+ - Pending bills are `pending_bill`; struck or defeated measures are `failed`.
++- A page about a pending or failed bill, motion or petition has a record, not an empty receipt.
+ - Each packet ends with exactly one receipt whose `n_rules` matches the records above it.
+ - The output contains JSON lines and nothing else.

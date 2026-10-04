@@ -1,0 +1,6 @@
+{
+  "description": "Baseline: the prompt as it stood before the climb (v1 wording, 11,326 characters).",
+  "target": "system_prompt",
+  "prompt_sha256": "25ebf134ff493c88122ff254430a3d78f6e51f6ca194fc4ee603a3e64c36d930",
+  "model": "deepseek-flash"
+}

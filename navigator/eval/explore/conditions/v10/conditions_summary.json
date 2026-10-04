@@ -1,0 +1,151 @@
+{
+ "variant": "v10",
+ "passed": 167,
+ "total": 168,
+ "score": 0.9940476190476191,
+ "exact_passed": 84,
+ "exact_total": 84,
+ "wrong_exclusions": 0,
+ "labels": {
+  "CA-1947.12": {
+   "passed": 17,
+   "total": 18,
+   "tries": 2,
+   "exact_passed": 6,
+   "exact_total": 6
+  },
+  "CA-1946.2": {
+   "passed": 8,
+   "total": 8,
+   "tries": 2,
+   "exact_passed": 4,
+   "exact_total": 4
+  },
+  "LA-RSO": {
+   "passed": 10,
+   "total": 10,
+   "tries": 2,
+   "exact_passed": 4,
+   "exact_total": 4
+  },
+  "SF-allowable": {
+   "passed": 6,
+   "total": 6,
+   "tries": 2,
+   "exact_passed": 0,
+   "exact_total": 0
+  },
+  "BK-coverage": {
+   "passed": 8,
+   "total": 8,
+   "tries": 2,
+   "exact_passed": 4,
+   "exact_total": 4
+  },
+  "NJ-46:8-26": {
+   "passed": 10,
+   "total": 10,
+   "tries": 2,
+   "exact_passed": 8,
+   "exact_total": 8
+  },
+  "NJ-46:8-55": {
+   "passed": 8,
+   "total": 8,
+   "tries": 2,
+   "exact_passed": 6,
+   "exact_total": 6
+  },
+  "NJ-46:8-18.1": {
+   "passed": 10,
+   "total": 10,
+   "tries": 2,
+   "exact_passed": 8,
+   "exact_total": 8
+  },
+  "HOB-155": {
+   "passed": 8,
+   "total": 8,
+   "tries": 2,
+   "exact_passed": 2,
+   "exact_total": 2
+  },
+  "JC-260": {
+   "passed": 12,
+   "total": 12,
+   "tries": 2,
+   "exact_passed": 2,
+   "exact_total": 2
+  },
+  "NJ-FAIR": {
+   "passed": 12,
+   "total": 12,
+   "tries": 2,
+   "exact_passed": 6,
+   "exact_total": 6
+  },
+  "JC-algo": {
+   "passed": 6,
+   "total": 6,
+   "tries": 2,
+   "exact_passed": 4,
+   "exact_total": 4
+  },
+  "HOB-algo": {
+   "passed": 4,
+   "total": 4,
+   "tries": 2,
+   "exact_passed": 2,
+   "exact_total": 2
+  },
+  "SD-algo": {
+   "passed": 6,
+   "total": 6,
+   "tries": 2,
+   "exact_passed": 2,
+   "exact_total": 2
+  },
+  "NJ-2A:18-61.1": {
+   "passed": 8,
+   "total": 8,
+   "tries": 2,
+   "exact_passed": 6,
+   "exact_total": 6
+  },
+  "CAM-14.04": {
+   "passed": 8,
+   "total": 8,
+   "tries": 2,
+   "exact_passed": 6,
+   "exact_total": 6
+  },
+  "SD-TPO": {
+   "passed": 10,
+   "total": 10,
+   "tries": 2,
+   "exact_passed": 6,
+   "exact_total": 6
+  },
+  "SD-source-of-income": {
+   "passed": 6,
+   "total": 6,
+   "tries": 2,
+   "exact_passed": 4,
+   "exact_total": 4
+  },
+  "SA-algo": {
+   "passed": 6,
+   "total": 6,
+   "tries": 2,
+   "exact_passed": 4,
+   "exact_total": 4
+  },
+  "MA-IP25-21": {
+   "passed": 4,
+   "total": 4,
+   "tries": 2,
+   "exact_passed": 0,
+   "exact_total": 0
+  }
+ }
+}

@@ -1,0 +1,699 @@
+{
+  "checked_at": "2026-10-04T05:07:34.737611+00:00",
+  "starter_document_count": 87,
+  "extra_manifest_rows": 27,
+  "merged_document_count": 96,
+  "documents_with_text": 81,
+  "documents_without_text": [
+    "D002",
+    "D015",
+    "D017",
+    "D018",
+    "D019",
+    "D020",
+    "D021",
+    "D028",
+    "D030",
+    "D054",
+    "D055",
+    "D059",
+    "D060",
+    "D077",
+    "D087"
+  ],
+  "documents": [
+    {
+      "doc_id": "D001",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D001.txt",
+      "has_text": true,
+      "sha256": "7f24d692c68f42ed2ab11a2d1f8e060a951f8cf6a3974b4e8090e63081ad6f17",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D002",
+      "path": null,
+      "has_text": false,
+      "sha256": null,
+      "index_matches": null
+    },
+    {
+      "doc_id": "D003",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D003.txt",
+      "has_text": true,
+      "sha256": "a008c846fc4edd842994d8c5ea0367546e55319670e9687c5d1c7ccfdfa1ce40",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D004",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D004.txt",
+      "has_text": true,
+      "sha256": "bb1b00d69bd3ead225e5bd758bf642256df1cb89dfa4275a5699266b78df30e1",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D005",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D005.txt",
+      "has_text": true,
+      "sha256": "396972b4e199efe65ff763eae53ed8a81d99e17ba900c39f16bfb44c16637bed",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D006",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D006.txt",
+      "has_text": true,
+      "sha256": "f1960db522de7f63158e64334835b37e52ae1d8fa8b510eeb314658aef4173fa",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D007",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D007.txt",
+      "has_text": true,
+      "sha256": "2ba3028382b89ee70810a45e25dd9707297bd65512e2723f4f9bda514af57203",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D008",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D008.txt",
+      "has_text": true,
+      "sha256": "969848595b70aa2ff7b9e8420f610c36b914521c4ea4dd1d0656be776e90c39f",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D009",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D009.txt",
+      "has_text": true,
+      "sha256": "bddd7d3ab24d2717a0393cf879bad9a849af3aa10dd2e426bc9da34dcd19c5e3",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D010",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D010.txt",
+      "has_text": true,
+      "sha256": "61380f45cb66d87065eb029b6f5ee54dc704a0d059acc6136477337ce5f0cb73",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D011",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D011.txt",
+      "has_text": true,
+      "sha256": "93835654c3483e7b169677f7a3ccdcf021b6edab4ac81ab7ad3091903de71ff2",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D012",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D012.txt",
+      "has_text": true,
+      "sha256": "aaed5c3d1e3aacb57a1f9a8fa9e855ecaa857bdbedc3d7b99a1992e7fc0aed0f",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D013",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D013.txt",
+      "has_text": true,
+      "sha256": "49b8ad77c47ac7a12afc5a1451cc38e8d908b45f83c922cbd2ee2eb320b715f0",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D014",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D014.txt",
+      "has_text": true,
+      "sha256": "70574b2f50c363398d635ef9cc92eed83ba4eca0e404a04ec04bfba004ff9606",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D015",
+      "path": null,
+      "has_text": false,
+      "sha256": null,
+      "index_matches": null
+    },
+    {
+      "doc_id": "D016",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D016.txt",
+      "has_text": true,
+      "sha256": "21d92128daede668d6f1a824528ead345982ddf043a32e4fb5d80dd8adbcdce9",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D017",
+      "path": null,
+      "has_text": false,
+      "sha256": null,
+      "index_matches": null
+    },
+    {
+      "doc_id": "D018",
+      "path": null,
+      "has_text": false,
+      "sha256": null,
+      "index_matches": null
+    },
+    {
+      "doc_id": "D019",
+      "path": null,
+      "has_text": false,
+      "sha256": null,
+      "index_matches": null
+    },
+    {
+      "doc_id": "D020",
+      "path": null,
+      "has_text": false,
+      "sha256": null,
+      "index_matches": null
+    },
+    {
+      "doc_id": "D021",
+      "path": null,
+      "has_text": false,
+      "sha256": null,
+      "index_matches": null
+    },
+    {
+      "doc_id": "D022",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D022.txt",
+      "has_text": true,
+      "sha256": "0699980875e6bf3d797abd8b734db7d449b295173e33668cc655e3b394c084ed",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D023",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D023.txt",
+      "has_text": true,
+      "sha256": "fdd8d7fca42103cf630c3a9a4ed217150eb17a6e180edd80c1d845ca5e8aa1fe",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D024",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D024.txt",
+      "has_text": true,
+      "sha256": "eb9c42af2b9a5c220ca37816f409f0bd3ea92a002a973283e779fdb72de18bd7",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D025",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D025.txt",
+      "has_text": true,
+      "sha256": "48b1d005fb59f73082dc625d4038272f4bde950d2c93a70ef400a43b630e1511",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D026",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D026.txt",
+      "has_text": true,
+      "sha256": "35ec54ef926471876977b9cad3f0db7ff5b77393bd0baad03ed30125949f8e7a",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D027",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D027.txt",
+      "has_text": true,
+      "sha256": "511f8074b8f4959161fb4c7ec922c8fa963735b47c13d852b8a09ca42b922ecf",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D028",
+      "path": null,
+      "has_text": false,
+      "sha256": null,
+      "index_matches": null
+    },
+    {
+      "doc_id": "D029",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D029.txt",
+      "has_text": true,
+      "sha256": "ce40e4d452c15e43e1bb07e7f03f7bd2bd738b2da614d1d21b7826f7e581e01c",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D030",
+      "path": null,
+      "has_text": false,
+      "sha256": null,
+      "index_matches": null
+    },
+    {
+      "doc_id": "D031",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D031.txt",
+      "has_text": true,
+      "sha256": "65ffa9dca5815b925debf63d1ff0974f710aed6614723f28d722209094a36b20",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D032",
+      "path": "navigator/corpus_extra/text/D032.txt",
+      "has_text": true,
+      "sha256": "de024451dd20b2bdeb891f6f26221014d15b29fc7dbc18c0f1fd4c2d7359dfa2",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D033",
+      "path": "navigator/corpus_extra/text/D033.txt",
+      "has_text": true,
+      "sha256": "4b25a36f70e5853dc4746572ca13f13cc228db33956399cda7b65f9221fad044",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D034",
+      "path": "navigator/corpus_extra/text/D034.txt",
+      "has_text": true,
+      "sha256": "571ac3279b3cac79cc85c45a4ec60c833e9d5bbd708d95e9598487df1d11701d",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D035",
+      "path": "navigator/corpus_extra/text/D035.txt",
+      "has_text": true,
+      "sha256": "bed90a39956de13daed83901f4d3e3b8e3f52b846124e471237feca37b6ed92e",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D036",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D036.txt",
+      "has_text": true,
+      "sha256": "f444bed30ede0905ce671ac4b9addf27feaa31c9a74ba6ba537b7f8d77e81dce",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D037",
+      "path": "navigator/corpus_extra/text/D037.txt",
+      "has_text": true,
+      "sha256": "1ae3ea7c6495df1fe1c2eedebb4d53b719907fbca560b61294c6b04f9e0a75e1",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D038",
+      "path": "navigator/corpus_extra/text/D038.txt",
+      "has_text": true,
+      "sha256": "67d9c4c8f9b3bf8d658cca947d85463b3fb620959996af812cebf5aad9d61814",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D039",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D039.txt",
+      "has_text": true,
+      "sha256": "cf36489eb7db23226ff24eb4a65615b9837c67659221630e0366a4ff4456df00",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D040",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D040.txt",
+      "has_text": true,
+      "sha256": "13f9d54597199b73e23ad12dcc38626d53bb30bd53d89a63b6a7f55ecc570425",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D041",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D041.txt",
+      "has_text": true,
+      "sha256": "4d8837313d514bde68624c37ab37622dd950c542bdc74942702641519eae3ece",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D042",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D042.txt",
+      "has_text": true,
+      "sha256": "21a8e44f111659923f120ad5543bf46611e1b2dd5af0087cc16f98de479cd262",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D043",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D043.txt",
+      "has_text": true,
+      "sha256": "31b7db7b0e637435a30b1c9bf6db06d8e1a4b748e335bceeaa9232da266e6f04",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D044",
+      "path": "navigator/corpus_extra/text/D044.txt",
+      "has_text": true,
+      "sha256": "35e2baa6db93b749ad40be6cb6334041b1411c20ade68f3ce2e83b15675af259",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D045",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D045.txt",
+      "has_text": true,
+      "sha256": "8bc537dfe4d0e00b829147ae82ba11d40bef8a2b0696f487c417ca517673bba7",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D046",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D046.txt",
+      "has_text": true,
+      "sha256": "6ea5313d0a656ab73b683e72b594cf143ee61bd6923ee1d9f3df46682248004d",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D047",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D047.txt",
+      "has_text": true,
+      "sha256": "9af3e5eba834b37a5115fef298f5e2a1c1fc0b93c1d69500aea9d6bc7ee24b93",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D048",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D048.txt",
+      "has_text": true,
+      "sha256": "090647f489ec5f03c114df23b74c28a107a7e0b855e382969c27dbf58a55837d",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D049",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D049.txt",
+      "has_text": true,
+      "sha256": "ac42593c79533c25223582de77eb5411d2f8ef501a0d027d2a61042b7e81d7ef",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D050",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D050.txt",
+      "has_text": true,
+      "sha256": "cdc077701a5c63533240e370c77ce86546bd2c8372d771433c52a98fadc48f19",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D051",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D051.txt",
+      "has_text": true,
+      "sha256": "6c1a194983bb0ee7079919bb8ef0e77efcd35d73dd9795853024a6eaaf5b24de",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D052",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D052.txt",
+      "has_text": true,
+      "sha256": "f24c21cb2b32330c0f2f112f066d02b784887a8552cc3777ea96f1d53dd0171f",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D053",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D053.txt",
+      "has_text": true,
+      "sha256": "5c418b18df23a00a8b6b056e68352f67b378b94321ee42867df8ce02ce36830a",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D054",
+      "path": null,
+      "has_text": false,
+      "sha256": null,
+      "index_matches": null
+    },
+    {
+      "doc_id": "D055",
+      "path": null,
+      "has_text": false,
+      "sha256": null,
+      "index_matches": null
+    },
+    {
+      "doc_id": "D056",
+      "path": "navigator/corpus_extra/text/D056.txt",
+      "has_text": true,
+      "sha256": "4814ae234bf886d97b2fe12465a8445b0d0018d219ac791e83a7736bee79d1ee",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D057",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D057.txt",
+      "has_text": true,
+      "sha256": "c678b42f8fc6ecfc7c7a6b1bdf6c68aec877daa80a53d62d5d2ca8176c967d7b",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D058",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D058.txt",
+      "has_text": true,
+      "sha256": "80dcf6692b891859e2601c0732252ba30ec010b5034749c4693ef68ce1fd4281",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D059",
+      "path": null,
+      "has_text": false,
+      "sha256": null,
+      "index_matches": null
+    },
+    {
+      "doc_id": "D060",
+      "path": null,
+      "has_text": false,
+      "sha256": null,
+      "index_matches": null
+    },
+    {
+      "doc_id": "D061",
+      "path": "navigator/corpus_extra/text/D061.txt",
+      "has_text": true,
+      "sha256": "26f22b3fe077ce49ce789564cde527f049df94b417b762432c547e32864c9ef8",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D062",
+      "path": "navigator/corpus_extra/text/D062.txt",
+      "has_text": true,
+      "sha256": "54d02d80c5d285519fcacfaff867f974dbb8ab3abf084c00f01e2eeb4277c974",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D063",
+      "path": "navigator/corpus_extra/text/D063.txt",
+      "has_text": true,
+      "sha256": "42e23b217dc39f27e244c569f8392e98dfa3c31b8895f39a92009f24cf502cf3",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D064",
+      "path": "navigator/corpus_extra/text/D064.txt",
+      "has_text": true,
+      "sha256": "e916a9b16b0d9d682f860d771b4abd038d2f4f9e6ed884517694f7916ebad6b4",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D065",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D065.txt",
+      "has_text": true,
+      "sha256": "c7d281ddae183438fd360bfa0b4824d6541c532efe6ae8123dad37e0f4d53e1e",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D066",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D066.txt",
+      "has_text": true,
+      "sha256": "e06aa61acf6ddb50631d5be3c89c4029caccb13c0dcc7be888e0e64f8b182c2e",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D067",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D067.txt",
+      "has_text": true,
+      "sha256": "a61f61a51b513b48a41cce48326e28861838a95e5e5a29cdedc41470d44ed505",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D068",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D068.txt",
+      "has_text": true,
+      "sha256": "857cb50fde16e0027346c44f502b2f0d854aad4bca7cf0926a31cd54adad8159",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D069",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D069.txt",
+      "has_text": true,
+      "sha256": "1fdbfb48743a46429c3f47dbd8d08c665739202361661e1a2f19b94bb0ec43a6",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D070",
+      "path": "navigator/corpus_extra/text/D070.txt",
+      "has_text": true,
+      "sha256": "59755b164b20b02cfa4162fb579f94fcafbd55f4f65811ca96c84311b57eb13b",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D071",
+      "path": "navigator/corpus_extra/text/D071.txt",
+      "has_text": true,
+      "sha256": "98d39175958b85f32786f6af1ebf9d2fc9c2e08be11830eeb11980fdeaaf094b",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D072",
+      "path": "navigator/corpus_extra/text/D072.txt",
+      "has_text": true,
+      "sha256": "d24b153d10e6db74ac3f95dea280943f2454635110b087010d7016c74318f4d0",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D073",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D073.txt",
+      "has_text": true,
+      "sha256": "d1d4b9874a7c4b51a97cb81809e9ece2658f0f9e52898d904f90d48f3c1a140b",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D074",
+      "path": "navigator/corpus_extra/text/D074.txt",
+      "has_text": true,
+      "sha256": "e9bbd000334e0f14525cf1340064e06744b52f4c303dc86ab30b6f1e931448ed",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D075",
+      "path": "navigator/corpus_extra/text/D075.txt",
+      "has_text": true,
+      "sha256": "045ed8ebfff76d98f60c5d5bc3bdd12340078a04f38e69defbdec1ff5f987e80",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D076",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D076.txt",
+      "has_text": true,
+      "sha256": "31b29a40becda1c218d4f64aedcb56a44241857b0f5d8b451c7b20b5737edc1e",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D077",
+      "path": null,
+      "has_text": false,
+      "sha256": null,
+      "index_matches": null
+    },
+    {
+      "doc_id": "D078",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D078.txt",
+      "has_text": true,
+      "sha256": "448b85d4e40d5f17d12acf18db20aab4b9337b2e196099fee46c65f46dae91cc",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D079",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D079.txt",
+      "has_text": true,
+      "sha256": "51f9490227bafc8a6f458c7e417f41bce3af07c1416fae77f281b987d97ef793",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D080",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D080.txt",
+      "has_text": true,
+      "sha256": "924783981b92aabf2a5200517290879d008fd1e8c579969bdddaa28ff6f9fd7d",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D081",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D081.txt",
+      "has_text": true,
+      "sha256": "e3437f99eae3882641b5052fd7006f2a0304abd2033e1b721a8c32324be2afab",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D082",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D082.txt",
+      "has_text": true,
+      "sha256": "5e1ee2ddac37eb9639650aaa15af33f6820c182edc506f4b6da787a3da7714f6",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D083",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D083.txt",
+      "has_text": true,
+      "sha256": "764e9e3a023bd434458dfea8ffbb57e57d23e5f0a4939cc10948b9e495034d2f",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D084",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D084.txt",
+      "has_text": true,
+      "sha256": "fc10720530c3f1eeb733fe7954d39b62ad374c8d954053c61dea0a89444f08b3",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D085",
+      "path": "starter-pack/participant-final-no-hour16 3/corpus/text/D085.txt",
+      "has_text": true,
+      "sha256": "de9d126675c8ee1ab2809c897c8c819bfe241dc95de31ace5004b6c7973607d8",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D086",
+      "path": "navigator/corpus_extra/text/D086.txt",
+      "has_text": true,
+      "sha256": "20227ac39993ed4d566569968dd8c93074d2ddfa0b10191a10cc90a64cfc7fc7",
+      "index_matches": true
+    },
+    {
+      "doc_id": "D087",
+      "path": null,
+      "has_text": false,
+      "sha256": null,
+      "index_matches": null
+    },
+    {
+      "doc_id": "X001",
+      "path": "navigator/corpus_extra/text/X001.txt",
+      "has_text": true,
+      "sha256": "9c212a8dbceb78d2778f51cc75b2434aff1faf59064dbd4190036f2accaae0e7",
+      "index_matches": true
+    },
+    {
+      "doc_id": "X002",
+      "path": "navigator/corpus_extra/text/X002.txt",
+      "has_text": true,
+      "sha256": "41b3571b10a68f2c40cc7a6d0a1f30935bd50ece6d01e702e819a942c65fb305",
+      "index_matches": true
+    },
+    {
+      "doc_id": "X003",
+      "path": "navigator/corpus_extra/text/X003.txt",
+      "has_text": true,
+      "sha256": "05680b067b43b176c74491f119c86b0cf3055c8f245b6216dc05812fa3a8e825",
+      "index_matches": true
+    },
+    {
+      "doc_id": "X004",
+      "path": "navigator/corpus_extra/text/X004.txt",
+      "has_text": true,
+      "sha256": "ef20d3f051c6fc28cab7ac5d295280a7e0e6ac0137607d4308f9d6ca9305eb7f",
+      "index_matches": true
+    },
+    {
+      "doc_id": "X005",
+      "path": "navigator/corpus_extra/text/X005.txt",
+      "has_text": true,
+      "sha256": "c802d000cad0bad58fe275563aa68fbd14d849f5e7aeaeb6691493859c417918",
+      "index_matches": true
+    },
+    {
+      "doc_id": "X006",
+      "path": "navigator/corpus_extra/text/X006.txt",
+      "has_text": true,
+      "sha256": "4eebe19790b44e345833aeb305607e37534c28ebc6b0d4ed7953d33fa203aded",
+      "index_matches": true
+    },
+    {
+      "doc_id": "X007",
+      "path": "navigator/corpus_extra/text/X007.txt",
+      "has_text": true,
+      "sha256": "d259896f4eb8e26e74972cd9404dfcebb115c0a1bd613339f2549447f5dc9bbb",
+      "index_matches": true
+    },
+    {
+      "doc_id": "X008",
+      "path": "navigator/corpus_extra/text/X008.txt",
+      "has_text": true,
+      "sha256": "f5004b135aa1daf8f60d819c710b423a616d3c02b168bbbffd81a093f9e4f1b5",
+      "index_matches": true
+    },
+    {
+      "doc_id": "X101",
+      "path": "navigator/corpus_extra/text/X101.txt",
+      "has_text": true,
+      "sha256": "dd84fb80e2bc48946a8d03def7199c97ef7aca40c5da1e4f82f6a2fc419cdd73",
+      "index_matches": true
+    }
+  ],
+  "scope": "File existence, header and SHA/index consistency; does not certify legal completeness, OCR fidelity, or rule extraction."
+}

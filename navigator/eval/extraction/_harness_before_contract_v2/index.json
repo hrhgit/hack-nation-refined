@@ -1,0 +1,3571 @@
+{
+ "packets": {
+  "D001-01": {
+   "doc_id": "D001",
+   "part": 1,
+   "parts": 1,
+   "chars": 8160,
+   "sha256": "419a6489aa1f1b7f28ec3c0267d233e2a9e3ce5b1b3c937a37642e960ea57b91",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 69
+   }
+  },
+  "D003-01": {
+   "doc_id": "D003",
+   "part": 1,
+   "parts": 1,
+   "chars": 6325,
+   "sha256": "f8fa83d2eeeb09b39d92833e0a0aec9317222aaa54c3814f654173dd1cc29751",
+   "hits": {
+    "rent_increase_limits": 10,
+    "just_cause_eviction": 1,
+    "security_deposits": 2,
+    "application_screening_fees": 0,
+    "screening_restrictions": 18,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D004-01": {
+   "doc_id": "D004",
+   "part": 1,
+   "parts": 1,
+   "chars": 2806,
+   "sha256": "76b126084895414d4cf95722b8a2dd620613ede782ea6bf0e07bc118059bc064",
+   "hits": {
+    "rent_increase_limits": 15,
+    "just_cause_eviction": 22,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D005-01": {
+   "doc_id": "D005",
+   "part": 1,
+   "parts": 1,
+   "chars": 4099,
+   "sha256": "169ac3b9524737b543c851f7e6753e51a032dbf5fa118eb04b8e7411aef22285",
+   "hits": {
+    "rent_increase_limits": 8,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 10,
+    "screening_restrictions": 4,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D006-01": {
+   "doc_id": "D006",
+   "part": 1,
+   "parts": 1,
+   "chars": 14260,
+   "sha256": "0885b6b268274a5eefb0acd7cc16c742a3666e8d547b5731136fad9987b6cbea",
+   "hits": {
+    "rent_increase_limits": 83,
+    "just_cause_eviction": 35,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 20,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D007-01": {
+   "doc_id": "D007",
+   "part": 1,
+   "parts": 1,
+   "chars": 5159,
+   "sha256": "79398d75e0db2511db3d83a65e06d4eacfb611ab9a5cf4fedd840f09741e3bac",
+   "hits": {
+    "rent_increase_limits": 10,
+    "just_cause_eviction": 0,
+    "security_deposits": 14,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D008-01": {
+   "doc_id": "D008",
+   "part": 1,
+   "parts": 1,
+   "chars": 2162,
+   "sha256": "5581d99ed4c43c382b6135fd424324faa6cc30946462d334d1a608e4f048b91e",
+   "hits": {
+    "rent_increase_limits": 17,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D009-01": {
+   "doc_id": "D009",
+   "part": 1,
+   "parts": 1,
+   "chars": 3052,
+   "sha256": "a4ff0da5e47892a43c613c72ba52d5483024226c3d74fb9e1832b9e5db937e7d",
+   "hits": {
+    "rent_increase_limits": 4,
+    "just_cause_eviction": 6,
+    "security_deposits": 2,
+    "application_screening_fees": 0,
+    "screening_restrictions": 10,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D010-01": {
+   "doc_id": "D010",
+   "part": 1,
+   "parts": 1,
+   "chars": 6684,
+   "sha256": "189b0525299b3845e3fa2949a713766e2365468e1bccd2d96db6e3062dc5985c",
+   "hits": {
+    "rent_increase_limits": 1,
+    "just_cause_eviction": 1,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 25,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D011-01": {
+   "doc_id": "D011",
+   "part": 1,
+   "parts": 1,
+   "chars": 3730,
+   "sha256": "60d52fff94a25d5b273d6e61734fd2d69aa7aaa7c80e2a03266fd23bc3978e09",
+   "hits": {
+    "rent_increase_limits": 4,
+    "just_cause_eviction": 2,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D012-01": {
+   "doc_id": "D012",
+   "part": 1,
+   "parts": 1,
+   "chars": 3992,
+   "sha256": "4cd3219a3e1d26332ea439475029448134f7a6a74d1ffe3b0f68b2044bef2ffa",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 15,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D013-01": {
+   "doc_id": "D013",
+   "part": 1,
+   "parts": 1,
+   "chars": 5775,
+   "sha256": "5bad2e53ff35b71ee815c9059966a9a4bd550f11d8986bb63c3cd51312053b77",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 6,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D014-01": {
+   "doc_id": "D014",
+   "part": 1,
+   "parts": 1,
+   "chars": 6141,
+   "sha256": "742fd38451e155d0e301dbfb4066fcf066dda90d74648c4b70a544dc6667ce7e",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 12,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D016-01": {
+   "doc_id": "D016",
+   "part": 1,
+   "parts": 2,
+   "chars": 24043,
+   "sha256": "0c8fb3ff1a4c673fc5d6a8efe582a92f47249c0e1cb3e6d3e3ca5cdecffbe392",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 1,
+    "security_deposits": 4,
+    "application_screening_fees": 8,
+    "screening_restrictions": 50,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D016-02": {
+   "doc_id": "D016",
+   "part": 2,
+   "parts": 2,
+   "chars": 2960,
+   "sha256": "f44ca47713e410eea7e9c64aeedc31efad129ae7b4563446412dbc1e5fca008d",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 5,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D022-01": {
+   "doc_id": "D022",
+   "part": 1,
+   "parts": 1,
+   "chars": 6543,
+   "sha256": "cccc645200f6620e62b8441e968726d1a06c267ddba200d580147c450a617395",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 44
+   }
+  },
+  "D023-01": {
+   "doc_id": "D023",
+   "part": 1,
+   "parts": 2,
+   "chars": 23757,
+   "sha256": "6b0b025203bb5947c035a683549d4d1b1eb9e6defe5cdcf602db4902627d2f4b",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 57,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 4,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D023-02": {
+   "doc_id": "D023",
+   "part": 2,
+   "parts": 2,
+   "chars": 1706,
+   "sha256": "f7712d5b182d8deb8cc3f420ccd628b6a09049147f0372befca7255033195b77",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D024-01": {
+   "doc_id": "D024",
+   "part": 1,
+   "parts": 1,
+   "chars": 15725,
+   "sha256": "20622c58b09cad899a8aa1097a8bab875a5baa41116d2e553f3fd2efca91e6d3",
+   "hits": {
+    "rent_increase_limits": 41,
+    "just_cause_eviction": 2,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 6,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D025-01": {
+   "doc_id": "D025",
+   "part": 1,
+   "parts": 2,
+   "chars": 24226,
+   "sha256": "0feb902dd71c26318e62add332ccebcedd3a7f68925ba73dc195363d162e08c9",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 2,
+    "security_deposits": 6,
+    "application_screening_fees": 2,
+    "screening_restrictions": 2,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D025-02": {
+   "doc_id": "D025",
+   "part": 2,
+   "parts": 2,
+   "chars": 3747,
+   "sha256": "d0ff088c2c0fc3697b37860d6eb367975811be1c74aa4d1974599d34b5e5dbdf",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 5,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D026-01": {
+   "doc_id": "D026",
+   "part": 1,
+   "parts": 1,
+   "chars": 7041,
+   "sha256": "509101d03c184a804198ad635a2dfdb43b54f7afce896b410a4e6e39e013b9d9",
+   "hits": {
+    "rent_increase_limits": 2,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 12,
+    "screening_restrictions": 5,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D027-01": {
+   "doc_id": "D027",
+   "part": 1,
+   "parts": 1,
+   "chars": 10673,
+   "sha256": "1355f5af860ace82722486b70ec8fd64df4c81565e4c044f9735bf3e830c610c",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 1,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 32,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D029-01": {
+   "doc_id": "D029",
+   "part": 1,
+   "parts": 1,
+   "chars": 12702,
+   "sha256": "7d7b84b3fd63b9f593491ece30ca9873ee6bc880fbd2d40a452847d7098d556b",
+   "hits": {
+    "rent_increase_limits": 1,
+    "just_cause_eviction": 1,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 18,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D031-01": {
+   "doc_id": "D031",
+   "part": 1,
+   "parts": 1,
+   "chars": 6323,
+   "sha256": "ab88c24a5a33587231ff8523fd1b18d8204f21082b01bc353b35c0184d0fdf13",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 9,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 2,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D032-01": {
+   "doc_id": "D032",
+   "part": 1,
+   "parts": 4,
+   "chars": 24341,
+   "sha256": "8bc35c1dc0d60fe43fa96c172eee8dcdedeaa9044e39556730070bf7499fa9e9",
+   "hits": {
+    "rent_increase_limits": 35,
+    "just_cause_eviction": 4,
+    "security_deposits": 1,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D032-02": {
+   "doc_id": "D032",
+   "part": 2,
+   "parts": 4,
+   "chars": 22548,
+   "sha256": "34fe3e71fae6e7d621fd60debb65505cc3d7db4585cf8b59165fd177bdc9bab1",
+   "hits": {
+    "rent_increase_limits": 21,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D032-03": {
+   "doc_id": "D032",
+   "part": 3,
+   "parts": 4,
+   "chars": 24186,
+   "sha256": "89b8342c2fbe58f1280ecc6e45a1836471ea56b63d4c2519d11d980da20e8a1d",
+   "hits": {
+    "rent_increase_limits": 19,
+    "just_cause_eviction": 1,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D032-04": {
+   "doc_id": "D032",
+   "part": 4,
+   "parts": 4,
+   "chars": 8457,
+   "sha256": "c8f33f4ca4e413cd5574bbf8910bdb0efdd202d9342e34dbceb03c9e658bbb69",
+   "hits": {
+    "rent_increase_limits": 13,
+    "just_cause_eviction": 0,
+    "security_deposits": 2,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D033-01": {
+   "doc_id": "D033",
+   "part": 1,
+   "parts": 2,
+   "chars": 23894,
+   "sha256": "b887b7a445864713ac207b35efa790757aab8cdbd7aa0156a1da4170abd9246c",
+   "hits": {
+    "rent_increase_limits": 22,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D033-02": {
+   "doc_id": "D033",
+   "part": 2,
+   "parts": 2,
+   "chars": 6360,
+   "sha256": "f3078a84dd01216fa0072e38c5b7d0e62d48604e11c0b6fe4cf01391d812acee",
+   "hits": {
+    "rent_increase_limits": 4,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D034-01": {
+   "doc_id": "D034",
+   "part": 1,
+   "parts": 1,
+   "chars": 4023,
+   "sha256": "49411be9c6373692e45ffce2cf49b9e487dd7b1df5c20043509086a8413e10e8",
+   "hits": {
+    "rent_increase_limits": 10,
+    "just_cause_eviction": 0,
+    "security_deposits": 2,
+    "application_screening_fees": 0,
+    "screening_restrictions": 2,
+    "algorithmic_rent_setting": 32
+   }
+  },
+  "D035-01": {
+   "doc_id": "D035",
+   "part": 1,
+   "parts": 1,
+   "chars": 13884,
+   "sha256": "1c78dbca9325d1ec6693168ae79415a44b38ef29d05f471c08bd3d1f770c2dff",
+   "hits": {
+    "rent_increase_limits": 3,
+    "just_cause_eviction": 1,
+    "security_deposits": 2,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 34
+   }
+  },
+  "D036-01": {
+   "doc_id": "D036",
+   "part": 1,
+   "parts": 1,
+   "chars": 5932,
+   "sha256": "3ce7854634fa430562071045a8b698e341137bfd25ba48599d5950bb4b547e21",
+   "hits": {
+    "rent_increase_limits": 17,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D037-01": {
+   "doc_id": "D037",
+   "part": 1,
+   "parts": 1,
+   "chars": 6435,
+   "sha256": "18259f707625e9b2cdb3a5deb4e6f525312b6b735e7cb0ca0223d24a6f19ec38",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 12
+   }
+  },
+  "D038-01": {
+   "doc_id": "D038",
+   "part": 1,
+   "parts": 1,
+   "chars": 7124,
+   "sha256": "3a1a4c09bb08ab2ab754f7799651a8d826a173394e7dc7fc413fc26b382ef308",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 2,
+    "security_deposits": 2,
+    "application_screening_fees": 0,
+    "screening_restrictions": 24,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D039-01": {
+   "doc_id": "D039",
+   "part": 1,
+   "parts": 1,
+   "chars": 3341,
+   "sha256": "ad0c7e67963925c7041ef1187af1a6d33c43de59cde2dbee4c6af3114844a87b",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 1,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 28
+   }
+  },
+  "D040-01": {
+   "doc_id": "D040",
+   "part": 1,
+   "parts": 1,
+   "chars": 9937,
+   "sha256": "bd2f8e4f4916594f801e534102fd91db16f426406797b4e747dff3fad93798a3",
+   "hits": {
+    "rent_increase_limits": 15,
+    "just_cause_eviction": 24,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D041-01": {
+   "doc_id": "D041",
+   "part": 1,
+   "parts": 1,
+   "chars": 10634,
+   "sha256": "6d03d3ca55df0ce52462ec5722ef765f038a4a4da11d8af181fe928ad3b0ebcc",
+   "hits": {
+    "rent_increase_limits": 30,
+    "just_cause_eviction": 21,
+    "security_deposits": 2,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D042-01": {
+   "doc_id": "D042",
+   "part": 1,
+   "parts": 1,
+   "chars": 5253,
+   "sha256": "73ef8120ec1168425e5613e9c9fc35e1995554897587a2dc6a3d9f487046a2ee",
+   "hits": {
+    "rent_increase_limits": 28,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D043-01": {
+   "doc_id": "D043",
+   "part": 1,
+   "parts": 2,
+   "chars": 21827,
+   "sha256": "a44776270dd8dc69b4076a4924d8a9c96dfcc72c4ff6ae4c42f1d120a1081d65",
+   "hits": {
+    "rent_increase_limits": 4,
+    "just_cause_eviction": 87,
+    "security_deposits": 3,
+    "application_screening_fees": 6,
+    "screening_restrictions": 1,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D043-02": {
+   "doc_id": "D043",
+   "part": 2,
+   "parts": 2,
+   "chars": 13485,
+   "sha256": "d324d49b8af28b38e44a009372cbae1435a9968739edaef36359b58fb5fa4edc",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 32,
+    "security_deposits": 0,
+    "application_screening_fees": 8,
+    "screening_restrictions": 1,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D044-01": {
+   "doc_id": "D044",
+   "part": 1,
+   "parts": 1,
+   "chars": 4549,
+   "sha256": "33c2838532664410907f8695558479784ff07a0d878a37d7e22afa17993e80cd",
+   "hits": {
+    "rent_increase_limits": 2,
+    "just_cause_eviction": 1,
+    "security_deposits": 20,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D045-01": {
+   "doc_id": "D045",
+   "part": 1,
+   "parts": 1,
+   "chars": 2744,
+   "sha256": "a81cfd166331feae770f054e98f1062a4cc02ed401cc4eded90af9e8205f2ee3",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 3
+   }
+  },
+  "D046-01": {
+   "doc_id": "D046",
+   "part": 1,
+   "parts": 1,
+   "chars": 3193,
+   "sha256": "fab16184cc7b9c92493c80d264406c164dd297907e1e286efc6943fe83034a5c",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 9
+   }
+  },
+  "D047-01": {
+   "doc_id": "D047",
+   "part": 1,
+   "parts": 1,
+   "chars": 3205,
+   "sha256": "dd4b916375d7a7a6e77e084991bde8dc9e2b7de80a3f6868de6de1f3b8ab9edb",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 9
+   }
+  },
+  "D048-01": {
+   "doc_id": "D048",
+   "part": 1,
+   "parts": 1,
+   "chars": 2790,
+   "sha256": "06419c21062f48bb3d090c12a82e7cd617d31896abae8351938114307bf15f50",
+   "hits": {
+    "rent_increase_limits": 10,
+    "just_cause_eviction": 1,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D049-01": {
+   "doc_id": "D049",
+   "part": 1,
+   "parts": 3,
+   "chars": 23274,
+   "sha256": "4e6a7721ed49bad7e5da6279998ae3a1cdf0833c057e95d737857f5c5a43ebd8",
+   "hits": {
+    "rent_increase_limits": 1,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 2,
+    "screening_restrictions": 11,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D049-02": {
+   "doc_id": "D049",
+   "part": 2,
+   "parts": 3,
+   "chars": 23876,
+   "sha256": "85d1b223e286a061d8163b263665c32b3a979b48c8fc8fd46ae49d8d5e5566cf",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 4,
+    "screening_restrictions": 41,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D049-03": {
+   "doc_id": "D049",
+   "part": 3,
+   "parts": 3,
+   "chars": 10217,
+   "sha256": "efc43a0f6357ebbfda30bf828401264f047a533df621cd49754ee4ffb6ce3450",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 2,
+    "screening_restrictions": 1,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D050-01": {
+   "doc_id": "D050",
+   "part": 1,
+   "parts": 1,
+   "chars": 2433,
+   "sha256": "a3b1e8bbd860dac0fc354a901964520ca9f8efea9f812142fd8b653500d5445c",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 1,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 2,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D051-01": {
+   "doc_id": "D051",
+   "part": 1,
+   "parts": 1,
+   "chars": 4096,
+   "sha256": "e90006500b966d8fcead8bb5d16860e659a6f6a447d907c53ad03b69557df367",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 2,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 2,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D052-01": {
+   "doc_id": "D052",
+   "part": 1,
+   "parts": 2,
+   "chars": 23643,
+   "sha256": "8b60a97fd4e96ddc3d9ec2b6a58a926b6e4ca99ab6defee6eab0b67fc7e5a34b",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 53,
+    "application_screening_fees": 1,
+    "screening_restrictions": 1,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D052-02": {
+   "doc_id": "D052",
+   "part": 2,
+   "parts": 2,
+   "chars": 3204,
+   "sha256": "a9e309b676fdc7c0133643849eb68f65a1f86ef773b733b87dce1a922d718370",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D053-01": {
+   "doc_id": "D053",
+   "part": 1,
+   "parts": 1,
+   "chars": 4297,
+   "sha256": "5644e58d011452eda10dc3584c25d8d8080e712cf792296d59a81f95ebb47e30",
+   "hits": {
+    "rent_increase_limits": 2,
+    "just_cause_eviction": 2,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D056-01": {
+   "doc_id": "D056",
+   "part": 1,
+   "parts": 2,
+   "chars": 23345,
+   "sha256": "688803d0c1a8a6aa1df801d3f07cfa99697a494b12b899c1bb2e3349cf150af6",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 77,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D056-02": {
+   "doc_id": "D056",
+   "part": 2,
+   "parts": 2,
+   "chars": 2776,
+   "sha256": "d5dcfaf62c8eb03601fb38d8c58a91c835bd169187d8329b1136d42332f972c5",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 10,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D057-01": {
+   "doc_id": "D057",
+   "part": 1,
+   "parts": 1,
+   "chars": 2805,
+   "sha256": "6db2425d8ebcc01fb2bafe25b1b0c759908fafa1b4ebb474e7c8e9f826162f67",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 8,
+    "screening_restrictions": 12,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D058-01": {
+   "doc_id": "D058",
+   "part": 1,
+   "parts": 1,
+   "chars": 2979,
+   "sha256": "cac924e1a3ccb93ee139da2977618cb562b2995ea53f2d98151dc60a8bf8ee80",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 7,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 2,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D061-01": {
+   "doc_id": "D061",
+   "part": 1,
+   "parts": 2,
+   "chars": 23504,
+   "sha256": "c51eb47c4d465671fb4db532e8176dbf0b98d396dad684e5ddbf86bd0431d048",
+   "hits": {
+    "rent_increase_limits": 1,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 2,
+    "screening_restrictions": 19,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D061-02": {
+   "doc_id": "D061",
+   "part": 2,
+   "parts": 2,
+   "chars": 20980,
+   "sha256": "b49ceb5a5487e008f66fc24e1e09976257ae9af7db6d5417deecc8971ccee118",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 2,
+    "screening_restrictions": 14,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D062-01": {
+   "doc_id": "D062",
+   "part": 1,
+   "parts": 1,
+   "chars": 16059,
+   "sha256": "713169bb1bafdc3c697f92e7e48bd5a8393d077708b8303bc73a3e1740c8a36f",
+   "hits": {
+    "rent_increase_limits": 4,
+    "just_cause_eviction": 7,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 6,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D063-01": {
+   "doc_id": "D063",
+   "part": 1,
+   "parts": 1,
+   "chars": 928,
+   "sha256": "a91973f4394de7e3c874084ea27258cd07013240ce00a5a0e2146943899226bf",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 4,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D064-01": {
+   "doc_id": "D064",
+   "part": 1,
+   "parts": 1,
+   "chars": 857,
+   "sha256": "108fcdab77bc802b5383dc49f520f850eae950138e652ca7b252e0b879708779",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D065-01": {
+   "doc_id": "D065",
+   "part": 1,
+   "parts": 1,
+   "chars": 21245,
+   "sha256": "09b0c5eaaf84c80d23979c2fb04d43a4a72c8302919a5582151f396613b031a4",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 5,
+    "security_deposits": 0,
+    "application_screening_fees": 4,
+    "screening_restrictions": 35,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D066-01": {
+   "doc_id": "D066",
+   "part": 1,
+   "parts": 1,
+   "chars": 4447,
+   "sha256": "fb9ead975e8051b6ce041656ccc01c7307c5d81b34ba7ed986a817300a88d8d4",
+   "hits": {
+    "rent_increase_limits": 4,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 4,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D067-01": {
+   "doc_id": "D067",
+   "part": 1,
+   "parts": 4,
+   "chars": 23057,
+   "sha256": "6e3e4b6104f012f5c5cc0bdd43e186b56e7b4acdaaac76b79b520c6c7813b1d8",
+   "hits": {
+    "rent_increase_limits": 7,
+    "just_cause_eviction": 13,
+    "security_deposits": 50,
+    "application_screening_fees": 0,
+    "screening_restrictions": 3,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D067-02": {
+   "doc_id": "D067",
+   "part": 2,
+   "parts": 4,
+   "chars": 20388,
+   "sha256": "7ff97d4432d8c29a5c865f0379791fbee9e89067bf42a1d6c6adeec56c2e0af1",
+   "hits": {
+    "rent_increase_limits": 36,
+    "just_cause_eviction": 24,
+    "security_deposits": 14,
+    "application_screening_fees": 2,
+    "screening_restrictions": 13,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D067-03": {
+   "doc_id": "D067",
+   "part": 3,
+   "parts": 4,
+   "chars": 21057,
+   "sha256": "b3adc33e89d9cc31ddaa2d02bb6406fdc571ae4f049217ff22e8dd582f55160c",
+   "hits": {
+    "rent_increase_limits": 14,
+    "just_cause_eviction": 57,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 4,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D067-04": {
+   "doc_id": "D067",
+   "part": 4,
+   "parts": 4,
+   "chars": 18253,
+   "sha256": "fcc6e2cc257e6f93a21aad62b55ac9d2ab16df41e4e157ca76b6b335ea8b5444",
+   "hits": {
+    "rent_increase_limits": 9,
+    "just_cause_eviction": 26,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 10,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D068-01": {
+   "doc_id": "D068",
+   "part": 1,
+   "parts": 1,
+   "chars": 7105,
+   "sha256": "2bf8099d7a0bf96f1a5580ac94e6551d7f88c4390e6d0bbcdf7957028bbdf2a6",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 1,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 15,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D069-01": {
+   "doc_id": "D069",
+   "part": 1,
+   "parts": 1,
+   "chars": 10701,
+   "sha256": "d5c16e203a4d44b909031c97f989d9d2625dc1df498cfe5d62fa9bdc3b88b519",
+   "hits": {
+    "rent_increase_limits": 2,
+    "just_cause_eviction": 0,
+    "security_deposits": 2,
+    "application_screening_fees": 0,
+    "screening_restrictions": 4,
+    "algorithmic_rent_setting": 45
+   }
+  },
+  "D070-01": {
+   "doc_id": "D070",
+   "part": 1,
+   "parts": 6,
+   "chars": 23465,
+   "sha256": "bec2a1d17d6b4bd06aa1be2e17c87171504222df2e8a92ec80292a7d72a98bd8",
+   "hits": {
+    "rent_increase_limits": 54,
+    "just_cause_eviction": 5,
+    "security_deposits": 2,
+    "application_screening_fees": 0,
+    "screening_restrictions": 6,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D070-02": {
+   "doc_id": "D070",
+   "part": 2,
+   "parts": 6,
+   "chars": 20898,
+   "sha256": "bd040b1e5c1850c27aed177a809de4530beca3de5102a4857bbeb72f7b3fc7dc",
+   "hits": {
+    "rent_increase_limits": 22,
+    "just_cause_eviction": 2,
+    "security_deposits": 0,
+    "application_screening_fees": 4,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D070-03": {
+   "doc_id": "D070",
+   "part": 3,
+   "parts": 6,
+   "chars": 24136,
+   "sha256": "c35e7bec15c74e4b4dc45b2b4135658dcdb56ec1d38e6c4190acb2227512e5a9",
+   "hits": {
+    "rent_increase_limits": 75,
+    "just_cause_eviction": 4,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D070-04": {
+   "doc_id": "D070",
+   "part": 4,
+   "parts": 6,
+   "chars": 23278,
+   "sha256": "cae130bdaf542aa146d647d89d80984d27d9d68da0184e82c0d70b1930a70243",
+   "hits": {
+    "rent_increase_limits": 76,
+    "just_cause_eviction": 5,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D070-05": {
+   "doc_id": "D070",
+   "part": 5,
+   "parts": 6,
+   "chars": 22167,
+   "sha256": "06d3a6e0e66695e9fbd75f4ea79245702c9f5e9360a006a7d2d3ab7fa32da99a",
+   "hits": {
+    "rent_increase_limits": 47,
+    "just_cause_eviction": 4,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D070-06": {
+   "doc_id": "D070",
+   "part": 6,
+   "parts": 6,
+   "chars": 9777,
+   "sha256": "d1de32bcca0eb50803fcfd2370035286ec3a45ef398c2c584c3a1ab7abb6ffc9",
+   "hits": {
+    "rent_increase_limits": 2,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 2,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-01": {
+   "doc_id": "D071",
+   "part": 1,
+   "parts": 17,
+   "chars": 24044,
+   "sha256": "ff498d3461d6ffc61b2b417e10134ae90a92bc37be46ba6e7322ae71f2b11eac",
+   "hits": {
+    "rent_increase_limits": 7,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 13,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-02": {
+   "doc_id": "D071",
+   "part": 2,
+   "parts": 17,
+   "chars": 23725,
+   "sha256": "bb4feb9ba6c4d2e8b68ea624ba6ba44dfd2470c09bd3e90fffc607620a5bb324",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-03": {
+   "doc_id": "D071",
+   "part": 3,
+   "parts": 17,
+   "chars": 22552,
+   "sha256": "8ac42ae258292c4bd22b830dea4f254e16129f3695af0e57c033e5974336e0b5",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 4,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-04": {
+   "doc_id": "D071",
+   "part": 4,
+   "parts": 17,
+   "chars": 20916,
+   "sha256": "40ac16900d883694696ed50a50a9386c53b02e413c8e079c4601bf77cb415ebd",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 4,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-05": {
+   "doc_id": "D071",
+   "part": 5,
+   "parts": 17,
+   "chars": 23733,
+   "sha256": "1ac411a5b3c0f40ee2dddc2ba1526cfab7fc7d32314fce50463face1ebb93515",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 2,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-06": {
+   "doc_id": "D071",
+   "part": 6,
+   "parts": 17,
+   "chars": 24472,
+   "sha256": "cce5a4066f2bc7a36b93294b86f8f6236ad70e03ba3aca3ae531bc21080541eb",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-07": {
+   "doc_id": "D071",
+   "part": 7,
+   "parts": 17,
+   "chars": 23854,
+   "sha256": "5c69cbce6760abb769db00694154e6a300d1c3bbf6bda73881aef9db2c1f15cc",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-08": {
+   "doc_id": "D071",
+   "part": 8,
+   "parts": 17,
+   "chars": 23838,
+   "sha256": "a6104494d60b0c8d91f221666cea0d6e35b42d100ac72b1cb1e22f8c3cdc7b59",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-09": {
+   "doc_id": "D071",
+   "part": 9,
+   "parts": 17,
+   "chars": 21952,
+   "sha256": "1288e71d59be1406041a10abf5cfeb16d4a56d6c49b006bfd7a262e0db5fef6d",
+   "hits": {
+    "rent_increase_limits": 8,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-10": {
+   "doc_id": "D071",
+   "part": 10,
+   "parts": 17,
+   "chars": 23575,
+   "sha256": "78d4f1f34ffe7bfb1843c4cb4c1935af53b908051a8f4f3d98020eb7b965468d",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-11": {
+   "doc_id": "D071",
+   "part": 11,
+   "parts": 17,
+   "chars": 23938,
+   "sha256": "ba81b1b4d8476cdf9a64c20bfe1118145a9476f2f5877aaa3e741a32dcf99d48",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 2,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-12": {
+   "doc_id": "D071",
+   "part": 12,
+   "parts": 17,
+   "chars": 24333,
+   "sha256": "a5c60fe43a45322fd31207767f2108d3b029712015435e96349596a47d45ec61",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 1,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-13": {
+   "doc_id": "D071",
+   "part": 13,
+   "parts": 17,
+   "chars": 22153,
+   "sha256": "0b32f6c1f44405390e2f088da88a709a17e175234c76849db373d8e80e12f268",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 1,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-14": {
+   "doc_id": "D071",
+   "part": 14,
+   "parts": 17,
+   "chars": 24301,
+   "sha256": "3f0c30fbc1b7f2235417e62459a04b1c168a0fe1a67b16257952d1b68906fc56",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-15": {
+   "doc_id": "D071",
+   "part": 15,
+   "parts": 17,
+   "chars": 23899,
+   "sha256": "ef752f87f04c2687dfff0fbc7080a92b268344be63feca1507a90df177d6e1c5",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 1,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-16": {
+   "doc_id": "D071",
+   "part": 16,
+   "parts": 17,
+   "chars": 23442,
+   "sha256": "84c951de453cb137b2f7432c569e3ccfe2a9ecebad3c36e2a7b88e13d485ba4b",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D071-17": {
+   "doc_id": "D071",
+   "part": 17,
+   "parts": 17,
+   "chars": 6365,
+   "sha256": "dbcec1aeed2ed3cdf2b63ab9f7cb4050335356dec4ac7431c003802b16b6c79c",
+   "hits": {
+    "rent_increase_limits": 4,
+    "just_cause_eviction": 2,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D072-01": {
+   "doc_id": "D072",
+   "part": 1,
+   "parts": 2,
+   "chars": 23713,
+   "sha256": "3bd044f5a5dd447de55f7062743e4b77967eeed34c8017c12cffdbfbfe8e8a5a",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 48,
+    "screening_restrictions": 87,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D072-02": {
+   "doc_id": "D072",
+   "part": 2,
+   "parts": 2,
+   "chars": 4194,
+   "sha256": "8cfabaf9448c7dd09a89fc7da139a3550bbb008844d0e351b21c0fee65ca7f62",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 8,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D073-01": {
+   "doc_id": "D073",
+   "part": 1,
+   "parts": 2,
+   "chars": 24141,
+   "sha256": "b986e752bfcbc090864173c68a779f82cbb1bbed3f95fa1fc74a16966a2cccae",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 40,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 12,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D073-02": {
+   "doc_id": "D073",
+   "part": 2,
+   "parts": 2,
+   "chars": 14753,
+   "sha256": "ee1888970287ff06d0ed32ff10b59b6b94cecd4fbd17f2a77ee779e982b48ddb",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 62,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D074-01": {
+   "doc_id": "D074",
+   "part": 1,
+   "parts": 1,
+   "chars": 7060,
+   "sha256": "d884ff744289e41561db2c863e0cdab61e75a7ae4e16019eb69ed9d09d59287c",
+   "hits": {
+    "rent_increase_limits": 2,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 47
+   }
+  },
+  "D075-01": {
+   "doc_id": "D075",
+   "part": 1,
+   "parts": 1,
+   "chars": 9715,
+   "sha256": "d89c2214713a3199dab3331297bb298fe7b049243727c297b7491f93fd4120eb",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 2,
+    "application_screening_fees": 0,
+    "screening_restrictions": 34,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D076-01": {
+   "doc_id": "D076",
+   "part": 1,
+   "parts": 1,
+   "chars": 23449,
+   "sha256": "abfe3251024c8bec4de4463c81ea135ca057a4b24db33b8661cad17587703fb5",
+   "hits": {
+    "rent_increase_limits": 10,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 196
+   }
+  },
+  "D078-01": {
+   "doc_id": "D078",
+   "part": 1,
+   "parts": 1,
+   "chars": 7044,
+   "sha256": "39f3f5254201cd822bf1fc0dc77fe5578fe69b437ce824df6520e77b1c25d41b",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 16,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D079-01": {
+   "doc_id": "D079",
+   "part": 1,
+   "parts": 1,
+   "chars": 5680,
+   "sha256": "84bf6bfd041787018036548793ba1607f82d10cf08983a380627dd2933bbef86",
+   "hits": {
+    "rent_increase_limits": 12,
+    "just_cause_eviction": 18,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D080-01": {
+   "doc_id": "D080",
+   "part": 1,
+   "parts": 1,
+   "chars": 1397,
+   "sha256": "7b784c4a5b915a9d372afb30c5eae011dde20b3d746155cf11089dd8feceeadb",
+   "hits": {
+    "rent_increase_limits": 24,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D081-01": {
+   "doc_id": "D081",
+   "part": 1,
+   "parts": 1,
+   "chars": 1487,
+   "sha256": "acb036677a0a29ce4b73063070fab594ae1fc5f6331016c192b73996749f4409",
+   "hits": {
+    "rent_increase_limits": 4,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 21
+   }
+  },
+  "D082-01": {
+   "doc_id": "D082",
+   "part": 1,
+   "parts": 1,
+   "chars": 3872,
+   "sha256": "e33e9cc407e7cd2dc7b5d2c417c5e44b46d30d529ceb71fa2ee59bbf8bfb77ac",
+   "hits": {
+    "rent_increase_limits": 8,
+    "just_cause_eviction": 21,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D083-01": {
+   "doc_id": "D083",
+   "part": 1,
+   "parts": 1,
+   "chars": 5028,
+   "sha256": "20900fe059799ee6e6977e33496331a5ae5654760a7c69247a945378315f2c3f",
+   "hits": {
+    "rent_increase_limits": 30,
+    "just_cause_eviction": 21,
+    "security_deposits": 15,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D084-01": {
+   "doc_id": "D084",
+   "part": 1,
+   "parts": 1,
+   "chars": 4460,
+   "sha256": "12ea92fd5cf86390a1d9d868bb9edb6a5d2104b7a57d8769828ab7ae4bc678f4",
+   "hits": {
+    "rent_increase_limits": 37,
+    "just_cause_eviction": 17,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D085-01": {
+   "doc_id": "D085",
+   "part": 1,
+   "parts": 1,
+   "chars": 5652,
+   "sha256": "358b0b91268b9972a5d7324687264c7b76a128b9eeddbe46d797ef4cc49a4a65",
+   "hits": {
+    "rent_increase_limits": 27,
+    "just_cause_eviction": 19,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "D086-01": {
+   "doc_id": "D086",
+   "part": 1,
+   "parts": 2,
+   "chars": 18651,
+   "sha256": "da87cb821efd1c2790b8b0427f0f45b60a357c2cfa2de30beeffdadc44cb3073",
+   "hits": {
+    "rent_increase_limits": 8,
+    "just_cause_eviction": 3,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 12,
+    "algorithmic_rent_setting": 77
+   }
+  },
+  "D086-02": {
+   "doc_id": "D086",
+   "part": 2,
+   "parts": 2,
+   "chars": 18807,
+   "sha256": "37468db329652e754afca6a652e97aaa9a64f6e182075b7642fd5de983e0b97d",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X001-01": {
+   "doc_id": "X001",
+   "part": 1,
+   "parts": 1,
+   "chars": 9283,
+   "sha256": "d8363f9366eff7f83fc445b475ccc1a1571e808787059ca40123ba87fc259790",
+   "hits": {
+    "rent_increase_limits": 18,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X002-01": {
+   "doc_id": "X002",
+   "part": 1,
+   "parts": 3,
+   "chars": 23894,
+   "sha256": "01cd8948b38fd57c6abca97c19f75c01f0af75acdc47adf6e10e9fadd5b17b4f",
+   "hits": {
+    "rent_increase_limits": 33,
+    "just_cause_eviction": 3,
+    "security_deposits": 3,
+    "application_screening_fees": 2,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X002-02": {
+   "doc_id": "X002",
+   "part": 2,
+   "parts": 3,
+   "chars": 23630,
+   "sha256": "70d434a7d51d8a861e9c869c6679072614346bd18fafb358741594d0aa261623",
+   "hits": {
+    "rent_increase_limits": 11,
+    "just_cause_eviction": 1,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X002-03": {
+   "doc_id": "X002",
+   "part": 3,
+   "parts": 3,
+   "chars": 11300,
+   "sha256": "dbcea4cec44a30bd967214eb33a273f4c5f19fec1751a634c789ec557ab71e62",
+   "hits": {
+    "rent_increase_limits": 2,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X003-01": {
+   "doc_id": "X003",
+   "part": 1,
+   "parts": 1,
+   "chars": 7957,
+   "sha256": "369f7991ef3d9ea5da9dc890c9f0b99e93677f614ab64c2913abe69a912ecf32",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 2
+   }
+  },
+  "X004-01": {
+   "doc_id": "X004",
+   "part": 1,
+   "parts": 1,
+   "chars": 1797,
+   "sha256": "f5b44164d3a1c4101094e897ad981c095f34a8114c22fc8529f1fe921e613984",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X005-01": {
+   "doc_id": "X005",
+   "part": 1,
+   "parts": 1,
+   "chars": 1932,
+   "sha256": "a54e73cf8df68754834e7ed4801e09ce7d13a60b7d39ef30a9b3095614373c23",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 2
+   }
+  },
+  "X006-01": {
+   "doc_id": "X006",
+   "part": 1,
+   "parts": 2,
+   "chars": 23566,
+   "sha256": "8f713b46ecd39b0bee0388807bf15dc656f8c6486c60b5b81c86dc991e531fa8",
+   "hits": {
+    "rent_increase_limits": 3,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X006-02": {
+   "doc_id": "X006",
+   "part": 2,
+   "parts": 2,
+   "chars": 17319,
+   "sha256": "49ea270204aa95f57aa6236f45ed4cf7b353a23d728800980ccee2f5acb1b7d6",
+   "hits": {
+    "rent_increase_limits": 2,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 2,
+    "algorithmic_rent_setting": 0
+   }
+  },
+  "X007-01": {
+   "doc_id": "X007",
+   "part": 1,
+   "parts": 1,
+   "chars": 5086,
+   "sha256": "52dd1f66b54f1b3cc6ff1f034762874ab02859bbb7ac238950a694d924fbf5ea",
+   "hits": {
+    "rent_increase_limits": 0,
+    "just_cause_eviction": 0,
+    "security_deposits": 0,
+    "application_screening_fees": 0,
+    "screening_restrictions": 0,
+    "algorithmic_rent_setting": 0
+   }
+  }
+ },
+ "docs": {
+  "D001": {
+   "raw_chars": 7860,
+   "clean_chars": 7741,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 6,
+   "blocks_kept": 6,
+   "dropped_blocks": [],
+   "packets": [
+    "D001-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Berkeley, CA",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/2025-12-02%20Item%2001%20Ordinance%207992.pdf",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "7f24d692c68f42ed2ab11a2d1f8e060a951f8cf6a3974b4e8090e63081ad6f17"
+  },
+  "D002": {
+   "no_text": true,
+   "jurisdictions": "Berkeley, CA",
+   "url": "https://morganlewis.com/pubs/2026/08/algorithmic-rent-pricing-litigation-expands-under-new-state-and-local-laws",
+   "source_type": "secondary (law firm / news / mirror)",
+   "capture": "link-only",
+   "status": "link-only",
+   "origin": "starter"
+  },
+  "D003": {
+   "raw_chars": 5841,
+   "clean_chars": 5841,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D003-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Berkeley, CA",
+   "url": "https://rentboard.berkeleyca.gov/Fair_Chance",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "a008c846fc4edd842994d8c5ea0367546e55319670e9687c5d1c7ccfdfa1ce40"
+  },
+  "D004": {
+   "raw_chars": 2316,
+   "clean_chars": 2316,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D004-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Berkeley, CA",
+   "url": "https://rentboard.berkeleyca.gov/elected-rent-board/news/2026-adjustments-relocation-assistance-payments",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "bb1b00d69bd3ead225e5bd758bf642256df1cb89dfa4275a5699266b78df30e1"
+  },
+  "D005": {
+   "raw_chars": 3571,
+   "clean_chars": 3571,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D005-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Berkeley, CA",
+   "url": "https://rentboard.berkeleyca.gov/laws-regulations/city-berkeley-ordinances-affecting-rental-properties/tenant-screening-and",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "396972b4e199efe65ff763eae53ed8a81d99e17ba900c39f16bfb44c16637bed"
+  },
+  "D006": {
+   "raw_chars": 13750,
+   "clean_chars": 13750,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 8,
+   "blocks_kept": 8,
+   "dropped_blocks": [],
+   "packets": [
+    "D006-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Berkeley, CA",
+   "url": "https://rentboard.berkeleyca.gov/laws-regulations/measure-bb-changes-berkeleys-rent-ordinance",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "f1960db522de7f63158e64334835b37e52ae1d8fa8b510eeb314658aef4173fa"
+  },
+  "D007": {
+   "raw_chars": 4734,
+   "clean_chars": 4734,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D007-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Berkeley, CA",
+   "url": "https://rentboard.berkeleyca.gov/rights-responsibilities/security-deposits",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "2ba3028382b89ee70810a45e25dd9707297bd65512e2723f4f9bda514af57203"
+  },
+  "D008": {
+   "raw_chars": 1716,
+   "clean_chars": 1664,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D008-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Berkeley, CA",
+   "url": "https://rentboard.berkeleyca.gov/sites/default/files/documents/AGA%20Public%20Notice.pdf",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "969848595b70aa2ff7b9e8420f610c36b914521c4ea4dd1d0656be776e90c39f"
+  },
+  "D009": {
+   "raw_chars": 2522,
+   "clean_chars": 2474,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 2,
+   "blocks_kept": 2,
+   "dropped_blocks": [],
+   "packets": [
+    "D009-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Berkeley, CA",
+   "url": "https://rentboard.berkeleyca.gov/sites/default/files/documents/Rent%20Ordinance%20Coverage%20by%20Unit%20Type.pdf",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "bddd7d3ab24d2717a0393cf879bad9a849af3aa10dd2e426bc9da34dcd19c5e3"
+  },
+  "D010": {
+   "raw_chars": 6384,
+   "clean_chars": 6237,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 4,
+   "blocks_kept": 4,
+   "dropped_blocks": [],
+   "packets": [
+    "D010-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Boston, MA",
+   "url": "https://drive.google.com/file/d/1j4U3fDtmnYuwcUWhx5BMUcXc1bnKT8Ku/view?usp=sharing",
+   "source_type": "official city-linked policy",
+   "origin": "starter",
+   "file_sha256": "61380f45cb66d87065eb029b6f5ee54dc704a0d059acc6136477337ce5f0cb73"
+  },
+  "D011": {
+   "raw_chars": 3627,
+   "clean_chars": 3368,
+   "nav_lines_removed": 24,
+   "nav_chars_removed": 317,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D011-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Boston, MA",
+   "url": "https://malegislature.gov/Bills/193/H3744",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "93835654c3483e7b169677f7a3ccdcf021b6edab4ac81ab7ad3091903de71ff2"
+  },
+  "D012": {
+   "raw_chars": 3856,
+   "clean_chars": 3568,
+   "nav_lines_removed": 28,
+   "nav_chars_removed": 346,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D012-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Boston, MA",
+   "url": "https://www.boston.gov/departments/fair-housing-and-equity/boston-fair-housing-regulations",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "aaed5c3d1e3aacb57a1f9a8fa9e855ecaa857bdbedc3d7b99a1992e7fc0aed0f"
+  },
+  "D013": {
+   "raw_chars": 6183,
+   "clean_chars": 5384,
+   "nav_lines_removed": 48,
+   "nav_chars_removed": 886,
+   "blocks": 2,
+   "blocks_kept": 2,
+   "dropped_blocks": [],
+   "packets": [
+    "D013-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Boston, MA",
+   "url": "https://www.boston.gov/housing-stability-notification-act",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "49b8ad77c47ac7a12afc5a1451cc38e8d908b45f83c922cbd2ee2eb320b715f0"
+  },
+  "D014": {
+   "raw_chars": 5727,
+   "clean_chars": 5699,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 6,
+   "blocks_kept": 6,
+   "dropped_blocks": [],
+   "packets": [
+    "D014-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Boston, MA",
+   "url": "https://www.boston.gov/sites/default/files/file/2020/11/Housing%20Stability%20Notification%20Act%20Tenant%20FAQs.pdf",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "70574b2f50c363398d635ef9cc92eed83ba4eca0e404a04ec04bfba004ff9606"
+  },
+  "D015": {
+   "no_text": true,
+   "jurisdictions": "CA",
+   "url": "https://caanet.org/compliance-reminder-section-8-acceptance-and-criminal-background-checks-are-fair-housing-issues/",
+   "source_type": "secondary (law firm / news / mirror)",
+   "capture": "link-only",
+   "status": "link-only",
+   "origin": "starter"
+  },
+  "D016": {
+   "raw_chars": 26505,
+   "clean_chars": 26000,
+   "nav_lines_removed": 32,
+   "nav_chars_removed": 592,
+   "blocks": 5,
+   "blocks_kept": 5,
+   "dropped_blocks": [],
+   "packets": [
+    "D016-01",
+    "D016-02"
+   ],
+   "no_text": false,
+   "jurisdictions": "CA",
+   "url": "https://calcivilrights.ca.gov/housing/",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "21d92128daede668d6f1a824528ead345982ddf043a32e4fb5d80dd8adbcdce9"
+  },
+  "D017": {
+   "no_text": true,
+   "jurisdictions": "CA",
+   "url": "https://california.public.law/codes/civil_code_section_1950.6",
+   "source_type": "secondary (law firm / news / mirror)",
+   "capture": "link-only",
+   "status": "link-only",
+   "origin": "starter"
+  },
+  "D018": {
+   "no_text": true,
+   "jurisdictions": "CA",
+   "url": "https://law.justia.com/codes/california/code-civ/division-3/part-4/title-5/chapter-2/section-1946-2/",
+   "source_type": "secondary (law firm / news / mirror)",
+   "capture": "link-only",
+   "status": "link-only",
+   "origin": "starter"
+  },
+  "D019": {
+   "no_text": true,
+   "jurisdictions": "CA",
+   "url": "https://law.justia.com/codes/california/code-civ/division-3/part-4/title-5/chapter-2/section-1947-12/",
+   "source_type": "secondary (law firm / news / mirror)",
+   "capture": "link-only",
+   "status": "link-only",
+   "origin": "starter"
+  },
+  "D020": {
+   "no_text": true,
+   "jurisdictions": "CA",
+   "url": "https://law.justia.com/codes/california/code-civ/division-3/part-4/title-5/chapter-2/section-1950-5/",
+   "source_type": "secondary (law firm / news / mirror)",
+   "capture": "link-only",
+   "status": "link-only",
+   "origin": "starter"
+  },
+  "D021": {
+   "no_text": true,
+   "jurisdictions": "CA",
+   "url": "https://law.justia.com/codes/california/code-gov/title-2/division-3/part-2-8/chapter-6/article-2/section-12955/",
+   "source_type": "secondary (law firm / news / mirror)",
+   "capture": "link-only",
+   "status": "link-only",
+   "origin": "starter"
+  },
+  "D022": {
+   "raw_chars": 6452,
+   "clean_chars": 6127,
+   "nav_lines_removed": 44,
+   "nav_chars_removed": 412,
+   "blocks": 4,
+   "blocks_kept": 4,
+   "dropped_blocks": [],
+   "packets": [
+    "D022-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "CA",
+   "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB325",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "0699980875e6bf3d797abd8b734db7d449b295173e33668cc655e3b394c084ed"
+  },
+  "D023": {
+   "raw_chars": 24849,
+   "clean_chars": 24383,
+   "nav_lines_removed": 93,
+   "nav_chars_removed": 611,
+   "blocks": 5,
+   "blocks_kept": 5,
+   "dropped_blocks": [],
+   "packets": [
+    "D023-01",
+    "D023-02"
+   ],
+   "no_text": false,
+   "jurisdictions": "CA",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1946.2",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "fdd8d7fca42103cf630c3a9a4ed217150eb17a6e180edd80c1d845ca5e8aa1fe"
+  },
+  "D024": {
+   "raw_chars": 15733,
+   "clean_chars": 15267,
+   "nav_lines_removed": 93,
+   "nav_chars_removed": 611,
+   "blocks": 3,
+   "blocks_kept": 3,
+   "dropped_blocks": [],
+   "packets": [
+    "D024-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "CA",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1947.12",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "eb9c42af2b9a5c220ca37816f409f0bd3ea92a002a973283e779fdb72de18bd7"
+  },
+  "D025": {
+   "raw_chars": 27294,
+   "clean_chars": 26828,
+   "nav_lines_removed": 93,
+   "nav_chars_removed": 611,
+   "blocks": 5,
+   "blocks_kept": 5,
+   "dropped_blocks": [],
+   "packets": [
+    "D025-01",
+    "D025-02"
+   ],
+   "no_text": false,
+   "jurisdictions": "CA",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1950.5",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "48b1d005fb59f73082dc625d4038272f4bde950d2c93a70ef400a43b630e1511"
+  },
+  "D026": {
+   "raw_chars": 7045,
+   "clean_chars": 6579,
+   "nav_lines_removed": 93,
+   "nav_chars_removed": 611,
+   "blocks": 2,
+   "blocks_kept": 2,
+   "dropped_blocks": [],
+   "packets": [
+    "D026-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "CA",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1950.6",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "35ec54ef926471876977b9cad3f0db7ff5b77393bd0baad03ed30125949f8e7a"
+  },
+  "D027": {
+   "raw_chars": 10709,
+   "clean_chars": 10243,
+   "nav_lines_removed": 93,
+   "nav_chars_removed": 611,
+   "blocks": 3,
+   "blocks_kept": 3,
+   "dropped_blocks": [],
+   "packets": [
+    "D027-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "CA",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=12955",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "511f8074b8f4959161fb4c7ec922c8fa963735b47c13d852b8a09ca42b922ecf"
+  },
+  "D028": {
+   "no_text": true,
+   "jurisdictions": "CA",
+   "url": "https://www.clearygottlieb.com/news-and-insights/publication-listing/californias-antitrust-law-amendments-kick-in-targeting-algorithmic-pricing",
+   "source_type": "secondary (law firm / news / mirror)",
+   "capture": "link-only",
+   "status": "link-only",
+   "origin": "starter"
+  },
+  "D029": {
+   "raw_chars": 12356,
+   "clean_chars": 12276,
+   "nav_lines_removed": 9,
+   "nav_chars_removed": 109,
+   "blocks": 3,
+   "blocks_kept": 3,
+   "dropped_blocks": [],
+   "packets": [
+    "D029-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Cambridge, MA",
+   "url": "https://www.cambridgema.gov/departments/humanrightscommission",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "ce40e4d452c15e43e1bb07e7f03f7bd2bd738b2da614d1d21b7826f7e581e01c"
+  },
+  "D030": {
+   "no_text": true,
+   "jurisdictions": "Cambridge, MA",
+   "url": "https://www.cambridgeday.com/?p=158097",
+   "source_type": "secondary (law firm / news / mirror)",
+   "capture": "link-only",
+   "status": "link-only",
+   "origin": "starter"
+  },
+  "D031": {
+   "raw_chars": 5943,
+   "clean_chars": 5863,
+   "nav_lines_removed": 9,
+   "nav_chars_removed": 109,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D031-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Cambridge, MA",
+   "url": "https://www.cambridgema.gov/tenantrights",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "65ffa9dca5815b925debf63d1ff0974f710aed6614723f28d722209094a36b20"
+  },
+  "D032": {
+   "raw_chars": 77560,
+   "clean_chars": 77496,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 43,
+   "blocks_kept": 43,
+   "dropped_blocks": [],
+   "packets": [
+    "D032-01",
+    "D032-02",
+    "D032-03",
+    "D032-04"
+   ],
+   "no_text": false,
+   "jurisdictions": "Hoboken, NJ",
+   "url": "https://ecode360.com/15252438",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "de024451dd20b2bdeb891f6f26221014d15b29fc7dbc18c0f1fd4c2d7359dfa2"
+  },
+  "D033": {
+   "raw_chars": 29377,
+   "clean_chars": 29360,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 17,
+   "blocks_kept": 17,
+   "dropped_blocks": [],
+   "packets": [
+    "D033-01",
+    "D033-02"
+   ],
+   "no_text": false,
+   "jurisdictions": "Hoboken, NJ",
+   "url": "https://ecode360.com/15252470",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "4b25a36f70e5853dc4746572ca13f13cc228db33956399cda7b65f9221fad044"
+  },
+  "D034": {
+   "raw_chars": 3619,
+   "clean_chars": 3618,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 2,
+   "blocks_kept": 2,
+   "dropped_blocks": [],
+   "packets": [
+    "D034-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Hoboken, NJ",
+   "url": "https://ecode360.com/46833413",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "571ac3279b3cac79cc85c45a4ec60c833e9d5bbd708d95e9598487df1d11701d"
+  },
+  "D035": {
+   "raw_chars": 13408,
+   "clean_chars": 13374,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 5,
+   "blocks_kept": 5,
+   "dropped_blocks": [],
+   "packets": [
+    "D035-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Jersey City, NJ",
+   "url": "https://mcclibraryfunctions.azurewebsites.us/api/ordinanceDownload/16093/1418853/pdf?forceDownload=true",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "bed90a39956de13daed83901f4d3e3b8e3f52b846124e471237feca37b6ed92e"
+  },
+  "D036": {
+   "raw_chars": 7428,
+   "clean_chars": 5544,
+   "nav_lines_removed": 95,
+   "nav_chars_removed": 2029,
+   "blocks": 5,
+   "blocks_kept": 5,
+   "dropped_blocks": [],
+   "packets": [
+    "D036-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Jersey City, NJ",
+   "url": "https://www.jerseycitynj.gov/landlordtenant",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "f444bed30ede0905ce671ac4b9addf27feaa31c9a74ba6ba537b7f8d77e81dce"
+  },
+  "D037": {
+   "raw_chars": 6020,
+   "clean_chars": 5990,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 5,
+   "blocks_kept": 5,
+   "dropped_blocks": [],
+   "packets": [
+    "D037-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Jersey City, NJ",
+   "url": "https://mcclibraryfunctions.azurewebsites.us/api/ordinanceDownload/16093/1418863/pdf?forceDownload=true",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "1ae3ea7c6495df1fe1c2eedebb4d53b719907fbca560b61294c6b04f9e0a75e1"
+  },
+  "D038": {
+   "raw_chars": 6679,
+   "clean_chars": 6678,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 2,
+   "blocks_kept": 2,
+   "dropped_blocks": [],
+   "packets": [
+    "D038-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Los Angeles, CA",
+   "url": "https://codelibrary.amlegal.com/codes/los_angeles/latest/lamc/0-0-0-322208",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "67d9c4c8f9b3bf8d658cca947d85463b3fb620959996af812cebf5aad9d61814"
+  },
+  "D039": {
+   "raw_chars": 2975,
+   "clean_chars": 2945,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 2,
+   "blocks_kept": 2,
+   "dropped_blocks": [],
+   "packets": [
+    "D039-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Los Angeles, CA",
+   "url": "https://cityclerk.lacity.org/onlinedocs/2024/24-1031_misc_9-03-24.pdf",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "cf36489eb7db23226ff24eb4a65615b9837c67659221630e0366a4ff4456df00"
+  },
+  "D040": {
+   "raw_chars": 9631,
+   "clean_chars": 9498,
+   "nav_lines_removed": 9,
+   "nav_chars_removed": 161,
+   "blocks": 3,
+   "blocks_kept": 3,
+   "dropped_blocks": [],
+   "packets": [
+    "D040-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Los Angeles, CA",
+   "url": "https://housing.lacity.gov/residents/just-cause-for-eviction-ordinance-jco",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "13f9d54597199b73e23ad12dcc38626d53bb30bd53d89a63b6a7f55ecc570425"
+  },
+  "D041": {
+   "raw_chars": 10359,
+   "clean_chars": 10226,
+   "nav_lines_removed": 9,
+   "nav_chars_removed": 161,
+   "blocks": 3,
+   "blocks_kept": 3,
+   "dropped_blocks": [],
+   "packets": [
+    "D041-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Los Angeles, CA",
+   "url": "https://housing.lacity.gov/residents/rso-overview",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "4d8837313d514bde68624c37ab37622dd950c542bdc74942702641519eae3ece"
+  },
+  "D042": {
+   "raw_chars": 5003,
+   "clean_chars": 4868,
+   "nav_lines_removed": 9,
+   "nav_chars_removed": 161,
+   "blocks": 3,
+   "blocks_kept": 3,
+   "dropped_blocks": [],
+   "packets": [
+    "D042-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Los Angeles, CA",
+   "url": "https://housing.lacity.gov/rso-rent-increase-calculator",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "21a8e44f111659923f120ad5543bf46611e1b2dd5af0087cc16f98de479cd262"
+  },
+  "D043": {
+   "raw_chars": 34574,
+   "clean_chars": 34107,
+   "nav_lines_removed": 12,
+   "nav_chars_removed": 168,
+   "blocks": 9,
+   "blocks_kept": 9,
+   "dropped_blocks": [],
+   "packets": [
+    "D043-01",
+    "D043-02"
+   ],
+   "no_text": false,
+   "jurisdictions": "Los Angeles, CA",
+   "url": "https://housing.lacity.gov/wp-content/uploads/2026/08/Relocation-Assistance-Bulletins-A-and-B-Combined.pdf",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "31b7db7b0e637435a30b1c9bf6db06d8e1a4b748e335bceeaa9232da266e6f04"
+  },
+  "D044": {
+   "raw_chars": 4082,
+   "clean_chars": 4081,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 2,
+   "blocks_kept": 2,
+   "dropped_blocks": [],
+   "packets": [
+    "D044-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Los Angeles, CA",
+   "url": "https://codelibrary.amlegal.com/codes/los_angeles/latest/lamc/0-0-0-195527",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "35e2baa6db93b749ad40be6cb6334041b1411c20ade68f3ce2e83b15675af259"
+  },
+  "D045": {
+   "raw_chars": 2668,
+   "clean_chars": 2409,
+   "nav_lines_removed": 24,
+   "nav_chars_removed": 317,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D045-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "MA",
+   "url": "https://malegislature.gov/Bills/194/H5222",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "8bc537dfe4d0e00b829147ae82ba11d40bef8a2b0696f487c417ca517673bba7"
+  },
+  "D046": {
+   "raw_chars": 3117,
+   "clean_chars": 2858,
+   "nav_lines_removed": 24,
+   "nav_chars_removed": 317,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D046-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "MA",
+   "url": "https://malegislature.gov/Bills/194/S2983",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "6ea5313d0a656ab73b683e72b594cf143ee61bd6923ee1d9f3df46682248004d"
+  },
+  "D047": {
+   "raw_chars": 3117,
+   "clean_chars": 2858,
+   "nav_lines_removed": 24,
+   "nav_chars_removed": 317,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D047-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "MA",
+   "url": "https://malegislature.gov/Bills/194/S2983/BillHistory",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "9af3e5eba834b37a5115fef298f5e2a1c1fc0b93c1d69500aea9d6bc7ee24b93"
+  },
+  "D048": {
+   "raw_chars": 2640,
+   "clean_chars": 2355,
+   "nav_lines_removed": 29,
+   "nav_chars_removed": 372,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D048-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "MA",
+   "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleVII/Chapter40P/Section4",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "090647f489ec5f03c114df23b74c28a107a7e0b855e382969c27dbf58a55837d"
+  },
+  "D049": {
+   "raw_chars": 55862,
+   "clean_chars": 55548,
+   "nav_lines_removed": 30,
+   "nav_chars_removed": 401,
+   "blocks": 10,
+   "blocks_kept": 10,
+   "dropped_blocks": [],
+   "packets": [
+    "D049-01",
+    "D049-02",
+    "D049-03"
+   ],
+   "no_text": false,
+   "jurisdictions": "MA",
+   "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter151B/Section4",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "ac42593c79533c25223582de77eb5411d2f8ef501a0d027d2a61042b7e81d7ef"
+  },
+  "D050": {
+   "raw_chars": 2282,
+   "clean_chars": 1997,
+   "nav_lines_removed": 29,
+   "nav_chars_removed": 372,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D050-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "MA",
+   "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section11",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "cdc077701a5c63533240e370c77ce86546bd2c8372d771433c52a98fadc48f19"
+  },
+  "D051": {
+   "raw_chars": 3945,
+   "clean_chars": 3660,
+   "nav_lines_removed": 29,
+   "nav_chars_removed": 372,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D051-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "MA",
+   "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section12",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "6c1a194983bb0ee7079919bb8ef0e77efcd35d73dd9795853024a6eaaf5b24de"
+  },
+  "D052": {
+   "raw_chars": 26006,
+   "clean_chars": 25721,
+   "nav_lines_removed": 29,
+   "nav_chars_removed": 372,
+   "blocks": 5,
+   "blocks_kept": 5,
+   "dropped_blocks": [],
+   "packets": [
+    "D052-01",
+    "D052-02"
+   ],
+   "no_text": false,
+   "jurisdictions": "MA",
+   "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "f24c21cb2b32330c0f2f112f066d02b784887a8552cc3777ea96f1d53dd0171f"
+  },
+  "D053": {
+   "raw_chars": 4148,
+   "clean_chars": 3863,
+   "nav_lines_removed": 29,
+   "nav_chars_removed": 372,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D053-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "MA",
+   "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section18",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "5c418b18df23a00a8b6b056e68352f67b378b94321ee42867df8ce02ce36830a"
+  },
+  "D054": {
+   "no_text": true,
+   "jurisdictions": "MA",
+   "url": "https://masslandlords.net/can-massachusetts-landlords-charge-an-application-fee/",
+   "source_type": "secondary (law firm / news / mirror)",
+   "capture": "link-only",
+   "status": "link-only",
+   "origin": "starter"
+  },
+  "D055": {
+   "no_text": true,
+   "jurisdictions": "MA",
+   "url": "https://massrealestatelawblog.com/tag/cella-v-attorney-general/",
+   "source_type": "secondary (law firm / news / mirror)",
+   "capture": "link-only",
+   "status": "link-only",
+   "origin": "starter"
+  },
+  "D056": {
+   "raw_chars": 25036,
+   "clean_chars": 25005,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 10,
+   "blocks_kept": 10,
+   "dropped_blocks": [],
+   "packets": [
+    "D056-01",
+    "D056-02"
+   ],
+   "no_text": false,
+   "jurisdictions": "MA",
+   "url": "https://www.mass.gov/doc/803-cmr-5-criminal-offender-record-information-cori-housing/download",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "4814ae234bf886d97b2fe12465a8445b0d0018d219ac791e83a7736bee79d1ee"
+  },
+  "D057": {
+   "raw_chars": 2627,
+   "clean_chars": 2342,
+   "nav_lines_removed": 29,
+   "nav_chars_removed": 372,
+   "blocks": 2,
+   "blocks_kept": 2,
+   "dropped_blocks": [],
+   "packets": [
+    "D057-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "MA",
+   "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXVI/Chapter112/Section87DDD%201~2",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "c678b42f8fc6ecfc7c7a6b1bdf6c68aec877daa80a53d62d5d2ca8176c967d7b"
+  },
+  "D058": {
+   "raw_chars": 2828,
+   "clean_chars": 2543,
+   "nav_lines_removed": 29,
+   "nav_chars_removed": 372,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D058-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "MA",
+   "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section31",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "80dcf6692b891859e2601c0732252ba30ec010b5034749c4693ef68ce1fd4281"
+  },
+  "D059": {
+   "no_text": true,
+   "jurisdictions": "MA",
+   "url": "https://www.wbur.org/news/2026/06/23/massachusetts-high-court-rent-control-ballot-question-struck",
+   "source_type": "secondary (law firm / news / mirror)",
+   "capture": "link-only",
+   "status": "link-only",
+   "origin": "starter"
+  },
+  "D060": {
+   "no_text": true,
+   "jurisdictions": "NJ",
+   "url": "https://daypitney.com/new-jersey-enacts-fair-act-to-prohibit-algorithmic-rent-setting-practices",
+   "source_type": "secondary (law firm / news / mirror)",
+   "capture": "link-only",
+   "status": "link-only",
+   "origin": "starter"
+  },
+  "D061": {
+   "raw_chars": 43329,
+   "clean_chars": 43327,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 8,
+   "blocks_kept": 8,
+   "dropped_blocks": [],
+   "packets": [
+    "D061-01",
+    "D061-02"
+   ],
+   "no_text": false,
+   "jurisdictions": "NJ",
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/7555/7610",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "26f22b3fe077ce49ce789564cde527f049df94b417b762432c547e32864c9ef8"
+  },
+  "D062": {
+   "raw_chars": 15624,
+   "clean_chars": 15622,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 3,
+   "blocks_kept": 3,
+   "dropped_blocks": [],
+   "packets": [
+    "D062-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "NJ",
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/112/670",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "54d02d80c5d285519fcacfaff867f974dbb8ab3abf084c00f01e2eeb4277c974"
+  },
+  "D063": {
+   "raw_chars": 543,
+   "clean_chars": 541,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D063-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "NJ",
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/44283/44474",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "42e23b217dc39f27e244c569f8392e98dfa3c31b8895f39a92009f24cf502cf3"
+  },
+  "D064": {
+   "raw_chars": 502,
+   "clean_chars": 500,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D064-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "NJ",
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/44283/44482",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "e916a9b16b0d9d682f860d771b4abd038d2f4f9e6ed884517694f7916ebad6b4"
+  },
+  "D065": {
+   "raw_chars": 20827,
+   "clean_chars": 20827,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 6,
+   "blocks_kept": 6,
+   "dropped_blocks": [],
+   "packets": [
+    "D065-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "NJ",
+   "url": "https://pub.njleg.gov/bills/2020/PL21/110_.HTM",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "c7d281ddae183438fd360bfa0b4824d6541c532efe6ae8123dad37e0f4d53e1e"
+  },
+  "D066": {
+   "raw_chars": 4064,
+   "clean_chars": 4064,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 2,
+   "blocks_kept": 2,
+   "dropped_blocks": [],
+   "packets": [
+    "D066-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "NJ",
+   "url": "https://pub.njleg.gov/bills/2024/PL25/405_.HTM",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "e06aa61acf6ddb50631d5be3c89c4029caccb13c0dcc7be888e0e64f8b182c2e"
+  },
+  "D067": {
+   "raw_chars": 161036,
+   "clean_chars": 158167,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 44,
+   "blocks_kept": 18,
+   "dropped_blocks": [
+    {
+     "idx": 1,
+     "chars": 4171,
+     "heading": "1"
+    },
+    {
+     "idx": 2,
+     "chars": 1114,
+     "heading": "2. Landlord and tenant are required to include their names in the lease agreement."
+    },
+    {
+     "idx": 3,
+     "chars": 3734,
+     "heading": "1. Lead paint EPA approved information pamphlet (N.J.A.C. 5:10-6.6);"
+    },
+    {
+     "idx": 4,
+     "chars": 5728,
+     "heading": "4"
+    },
+    {
+     "idx": 5,
+     "chars": 1306,
+     "heading": "6"
+    },
+    {
+     "idx": 6,
+     "chars": 5073,
+     "heading": "2. If the tenant fails to properly care for the pet;"
+    },
+    {
+     "idx": 9,
+     "chars": 5904,
+     "heading": "11"
+    },
+    {
+     "idx": 13,
+     "chars": 3975,
+     "heading": "receipted first class mail addressed to the tenant at tenant’s last known address and at any"
+    },
+    {
+     "idx": 16,
+     "chars": 5934,
+     "heading": "21"
+    },
+    {
+     "idx": 17,
+     "chars": 4591,
+     "heading": "writing within seven (7) days after filing the amended statement. In any eviction action by a"
+    },
+    {
+     "idx": 18,
+     "chars": 5964,
+     "heading": "24"
+    },
+    {
+     "idx": 19,
+     "chars": 4030,
+     "heading": "tenant will supply heat to a dwelling unit when the unit is served by separate heating equipment"
+    },
+    {
+     "idx": 20,
+     "chars": 1749,
+     "heading": "27"
+    },
+    {
+     "idx": 21,
+     "chars": 4282,
+     "heading": "§ 4851 et al.)."
+    },
+    {
+     "idx": 22,
+     "chars": 1841,
+     "heading": "1. Public Water Systems:"
+    },
+    {
+     "idx": 23,
+     "chars": 1153,
+     "heading": "2. Private Water Systems:"
+    },
+    {
+     "idx": 24,
+     "chars": 997,
+     "heading": "1.  Repair and Deduct"
+    },
+    {
+     "idx": 25,
+     "chars": 5934,
+     "heading": "2. The tenant must not have caused the condition."
+    },
+    {
+     "idx": 35,
+     "chars": 2329,
+     "heading": "43"
+    },
+    {
+     "idx": 37,
+     "chars": 1037,
+     "heading": "45"
+    },
+    {
+     "idx": 38,
+     "chars": 978,
+     "heading": "VICINAGE OMBUDSMAN TELEPHONE NUMBERS"
+    },
+    {
+     "idx": 39,
+     "chars": 718,
+     "heading": "STATE OF NEW JERSEY"
+    },
+    {
+     "idx": 40,
+     "chars": 740,
+     "heading": "ATLANTIC COUNTY"
+    },
+    {
+     "idx": 41,
+     "chars": 708,
+     "heading": "NEWARK, NJ 07102"
+    },
+    {
+     "idx": 42,
+     "chars": 701,
+     "heading": "FREEHOLD, NJ 07728"
+    },
+    {
+     "idx": 43,
+     "chars": 3827,
+     "heading": "CENTRAL JERSEY LEGAL SERVICES"
+    }
+   ],
+   "packets": [
+    "D067-01",
+    "D067-02",
+    "D067-03",
+    "D067-04"
+   ],
+   "no_text": false,
+   "jurisdictions": "NJ",
+   "url": "https://www.nj.gov/dca/codes/publications/pdf_lti/t_i_r.pdf",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "a61f61a51b513b48a41cce48326e28861838a95e5e5a29cdedc41470d44ed505"
+  },
+  "D068": {
+   "raw_chars": 6719,
+   "clean_chars": 6696,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 6,
+   "blocks_kept": 6,
+   "dropped_blocks": [],
+   "packets": [
+    "D068-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "NJ",
+   "url": "https://www.nj.gov/oag/dcr/downloads/kyrhousing02.pdf",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "857cb50fde16e0027346c44f502b2f0d854aad4bca7cf0926a31cd54adad8159"
+  },
+  "D069": {
+   "raw_chars": 10259,
+   "clean_chars": 10259,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 4,
+   "blocks_kept": 4,
+   "dropped_blocks": [],
+   "packets": [
+    "D069-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "NJ",
+   "url": "https://pub.njleg.state.nj.us/Bills/2026/AL26/43_.HTM",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "1fdbfb48743a46429c3f47dbd8d08c665739202361661e1a2f19b94bb0ec43a6"
+  },
+  "D070": {
+   "raw_chars": 120622,
+   "clean_chars": 120555,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 78,
+   "blocks_kept": 78,
+   "dropped_blocks": [],
+   "packets": [
+    "D070-01",
+    "D070-02",
+    "D070-03",
+    "D070-04",
+    "D070-05",
+    "D070-06"
+   ],
+   "no_text": false,
+   "jurisdictions": "Newark, NJ",
+   "url": "https://ecode360.com/36623772",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "59755b164b20b02cfa4162fb579f94fcafbd55f4f65811ca96c84311b57eb13b"
+  },
+  "D071": {
+   "raw_chars": 372769,
+   "clean_chars": 372566,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 199,
+   "blocks_kept": 199,
+   "dropped_blocks": [],
+   "packets": [
+    "D071-01",
+    "D071-02",
+    "D071-03",
+    "D071-04",
+    "D071-05",
+    "D071-06",
+    "D071-07",
+    "D071-08",
+    "D071-09",
+    "D071-10",
+    "D071-11",
+    "D071-12",
+    "D071-13",
+    "D071-14",
+    "D071-15",
+    "D071-16",
+    "D071-17"
+   ],
+   "no_text": false,
+   "jurisdictions": "Newark, NJ",
+   "url": "https://ecode360.com/36637822",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "98d39175958b85f32786f6af1ebf9d2fc9c2e08be11830eeb11980fdeaaf094b"
+  },
+  "D072": {
+   "raw_chars": 26969,
+   "clean_chars": 26946,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 20,
+   "blocks_kept": 20,
+   "dropped_blocks": [],
+   "packets": [
+    "D072-01",
+    "D072-02"
+   ],
+   "no_text": false,
+   "jurisdictions": "Newark, NJ",
+   "url": "https://ecode360.com/36642000",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "d24b153d10e6db74ac3f95dea280943f2454635110b087010d7016c74318f4d0"
+  },
+  "D073": {
+   "raw_chars": 38916,
+   "clean_chars": 37934,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 14,
+   "blocks_kept": 14,
+   "dropped_blocks": [],
+   "packets": [
+    "D073-01",
+    "D073-02"
+   ],
+   "no_text": false,
+   "jurisdictions": "San Diego, CA",
+   "url": "https://docs.sandiego.gov/municode/municodechapter09/ch09art08division07.pdf",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "d1d4b9874a7c4b51a97cb81809e9ece2658f0f9e52898d904f90d48f3c1a140b"
+  },
+  "D074": {
+   "raw_chars": 6578,
+   "clean_chars": 6559,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 4,
+   "blocks_kept": 4,
+   "dropped_blocks": [],
+   "packets": [
+    "D074-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "San Diego, CA",
+   "url": "https://docs.sandiego.gov/municode/MuniCodeChapter09/Ch09Art08Division11.pdf",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "e9bbd000334e0f14525cf1340064e06744b52f4c303dc86ab30b6f1e931448ed"
+  },
+  "D075": {
+   "raw_chars": 9242,
+   "clean_chars": 9216,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 6,
+   "blocks_kept": 6,
+   "dropped_blocks": [],
+   "packets": [
+    "D075-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "San Diego, CA",
+   "url": "https://docs.sandiego.gov/municode/MuniCodeChapter09/Ch09Art08Division08.pdf",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "045ed8ebfff76d98f60c5d5bc3bdd12340078a04f38e69defbdec1ff5f987e80"
+  },
+  "D076": {
+   "raw_chars": 23097,
+   "clean_chars": 22986,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 10,
+   "blocks_kept": 10,
+   "dropped_blocks": [],
+   "packets": [
+    "D076-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "San Diego, CA",
+   "url": "https://sandiego.gov/sites/default/files/2025-04/automated-rent-price-fixing-prohibition-ordinance-materials.pdf",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "31b29a40becda1c218d4f64aedcb56a44241857b0f5d8b451c7b20b5737edc1e"
+  },
+  "D077": {
+   "no_text": true,
+   "jurisdictions": "San Diego, CA",
+   "url": "https://www.lassd.org/resource/city-of-san-diego-tenant-protection-ordinance/",
+   "source_type": "secondary (law firm / news / mirror)",
+   "capture": "link-only",
+   "status": "link-only",
+   "origin": "starter"
+  },
+  "D078": {
+   "raw_chars": 6944,
+   "clean_chars": 6674,
+   "nav_lines_removed": 14,
+   "nav_chars_removed": 299,
+   "blocks": 2,
+   "blocks_kept": 2,
+   "dropped_blocks": [],
+   "packets": [
+    "D078-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "San Francisco, CA",
+   "url": "https://sf-hrc.org/fair-chance-ordinance",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "448b85d4e40d5f17d12acf18db20aab4b9337b2e196099fee46c65f46dae91cc"
+  },
+  "D079": {
+   "raw_chars": 5264,
+   "clean_chars": 5264,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D079-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "San Francisco, CA",
+   "url": "https://sf.gov/information/overview-just-cause-evictions",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "51f9490227bafc8a6f458c7e417f41bce3af07c1416fae77f281b987d97ef793"
+  },
+  "D080": {
+   "raw_chars": 976,
+   "clean_chars": 976,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D080-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "San Francisco, CA",
+   "url": "https://www.sf.gov/news--annual-rent-increase-3126-22827-announced",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "924783981b92aabf2a5200517290879d008fd1e8c579969bdddaa28ff6f9fd7d"
+  },
+  "D081": {
+   "raw_chars": 993,
+   "clean_chars": 993,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D081-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "San Francisco, CA",
+   "url": "https://www.sf.gov/news/new-law-prohibits-algorithmic-devices-used-set-rents-san-francisco",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "e3437f99eae3882641b5052fd7006f2a0304abd2033e1b721a8c32324be2afab"
+  },
+  "D082": {
+   "raw_chars": 3466,
+   "clean_chars": 3466,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D082-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "San Francisco, CA",
+   "url": "https://www.sf.gov/reports--archive-relocation-rates",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "5e1ee2ddac37eb9639650aaa15af33f6820c182edc506f4b6da787a3da7714f6"
+  },
+  "D083": {
+   "raw_chars": 4526,
+   "clean_chars": 4526,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D083-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "San Francisco, CA",
+   "url": "https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "764e9e3a023bd434458dfea8ffbb57e57d23e5f0a4939cc10948b9e495034d2f"
+  },
+  "D084": {
+   "raw_chars": 4237,
+   "clean_chars": 4031,
+   "nav_lines_removed": 11,
+   "nav_chars_removed": 235,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D084-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Santa Ana, CA",
+   "url": "https://santa-ana.gov/departments/rent-stabilization",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "fc10720530c3f1eeb733fe7954d39b62ad374c8d954053c61dea0a89444f08b3"
+  },
+  "D085": {
+   "raw_chars": 5095,
+   "clean_chars": 5095,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "D085-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Santa Ana, CA",
+   "url": "https://santa-ana.gov/santa-ana-city-council-adopts-rent-stabilization-and-just-cause-eviction-ordinances-effective-nov-19",
+   "source_type": "official",
+   "origin": "starter",
+   "file_sha256": "de9d126675c8ee1ab2809c897c8c819bfe241dc95de31ace5004b6c7973607d8"
+  },
+  "D086": {
+   "raw_chars": 36473,
+   "clean_chars": 36418,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 16,
+   "blocks_kept": 16,
+   "dropped_blocks": [],
+   "packets": [
+    "D086-01",
+    "D086-02"
+   ],
+   "no_text": false,
+   "jurisdictions": "Santa Ana, CA",
+   "url": "https://publicdocs.santa-ana.org/WebLink/DocView.aspx?id=549791&dbid=1&repo=Clerk",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "20227ac39993ed4d566569968dd8c93074d2ddfa0b10191a10cc90a64cfc7fc7"
+  },
+  "D087": {
+   "no_text": true,
+   "jurisdictions": "Santa Ana, CA",
+   "url": "https://www.publicceo.com/2026/02/santa-ana-city-council-continues-to-strengthen-tenant-protections-by-banning-anticompetitive-rent-setting-software/",
+   "source_type": "secondary (law firm / news / mirror)",
+   "capture": "link-only",
+   "status": "link-only",
+   "origin": "starter"
+  },
+  "X001": {
+   "raw_chars": 8872,
+   "clean_chars": 8842,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 5,
+   "blocks_kept": 5,
+   "dropped_blocks": [],
+   "packets": [
+    "X001-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "Jersey City, NJ",
+   "url": "https://mcclibraryfunctions.azurewebsites.us/api/ordinanceDownload/16093/1418888/pdf?forceDownload=true",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "9c212a8dbceb78d2778f51cc75b2434aff1faf59064dbd4190036f2accaae0e7"
+  },
+  "X002": {
+   "raw_chars": 57274,
+   "clean_chars": 57093,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 17,
+   "blocks_kept": 17,
+   "dropped_blocks": [],
+   "packets": [
+    "X002-01",
+    "X002-02",
+    "X002-03"
+   ],
+   "no_text": false,
+   "jurisdictions": "Jersey City, NJ",
+   "url": "https://library.municode.com/nj/jersey_city/codes/code_of_ordinances?nodeId=CH260RECO",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "41b3571b10a68f2c40cc7a6d0a1f30935bd50ece6d01e702e819a942c65fb305"
+  },
+  "X003": {
+   "raw_chars": 7586,
+   "clean_chars": 7572,
+   "nav_lines_removed": 0,
+   "nav_chars_removed": 0,
+   "blocks": 3,
+   "blocks_kept": 3,
+   "dropped_blocks": [],
+   "packets": [
+    "X003-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "CA",
+   "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB763",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "05680b067b43b176c74491f119c86b0cf3055c8f245b6216dc05812fa3a8e825"
+  },
+  "X004": {
+   "raw_chars": 1638,
+   "clean_chars": 1389,
+   "nav_lines_removed": 17,
+   "nav_chars_removed": 280,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "X004-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "CA",
+   "url": "https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260SB763",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "ef20d3f051c6fc28cab7ac5d295280a7e0e6ac0137607d4308f9d6ca9305eb7f"
+  },
+  "X005": {
+   "raw_chars": 1747,
+   "clean_chars": 1502,
+   "nav_lines_removed": 17,
+   "nav_chars_removed": 276,
+   "blocks": 1,
+   "blocks_kept": 1,
+   "dropped_blocks": [],
+   "packets": [
+    "X005-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "CA",
+   "url": "https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260AB325",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "c802d000cad0bad58fe275563aa68fbd14d849f5e7aeaeb6691493859c417918"
+  },
+  "X006": {
+   "raw_chars": 39971,
+   "clean_chars": 39679,
+   "nav_lines_removed": 40,
+   "nav_chars_removed": 259,
+   "blocks": 11,
+   "blocks_kept": 11,
+   "dropped_blocks": [],
+   "packets": [
+    "X006-01",
+    "X006-02"
+   ],
+   "no_text": false,
+   "jurisdictions": "CA",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CONS&division=&title=&part=&chapter=&article=IV",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "4eebe19790b44e345833aeb305607e37534c28ebc6b0d4ed7953d33fa203aded"
+  },
+  "X007": {
+   "raw_chars": 5064,
+   "clean_chars": 4708,
+   "nav_lines_removed": 33,
+   "nav_chars_removed": 380,
+   "blocks": 2,
+   "blocks_kept": 2,
+   "dropped_blocks": [],
+   "packets": [
+    "X007-01"
+   ],
+   "no_text": false,
+   "jurisdictions": "MA",
+   "url": "https://www.sec.state.ma.us/divisions/elections/research-and-statistics/2026-ballot-questions.htm",
+   "source_type": "official",
+   "origin": "extra",
+   "file_sha256": "d259896f4eb8e26e74972cd9404dfcebb115c0a1bd613339f2549447f5dc9bbb"
+  }
+ },
+ "as_of": "2026-10-01",
+ "pipeline_version": "0.1.0",
+ "max_chars": 24000,
+ "budget": 400000
+}

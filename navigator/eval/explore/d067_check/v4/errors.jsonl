@@ -1,0 +1,2 @@
+{"prompt_id": "D067-01", "rep": 5, "class": "harness_or_serving_error", "error": "API 请求失败（HTTP 429）。服务当前限制请求，请稍后重新运行。 已保存的进度可继续使用。", "ts": "2026-10-04T02:28:28.223938+00:00"}
+{"prompt_id": "D067-01", "rep": 3, "class": "harness_or_serving_error", "error": "API 请求失败（HTTP 429）。服务当前限制请求，请稍后重新运行。 已保存的进度可继续使用。", "ts": "2026-10-04T02:28:28.609161+00:00"}

@@ -1,0 +1,3 @@
+{
+  "description": "Pilot: answers already written by Claude sub-agents under the old prompt, graded by the new grader. No model call."
+}

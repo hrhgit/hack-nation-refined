@@ -102,6 +102,12 @@ class FactTests(unittest.TestCase):
         self.assertEqual(d("pending_bill", "2020-01-01", "2026-10-01"), "pending")  # T4
         self.assertEqual(d("failed", None, "2026-10-01"), "failed")                 # T5
 
+    def test_hyphenated_month_day_year_dates_are_seen(self):
+        found = facts.doc_dates("(Amended 2-27-2024 by O-21769 N.S.; effective 3-28-2024.) Section 98.0706")
+        for want in ("2024-03-28", "2024-02-27", "2024-03", "2024"):
+            self.assertIn(want, found)
+        self.assertNotIn("0098-06-07", found)
+
     def test_doc_dates_and_numbers(self):
         text = "Effective July 1, 2024 the cap is one and one-half months. Fee of $1,500 plus 5 percent; see 7/1/2024 and 2026-01-01."
         dates = facts.doc_dates(text)
@@ -113,13 +119,48 @@ class FactTests(unittest.TestCase):
         self.assertEqual(facts.unsupported_numbers("1.5 months + 9%", nums), ["9"])
 
     def test_citations(self):
-        self.assertEqual(facts.normalize_citation("Cal. Civ. Code section 1947.12(a)(1)"), "Cal. Civ. Code § 1947.12")
-        self.assertEqual(facts.normalize_citation("G.L. c. 186, §15B"), "G.L. c. 186, § 15B")
+        self.assertEqual(facts.normalize_citation("Cal. Civ. Code section 1947.12(a)(1)"), "Cal. Civ. Code §1947.12")
+        self.assertEqual(facts.normalize_citation("G.L. c. 186, §15B"), "G.L. c. 186, §15B")
         self.assertEqual(facts.normalize_citation("N.J.S.A. 2A:18-61.1"), "N.J.S.A. 2A:18-61.1")
-        self.assertEqual(facts.citation_key("Cal. Civ. Code § 1947.12"), "1947.12")
+        self.assertEqual(facts.citation_key("Cal. Civ. Code §1947.12"), "1947.12")
         self.assertEqual(facts.citation_key("Civil Code section 1947.12 (AB 1482)"), "1947.12")
-        self.assertEqual(facts.citation_key("G.L. c. 186, § 15B"), "15b|186")
+        self.assertEqual(facts.citation_key("G.L. c. 186, §15B"), "15b|186")
         self.assertEqual(facts.citation_key("AB 325 (Cal. Bus. & Prof. Code § 16729)"), "325")
+
+    def test_act_dates_understand_common_wordings(self):
+        cases = [
+            ("This ordinance shall take effect ninety (90) days after its final passage.\nPassed to be ordained September 14, 2026.", "2026-12-13"),
+            ("This act shall take effect 90 days after enactment. Adopted June 1, 2025.", "2025-08-30"),
+            ("This Act takes effect immediately. Signed by the Governor on March 3, 2026.", "2026-03-03"),
+        ]
+        for text, want in cases:
+            self.assertEqual(facts.act_dates(text).effective, want, text)
+        # two different passage dates: never guess
+        self.assertIsNone(facts.act_dates("This act takes effect 90 days after enactment. Adopted June 1, 2025. Amended and adopted July 4, 2025."))
+
+    def test_split_citation_moves_descriptors_out(self):
+        sp = lambda c: facts.split_citation(facts.normalize_citation(c))
+        self.assertEqual(sp("Cal. Civ. Code § 1950.5: service member rules"), ("Cal. Civ. Code §1950.5", "service member rules"))
+        self.assertEqual(sp("G.L. c. 186, § 12, fourteen-day notice to quit"), ("G.L. c. 186, §12", "fourteen-day notice to quit"))
+        self.assertEqual(sp("LAMC § 165.06, single-family dwelling: one month's rent"), ("LAMC §165.06", "single-family dwelling: one month's rent"))
+        self.assertEqual(sp("Berkeley Rent Ordinance, Measure BB: just cause"), ("Berkeley Rent Ordinance, Measure BB", "just cause"))
+        self.assertEqual(sp("Housing Stability Notification Act, § 10-11.7: notice"), ("Housing Stability Notification Act, §10-11.7", "notice"))
+        for c in ("N.J.S.A. 2A:18-61.1", "P.L. 2026, c.43 § 4", "S.F. Admin. Code ch. 37, §37.9", "AB 325 (Cal. Bus. & Prof. Code § 16729)"):
+            self.assertIsNone(sp(c)[1])
+        self.assertEqual(sp("Cal. Civ. Code § 1950.5, subd. (b)")[0], "Cal. Civ. Code §1950.5")
+
+    def test_act_dates_follow_the_acts_own_clause(self):
+        text = "x\n9. This act shall take effect on the first day of\nthe twelfth month next following the date of enactment.\napproved July 20, 2026\n"
+        a = facts.act_dates(text)
+        self.assertEqual((a.approved, a.effective, a.method), ("2026-07-20", "2027-07-01", "nth_month"))
+        self.assertEqual(facts.add_months_first_day("2021-06-18", 7), "2022-01-01")
+        self.assertEqual(facts.add_months_first_day("2026-01-20", 4), "2026-05-01")
+        self.assertEqual(facts.act_dates("This act shall take effect immediately. Approved May 2, 2024.").effective, "2024-05-02")
+        self.assertEqual(facts.act_dates("This ordinance takes effect on the thirtieth day after final passage. Approved May 2, 2024.").effective, "2024-06-01")
+        # never guess: two clauses, no approval date, or two approval dates
+        self.assertIsNone(facts.act_dates("This act shall take effect immediately. Section 4 shall take effect on the first day of the third month next following enactment. Approved May 2, 2024."))
+        self.assertIsNone(facts.act_dates("This act shall take effect immediately."))
+        self.assertIsNone(facts.act_dates("This act shall take effect immediately. Approved May 2, 2024. Approved June 3, 2024."))
 
     def test_jurisdictions(self):
         n = lambda s: facts.normalize_jurisdiction(s, KNOWN_JURISDICTIONS, STATE_NAMES)

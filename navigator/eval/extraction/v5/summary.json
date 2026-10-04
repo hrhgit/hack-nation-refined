@@ -1,0 +1,7 @@
+{
+  "description": "Round 5 (side check only): page-title fallback for guide pages + cite the section that holds key_value",
+  "target": "system_prompt",
+  "model": "deepseek-flash",
+  "label": "citation defaults (not applied)",
+  "decision": "not applied: section anchor works (46:8-21.2 cited 8 of 8 tries on D067-01, v4 2 of 6) but the page-title fallback did not cut no-citation records (7 of 16 on D067-02/-04 vs v4 9 of 16; bar was 3 of 24 on three pages); no full pass was run, live prompt stays at v4"
+}

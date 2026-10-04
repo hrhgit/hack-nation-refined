@@ -1,0 +1,972 @@
+{
+ "seed": 20261003,
+ "as_of": "2026-10-01",
+ "cases": [
+  {
+   "id": "D001-01",
+   "doc_id": "D001",
+   "kind": "ordinance",
+   "jurisdiction": "Berkeley, CA",
+   "labeled": true,
+   "chars": 8160,
+   "tags": [
+    "ordinance",
+    "Berkeley, CA",
+    "labeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D003-01",
+   "doc_id": "D003",
+   "kind": "web_page",
+   "jurisdiction": "Berkeley, CA",
+   "labeled": false,
+   "chars": 6325,
+   "tags": [
+    "web_page",
+    "Berkeley, CA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D004-01",
+   "doc_id": "D004",
+   "kind": "web_page",
+   "jurisdiction": "Berkeley, CA",
+   "labeled": false,
+   "chars": 2806,
+   "tags": [
+    "web_page",
+    "Berkeley, CA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D005-01",
+   "doc_id": "D005",
+   "kind": "web_page",
+   "jurisdiction": "Berkeley, CA",
+   "labeled": false,
+   "chars": 4099,
+   "tags": [
+    "web_page",
+    "Berkeley, CA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D006-01",
+   "doc_id": "D006",
+   "kind": "web_page",
+   "jurisdiction": "Berkeley, CA",
+   "labeled": false,
+   "chars": 14260,
+   "tags": [
+    "web_page",
+    "Berkeley, CA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D007-01",
+   "doc_id": "D007",
+   "kind": "web_page",
+   "jurisdiction": "Berkeley, CA",
+   "labeled": false,
+   "chars": 5159,
+   "tags": [
+    "web_page",
+    "Berkeley, CA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D008-01",
+   "doc_id": "D008",
+   "kind": "ordinance",
+   "jurisdiction": "Berkeley, CA",
+   "labeled": false,
+   "chars": 2162,
+   "tags": [
+    "ordinance",
+    "Berkeley, CA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D009-01",
+   "doc_id": "D009",
+   "kind": "ordinance",
+   "jurisdiction": "Berkeley, CA",
+   "labeled": false,
+   "chars": 3052,
+   "tags": [
+    "ordinance",
+    "Berkeley, CA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D010-01",
+   "doc_id": "D010",
+   "kind": "web_page",
+   "jurisdiction": "Boston, MA",
+   "labeled": false,
+   "chars": 6684,
+   "tags": [
+    "web_page",
+    "Boston, MA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D011-01",
+   "doc_id": "D011",
+   "kind": "statute",
+   "jurisdiction": "Boston, MA",
+   "labeled": false,
+   "chars": 3730,
+   "tags": [
+    "statute",
+    "Boston, MA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D012-01",
+   "doc_id": "D012",
+   "kind": "web_page",
+   "jurisdiction": "Boston, MA",
+   "labeled": false,
+   "chars": 3992,
+   "tags": [
+    "web_page",
+    "Boston, MA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D013-01",
+   "doc_id": "D013",
+   "kind": "web_page",
+   "jurisdiction": "Boston, MA",
+   "labeled": false,
+   "chars": 5775,
+   "tags": [
+    "web_page",
+    "Boston, MA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D014-01",
+   "doc_id": "D014",
+   "kind": "ordinance",
+   "jurisdiction": "Boston, MA",
+   "labeled": false,
+   "chars": 6141,
+   "tags": [
+    "ordinance",
+    "Boston, MA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D016-01",
+   "doc_id": "D016",
+   "kind": "guide",
+   "jurisdiction": "CA",
+   "labeled": false,
+   "chars": 24043,
+   "tags": [
+    "guide",
+    "CA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D016-02",
+   "doc_id": "D016",
+   "kind": "guide",
+   "jurisdiction": "CA",
+   "labeled": false,
+   "chars": 2960,
+   "tags": [
+    "guide",
+    "CA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D022-01",
+   "doc_id": "D022",
+   "kind": "statute",
+   "jurisdiction": "CA",
+   "labeled": true,
+   "chars": 6543,
+   "tags": [
+    "statute",
+    "CA",
+    "labeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D023-01",
+   "doc_id": "D023",
+   "kind": "statute",
+   "jurisdiction": "CA",
+   "labeled": true,
+   "chars": 23757,
+   "tags": [
+    "statute",
+    "CA",
+    "labeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D023-02",
+   "doc_id": "D023",
+   "kind": "statute",
+   "jurisdiction": "CA",
+   "labeled": false,
+   "chars": 1706,
+   "tags": [
+    "statute",
+    "CA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D024-01",
+   "doc_id": "D024",
+   "kind": "statute",
+   "jurisdiction": "CA",
+   "labeled": true,
+   "chars": 15725,
+   "tags": [
+    "statute",
+    "CA",
+    "labeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D025-01",
+   "doc_id": "D025",
+   "kind": "statute",
+   "jurisdiction": "CA",
+   "labeled": true,
+   "chars": 24226,
+   "tags": [
+    "statute",
+    "CA",
+    "labeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D025-02",
+   "doc_id": "D025",
+   "kind": "statute",
+   "jurisdiction": "CA",
+   "labeled": false,
+   "chars": 3747,
+   "tags": [
+    "statute",
+    "CA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D026-01",
+   "doc_id": "D026",
+   "kind": "statute",
+   "jurisdiction": "CA",
+   "labeled": true,
+   "chars": 7041,
+   "tags": [
+    "statute",
+    "CA",
+    "labeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D027-01",
+   "doc_id": "D027",
+   "kind": "statute",
+   "jurisdiction": "CA",
+   "labeled": true,
+   "chars": 10673,
+   "tags": [
+    "statute",
+    "CA",
+    "labeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D029-01",
+   "doc_id": "D029",
+   "kind": "web_page",
+   "jurisdiction": "Cambridge, MA",
+   "labeled": false,
+   "chars": 12702,
+   "tags": [
+    "web_page",
+    "Cambridge, MA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D031-01",
+   "doc_id": "D031",
+   "kind": "web_page",
+   "jurisdiction": "Cambridge, MA",
+   "labeled": false,
+   "chars": 6323,
+   "tags": [
+    "web_page",
+    "Cambridge, MA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D036-01",
+   "doc_id": "D036",
+   "kind": "guide",
+   "jurisdiction": "Jersey City, NJ",
+   "labeled": false,
+   "chars": 5932,
+   "tags": [
+    "guide",
+    "Jersey City, NJ",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D039-01",
+   "doc_id": "D039",
+   "kind": "ordinance",
+   "jurisdiction": "Los Angeles, CA",
+   "labeled": false,
+   "chars": 3341,
+   "tags": [
+    "ordinance",
+    "Los Angeles, CA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D040-01",
+   "doc_id": "D040",
+   "kind": "web_page",
+   "jurisdiction": "Los Angeles, CA",
+   "labeled": true,
+   "chars": 9937,
+   "tags": [
+    "web_page",
+    "Los Angeles, CA",
+    "labeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D041-01",
+   "doc_id": "D041",
+   "kind": "web_page",
+   "jurisdiction": "Los Angeles, CA",
+   "labeled": true,
+   "chars": 10634,
+   "tags": [
+    "web_page",
+    "Los Angeles, CA",
+    "labeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D042-01",
+   "doc_id": "D042",
+   "kind": "web_page",
+   "jurisdiction": "Los Angeles, CA",
+   "labeled": false,
+   "chars": 5253,
+   "tags": [
+    "web_page",
+    "Los Angeles, CA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D043-01",
+   "doc_id": "D043",
+   "kind": "ordinance",
+   "jurisdiction": "Los Angeles, CA",
+   "labeled": false,
+   "chars": 21827,
+   "tags": [
+    "ordinance",
+    "Los Angeles, CA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D043-02",
+   "doc_id": "D043",
+   "kind": "ordinance",
+   "jurisdiction": "Los Angeles, CA",
+   "labeled": false,
+   "chars": 13485,
+   "tags": [
+    "ordinance",
+    "Los Angeles, CA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D045-01",
+   "doc_id": "D045",
+   "kind": "statute",
+   "jurisdiction": "MA",
+   "labeled": true,
+   "chars": 2744,
+   "tags": [
+    "statute",
+    "MA",
+    "labeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D046-01",
+   "doc_id": "D046",
+   "kind": "statute",
+   "jurisdiction": "MA",
+   "labeled": true,
+   "chars": 3193,
+   "tags": [
+    "statute",
+    "MA",
+    "labeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D047-01",
+   "doc_id": "D047",
+   "kind": "statute",
+   "jurisdiction": "MA",
+   "labeled": false,
+   "chars": 3205,
+   "tags": [
+    "statute",
+    "MA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D048-01",
+   "doc_id": "D048",
+   "kind": "statute",
+   "jurisdiction": "MA",
+   "labeled": true,
+   "chars": 2790,
+   "tags": [
+    "statute",
+    "MA",
+    "labeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D049-01",
+   "doc_id": "D049",
+   "kind": "statute",
+   "jurisdiction": "MA",
+   "labeled": false,
+   "chars": 23274,
+   "tags": [
+    "statute",
+    "MA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D049-02",
+   "doc_id": "D049",
+   "kind": "statute",
+   "jurisdiction": "MA",
+   "labeled": false,
+   "chars": 23876,
+   "tags": [
+    "statute",
+    "MA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D049-03",
+   "doc_id": "D049",
+   "kind": "statute",
+   "jurisdiction": "MA",
+   "labeled": false,
+   "chars": 10217,
+   "tags": [
+    "statute",
+    "MA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D050-01",
+   "doc_id": "D050",
+   "kind": "statute",
+   "jurisdiction": "MA",
+   "labeled": false,
+   "chars": 2433,
+   "tags": [
+    "statute",
+    "MA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D051-01",
+   "doc_id": "D051",
+   "kind": "statute",
+   "jurisdiction": "MA",
+   "labeled": false,
+   "chars": 4096,
+   "tags": [
+    "statute",
+    "MA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D052-01",
+   "doc_id": "D052",
+   "kind": "statute",
+   "jurisdiction": "MA",
+   "labeled": true,
+   "chars": 23643,
+   "tags": [
+    "statute",
+    "MA",
+    "labeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D052-02",
+   "doc_id": "D052",
+   "kind": "statute",
+   "jurisdiction": "MA",
+   "labeled": false,
+   "chars": 3204,
+   "tags": [
+    "statute",
+    "MA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D053-01",
+   "doc_id": "D053",
+   "kind": "statute",
+   "jurisdiction": "MA",
+   "labeled": false,
+   "chars": 4297,
+   "tags": [
+    "statute",
+    "MA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D057-01",
+   "doc_id": "D057",
+   "kind": "statute",
+   "jurisdiction": "MA",
+   "labeled": true,
+   "chars": 2805,
+   "tags": [
+    "statute",
+    "MA",
+    "labeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D058-01",
+   "doc_id": "D058",
+   "kind": "statute",
+   "jurisdiction": "MA",
+   "labeled": false,
+   "chars": 2979,
+   "tags": [
+    "statute",
+    "MA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D065-01",
+   "doc_id": "D065",
+   "kind": "statute",
+   "jurisdiction": "NJ",
+   "labeled": true,
+   "chars": 21245,
+   "tags": [
+    "statute",
+    "NJ",
+    "labeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D066-01",
+   "doc_id": "D066",
+   "kind": "statute",
+   "jurisdiction": "NJ",
+   "labeled": true,
+   "chars": 4447,
+   "tags": [
+    "statute",
+    "NJ",
+    "labeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D067-01",
+   "doc_id": "D067",
+   "kind": "guide",
+   "jurisdiction": "NJ",
+   "labeled": true,
+   "chars": 23057,
+   "tags": [
+    "guide",
+    "NJ",
+    "labeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D067-02",
+   "doc_id": "D067",
+   "kind": "guide",
+   "jurisdiction": "NJ",
+   "labeled": false,
+   "chars": 20388,
+   "tags": [
+    "guide",
+    "NJ",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D067-03",
+   "doc_id": "D067",
+   "kind": "guide",
+   "jurisdiction": "NJ",
+   "labeled": true,
+   "chars": 21057,
+   "tags": [
+    "guide",
+    "NJ",
+    "labeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D067-04",
+   "doc_id": "D067",
+   "kind": "guide",
+   "jurisdiction": "NJ",
+   "labeled": false,
+   "chars": 18253,
+   "tags": [
+    "guide",
+    "NJ",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D068-01",
+   "doc_id": "D068",
+   "kind": "guide",
+   "jurisdiction": "NJ",
+   "labeled": false,
+   "chars": 7105,
+   "tags": [
+    "guide",
+    "NJ",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D069-01",
+   "doc_id": "D069",
+   "kind": "statute",
+   "jurisdiction": "NJ",
+   "labeled": true,
+   "chars": 10701,
+   "tags": [
+    "statute",
+    "NJ",
+    "labeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D073-01",
+   "doc_id": "D073",
+   "kind": "ordinance",
+   "jurisdiction": "San Diego, CA",
+   "labeled": false,
+   "chars": 24141,
+   "tags": [
+    "ordinance",
+    "San Diego, CA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D073-02",
+   "doc_id": "D073",
+   "kind": "ordinance",
+   "jurisdiction": "San Diego, CA",
+   "labeled": false,
+   "chars": 14753,
+   "tags": [
+    "ordinance",
+    "San Diego, CA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D076-01",
+   "doc_id": "D076",
+   "kind": "ordinance",
+   "jurisdiction": "San Diego, CA",
+   "labeled": true,
+   "chars": 23449,
+   "tags": [
+    "ordinance",
+    "San Diego, CA",
+    "labeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D078-01",
+   "doc_id": "D078",
+   "kind": "web_page",
+   "jurisdiction": "San Francisco, CA",
+   "labeled": false,
+   "chars": 7044,
+   "tags": [
+    "web_page",
+    "San Francisco, CA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D079-01",
+   "doc_id": "D079",
+   "kind": "web_page",
+   "jurisdiction": "San Francisco, CA",
+   "labeled": true,
+   "chars": 5680,
+   "tags": [
+    "web_page",
+    "San Francisco, CA",
+    "labeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D080-01",
+   "doc_id": "D080",
+   "kind": "web_page",
+   "jurisdiction": "San Francisco, CA",
+   "labeled": false,
+   "chars": 1397,
+   "tags": [
+    "web_page",
+    "San Francisco, CA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D081-01",
+   "doc_id": "D081",
+   "kind": "web_page",
+   "jurisdiction": "San Francisco, CA",
+   "labeled": true,
+   "chars": 1487,
+   "tags": [
+    "web_page",
+    "San Francisco, CA",
+    "labeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D082-01",
+   "doc_id": "D082",
+   "kind": "web_page",
+   "jurisdiction": "San Francisco, CA",
+   "labeled": false,
+   "chars": 3872,
+   "tags": [
+    "web_page",
+    "San Francisco, CA",
+    "unlabeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D083-01",
+   "doc_id": "D083",
+   "kind": "web_page",
+   "jurisdiction": "San Francisco, CA",
+   "labeled": true,
+   "chars": 5028,
+   "tags": [
+    "web_page",
+    "San Francisco, CA",
+    "labeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "D084-01",
+   "doc_id": "D084",
+   "kind": "web_page",
+   "jurisdiction": "Santa Ana, CA",
+   "labeled": false,
+   "chars": 4460,
+   "tags": [
+    "web_page",
+    "Santa Ana, CA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "D085-01",
+   "doc_id": "D085",
+   "kind": "web_page",
+   "jurisdiction": "Santa Ana, CA",
+   "labeled": false,
+   "chars": 5652,
+   "tags": [
+    "web_page",
+    "Santa Ana, CA",
+    "unlabeled"
+   ],
+   "split": "train"
+  },
+  {
+   "id": "R001-01",
+   "doc_id": "R001",
+   "kind": "rehearsal",
+   "jurisdiction": "Cambridge, MA",
+   "labeled": true,
+   "chars": 2279,
+   "tags": [
+    "rehearsal",
+    "Cambridge, MA",
+    "labeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "R002-01",
+   "doc_id": "R002",
+   "kind": "rehearsal",
+   "jurisdiction": "Boston, MA",
+   "labeled": true,
+   "chars": 1633,
+   "tags": [
+    "rehearsal",
+    "Boston, MA",
+    "labeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "R003-01",
+   "doc_id": "R003",
+   "kind": "rehearsal",
+   "jurisdiction": "Newark, NJ",
+   "labeled": true,
+   "chars": 1742,
+   "tags": [
+    "rehearsal",
+    "Newark, NJ",
+    "labeled"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "R004-01",
+   "doc_id": "R004",
+   "kind": "rehearsal",
+   "jurisdiction": "Hoboken, NJ",
+   "labeled": true,
+   "chars": 1567,
+   "tags": [
+    "rehearsal",
+    "Hoboken, NJ",
+    "labeled"
+   ],
+   "split": "test"
+  }
+ ]
+}

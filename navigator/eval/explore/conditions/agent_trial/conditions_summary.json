@@ -1,0 +1,43 @@
+{
+ "variant": "agent_trial",
+ "passed": 10,
+ "total": 10,
+ "score": 1.0,
+ "exact_passed": 6,
+ "exact_total": 6,
+ "wrong_exclusions": 0,
+ "labels": {
+  "CA-1947.12": null,
+  "CA-1946.2": null,
+  "LA-RSO": {
+   "passed": 5,
+   "total": 5,
+   "tries": 1,
+   "exact_passed": 2,
+   "exact_total": 2
+  },
+  "SF-allowable": null,
+  "BK-coverage": null,
+  "NJ-46:8-26": {
+   "passed": 5,
+   "total": 5,
+   "tries": 1,
+   "exact_passed": 4,
+   "exact_total": 4
+  },
+  "NJ-46:8-55": null,
+  "NJ-46:8-18.1": null,
+  "HOB-155": null,
+  "JC-260": null,
+  "NJ-FAIR": null,
+  "JC-algo": null,
+  "HOB-algo": null,
+  "SD-algo": null,
+  "NJ-2A:18-61.1": null,
+  "CAM-14.04": null,
+  "SD-TPO": null,
+  "SD-source-of-income": null,
+  "SA-algo": null,
+  "MA-IP25-21": null
+ }
+}

@@ -1,0 +1,69 @@
+{"prompt_id": "D004-01", "rep": 0, "steps": 3, "cards_read": ["dates", "citations"], "checks": 1, "cost_usd": 0.001503, "latency_s": 9.8}
+{"prompt_id": "D001-01", "rep": 0, "steps": 3, "cards_read": ["dates", "citations", "owner_and_exceptions", "relations"], "checks": 1, "cost_usd": 0.001938, "latency_s": 10.4}
+{"prompt_id": "D003-01", "rep": 0, "steps": 4, "cards_read": ["owner_and_exceptions", "citations", "dates", "building_age_and_size"], "checks": 2, "cost_usd": 0.003944, "latency_s": 22.1}
+{"prompt_id": "D007-01", "rep": 0, "steps": 3, "cards_read": ["owner_and_exceptions", "building_age_and_size", "dates", "citations", "relations"], "checks": 2, "cost_usd": 0.005537, "latency_s": 32.5}
+{"prompt_id": "D008-01", "rep": 0, "steps": 3, "cards_read": ["dates", "citations", "relations", "owner_and_exceptions", "building_age_and_size"], "checks": 1, "cost_usd": 0.003204, "latency_s": 18.2}
+{"prompt_id": "D006-01", "rep": 0, "steps": 4, "cards_read": ["building_age_and_size", "owner_and_exceptions", "dates", "citations", "relations"], "checks": 4, "cost_usd": 0.011022, "latency_s": 66.4}
+{"prompt_id": "D010-01", "rep": 0, "steps": 3, "cards_read": ["owner_and_exceptions", "relations", "citations", "dates", "building_age_and_size"], "checks": 1, "cost_usd": 0.002986, "latency_s": 16.6}
+{"prompt_id": "D005-01", "rep": 0, "steps": 5, "cards_read": ["citations", "dates", "relations", "owner_and_exceptions"], "checks": 5, "cost_usd": 0.012883, "latency_s": 84.0}
+{"prompt_id": "D011-01", "rep": 0, "steps": 3, "cards_read": ["dates", "citations", "relations"], "checks": 2, "cost_usd": 0.002065, "latency_s": 11.9}
+{"prompt_id": "D012-01", "rep": 0, "steps": 3, "cards_read": ["citations", "relations"], "checks": 1, "cost_usd": 0.002421, "latency_s": 16.2}
+{"prompt_id": "D013-01", "rep": 0, "steps": 3, "cards_read": ["citations", "dates", "owner_and_exceptions"], "checks": 1, "cost_usd": 0.001958, "latency_s": 11.8}
+{"prompt_id": "D014-01", "rep": 0, "steps": 3, "cards_read": ["owner_and_exceptions", "citations", "dates"], "checks": 1, "cost_usd": 0.001808, "latency_s": 10.2}
+{"prompt_id": "D016-02", "rep": 0, "steps": 1, "cards_read": [], "checks": 0, "cost_usd": 0.000258, "latency_s": 1.8}
+{"prompt_id": "D009-01", "rep": 0, "steps": 3, "cards_read": ["building_age_and_size", "owner_and_exceptions", "citations", "dates"], "checks": 3, "cost_usd": 0.009007, "latency_s": 53.6}
+{"prompt_id": "D022-01", "rep": 0, "steps": 3, "cards_read": ["citations", "dates", "relations", "owner_and_exceptions"], "checks": 1, "cost_usd": 0.001965, "latency_s": 10.9}
+{"prompt_id": "D016-01", "rep": 0, "steps": 3, "cards_read": ["citations", "owner_and_exceptions", "relations", "building_age_and_size", "dates"], "checks": 1, "cost_usd": 0.005212, "latency_s": 29.0}
+{"prompt_id": "D023-02", "rep": 0, "steps": 4, "cards_read": ["dates", "citations", "owner_and_exceptions", "relations"], "checks": 1, "cost_usd": 0.003964, "latency_s": 24.9}
+{"prompt_id": "D023-01", "rep": 0, "steps": 4, "cards_read": ["building_age_and_size", "owner_and_exceptions", "relations", "citations", "dates"], "checks": 2, "cost_usd": 0.005523, "latency_s": 35.9}
+{"prompt_id": "D024-01", "rep": 0, "steps": 3, "cards_read": ["building_age_and_size", "owner_and_exceptions", "dates", "citations", "relations"], "checks": 1, "cost_usd": 0.005318, "latency_s": 32.8}
+{"prompt_id": "D025-02", "rep": 0, "steps": 3, "cards_read": ["dates", "citations"], "checks": 1, "cost_usd": 0.00371, "latency_s": 22.7}
+{"prompt_id": "D025-01", "rep": 0, "steps": 3, "cards_read": ["building_age_and_size", "owner_and_exceptions", "dates", "citations", "relations"], "checks": 1, "cost_usd": 0.00535, "latency_s": 28.6}
+{"prompt_id": "D026-01", "rep": 0, "steps": 3, "cards_read": ["citations", "dates", "relations"], "checks": 1, "cost_usd": 0.002494, "latency_s": 15.6}
+{"prompt_id": "D027-01", "rep": 0, "steps": 3, "cards_read": ["citations", "dates", "owner_and_exceptions", "relations", "building_age_and_size"], "checks": 1, "cost_usd": 0.002766, "latency_s": 15.0}
+{"prompt_id": "D031-01", "rep": 0, "steps": 1, "cards_read": [], "checks": 0, "cost_usd": 0.001718, "latency_s": 12.2}
+{"prompt_id": "D036-01", "rep": 0, "steps": 3, "cards_read": ["building_age_and_size", "owner_and_exceptions", "citations", "dates"], "checks": 1, "cost_usd": 0.002211, "latency_s": 12.5}
+{"prompt_id": "D029-01", "rep": 0, "steps": 3, "cards_read": ["owner_and_exceptions", "building_age_and_size", "citations", "relations"], "checks": 1, "cost_usd": 0.004238, "latency_s": 27.7}
+{"prompt_id": "D039-01", "rep": 0, "steps": 3, "cards_read": ["citations", "dates"], "checks": 1, "cost_usd": 0.001227, "latency_s": 8.2}
+{"prompt_id": "D041-01", "rep": 0, "steps": 3, "cards_read": ["building_age_and_size", "owner_and_exceptions", "dates", "citations", "relations"], "checks": 2, "cost_usd": 0.00682, "latency_s": 42.2}
+{"prompt_id": "D042-01", "rep": 0, "steps": 4, "cards_read": ["dates", "citations", "relations", "owner_and_exceptions"], "checks": 3, "cost_usd": 0.006852, "latency_s": 45.2}
+{"prompt_id": "D040-01", "rep": 0, "steps": 6, "cards_read": ["building_age_and_size", "owner_and_exceptions", "dates", "relations", "citations"], "checks": 7, "cost_usd": 0.015107, "latency_s": 93.2}
+{"prompt_id": "D043-02", "rep": 0, "steps": 3, "cards_read": ["citations", "dates", "owner_and_exceptions", "relations", "building_age_and_size"], "checks": 1, "cost_usd": 0.008231, "latency_s": 51.5}
+{"prompt_id": "D045-01", "rep": 0, "steps": 3, "cards_read": ["citations", "dates"], "checks": 1, "cost_usd": 0.000975, "latency_s": 6.5}
+{"prompt_id": "D046-01", "rep": 0, "steps": 3, "cards_read": ["citations", "dates"], "checks": 1, "cost_usd": 0.001021, "latency_s": 7.6}
+{"prompt_id": "D047-01", "rep": 0, "steps": 3, "cards_read": ["citations", "dates"], "checks": 1, "cost_usd": 0.001416, "latency_s": 9.8}
+{"prompt_id": "D049-01", "rep": 0, "steps": 1, "cards_read": [], "checks": 0, "cost_usd": 0.001357, "latency_s": 5.1}
+{"prompt_id": "D048-01", "rep": 0, "steps": 3, "cards_read": ["relations", "citations", "dates", "owner_and_exceptions", "building_age_and_size"], "checks": 1, "cost_usd": 0.002624, "latency_s": 15.6}
+{"prompt_id": "D049-03", "rep": 0, "steps": 1, "cards_read": [], "checks": 0, "cost_usd": 0.000543, "latency_s": 2.1}
+{"prompt_id": "D050-01", "rep": 0, "steps": 3, "cards_read": ["citations", "dates"], "checks": 1, "cost_usd": 0.001076, "latency_s": 6.8}
+{"prompt_id": "D049-02", "rep": 0, "steps": 3, "cards_read": ["citations", "owner_and_exceptions", "relations"], "checks": 1, "cost_usd": 0.00354, "latency_s": 18.7}
+{"prompt_id": "D051-01", "rep": 0, "steps": 3, "cards_read": ["citations", "dates"], "checks": 1, "cost_usd": 0.001791, "latency_s": 11.5}
+{"prompt_id": "D043-01", "rep": 0, "steps": 3, "cards_read": ["building_age_and_size", "owner_and_exceptions", "dates", "citations", "relations"], "checks": 3, "cost_usd": 0.016771, "latency_s": 102.4}
+{"prompt_id": "D052-01", "rep": 0, "steps": 3, "cards_read": ["dates", "citations", "relations", "owner_and_exceptions"], "checks": 3, "cost_usd": 0.006006, "latency_s": 31.3}
+{"prompt_id": "D052-02", "rep": 0, "steps": 4, "cards_read": ["citations", "owner_and_exceptions", "dates", "relations"], "checks": 2, "cost_usd": 0.004148, "latency_s": 26.6}
+{"prompt_id": "D057-01", "rep": 0, "steps": 3, "cards_read": ["citations", "dates", "relations"], "checks": 1, "cost_usd": 0.0017, "latency_s": 10.6}
+{"prompt_id": "D058-01", "rep": 0, "steps": 3, "cards_read": ["citations", "dates"], "checks": 1, "cost_usd": 0.001721, "latency_s": 10.7}
+{"prompt_id": "D066-01", "rep": 0, "steps": 3, "cards_read": ["dates", "citations", "owner_and_exceptions"], "checks": 1, "cost_usd": 0.002483, "latency_s": 15.6}
+{"prompt_id": "D053-01", "rep": 0, "steps": 3, "cards_read": ["citations", "owner_and_exceptions"], "checks": 1, "cost_usd": 0.007722, "latency_s": 52.4}
+{"prompt_id": "D065-01", "rep": 0, "steps": 3, "cards_read": ["dates", "citations", "owner_and_exceptions", "building_age_and_size", "relations"], "checks": 3, "cost_usd": 0.009255, "latency_s": 54.8}
+{"prompt_id": "D067-01", "rep": 0, "steps": 3, "cards_read": ["owner_and_exceptions", "building_age_and_size", "citations", "dates", "relations"], "checks": 1, "cost_usd": 0.010738, "latency_s": 68.7}
+{"prompt_id": "D067-03", "rep": 0, "steps": 3, "cards_read": ["building_age_and_size", "owner_and_exceptions", "citations", "relations", "dates"], "checks": 2, "cost_usd": 0.009166, "latency_s": 52.9}
+{"prompt_id": "D067-02", "rep": 0, "steps": 3, "cards_read": ["citations", "dates", "relations", "building_age_and_size", "owner_and_exceptions"], "checks": 6, "cost_usd": 0.015077, "latency_s": 86.5}
+{"prompt_id": "D069-01", "rep": 0, "steps": 3, "cards_read": ["dates", "citations", "relations", "owner_and_exceptions"], "checks": 1, "cost_usd": 0.003323, "latency_s": 20.6}
+{"prompt_id": "D068-01", "rep": 0, "steps": 4, "cards_read": ["citations", "owner_and_exceptions"], "checks": 2, "cost_usd": 0.004119, "latency_s": 25.4}
+{"prompt_id": "D073-02", "rep": 0, "steps": 3, "cards_read": ["citations", "dates", "relations", "owner_and_exceptions", "building_age_and_size"], "checks": 1, "cost_usd": 0.004335, "latency_s": 22.4}
+{"prompt_id": "D076-01", "rep": 0, "steps": 3, "cards_read": ["dates", "citations", "relations", "owner_and_exceptions"], "checks": 1, "cost_usd": 0.003537, "latency_s": 17.4}
+{"prompt_id": "D078-01", "rep": 0, "steps": 1, "cards_read": [], "checks": 0, "cost_usd": 0.000765, "latency_s": 4.7}
+{"prompt_id": "D073-01", "rep": 0, "steps": 3, "cards_read": ["building_age_and_size", "owner_and_exceptions", "dates", "citations", "relations"], "checks": 1, "cost_usd": 0.008558, "latency_s": 54.9}
+{"prompt_id": "D079-01", "rep": 0, "steps": 3, "cards_read": ["citations", "building_age_and_size", "dates", "owner_and_exceptions", "relations"], "checks": 1, "cost_usd": 0.002313, "latency_s": 12.8}
+{"prompt_id": "D080-01", "rep": 0, "steps": 3, "cards_read": ["dates", "citations", "building_age_and_size", "owner_and_exceptions"], "checks": 1, "cost_usd": 0.00191, "latency_s": 11.5}
+{"prompt_id": "D081-01", "rep": 0, "steps": 3, "cards_read": ["citations", "dates", "relations"], "checks": 1, "cost_usd": 0.001248, "latency_s": 7.8}
+{"prompt_id": "D067-04", "rep": 0, "steps": 3, "cards_read": ["building_age_and_size", "owner_and_exceptions", "citations", "dates", "relations"], "checks": 8, "cost_usd": 0.022642, "latency_s": 130.5}
+{"prompt_id": "D083-01", "rep": 0, "steps": 3, "cards_read": ["citations", "dates", "relations", "building_age_and_size", "owner_and_exceptions"], "checks": 4, "cost_usd": 0.008034, "latency_s": 46.2}
+{"prompt_id": "D084-01", "rep": 0, "steps": 4, "cards_read": ["citations", "dates"], "checks": 3, "cost_usd": 0.004185, "latency_s": 25.6}
+{"prompt_id": "D082-01", "rep": 0, "steps": 4, "cards_read": ["citations", "dates", "owner_and_exceptions", "relations"], "checks": 1, "cost_usd": 0.008505, "latency_s": 55.1}
+{"prompt_id": "R002-01", "rep": 0, "steps": 3, "cards_read": ["citations", "dates"], "checks": 1, "cost_usd": 0.001198, "latency_s": 8.1}
+{"prompt_id": "D085-01", "rep": 0, "steps": 3, "cards_read": ["building_age_and_size", "owner_and_exceptions", "dates", "citations", "relations"], "checks": 2, "cost_usd": 0.004315, "latency_s": 23.2}
+{"prompt_id": "R003-01", "rep": 0, "steps": 3, "cards_read": ["building_age_and_size", "owner_and_exceptions", "dates", "citations"], "checks": 1, "cost_usd": 0.001494, "latency_s": 8.2}
+{"prompt_id": "R001-01", "rep": 0, "steps": 3, "cards_read": ["building_age_and_size", "owner_and_exceptions", "dates", "citations"], "checks": 1, "cost_usd": 0.005111, "latency_s": 32.1}
+{"prompt_id": "R004-01", "rep": 0, "steps": 3, "cards_read": ["building_age_and_size", "owner_and_exceptions", "dates", "citations", "relations"], "checks": 1, "cost_usd": 0.001952, "latency_s": 10.6}

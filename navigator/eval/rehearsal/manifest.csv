@@ -1,0 +1,5 @@
+doc_id,jurisdictions,url,source_type,capture,retrieved_at,sha256,text_file,status
+R001,"Cambridge, MA",https://example.org/rehearsal/cambridge-ordinance-2026-31,official,yes,2026-10-03 09:00 UTC,,text/R001.txt,ok
+R002,"Boston, MA",https://example.org/rehearsal/boston-docket-0842,official,yes,2026-10-03 09:00 UTC,,text/R002.txt,ok
+R003,"Newark, NJ",https://example.org/rehearsal/newark-ordinance-6psf-a,official,yes,2026-10-03 09:00 UTC,,text/R003.txt,ok
+R004,"Hoboken, NJ",https://example.org/rehearsal/hoboken-fair-chance-faq,official,yes,2026-10-03 09:00 UTC,,text/R004.txt,ok

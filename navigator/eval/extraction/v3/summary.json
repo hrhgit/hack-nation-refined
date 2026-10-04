@@ -1,0 +1,8 @@
+{
+  "description": "Round 3: short list that turns a city program name into its code citation (primer)",
+  "target": "system_prompt",
+  "prompt_sha256": "09690cc82365c0de8953186d571002309875eeff69e72213c9930ab5be1cda1a",
+  "model": "deepseek-flash",
+  "decision": "kept: numbered citations among records of the listed cities 52/85 (61%) -> 79/86 (92%), bar 75%; Santa Ana 0 of 8 numbered; invented R001 and R002 keep their own citations; full-set score 0.963 -> 0.962 (test -0.010, train +0.009), no guardrail outside noise. The test dip is one unstable page (D078-01 wrote nothing in both tries; 3 of 8 fresh tries are empty under v2 and under v3 alike)",
+  "label": "city-program citation list"
+}

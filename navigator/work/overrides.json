@@ -1,0 +1,44 @@
+{
+  "overrides": [
+    {
+      "id": "ov-001",
+      "match": {
+        "jurisdiction": "CA",
+        "category": "algorithmic_rent_setting",
+        "citation_contains": "AB 325"
+      },
+      "set": {
+        "effective_date": "2026-01-01"
+      },
+      "reason": "The bill's history page (D022) prints no operative date. The challenge brief states that AB 325 / SB 763 took effect on 1/1/2026.",
+      "source": "Challenge brief (file.pdf), rule categories table, category 6"
+    },
+    {
+      "id": "ov-002",
+      "match": {
+        "jurisdiction": "San Diego, CA",
+        "category": "algorithmic_rent_setting",
+        "citation_contains": "98.11"
+      },
+      "set": {
+        "lifecycle": "enacted"
+      },
+      "reason": "D076 is the council packet with the draft ordinance and a blank date of final passage, so the text alone reads as pending. The challenge brief lists San Diego §§98.1101-98.1104 (Jun 2025) as an existing rule. The exact effective date is not in the corpus and is left empty.",
+      "source": "Challenge brief (file.pdf), rule categories table, category 6"
+    },
+    {
+      "id": "ov-003",
+      "match": {
+        "jurisdiction": "NJ",
+        "category": "algorithmic_rent_setting",
+        "citation_contains": "P.L. 2026, c.43"
+      },
+      "set": {
+        "lifecycle": "enacted",
+        "effective_date": "2027-07-01"
+      },
+      "reason": "D069 states approved July 20, 2026 and §9: This act shall take effect on the first day of the twelfth month next following the date of enactment. The twelfth following month is July 2027. Also matches Participant Guide §7 and T3.",
+      "source": "starter-pack/participant-final-no-hour16 3/corpus/text/D069.txt, approval header and §9; README.md §7"
+    }
+  ]
+}

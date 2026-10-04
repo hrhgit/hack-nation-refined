@@ -1,0 +1,7 @@
+{
+  "description": "Round 6 (side check passed, not applied): cite the section with the headline number; no record for a statement with nothing to cite",
+  "target": "system_prompt",
+  "model": "deepseek-flash",
+  "label": "citation anchor + no empty-citation records (ready, not applied)",
+  "decision": "side check met both bars (D067-01 46:8-21.2 8/8; D067-02 no-citation tries 0/8 vs 3/8 at v4); not applied and no full pass run: priorities moved to what the later stages need from this stage"
+}

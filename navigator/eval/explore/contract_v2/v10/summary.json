@@ -1,0 +1,6 @@
+{
+  "description": "control prompt from /private/tmp/claude-501/-Users-herh-MyFiles-Projects-hack-nation/75c7fd9c-e7e7-4b56-8a99-29da60b37ef3/scratchpad/v10_rendered_prompt.txt",
+  "target": "system_prompt",
+  "prompt_sha256": "2eb5e7544fd9edb96081ed2cc473aea66f18965d9b963b7a9f9d8a8de6c0fef3",
+  "model": "deepseek-flash"
+}

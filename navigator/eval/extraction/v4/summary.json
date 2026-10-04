@@ -1,0 +1,6 @@
+{
+  "description": "see change.md",
+  "target": "system_prompt",
+  "prompt_sha256": "d846ab5cf9eaab7de6e780fe2c00801a0176b2cd8d541b849ed90dfcbff28ab2",
+  "model": "deepseek-flash"
+}

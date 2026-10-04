@@ -7,3 +7,6 @@ worklog/
 # regenerable from the corpus; keep work/out/ (raw model answers = audit trail) and outputs/
 work/packets/
 work/paste/
+# 76 MB, rebuilt by `python3 -m lookup build --offline`
+work/lookup_audit.json
+work/geocode_cache/

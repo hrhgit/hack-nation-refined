@@ -1,0 +1,131 @@
+{
+  "packet_id": "D022-01",
+  "model": "deepseek-flash",
+  "as_of": "2026-10-01",
+  "prompt_sha256": "53c560f245304eed3b15a2f403223aa4d375abc6f1a5bdaab0d25903198a34e6",
+  "steps": 3,
+  "cards_read": [
+    "dates",
+    "citations",
+    "relations"
+  ],
+  "checks": 1,
+  "usage": [
+    {
+      "prompt_tokens": 5303,
+      "completion_tokens": 420,
+      "total_tokens": 5723,
+      "prompt_tokens_details": {
+        "cached_tokens": 5120
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 325
+      },
+      "prompt_cache_hit_tokens": 5120,
+      "prompt_cache_miss_tokens": 183
+    },
+    {
+      "prompt_tokens": 6923,
+      "completion_tokens": 2284,
+      "total_tokens": 9207,
+      "prompt_tokens_details": {
+        "cached_tokens": 5632
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1896
+      },
+      "prompt_cache_hit_tokens": 5632,
+      "prompt_cache_miss_tokens": 1291
+    },
+    {
+      "prompt_tokens": 9388,
+      "completion_tokens": 378,
+      "total_tokens": 9766,
+      "prompt_tokens_details": {
+        "cached_tokens": 9088
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 6
+      },
+      "prompt_cache_hit_tokens": 9088,
+      "prompt_cache_miss_tokens": 300
+    }
+  ],
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "Let me analyze this packet. It's AB 325, chaptered on 10/06/2025. It adds Sections 16729 and 16756.1 to the Business and Professions Code. Relates to algorithmic rent setting? It's about \"common pricing algorithm\" — which matches the algorithmic_rent_setting category.\n\nLet me think: category `algorithmic_rent_setting` — bans or limits on algorithmic/software rent-setting that uses competitors' data. This law makes it unlawful to use or distribute a common pricing algorithm as part of a conspiracy to restrain trade, and unlawful if a person coerces another to set/adopt a recommended price. This fits.\n\nSo one record for algorithmic_rent_setting.\n\nIs there anything else? Section 16756.1 relates to pleading standard — outside categories. So one record.\n\njurisdiction: CA. lifecycle: enacted (chaptered, approved October 06, 2025). effective_date: Chaptered bills in CA typically take effect January 1 following... but the text doesn't state an effective date. Hmm. The text says \"Approved by Governor October 06, 2025. Filed with Secretary of State October 06, 2025.\" No effective date stated. Read the dates card.\n\ncitation: Business and Professions Code § 16729.\n\nLet me read the cards: dates, citations, relations maybe.\n\nLet me call read_card for dates and citations.\n\nkey_value: null? The headline — no number. Maybe \"covers common pricing algorithms\". key_value null.\n\nLet me read the cards.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_ETUELxbWY7wSqWc5uo8G5191",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"dates\"}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_zcjKRQtrLY3ObFi5NiqA2960",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"citations\"}"
+          }
+        },
+        {
+          "index": 2,
+          "id": "call_02_t2r3WUfHwMPA5oo5gGzE6898",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"relations\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_ETUELxbWY7wSqWc5uo8G5191",
+      "content": "# Card: dates\n\n- `effective_date`: the date the requirement described in `key_value` began (or will begin) to apply, as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. For an amended law use the amendment's date if the amendment created the current value. Do not use the signing date unless the text says that is when it takes effect. A code-publisher history note such as `[Adopted 4-2-2024 by Ord. No. 123]` gives the adoption date, not the effective date: use it only if the text says the rule takes effect on that day. If the text gives no date, `null`: never guess a date from memory.\n- `valid_through`: for a value that is published for a period (an annual allowable increase, a yearly interest rate), the last day of that period as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. `null` for a rule with no stated end.\n- Use only dates and numbers that appear in the packet. If the packet gives two different dates for the same rule, use the one in the legal text, set `conflict_flag` true and name the other date in `conflict_note`. If the date is relative (\"90 days after enactment\") and the anchor is not in the packet, use `null` and say so in `conflict_note`.\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_01_zcjKRQtrLY3ObFi5NiqA2960",
+      "content": "# Card: citations\n\n- `citation`: the legal provision the rule comes from, at section level with no subdivision letters (see CITATIONS).\n- Citation style, one provision per citation: `Cal. Civ. Code § 1947.12`, `Cal. Gov. Code § 12955`, `N.J.S.A. 2A:18-61.1`, `P.L. 2021, c. 110`, `G.L. c. 186, § 15B`, `S.F. Admin. Code § 37.9`, `San Diego Mun. Code § 98.0703`, `Berkeley Mun. Code ch. 13.63`. For a bill give its number, then the code section it adds in parentheses if the text shows one: `AB 325 (Cal. Bus. & Prof. Code § 16729)`, `H.5222`, `S.2983`. Use the form the text itself uses when none of these fits.\n\nWhen the packet prints no code citation, name the law as follows.\n\nWhen the packet prints a code citation for a law, use the packet's. When it does not, and the page is about one of the programs below, cite the law as shown in the right-hand column. The list only names laws: it tells you nothing about what a law says. If the packet does not state a rule, there is no rule. A program that is not on the list is cited by its name exactly as the page names it.\n\n| the law, as pages call it | cite as |\n|---|---|\n| San Francisco Rent Ordinance (rent increases, just cause, relocation, deposit interest, algorithmic devices) | S.F. Admin. Code ch. 37 |\n| Los Angeles Rent Stabilization Ordinance (RSO) | Los Angeles Rent Stabilization Ordinance (L.A.M.C. §151.00 et seq.) |\n| Los Angeles Just Cause Ordinance (JCO), relocation assistance | Los Angeles Just Cause Ordinance (L.A.M.C. §165.00 et seq.) |\n| Berkeley Rent Ordinance, Measure BB | Berkeley Mun. Code ch. 13.76 |\n| Berkeley tenant screening and application fees | Berkeley Mun. Code ch. 13.78 |\n| Berkeley Fair Chance | Berkeley Mun. Code ch. 13.106 |\n| Berkeley coordinated pricing algorithms | Berkeley Mun. Code ch. 13.63 |\n| San Diego tenant protections (just cause) | San Diego Mun. Code §98.0701 et seq. |\n| San Diego automated rent price-fixing ban | San Diego Mun. Code §§98.1101–98.1104 |\n| Jersey City Rent Control Ordinance | Jersey City Mun. Code ch. 260 |\n| Cambridge Fair Housing Ordinance | Cambridge Mun. Code ch. 14.04 |\n| Boston Housing Stability Notification Act | Boston Mun. Code §10-11.7 |\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_02_t2r3WUfHwMPA5oo5gGzE6898",
+      "content": "# Card: relations to other levels of law\n\n- `interaction`: how this rule relates to other levels of law, only if the text says so (e.g. `\"State cap yields to this local ordinance\"`, `\"May be preempted by the state act once it takes effect\"`). At most 30 words, else `null`.\n- `relations`: a list, `[]` when none. One entry for each sentence of the packet that says how this law fits with other levels of law: `{\"type\":\"preempts_local\",\"quote\":\"...\"}` when the text bars local governments from regulating this subject or from enacting rules that conflict with this law (it needs an explicit bar such as \"shall not\", \"prohibited\" or \"void\"; a sentence that only says the law does not authorize, require or affect local action is not a relation, so leave it out); `{\"type\":\"yields_to_local\",\"quote\":\"...\"}` when the text says this rule does not apply where a local rule on the same subject governs. The quote is copied character for character from the packet. Attach it to the record of the law the sentence belongs to; if the sentence sits in another section of the same act, attach it to that act's record.\n"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "The text doesn't give an explicit effective date. Approved Oct 6, 2025, filed with SOS Oct 6, 2025. No stated effective date. So effective_date: null. Hmm, but the dates card says don't use signing date unless text says it takes effect then. So null.\n\nWait—the digest says the bill would... but it's now chaptered. Let me consider lifecycle: enacted. The chaptered version. Good.\n\ncitation: AB 325 (Cal. Bus. & Prof. Code § 16729).\n\nquoted_span: need verbatim. Choose: \"(a) It shall be unlawful for a person to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade or commerce in violation of this chapter.\" Or include (b). Let me pick a span covering core requirement.\n\nActually the \"common pricing algorithm\" definition is important. The key prohibition is (a) and (b). Let me use a span from (a) or (b). The definition of \"common pricing algorithm\" is in (d)(3): \"'Common pricing algorithm' means any methodology, including a computer, software, or other technology, used by two or more persons, that uses competitor data to recommend, align, stabilize, set, or otherwise influence a price or commercial term.\" But there's an omitted line break? No, the text has line breaks within, but that's fine for verbatim? The quoted span must be contiguous - line breaks are within the packet text; I should copy character for character. The text has newlines. Hmm, I should probably keep it as one passage. Line breaks in the middle... Let me use a span from (a) or (b) which are single-ish lines.\n\nLet me pick: \"(b) It shall be unlawful for a person to use or distribute a common pricing algorithm if the person coerces another person to set or adopt a recommended price or commercial term recommended by the common pricing algorithm for the same or similar products or services in the jurisdiction of this state.\"\n\nThat carries the prohibition. Length is ~300 chars. Good.\n\nOr (a). Let's use (a) and (b)? They're not contiguous — (a) then (b) with newlines, contiguous actually (just a newline between). I could include both. But let's keep it simple: use (a).\n\nActually key_value: no number. null.\n\ncoverage_conditions: \"Applies to any person, as defined in Section 16702, excluding the end consumer of a product or service.\" At most 40 words.\n\napplicability: conditions [] — no building conditions. per_tenancy null. coverage_quotes: maybe a quote about \"person\" definition? Hmm, coverage_quotes are quotes for the conditions. Since conditions is [], maybe coverage_quotes could be [] too. Let me include a quote. The card says all three keys required, conditions [] when text sets none. coverage_quotes can be [] too probably. I'll include a relevant quote maybe.\n\nexemptions: \"End consumers of a product or service are not 'persons' covered by the rule.\" Hmm, that's from the definition. That's a scope limit. Could be exempt. Let's put: \"The definition of 'person' does not include the end consumer of a product or service.\"\n\npenalty: The text says violation is punishable as a crime? The digest says \"the violation of which is punishable as a crime\". Section text doesn't state a penalty. Hmm. The digest mentions expanding scope of activities prohibited by the Cartwright Act, \"the violation of which is punishable as a crime\". That's a statement. Penalty: null? Or use the digest statement. The digest says violations of the Cartwright Act are punishable as a crime. I could set penalty to that. It's a bit indirect. I'll put penalty: null since the operative section states none... Actually the digest does state it. Hmm. To be safe, I could say penalty: \"Violation of the Cartwright Act is punishable as a crime.\" But it's about the Cartwright Act generally. I'll include it with the digest basis. Actually, being cautious — the requirement field can mention. I'll set penalty: null to avoid overreach? The rule says penalty: remedy or penalty stated for violations, else null. The digest states violation punishable as a crime. That's a stated penalty. I'll include it.\n\nHmm, but the digest sentence \"Because the bill would expand the scope of activities prohibited by the Cartwright Act, the violation of which is punishable as a crime, the bill would impose a state-mandated local program.\" So yes penalty stated. I'll put: \"Violation of the Cartwright Act is punishable as a crime; act imposes a state-mandated local program.\" Keep short.\n\nLet me also consider a second record? Category algorithmic_rent_setting only. Section 16756.1 is pleading standard — not in categories. So one record.\n\ninteraction: null. relations: The text says \"(c) Nothing in this section shall impair or limit the applicability of antitrust laws.\" That's a \"does not affect\" sentence — not a relation per card (leave out). No preemption. So relations [].\n\nconfidence: 0.9+ — operative statutory text, chaptered. 0.95.\n\nconflict_flag: false.\n\neffective_date: null. Hmm, wait — should I consider that the packet gives the chaptering date but not effective date. Put null.\n\nNow jurisdiction: CA.\n\nLet me also double check: is the law about rent-setting? The category is \"algorithmic_rent_setting: bans or limits on algorithmic / software rent-setting that uses competitors' data: covered software, prohibited conduct, penalties, effective date\". The common pricing algorithm uses competitor data to recommend/align/set a price or commercial term. Yes, fits.\n\ntitle: \"Cartwright Act common pricing algorithm prohibition\" or \"AB 325 common pricing algorithm ban\".\n\nrequirement: \"A person may not use or distribute a common pricing algorithm as part of a contract, combination or conspiracy to restrain trade, or coerce another person to set or adopt a price or commercial term the algorithm recommends.\" Under 45 words.\n\nkey_value: null.\n\nNow let me run check_record.\n\nLet me construct record:\n\n{\"packet_id\":\"D022-01\",\"doc_id\":\"D022\",\"jurisdiction\":\"CA\",\"category\":\"algorithmic_rent_setting\",\"lifecycle\":\"enacted\",\"title\":\"AB 325 common pricing algorithm prohibition\",\"requirement\":\"It is unlawful for a person to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade, or to coerce another person to set or adopt a price or commercial term the algorithm recommends.\",\"key_value\":null,\"coverage_conditions\":\"Any person as defined in Section 16702, excluding the end consumer of a product or service.\",\"applicability\":{\"conditions\":[],\"per_tenancy\":null,\"coverage_quotes\":[\"\\\"Person\\\" has the same meaning as defined in Section 16702 and does not include the end consumer of a product or service.\"]},\"exemptions\":\"The end consumer of a product or service is not a \\\"person\\\" for purposes of this section.\",\"penalty\":\"Violation of the Cartwright Act is punishable as a crime; the act imposes a state-mandated local program.\",\"effective_date\":null,\"valid_through\":null,\"citation\":\"AB 325 (Cal. Bus. & Prof. Code § 16729)\",\"quoted_span\":\"(a) It shall be unlawful for a person to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade or commerce in violation of this chapter.\",\"interaction\":null,\"relations\":[],\"confidence\":0.93,\"conflict_flag\":false,\"conflict_note\":null}\n\nLet me check the quoted span is verbatim: \"16729.\\n(a) It shall be unlawful for a person to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade or commerce in violation of this chapter.\"\n\nYes \"(a) It shall be unlawful for a person to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade or commerce in violation of this chapter.\" matches verbatim.\n\ncoverage_quote: The text: \"(5) “Person” has the same meaning as defined in Section 16702 and does not include the end consumer of a product or service.\" with curly quotes. I need to copy character for character including curly quotes. Let me use exactly: \"(5) “Person” has the same meaning as defined in Section 16702 and does not include the end consumer of a product or service.\"\n\nLet me use the actual curly quotes in the JSON string.\n\nNow run check_record.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_umcf8NyoxWa5XDPaWWOQ1982",
+          "type": "function",
+          "function": {
+            "name": "check_record",
+            "arguments": "{\"record_json\": \"{\\\"packet_id\\\":\\\"D022-01\\\",\\\"doc_id\\\":\\\"D022\\\",\\\"jurisdiction\\\":\\\"CA\\\",\\\"category\\\":\\\"algorithmic_rent_setting\\\",\\\"lifecycle\\\":\\\"enacted\\\",\\\"title\\\":\\\"AB 325 common pricing algorithm prohibition\\\",\\\"requirement\\\":\\\"It is unlawful for a person to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade, or to coerce another person to set or adopt a price or commercial term the algorithm recommends.\\\",\\\"key_value\\\":null,\\\"coverage_conditions\\\":\\\"Any person as defined in Section 16702, excluding the end consumer of a product or service.\\\",\\\"applicability\\\":{\\\"conditions\\\":[],\\\"per_tenancy\\\":null,\\\"coverage_quotes\\\":[\\\"(5) “Person” has the same meaning as defined in Section 16702 and does not include the end consumer of a product or service.\\\"]},\\\"exemptions\\\":\\\"The end consumer of a product or service is not a “person” for purposes of this section.\\\",\\\"penalty\\\":\\\"Violation of the Cartwright Act is punishable as a crime; the act imposes a state-mandated local program.\\\",\\\"effective_date\\\":null,\\\"valid_through\\\":null,\\\"citation\\\":\\\"AB 325 (Cal. Bus. & Prof. Code § 16729)\\\",\\\"quoted_span\\\":\\\"(a) It shall be unlawful for a person to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade or commerce in violation of this chapter.\\\",\\\"interaction\\\":null,\\\"relations\\\":[],\\\"confidence\\\":0.93,\\\"conflict_flag\\\":false,\\\"conflict_note\\\":null}\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_umcf8NyoxWa5XDPaWWOQ1982",
+      "content": "ACCEPTED.\nHow a program reads it: citation 'AB 325 (Cal. Bus. & Prof. Code §16729)'; lifecycle enacted; effective_date None; valid_through None.\nConditions it will test: none (the rule covers every building)\nWhat the conditions do to made-up buildings on 2026-10-01 (year built, units):\n  built 2022, 20 units -> applies\n  built 2005, 20 units -> applies\n  built 1990, 20 units -> applies\n  built 1970, 20 units -> applies\n  built unknown year, 20 units -> applies\n  built 1950, 2 units -> applies\n  built 1950, 5 units -> applies\n  built 1950, unknown units -> applies"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"packet_id\":\"D022-01\",\"doc_id\":\"D022\",\"jurisdiction\":\"CA\",\"category\":\"algorithmic_rent_setting\",\"lifecycle\":\"enacted\",\"title\":\"AB 325 common pricing algorithm prohibition\",\"requirement\":\"It is unlawful for a person to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade, or to coerce another person to set or adopt a price or commercial term the algorithm recommends.\",\"key_value\":null,\"coverage_conditions\":\"Any person as defined in Section 16702, excluding the end consumer of a product or service.\",\"applicability\":{\"conditions\":[],\"per_tenancy\":null,\"coverage_quotes\":[\"(5) “Person” has the same meaning as defined in Section 16702 and does not include the end consumer of a product or service.\"]},\"exemptions\":\"The end consumer of a product or service is not a “person” for purposes of this section.\",\"penalty\":\"Violation of the Cartwright Act is punishable as a crime; the act imposes a state-mandated local program.\",\"effective_date\":null,\"valid_through\":null,\"citation\":\"AB 325 (Cal. Bus. & Prof. Code § 16729)\",\"quoted_span\":\"(a) It shall be unlawful for a person to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade or commerce in violation of this chapter.\",\"interaction\":null,\"relations\":[],\"confidence\":0.93,\"conflict_flag\":false,\"conflict_note\":null}\n{\"packet_id\":\"D022-01\",\"n_rules\":1,\"note\":null}",
+      "reasoning_content": "Accepted. Now output final."
+    }
+  ]
+}

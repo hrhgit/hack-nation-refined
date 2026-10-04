@@ -1,0 +1,49 @@
+{
+  "address_count": 500,
+  "as_of": "2026-10-01",
+  "audit_outputs": {
+    "changes_audit.json": "ad82f883e1dfd595af545a07975fc30ea3b40f956bad952f55da96247e7344e0",
+    "lookup_audit.json": "c6f3a5bd1308e3c0654a47c8c46654a23034c81ea7d3938cd7a42db25ab72404",
+    "stage1_requests.md": "68d8af186d542ae8821d3054bef646b75e6ff1646648298a4feb26b2a57d7cc3"
+  },
+  "disclaimer": "Not legal advice. Based only on the cited sources and the listed address facts.",
+  "geocode_methods": {
+    "geocoder": 476,
+    "postal_city_fallback": 24
+  },
+  "inputs": {
+    "navigator/changes/__init__.py": "a9c70e68e239ce56827ead7fb543d7f5de0d78a553c0100d41520f0894eefb48",
+    "navigator/changes/__main__.py": "8da43a568ad8ab5e825d95bc8d941947f7cae5760e6c930cfd9cf9491c4a9099",
+    "navigator/changes/engine.py": "5de4f79097a55ffed1fd2448bc3209cceea2ad92baff33c0d04fd811f816a50f",
+    "navigator/changes/test_rule_map.json": "601059b31af9e877b739ef45bb68a2adbe977aa721b69af3bf8235b1255329eb",
+    "navigator/corpus_extra/text/D034.txt": "571ac3279b3cac79cc85c45a4ec60c833e9d5bbd708d95e9598487df1d11701d",
+    "navigator/lookup/__init__.py": "536d902baf28b1ddcbf23f7c7186b8feeb327e85349c627515b9ab086749f694",
+    "navigator/lookup/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "navigator/lookup/addresses.py": "6d09170cbe19fe3ed63acac841e2e29c53f342f77d27e94596d4bf30fffadfad",
+    "navigator/lookup/cli.py": "fc461aa86deeea3ab0bca665a6fee9a976b03a6232f1a987f35847dabbe4fad6",
+    "navigator/lookup/common.py": "0b3e456e5552e613ece6be46cf3ffff4e9630bb4ac7fc6b98722b14cd03769cd",
+    "navigator/lookup/coverage_facts.json": "eda7212c48967d7caa8178b82823ddb4f29dd7727f0ccee7c2a74264f4e54b0e",
+    "navigator/lookup/engine.py": "2e413ec2268ef95fb1366ee1e06db5cefe81573cba13a6b2677ac60254e5a3ea",
+    "navigator/lookup/postal_cities.json": "7a7b05fbdc264f6257e222f3b1389e06950a95c86265062f0277e6f516101b2b",
+    "navigator/lookup/precedence.json": "6cf8c5dd83865b871a8c3d0f6ecfdbe258d58aa8562174875ac884e5e626833e",
+    "navigator/lookup/review.py": "f49685806d04a53bb1aa49a4685735a861981a61f75e718b1961b5ab59051208",
+    "navigator/work/addresses_resolved.json": "2993a4c0392f8cf0a4b2c9ba9a028221a64316141b1e54eddca76a12ed2e6625",
+    "navigator/work/rejected.jsonl": "08c62d5c1a785352d8d4d9f571eec9ccb897cfe1ebd5f228596063a65fa5fee1",
+    "navigator/work/rules_enriched.json": "0b493a8d358430561ea08c1dfa887552b9601411ac1fa956fcf5f01a02bb81de",
+    "starter-pack/participant-final-no-hour16 3/data/sample_addresses.csv": "0a5ebe8cd9c422f5999831f668cc787da5a22f3ca78ba94cb941a801e68af95d",
+    "starter-pack/participant-final-no-hour16 3/dev/change_tests.json": "f22b82ebc8e783d13e690fc39cb52879380da8df91a23ef8677388a767d0d97f"
+  },
+  "outputs": {
+    "changes.json": "f80378658ab38a4ac5d9414b8148dfbceae8a5aa425ead4a2546305873eb13b8",
+    "lookups.json": "6b373ec8a3864aee95b3e91098331b7f8b30923db117acfc00391df295553d3f",
+    "rules.json": "8de03bf495908ce677434200182bbdb22357418d92c797a33e825363b7a66cec"
+  },
+  "results": {
+    "applies": 7079,
+    "not_yet_effective": 280,
+    "pending": 300,
+    "superseded": 71,
+    "unknown": 2370
+  },
+  "rule_count": 91
+}

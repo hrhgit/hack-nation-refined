@@ -1,0 +1,14 @@
+{
+  "CA": {
+    "los angeles": "Los Angeles, CA", "van nuys": "Los Angeles, CA",
+    "san francisco": "San Francisco, CA", "san diego": "San Diego, CA",
+    "san ysidro": "San Diego, CA", "berkeley": "Berkeley, CA", "santa ana": "Santa Ana, CA"
+  },
+  "NJ": {"jersey city": "Jersey City, NJ", "hoboken": "Hoboken, NJ", "newark": "Newark, NJ"},
+  "MA": {
+    "boston": "Boston, MA", "cambridge": "Cambridge, MA", "dorchester": "Boston, MA",
+    "roxbury": "Boston, MA", "east boston": "Boston, MA", "brighton": "Boston, MA",
+    "allston": "Boston, MA", "south boston": "Boston, MA", "jamaica plain": "Boston, MA",
+    "hyde park": "Boston, MA", "mattapan": "Boston, MA"
+  }
+}

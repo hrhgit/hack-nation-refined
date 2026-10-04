@@ -1,4 +1,24 @@
-# Rental Housing Law Navigator: 规则提取流水线 (Module A)
+# Rental Housing Law Navigator
+
+## 三个阶段
+
+| 阶段 | 负责什么 | 入口 |
+|---|---|---|
+| 第一阶段（Module A） | 从法律原文提取规则 | `python3 run.py ingest`；提取流程见下文 |
+| 第二阶段（Module B） | 确定城市、按查询日期判断规则是否覆盖某个地址 | `python3 -m lookup resolve`；`python3 -m lookup lookup --address-id A0001` |
+| 第三阶段（Module C） | 比较实际查询结论、判断变更影响和需复核的州/市关系 | `python3 -m changes` |
+
+第二、三阶段按地址覆盖和变更题的需求独立实现，仅用 Python 标准库、不调用模型。已有 Census 缓存后，可离线重新生成全部提交文件：
+
+```bash
+cd /Users/herh/MyFiles/Projects/hack-nation/navigator
+python3 -m lookup build --offline
+python3 -m unittest tests.test_stage23 tests.test_stage23_acceptance -q
+```
+
+输入事实、运行方式和目前的规则缺口见 [第二、三阶段说明](docs/STAGE2_3.md)。每个界面和导出结论均带“非法律意见”。
+
+## 第一阶段：规则提取
 
 目标:把"读法律文本 → 结构化规则"拆成 **固定流程 + 一次模型调用**。模型只负责语义判断(这条法规定了什么),
 其余全部由确定性脚本完成。现在可直接调用 **DeepSeek Flash API**，也可继续用订阅模型手动跑；两种方式使用同一份提示词和同一套结果检查。
@@ -124,8 +144,12 @@ work/report.md    本次运行报告                  work/rules_enriched.json  
 outputs/rules.json  提交用,严格符合 schema
 ```
 
+## 比赛材料与评分范围（v5）
+
+- 本届不向参赛者提供 `score.py` 或开发集答案。参赛视频应展示本队系统的实际输出和自行验证过程，不展示 `score.py` 的评分结果。
+- 引用评分只依据比赛资料包中官方分发且可核验的语料原文。单独保存的链接原文可在遵守来源条款时用于研究；除非组织方正式将其加入并映射到分发语料，否则不计入引用评分。
+
 ## 待向组织者确认
 
-1. `score.py` 和开发集答案(10 条规则 + 20 个地址)不在这个包里(文件夹名带 `no-scoring`)。
-2. `rules.json` 格式:模板是 `{"rules":[…]}`,README 文字说是"记录列表"。默认按模板输出,`--rules-format list` 切换。
-3. 引文风格(`Cal. Civ. Code § 1947.12` / `G.L. c.186 §15B` …)与答案键的匹配规则未知。本流水线只做保守规范化:统一 `§`、去掉款项括号。
+1. `rules.json` 格式:模板是 `{"rules":[…]}`,README 文字说是"记录列表"。默认按模板输出,`--rules-format list` 切换。
+2. 引文风格(`Cal. Civ. Code § 1947.12` / `G.L. c.186 §15B` …)与答案键的匹配规则未知。本流水线只做保守规范化:统一 `§`、去掉款项括号。

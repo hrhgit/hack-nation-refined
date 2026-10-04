@@ -1,0 +1,6 @@
+{
+  "description": "control prompt from eval/control_prompt.txt",
+  "target": "system_prompt",
+  "prompt_sha256": "9e5f5b20fd85287198849295b536837e5e7947348d6c07ca721a0e1d1776c8c4",
+  "model": "deepseek-flash"
+}

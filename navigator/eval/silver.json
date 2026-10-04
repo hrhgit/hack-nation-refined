@@ -1,0 +1,714 @@
+{
+ "source": "work/out/BATCH-*.jsonl at the time of freezing, plus the hand-written gold of eval/rehearsal",
+ "packets": {
+  "D001-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "Berkeley, CA",
+     "algorithmic_rent_setting"
+    ]
+   ]
+  },
+  "D003-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "Berkeley, CA",
+     "screening_restrictions"
+    ]
+   ]
+  },
+  "D004-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "Berkeley, CA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D005-01": {
+   "n_records": 3,
+   "cells": [
+    [
+     "CA",
+     "application_screening_fees"
+    ],
+    [
+     "Berkeley, CA",
+     "application_screening_fees"
+    ]
+   ]
+  },
+  "D006-01": {
+   "n_records": 6,
+   "cells": [
+    [
+     "Berkeley, CA",
+     "rent_increase_limits"
+    ],
+    [
+     "Berkeley, CA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D007-01": {
+   "n_records": 5,
+   "cells": [
+    [
+     "CA",
+     "security_deposits"
+    ],
+    [
+     "Berkeley, CA",
+     "security_deposits"
+    ]
+   ]
+  },
+  "D008-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "Berkeley, CA",
+     "rent_increase_limits"
+    ]
+   ]
+  },
+  "D009-01": {
+   "n_records": 3,
+   "cells": [
+    [
+     "Berkeley, CA",
+     "rent_increase_limits"
+    ],
+    [
+     "Berkeley, CA",
+     "just_cause_eviction"
+    ],
+    [
+     "Berkeley, CA",
+     "security_deposits"
+    ]
+   ]
+  },
+  "D010-01": {
+   "n_records": 2,
+   "cells": [
+    [
+     "Boston, MA",
+     "screening_restrictions"
+    ]
+   ]
+  },
+  "D011-01": {
+   "n_records": 2,
+   "cells": [
+    [
+     "MA",
+     "rent_increase_limits"
+    ],
+    [
+     "MA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D012-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "Boston, MA",
+     "screening_restrictions"
+    ]
+   ]
+  },
+  "D013-01": {
+   "n_records": 2,
+   "cells": [
+    [
+     "Boston, MA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D014-01": {
+   "n_records": 2,
+   "cells": [
+    [
+     "Boston, MA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D016-01": {
+   "n_records": 2,
+   "cells": [
+    [
+     "CA",
+     "screening_restrictions"
+    ]
+   ]
+  },
+  "D016-02": {
+   "n_records": 0,
+   "cells": []
+  },
+  "D022-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "CA",
+     "algorithmic_rent_setting"
+    ]
+   ]
+  },
+  "D023-01": {
+   "n_records": 2,
+   "cells": [
+    [
+     "CA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D023-02": {
+   "n_records": 0,
+   "cells": []
+  },
+  "D024-01": {
+   "n_records": 2,
+   "cells": [
+    [
+     "CA",
+     "rent_increase_limits"
+    ]
+   ]
+  },
+  "D025-01": {
+   "n_records": 5,
+   "cells": [
+    [
+     "CA",
+     "security_deposits"
+    ]
+   ]
+  },
+  "D025-02": {
+   "n_records": 2,
+   "cells": [
+    [
+     "CA",
+     "security_deposits"
+    ]
+   ]
+  },
+  "D026-01": {
+   "n_records": 5,
+   "cells": [
+    [
+     "CA",
+     "application_screening_fees"
+    ],
+    [
+     "CA",
+     "screening_restrictions"
+    ]
+   ]
+  },
+  "D027-01": {
+   "n_records": 4,
+   "cells": [
+    [
+     "CA",
+     "screening_restrictions"
+    ],
+    [
+     "CA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D029-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "Cambridge, MA",
+     "screening_restrictions"
+    ]
+   ]
+  },
+  "D031-01": {
+   "n_records": 0,
+   "cells": []
+  },
+  "D036-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "Jersey City, NJ",
+     "rent_increase_limits"
+    ]
+   ]
+  },
+  "D039-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "Los Angeles, CA",
+     "algorithmic_rent_setting"
+    ]
+   ]
+  },
+  "D040-01": {
+   "n_records": 4,
+   "cells": [
+    [
+     "Los Angeles, CA",
+     "just_cause_eviction"
+    ],
+    [
+     "CA",
+     "rent_increase_limits"
+    ]
+   ]
+  },
+  "D041-01": {
+   "n_records": 5,
+   "cells": [
+    [
+     "Los Angeles, CA",
+     "rent_increase_limits"
+    ],
+    [
+     "Los Angeles, CA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D042-01": {
+   "n_records": 2,
+   "cells": [
+    [
+     "Los Angeles, CA",
+     "rent_increase_limits"
+    ]
+   ]
+  },
+  "D043-01": {
+   "n_records": 6,
+   "cells": [
+    [
+     "Los Angeles, CA",
+     "just_cause_eviction"
+    ],
+    [
+     "CA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D043-02": {
+   "n_records": 5,
+   "cells": [
+    [
+     "Los Angeles, CA",
+     "just_cause_eviction"
+    ],
+    [
+     "CA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D045-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "MA",
+     "algorithmic_rent_setting"
+    ]
+   ]
+  },
+  "D046-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "MA",
+     "algorithmic_rent_setting"
+    ]
+   ]
+  },
+  "D047-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "MA",
+     "algorithmic_rent_setting"
+    ]
+   ]
+  },
+  "D048-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "MA",
+     "rent_increase_limits"
+    ]
+   ]
+  },
+  "D049-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "MA",
+     "screening_restrictions"
+    ]
+   ]
+  },
+  "D049-02": {
+   "n_records": 2,
+   "cells": [
+    [
+     "MA",
+     "screening_restrictions"
+    ]
+   ]
+  },
+  "D049-03": {
+   "n_records": 0,
+   "cells": []
+  },
+  "D050-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "MA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D051-01": {
+   "n_records": 2,
+   "cells": [
+    [
+     "MA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D052-01": {
+   "n_records": 6,
+   "cells": [
+    [
+     "MA",
+     "application_screening_fees"
+    ],
+    [
+     "MA",
+     "security_deposits"
+    ]
+   ]
+  },
+  "D052-02": {
+   "n_records": 1,
+   "cells": [
+    [
+     "MA",
+     "security_deposits"
+    ]
+   ]
+  },
+  "D053-01": {
+   "n_records": 2,
+   "cells": [
+    [
+     "MA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D057-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "MA",
+     "application_screening_fees"
+    ]
+   ]
+  },
+  "D058-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "MA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D065-01": {
+   "n_records": 4,
+   "cells": [
+    [
+     "NJ",
+     "screening_restrictions"
+    ],
+    [
+     "NJ",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D066-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "NJ",
+     "application_screening_fees"
+    ]
+   ]
+  },
+  "D067-01": {
+   "n_records": 4,
+   "cells": [
+    [
+     "NJ",
+     "security_deposits"
+    ]
+   ]
+  },
+  "D067-02": {
+   "n_records": 10,
+   "cells": [
+    [
+     "NJ",
+     "security_deposits"
+    ],
+    [
+     "NJ",
+     "rent_increase_limits"
+    ],
+    [
+     "NJ",
+     "just_cause_eviction"
+    ],
+    [
+     "NJ",
+     "screening_restrictions"
+    ],
+    [
+     "NJ",
+     "application_screening_fees"
+    ]
+   ]
+  },
+  "D067-03": {
+   "n_records": 3,
+   "cells": [
+    [
+     "NJ",
+     "just_cause_eviction"
+    ],
+    [
+     "NJ",
+     "rent_increase_limits"
+    ]
+   ]
+  },
+  "D067-04": {
+   "n_records": 5,
+   "cells": [
+    [
+     "NJ",
+     "just_cause_eviction"
+    ],
+    [
+     "NJ",
+     "rent_increase_limits"
+    ]
+   ]
+  },
+  "D068-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "NJ",
+     "screening_restrictions"
+    ]
+   ]
+  },
+  "D069-01": {
+   "n_records": 2,
+   "cells": [
+    [
+     "NJ",
+     "algorithmic_rent_setting"
+    ]
+   ]
+  },
+  "D073-01": {
+   "n_records": 2,
+   "cells": [
+    [
+     "San Diego, CA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D073-02": {
+   "n_records": 2,
+   "cells": [
+    [
+     "San Diego, CA",
+     "just_cause_eviction"
+    ],
+    [
+     "San Diego, CA",
+     "screening_restrictions"
+    ]
+   ]
+  },
+  "D076-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "San Diego, CA",
+     "algorithmic_rent_setting"
+    ]
+   ]
+  },
+  "D078-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "San Francisco, CA",
+     "screening_restrictions"
+    ]
+   ]
+  },
+  "D079-01": {
+   "n_records": 2,
+   "cells": [
+    [
+     "San Francisco, CA",
+     "just_cause_eviction"
+    ],
+    [
+     "San Francisco, CA",
+     "rent_increase_limits"
+    ]
+   ]
+  },
+  "D080-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "San Francisco, CA",
+     "rent_increase_limits"
+    ]
+   ]
+  },
+  "D081-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "San Francisco, CA",
+     "algorithmic_rent_setting"
+    ]
+   ]
+  },
+  "D082-01": {
+   "n_records": 2,
+   "cells": [
+    [
+     "San Francisco, CA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D083-01": {
+   "n_records": 5,
+   "cells": [
+    [
+     "San Francisco, CA",
+     "rent_increase_limits"
+    ],
+    [
+     "San Francisco, CA",
+     "security_deposits"
+    ],
+    [
+     "San Francisco, CA",
+     "just_cause_eviction"
+    ],
+    [
+     "CA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D084-01": {
+   "n_records": 3,
+   "cells": [
+    [
+     "Santa Ana, CA",
+     "rent_increase_limits"
+    ],
+    [
+     "Santa Ana, CA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "D085-01": {
+   "n_records": 3,
+   "cells": [
+    [
+     "Santa Ana, CA",
+     "rent_increase_limits"
+    ],
+    [
+     "Santa Ana, CA",
+     "just_cause_eviction"
+    ]
+   ]
+  },
+  "R001-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "Cambridge, MA",
+     "algorithmic_rent_setting"
+    ]
+   ]
+  },
+  "R002-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "Boston, MA",
+     "application_screening_fees"
+    ]
+   ]
+  },
+  "R003-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "Newark, NJ",
+     "security_deposits"
+    ]
+   ]
+  },
+  "R004-01": {
+   "n_records": 1,
+   "cells": [
+    [
+     "Hoboken, NJ",
+     "screening_restrictions"
+    ]
+   ]
+  }
+ }
+}

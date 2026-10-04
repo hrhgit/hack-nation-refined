@@ -17,13 +17,14 @@ from . import facts, schema as jschema
 from .config import KNOWN_JURISDICTIONS, LIFECYCLES, PIPELINE_VERSION, STATE_NAMES, Paths, categories, load_schema
 from .corpus import Doc, load_corpus
 from .keywords import score_text
+from . import conditions
 from .packets import load_index
 from .parse import classify, extract_json_objects
 from .spans import DocIndex
 
 NULLISH = {"", "null", "none", "n/a", "na", "unknown", "not stated", "not specified", "not applicable", "-"}
-APPL_KEYS = ["built_on_or_before", "built_after", "date_basis", "min_units", "max_units", "owner_dependent", "other"]
-DATE_BASES = {"certificate_of_occupancy", "construction_date", "unspecified"}
+APPL_KEYS = conditions.APPL_KEYS
+DATE_BASES = conditions.DATE_BASES
 LIFECYCLE_ALIASES = {
     "in_force": "enacted", "in force": "enacted", "effective": "enacted", "law": "enacted", "adopted": "enacted",
     "pending": "pending_bill", "bill": "pending_bill", "proposed": "pending_bill",
@@ -35,6 +36,19 @@ SCHEMA_ORDER = [
     "source_doc_id", "source_url", "quoted_span", "confidence", "conflict_flag", "conflict_note",
 ]
 MAX_SPAN_CHARS = 1200
+
+# Which record is the "headline" of a law when a document yields several records for it.
+HEADLINE_WORDS = {
+    "rent_increase_limits": r"cap|maximum|limit|percent|%|cpi|allowable|annual|rent control|stabiliz|prohibit",
+    "just_cause_eviction": r"just cause|good cause|grounds|causes?|eviction|terminat",
+    "security_deposits": r"cap|maximum|exceed|limit|deposit",
+    "application_screening_fees": r"cap|maximum|fee|limit",
+    "screening_restrictions": r"criminal|source of income|credit|screen|background|fair chance|voucher",
+    "algorithmic_rent_setting": r"unlawful|prohibit|ban|algorithm|pricing",
+}
+EXCEPTION_WORDS = (r"exception|exempt|small landlord|service member|qualif|interest|photograph|itemiz|return|"
+                   r"nonrefundable|bad faith|retaliat|procedur|notice|filing|coverage|definition|penalt|remed")
+OVERRIDE_FIELDS = {"effective_date", "lifecycle", "key_value", "title", "requirement", "conflict_flag", "conflict_note"}
 
 
 def _val(v: Any) -> Any:
@@ -73,6 +87,13 @@ class Validator:
         self._dates: Dict[str, set] = {}
         self._nums: Dict[str, set] = {}
         self._scores: Dict[str, Dict[str, int]] = {}
+        self._act: Dict[str, Any] = {}
+
+    def act(self, doc_id: str):
+        """The act's own effective-date rule worked out from its text, when the text allows it."""
+        if doc_id not in self._act:
+            self._act[doc_id] = facts.act_dates(self.docs[doc_id].body)
+        return self._act[doc_id]
 
     def doc_index(self, doc_id: str) -> DocIndex:
         if doc_id not in self._idx:
@@ -81,7 +102,11 @@ class Validator:
 
     def dates(self, doc_id: str):
         if doc_id not in self._dates:
-            self._dates[doc_id] = facts.doc_dates(self.docs[doc_id].body)
+            found = facts.doc_dates(self.docs[doc_id].body)
+            a = self.act(doc_id)
+            if a:
+                found |= {a.effective, a.effective[:7], a.effective[:4]}
+            self._dates[doc_id] = found
         return self._dates[doc_id]
 
     def nums(self, doc_id: str):
@@ -102,7 +127,7 @@ class Validator:
         # so the saved answer can be corrected rather than breaking every later ingest.
         for k in ("packet_id", "doc_id", "jurisdiction", "category", "lifecycle", "title",
                   "requirement", "citation", "quoted_span", "effective_date", "key_value",
-                  "coverage_conditions", "exemptions", "penalty", "interaction", "conflict_note"):
+                  "coverage_conditions", "exemptions", "penalty", "interaction", "conflict_note", "valid_through"):
             if raw.get(k) is not None and not isinstance(raw[k], str):
                 errors.append("%s must be text or null" % k)
         if isinstance(raw.get("applicability"), dict):
@@ -146,7 +171,10 @@ class Validator:
         elif jur and jur not in KNOWN_JURISDICTIONS:
             warns.append("jurisdiction %r is outside the challenge scope" % jur)
 
+        notes: List[str] = []
         eff = g("effective_date")
+        act = self.act(pdoc) if lifecycle == "enacted" else None
+        date_source = "model" if eff is not None else None
         if eff is not None:
             norm = facts.normalize_date(eff)
             if norm is None:
@@ -155,8 +183,18 @@ class Validator:
                 if norm != eff:
                     warns.append("effective_date %r rewritten as %s" % (eff, norm))
                 eff = norm
-                if not facts.date_supported(eff, self.dates(pdoc)):
+                if act and act.effective.startswith(eff) and eff != act.effective:
+                    notes.append("effective_date %s made exact (%s) from the act's own clause" % (eff, act.effective))
+                    eff, date_source = act.effective, "act clause"
+                elif act and eff != act.effective:
+                    warns.append("effective_date %s differs from %s, which the act's own clause gives (%s, approved %s)"
+                                 % (eff, act.effective, act.clause, act.approved))
+                elif not facts.date_supported(eff, self.dates(pdoc)):
                     warns.append("effective_date %s does not appear in %s: check it" % (eff, pdoc))
+        elif act:
+            eff, date_source = act.effective, "act clause"
+            notes.append("effective_date %s worked out from the act's own clause (%s) and its approval date %s"
+                         % (act.effective, act.clause, act.approved))
 
         span = None
         span_note = None
@@ -177,9 +215,28 @@ class Validator:
                 if len(span) > MAX_SPAN_CHARS:
                     warns.append("quoted_span is %d characters long" % len(span))
 
-        citation = facts.normalize_citation(g("citation") or "")
+        def locate_quote(q: str) -> Optional[str]:
+            if "[[omitted" in q:
+                return None
+            m = self.doc_index(pdoc).locate(q)
+            return m.text if m is not None else None
+
+        valid_through = g("valid_through")
+        if valid_through is not None:
+            vt = facts.normalize_date(valid_through)
+            if vt is None:
+                warns.append("valid_through %r is not a date: ignored" % valid_through)
+            elif not facts.date_supported(vt, self.dates(pdoc)):
+                warns.append("valid_through %s is not printed in %s: check it" % (vt, pdoc))
+            valid_through = vt
+        applicability = conditions.parse(raw.get("applicability"), warns, self.dates(pdoc), self.nums(pdoc), locate_quote)
+        relations = conditions.parse_relations(raw.get("relations"), warns, locate_quote)
+
+        citation, aspect = facts.split_citation(facts.normalize_citation(g("citation") or ""))
         if g("citation") and not citation:
             errors.append("citation is empty after cleanup")
+        if aspect:
+            notes.append("citation descriptor moved out of the citation: %s" % aspect)
 
         conf = raw.get("confidence")
         if conf is None:
@@ -228,13 +285,17 @@ class Validator:
         rule["requirement"] = g("requirement")
         rule["key_value"] = key_value
         rule["coverage_conditions"] = g("coverage_conditions")
-        rule["applicability"] = self._applicability(raw.get("applicability"), warns)
+        rule["applicability"] = applicability
         rule["exemptions"] = g("exemptions")
         rule["penalty"] = g("penalty")
         rule["overrides"] = []
         rule["interaction"] = g("interaction")
         rule["effective_date"] = eff
+        rule["valid_through"] = valid_through
+        rule["relations"] = relations
         rule["citation"] = citation
+        rule["aspect"] = aspect
+        rule["citation_kind"] = "numbered" if re.search(r"\d", citation) else "descriptive"
         rule["source_doc_id"] = pdoc
         rule["source_url"] = doc.url
         rule["retrieved"] = doc.retrieved
@@ -243,7 +304,9 @@ class Validator:
         rule["conflict_flag"] = cf
         rule["conflict_note"] = g("conflict_note")
         rule["packet_id"] = pid
+        rule["date_source"] = date_source
         rule["warnings"] = warns
+        rule["notes"] = notes
 
         bad = jschema.check(to_schema_record(rule, "r-0000"), self.schema)
         if bad:
@@ -252,33 +315,7 @@ class Validator:
 
     @staticmethod
     def _applicability(a: Any, warns: List[str]) -> Dict[str, Any]:
-        out: Dict[str, Any] = {k: None for k in APPL_KEYS}
-        out["owner_dependent"] = False
-        if a is None:
-            return out
-        if not isinstance(a, dict):
-            warns.append("applicability is not an object: ignored")
-            return out
-        for k in ("built_on_or_before", "built_after"):
-            v = _val(a.get(k))
-            if v is not None:
-                nd = facts.normalize_date(str(v))
-                if nd is None:
-                    warns.append("applicability.%s %r is not a date: ignored" % (k, v))
-                out[k] = nd
-        v = _val(a.get("date_basis"))
-        out["date_basis"] = v if v in DATE_BASES else None
-        for k in ("min_units", "max_units"):
-            v = _val(a.get(k))
-            if v is not None:
-                try:
-                    out[k] = int(v)
-                except (TypeError, ValueError):
-                    warns.append("applicability.%s %r is not an integer: ignored" % (k, v))
-        ob = _to_bool(a.get("owner_dependent"))
-        out["owner_dependent"] = bool(ob)
-        out["other"] = _val(a.get("other"))
-        return out
+        return conditions.parse(a, warns)
 
 
 def to_schema_record(rule: Dict[str, Any], rule_id: str) -> Dict[str, Any]:
@@ -287,50 +324,165 @@ def to_schema_record(rule: Dict[str, Any], rule_id: str) -> Dict[str, Any]:
     return OrderedDict((k, full.get(k)) for k in SCHEMA_ORDER)
 
 
-# ---------------------------------------------------------------- merging
-
-def _merge_group(group: List[Dict[str, Any]], docs: Dict[str, Doc]) -> Tuple[Dict[str, Any], List[str]]:
-    group = sorted(group, key=lambda r: (-source_priority(docs.get(r["source_doc_id"])),
-                                          -(r["confidence"] or 0), -len(r["quoted_span"]), r["source_doc_id"]))
-    primary = dict(group[0])
-    primary["warnings"] = list(primary["warnings"])
-    sources = [{"doc_id": r["source_doc_id"], "url": r["source_url"], "retrieved": r["retrieved"],
-                "quoted_span": r["quoted_span"], "effective_date": r["effective_date"],
-                "key_value": r["key_value"], "lifecycle": r["lifecycle"]} for r in group]
-    notes: List[str] = []
-    for r in group[1:]:
-        for f in ("key_value", "coverage_conditions", "exemptions", "penalty", "interaction", "effective_date"):
-            if primary.get(f) is None and r.get(f) is not None:
-                primary[f] = r[f]
-        if primary["applicability"] == Validator._applicability(None, []) and r["applicability"] != primary["applicability"]:
-            primary["applicability"] = r["applicability"]
-        for w in r["warnings"]:
-            if w not in primary["warnings"]:
-                primary["warnings"].append(w)
-    pairs = [(a, b) for i, a in enumerate(group) for b in group[i + 1:]]
-    for a, b in pairs:
-        if a["effective_date"] and b["effective_date"] and a["effective_date"] != b["effective_date"]:
-            notes.append("effective_date: %s says %s, %s says %s" % (a["source_doc_id"], a["effective_date"],
-                                                                      b["source_doc_id"], b["effective_date"]))
-        sa, sb = facts.numeric_signature(a["key_value"]), facts.numeric_signature(b["key_value"])
-        if sa and sb and sa != sb:
-            notes.append("key_value: %s says %r, %s says %r" % (a["source_doc_id"], a["key_value"],
-                                                                 b["source_doc_id"], b["key_value"]))
-        if a["lifecycle"] != b["lifecycle"]:
-            notes.append("lifecycle: %s says %s, %s says %s" % (a["source_doc_id"], a["lifecycle"],
-                                                                 b["source_doc_id"], b["lifecycle"]))
-    notes = sorted(set(notes))
-    if notes:
-        primary["conflict_flag"] = True
-        extra = "Sources disagree: " + "; ".join(notes)
-        primary["conflict_note"] = (primary["conflict_note"] + " | " + extra) if primary["conflict_note"] else extra
-    primary["sources"] = sources
-    primary["merged_from"] = len(group)
-    return primary, notes
-
+# ---------------------------------------------------------------- one record per law and category
 
 def _group_key(r: Dict[str, Any]) -> Tuple[str, str, str]:
     return (r["jurisdiction"], r["category"], facts.citation_key(r["citation"]))
+
+
+class _Positions(object):
+    """Where each record's quote sits in its document: the main clause usually comes first."""
+
+    def __init__(self, docs: Dict[str, Doc]):
+        self.docs = docs
+        self.cache: Dict[Tuple[str, str], int] = {}
+
+    def __call__(self, r: Dict[str, Any]) -> int:
+        k = (r["source_doc_id"], r["quoted_span"])
+        if k not in self.cache:
+            pos = self.docs[r["source_doc_id"]].body.find(r["quoted_span"])
+            self.cache[k] = pos if pos >= 0 else 10 ** 9
+        return self.cache[k]
+
+
+def headline_key(r: Dict[str, Any], pos: "_Positions"):
+    """Sort key (best first) for choosing which of several records is the main one for a law.
+
+    Heuristic: the main rule says what the category is about (a cap, a ban, the list of causes) and is not an
+    exception or a procedure; it carries a headline value and a date; it carries no descriptor in its citation.
+    """
+    text = " ".join(x for x in (r.get("aspect"), r.get("title"), r.get("key_value")) if x)
+    score = 0.0
+    if re.search(HEADLINE_WORDS.get(r["category"], "$^"), text, re.I):
+        score += 3
+    if re.search(EXCEPTION_WORDS, text, re.I):
+        score -= 2
+    score += 1 if r.get("key_value") else 0
+    score += 1 if r.get("effective_date") else 0
+    score += 2 if not r.get("aspect") else 0
+    score += r.get("confidence") or 0
+    return (-score, pos(r))
+
+
+def _consolidate(group: List[Dict[str, Any]], docs: Dict[str, Doc], pos: "_Positions"):
+    """Turn every record for one law+category into one rule.
+
+    Per document the main record is chosen and the others become sub_rules. The documents are then compared:
+    only disagreement between different documents is reported as a conflict.
+    """
+    by_doc: "OrderedDict[str, List[Dict[str, Any]]]" = OrderedDict()
+    for r in group:
+        by_doc.setdefault(r["source_doc_id"], []).append(r)
+    heads: List[Tuple[str, Dict[str, Any]]] = []
+    subs: List[Dict[str, Any]] = []
+    for did, recs in by_doc.items():
+        ranked = sorted(recs, key=lambda r: headline_key(r, pos))
+        heads.append((did, ranked[0]))
+        subs.extend(ranked[1:])
+    heads.sort(key=lambda h: (-source_priority(docs.get(h[0])), -(h[1]["confidence"] or 0), h[0]))
+    primary = dict(heads[0][1])
+    primary["relations"] = list(primary.get("relations") or [])
+    primary["warnings"] = list(primary["warnings"])
+    primary["notes"] = list(primary["notes"])
+    for did, h in heads[1:]:
+        for f in ("key_value", "coverage_conditions", "exemptions", "penalty", "interaction", "effective_date"):
+            if primary.get(f) is None and h.get(f) is not None:
+                primary[f] = h[f]
+                primary["notes"].append("%s filled in from %s" % (f, did))
+        primary["applicability"] = dict(primary["applicability"], coverage_quotes=list(primary["applicability"]["coverage_quotes"]))
+        conditions.merge(primary, h, did, primary["notes"], primary["warnings"])
+        for w in h["warnings"]:
+            if w not in primary["warnings"]:
+                primary["warnings"].append(w)
+    conflicts: List[str] = []
+    for did, h in heads[1:]:
+        a, b = heads[0][1], h
+        if a["effective_date"] and b["effective_date"] and a["effective_date"] != b["effective_date"]:
+            conflicts.append("effective_date: %s says %s, %s says %s" % (a["source_doc_id"], a["effective_date"], did, b["effective_date"]))
+        sa, sb = facts.numeric_signature(a["key_value"]), facts.numeric_signature(b["key_value"])
+        if sa and sb and sa != sb:
+            conflicts.append("key_value: %s says %r, %s says %r" % (a["source_doc_id"], a["key_value"], did, b["key_value"]))
+        if a["lifecycle"] != b["lifecycle"]:
+            conflicts.append("lifecycle: %s says %s, %s says %s" % (a["source_doc_id"], a["lifecycle"], did, b["lifecycle"]))
+    conflicts = sorted(set(conflicts))
+    if conflicts:
+        primary["conflict_flag"] = True
+        extra = "Sources disagree: " + "; ".join(conflicts)
+        primary["conflict_note"] = (primary["conflict_note"] + " | " + extra) if primary["conflict_note"] else extra
+    primary["sources"] = [{"doc_id": did, "url": h["source_url"], "retrieved": h["retrieved"], "quoted_span": h["quoted_span"],
+                           "effective_date": h["effective_date"], "key_value": h["key_value"], "lifecycle": h["lifecycle"]}
+                          for did, h in heads]
+    primary["sub_rules"] = [{"doc_id": x["source_doc_id"], "aspect": x.get("aspect"), "title": x["title"],
+                             "key_value": x["key_value"], "effective_date": x["effective_date"],
+                             "quoted_span": x["quoted_span"]} for x in subs]
+    primary["merged_from"] = len(group)
+    return primary, conflicts
+
+
+def _enforce_single_record(bucket: "PacketResp", pid: str, fname: str, pos: "_Positions",
+                           rejected: List[Dict[str, Any]]) -> None:
+    """One answer must hold one record per law and category. The best one stays; the others are sent back."""
+    groups: "OrderedDict[Tuple[str, str, str], List[Dict[str, Any]]]" = OrderedDict()
+    for r in bucket.rules:
+        groups.setdefault(_group_key(r), []).append(r)
+    for grp in groups.values():
+        if len(grp) < 2:
+            continue
+        ranked = sorted(grp, key=lambda r: headline_key(r, pos))
+        keep = ranked[0]
+        for x in ranked[1:]:
+            bucket.rules.remove(x)
+            bucket.rejected += 1
+            rejected.append({"file": fname, "packet_id": pid, "record": x["_raw"], "reasons": [
+                "one record per law and category: you also wrote '%s' for %s (%s). Merge this record into it: "
+                "put the extra details in requirement, exemptions or penalty and keep a single headline "
+                "key_value and effective_date" % (keep["title"][:60], keep["citation"], keep["category"])]})
+
+
+# ---------------------------------------------------------------- human overrides
+
+def load_overrides(paths: Paths) -> List[Dict[str, Any]]:
+    f = paths.work_dir / "overrides.json"
+    if not f.exists():
+        return []
+    data = json.loads(f.read_text(encoding="utf-8"))
+    items = data["overrides"] if isinstance(data, dict) else data
+    for ov in items:
+        for k in ("id", "match", "set", "reason", "source"):
+            if k not in ov:
+                raise ValueError("overrides.json: entry %r is missing %r" % (ov.get("id"), k))
+        bad = set(ov["set"]) - OVERRIDE_FIELDS
+        if bad:
+            raise ValueError("overrides.json: %s may not set %s" % (ov["id"], ", ".join(sorted(bad))))
+    return items
+
+
+def apply_overrides(rules: List[Dict[str, Any]], overrides: List[Dict[str, Any]], as_of: str):
+    """A person's correction, always with a stated reason and source, recorded on the rule and in the report."""
+    applied: List[Dict[str, Any]] = []
+    unused: List[str] = []
+    for ov in overrides:
+        m = ov["match"]
+        hits = [r for r in rules
+                if (not m.get("jurisdiction") or r["jurisdiction"] == m["jurisdiction"])
+                and (not m.get("category") or r["category"] == m["category"])
+                and (not m.get("source_doc_id") or r["source_doc_id"] == m["source_doc_id"])
+                and (not m.get("citation_contains") or m["citation_contains"].lower() in r["citation"].lower())]
+        if not hits:
+            unused.append(ov["id"])
+            continue
+        for r in hits:
+            before = {k: r.get(k) for k in ov["set"]}
+            r.update(ov["set"])
+            r["status"] = facts.derive_status(r["lifecycle"], r["effective_date"], as_of)
+            if "effective_date" in ov["set"]:
+                r["date_source"] = "override " + ov["id"]
+            r["notes"] = list(r.get("notes", [])) + ["override %s: %s" % (ov["id"], ov["reason"])]
+            rec = {"id": ov["id"], "rule": "%s | %s | %s" % (r["jurisdiction"], r["category"], r["citation"]),
+                   "before": before, "after": dict(ov["set"]), "reason": ov["reason"], "source": ov["source"]}
+            r["overrides_applied"] = list(r.get("overrides_applied", [])) + [rec]
+            applied.append(rec)
+    return applied, unused
 
 
 # ---------------------------------------------------------------- results
@@ -338,10 +490,18 @@ def _group_key(r: Dict[str, Any]) -> Tuple[str, str, str]:
 @dataclass
 class PacketResp:
     records: List[Dict[str, Any]] = field(default_factory=list)
+    rules: List[Dict[str, Any]] = field(default_factory=list)
     receipt: Optional[Dict[str, Any]] = None
     rejected: int = 0
-    accepted: int = 0
     file: str = ""
+
+    @property
+    def accepted(self) -> int:
+        return len(self.rules)
+
+    @property
+    def clean(self) -> bool:
+        return self.receipt is not None and self.receipt.get("n_rules") == len(self.records) and not self.rejected
 
 
 @dataclass
@@ -357,6 +517,9 @@ class IngestResult:
     counts: Dict[str, int]
     problems: Dict[str, List[str]]
     matrix_extra: List[str] = field(default_factory=list)
+    dropped: List[Tuple[str, str, str]] = field(default_factory=list)
+    overrides_applied: List[Dict[str, Any]] = field(default_factory=list)
+    overrides_unused: List[str] = field(default_factory=list)
 
 
 def list_inbox(paths: Paths) -> List[Path]:
@@ -371,15 +534,15 @@ def run_ingest(paths: Paths, as_of: Optional[str] = None, persist_ids: bool = Tr
     docs = load_corpus(paths)
     schema = load_schema(paths)
     val = Validator(docs, index, schema, as_of)
+    pos = _Positions(docs)
     docs_packets: Dict[str, List[str]] = defaultdict(list)
     for pid, meta in index["packets"].items():
         docs_packets[meta["doc_id"]].append(pid)
 
     files_meta: List[Dict[str, Any]] = []
     parse_problems: List[Tuple[str, str]] = []
-    accepted: List[Dict[str, Any]] = []
     rejected: List[Dict[str, Any]] = []
-    latest: Dict[str, PacketResp] = {}
+    responses: Dict[str, List[PacketResp]] = defaultdict(list)  # packet -> its answers, oldest first
     n_records = 0
 
     for f in list_inbox(paths):
@@ -410,13 +573,15 @@ def run_ingest(paths: Paths, as_of: Optional[str] = None, persist_ids: bool = Tr
                 bucket.rejected += 1
                 rejected.append({"file": f.name, "packet_id": pid, "reasons": errs, "record": obj})
             else:
-                bucket.accepted += 1
                 rule["_file"] = f.name
-                accepted.append(rule)
+                rule["_raw"] = obj
+                bucket.rules.append(rule)
         for pid, r in resp.items():
             if pid in index["packets"]:
-                latest[pid] = r
+                _enforce_single_record(r, pid, f.name, pos, rejected)
+                responses[pid].append(r)
 
+    latest = {pid: rs[-1] for pid, rs in responses.items()}
     for rj in rejected:  # a rejection is open only while it belongs to the packet's latest answer
         cur = latest.get(rj["packet_id"])
         rj["open"] = bool(cur and cur.file == rj["file"])
@@ -450,17 +615,37 @@ def run_ingest(paths: Paths, as_of: Optional[str] = None, persist_ids: bool = Tr
         states[pid] = {"state": st, "detail": detail, "file": r.file}
         problems[pid] = msgs if st != "done" else []
 
-    # merge accepted records by provision
+    # The rules of a packet are its newest clean answer. While the newest answer is still being fixed,
+    # everything accepted so far stays in use, so nothing disappears in the meantime.
+    pool: List[Dict[str, Any]] = []
+    dropped: List[Tuple[str, str, str]] = []
+    for pid, rs in responses.items():
+        if rs[-1].clean:
+            pool += rs[-1].rules
+            kept = {_group_key(x) for x in rs[-1].rules}
+            seen = set()
+            for old in rs[:-1]:
+                for x in old.rules:
+                    k = _group_key(x)
+                    if k not in kept and k not in seen:
+                        seen.add(k)
+                        dropped.append((pid, "%s | %s" % (x["jurisdiction"], x["category"]), x["citation"]))
+        else:
+            for r in rs:
+                pool += r.rules
+
     groups: "OrderedDict[Tuple[str, str, str], List[Dict[str, Any]]]" = OrderedDict()
-    for r in accepted:
+    for r in pool:
         groups.setdefault(_group_key(r), []).append(r)
     merged: List[Dict[str, Any]] = []
     conflicts: List[Tuple[str, List[str]]] = []
     for key, grp in groups.items():
-        m, notes = _merge_group(grp, docs)
+        m, notes = _consolidate(grp, docs, pos)
         merged.append(m)
         if notes:
             conflicts.append((" / ".join(key[:2]) + " " + m["citation"], notes))
+
+    applied, unused = apply_overrides(merged, load_overrides(paths), as_of)
 
     cat_order = categories(schema)
     merged.sort(key=lambda r: (0 if r["level"] == "state" else 1, r["jurisdiction"],
@@ -474,16 +659,16 @@ def run_ingest(paths: Paths, as_of: Optional[str] = None, persist_ids: bool = Tr
                 if ta and tb and ta & tb and ta != tb:
                     near.append((a["jurisdiction"] + " / " + a["category"], a["citation"], b["citation"]))
 
-    reg = _assign_ids(paths, merged, persist_ids)
+    _assign_ids(paths, merged, persist_ids)
     counts = {
-        "files": len(files_meta), "records_parsed": n_records, "accepted": len(accepted),
+        "files": len(files_meta), "records_parsed": n_records, "accepted": len(pool),
         "rejected": sum(1 for r in rejected if r["open"]), "rejected_fixed": sum(1 for r in rejected if not r["open"]),
         "rules": len(merged),
         "packets_total": len(index["packets"]),
         "packets_done": sum(1 for s in states.values() if s["state"] == "done"),
     }
     return IngestResult(as_of, files_meta, parse_problems, merged, rejected, states, conflicts, near, counts, problems,
-                        matrix_extra=[])
+                        matrix_extra=[], dropped=dropped, overrides_applied=applied, overrides_unused=unused)
 
 
 def _assign_ids(paths: Paths, rules: List[Dict[str, Any]], persist: bool = True) -> Dict[str, str]:
@@ -515,7 +700,8 @@ def write_outputs(paths: Paths, res: IngestResult, rules_format: str = "wrapped"
     enriched = []
     for r in res.rules:
         e = OrderedDict(to_schema_record(r, r["team_rule_id"]))
-        for k in ("lifecycle", "applicability", "penalty", "retrieved", "packet_id", "warnings", "sources", "merged_from"):
+        for k in ("lifecycle", "applicability", "penalty", "retrieved", "packet_id", "aspect", "citation_kind", "date_source",
+                  "warnings", "notes", "sources", "sub_rules", "merged_from", "overrides_applied", "valid_through", "relations"):
             e[k] = r.get(k)
         e["as_of"] = res.as_of
         enriched.append(e)

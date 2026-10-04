@@ -1,0 +1,29 @@
+doc_id,jurisdictions,url,source_type,capture,retrieved_at,sha256,text_file,status
+D034,"Hoboken, NJ",https://ecode360.com/46833413,official,yes,2026-10-04 03:22 UTC,,text/D034.txt,ok
+D063,NJ,https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/44283/44474,official,yes,2026-10-04 03:26 UTC,,text/D063.txt,ok
+D064,NJ,https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/44283/44482,official,yes,2026-10-04 03:26 UTC,,text/D064.txt,ok
+D062,NJ,https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/112/670,official,yes,2026-10-04 03:26 UTC,,text/D062.txt,ok
+D061,NJ,https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/7555/7610,official,yes,2026-10-04 03:26 UTC,,text/D061.txt,ok
+D056,MA,https://www.mass.gov/doc/803-cmr-5-criminal-offender-record-information-cori-housing/download,official,yes,2026-10-04 03:26 UTC,,text/D056.txt,ok
+D074,"San Diego, CA",https://docs.sandiego.gov/municode/MuniCodeChapter09/Ch09Art08Division11.pdf,official,yes,2026-10-04 03:27 UTC,,text/D074.txt,ok
+D075,"San Diego, CA",https://docs.sandiego.gov/municode/MuniCodeChapter09/Ch09Art08Division08.pdf,official,yes,2026-10-04 03:27 UTC,,text/D075.txt,ok
+D038,"Los Angeles, CA",https://codelibrary.amlegal.com/codes/los_angeles/latest/lamc/0-0-0-322208,official,yes,2026-10-04 03:34 UTC,,text/D038.txt,ok
+D086,"Santa Ana, CA",https://publicdocs.santa-ana.org/WebLink/DocView.aspx?id=549791&dbid=1&repo=Clerk,official,yes,2026-10-04 03:39 UTC,,text/D086.txt,ok
+D035,"Jersey City, NJ",https://mcclibraryfunctions.azurewebsites.us/api/ordinanceDownload/16093/1418853/pdf?forceDownload=true,official,yes,2026-10-04 03:39 UTC,,text/D035.txt,ok
+D037,"Jersey City, NJ",https://mcclibraryfunctions.azurewebsites.us/api/ordinanceDownload/16093/1418863/pdf?forceDownload=true,official,yes,2026-10-04 03:40 UTC,,text/D037.txt,ok
+D032,"Hoboken, NJ",https://ecode360.com/15252438,official,yes,2026-10-04 03:40 UTC,,text/D032.txt,ok
+D033,"Hoboken, NJ",https://ecode360.com/15252470,official,yes,2026-10-04 03:42 UTC,,text/D033.txt,ok
+D070,"Newark, NJ",https://ecode360.com/36623772,official,yes,2026-10-04 03:47 UTC,,text/D070.txt,ok
+D071,"Newark, NJ",https://ecode360.com/36637822,official,yes,2026-10-04 03:49 UTC,,text/D071.txt,ok
+D072,"Newark, NJ",https://ecode360.com/36642000,official,yes,2026-10-04 03:50 UTC,,text/D072.txt,ok
+D044,"Los Angeles, CA",https://codelibrary.amlegal.com/codes/los_angeles/latest/lamc/0-0-0-195527,official,yes,2026-10-04 03:51 UTC,,text/D044.txt,ok
+X001,"Jersey City, NJ",https://mcclibraryfunctions.azurewebsites.us/api/ordinanceDownload/16093/1418888/pdf?forceDownload=true,official,yes,2026-10-04 03:51 UTC,,text/X001.txt,ok
+X002,"Jersey City, NJ",https://library.municode.com/nj/jersey_city/codes/code_of_ordinances?nodeId=CH260RECO,official,yes,2026-10-04 03:58 UTC,,text/X002.txt,ok
+X003,CA,https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB763,official,yes,2026-10-04 04:03 UTC,,text/X003.txt,ok
+X004,CA,https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260SB763,official,yes,2026-10-04 04:03 UTC,,text/X004.txt,ok
+X005,CA,https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260AB325,official,yes,2026-10-04 04:05 UTC,,text/X005.txt,ok
+X006,CA,https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CONS&division=&title=&part=&chapter=&article=IV,official,yes,2026-10-04 04:06 UTC,,text/X006.txt,ok
+X007,MA,https://www.sec.state.ma.us/divisions/elections/research-and-statistics/2026-ballot-questions.htm,official,yes,2026-10-04 04:06 UTC,,text/X007.txt,ok
+X008,"Los Angeles, CA",https://cityclerk.lacity.org/onlinedocs/2017/17-0461_ORD_185797_11-25-2018.pdf,official,yes,2026-10-04 04:58 UTC,,text/X008.txt,ok
+X101,MA,https://www.ma-appellatecourts.org/docket/SJC-13893,official,yes,2026-10-04 05:09 UTC,,text/X101.txt,ok
+X102,"Jersey City, NJ",https://mcclibraryfunctions.azurewebsites.us/api/ordinanceDownload/16093/1436781/pdf?forceDownload=true,official,yes,2026-10-04 05:18 UTC,,text/X102.txt,ok

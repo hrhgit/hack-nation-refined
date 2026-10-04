@@ -1,0 +1,107 @@
+[
+  {
+    "ordinance": "Hoboken B-781",
+    "doc_id": "D034",
+    "final_passage": "2025-07-09",
+    "mayor_approval": "2025-07-09",
+    "publication": "2025-07-13",
+    "derived_effective_date": "2025-07-29",
+    "date_status": "derived_under_ordinary_rule_not_express_official_effective_date",
+    "basis": [
+      "N.J.S.A. 40:69A-181(b)",
+      "N.J.S.A. 40:69A-185",
+      "N.J.S.A. 40:49-2(d)"
+    ],
+    "conditions": [
+      "ordinary procedure applies",
+      "no emergency resolution accelerating effectiveness",
+      "no qualifying referendum petition suspending effectiveness",
+      "no special delayed commencement"
+    ],
+    "exception_exclusion_certified": false
+  },
+  {
+    "ordinance": "Jersey City 25-057",
+    "doc_id": "D035",
+    "final_passage": "2025-05-21",
+    "mayor_approval": "2025-05-22",
+    "publication": "2025-05-30",
+    "derived_effective_date": "2025-06-11",
+    "date_status": "derived_under_ordinary_rule_not_express_official_effective_date",
+    "basis": [
+      "N.J.S.A. 40:69A-181(b)",
+      "N.J.S.A. 40:69A-185",
+      "N.J.S.A. 40:49-2(d)"
+    ],
+    "conditions": [
+      "ordinary procedure applies",
+      "no emergency resolution accelerating effectiveness",
+      "no qualifying referendum petition suspending effectiveness",
+      "no special delayed commencement"
+    ],
+    "exception_exclusion_certified": false
+  },
+  {
+    "ordinance": "Jersey City 25-076",
+    "doc_id": "D037",
+    "final_passage": "2025-07-16",
+    "mayor_approval": "2025-07-17",
+    "publication": "2025-07-25",
+    "derived_effective_date": "2025-08-06",
+    "date_status": "derived_under_ordinary_rule_not_express_official_effective_date",
+    "basis": [
+      "N.J.S.A. 40:69A-181(b)",
+      "N.J.S.A. 40:69A-185",
+      "N.J.S.A. 40:49-2(d)"
+    ],
+    "conditions": [
+      "ordinary procedure applies",
+      "no emergency resolution accelerating effectiveness",
+      "no qualifying referendum petition suspending effectiveness",
+      "no special delayed commencement"
+    ],
+    "exception_exclusion_certified": false
+  },
+  {
+    "ordinance": "Jersey City 25-098",
+    "doc_id": "X102",
+    "final_passage": "2025-09-24",
+    "mayor_approval": "2025-09-25",
+    "publication": "2025-10-03",
+    "derived_effective_date": "2025-10-15",
+    "date_status": "derived_under_ordinary_rule_not_express_official_effective_date",
+    "basis": [
+      "N.J.S.A. 40:69A-181(b)",
+      "N.J.S.A. 40:69A-185",
+      "N.J.S.A. 40:49-2(d)"
+    ],
+    "conditions": [
+      "ordinary procedure applies",
+      "no emergency resolution accelerating effectiveness",
+      "no qualifying referendum petition suspending effectiveness",
+      "no special delayed commencement"
+    ],
+    "exception_exclusion_certified": false
+  },
+  {
+    "ordinance": "Jersey City 25-099",
+    "doc_id": "X001",
+    "final_passage": "2025-09-24",
+    "mayor_approval": "2025-09-25",
+    "publication": "2025-10-03",
+    "derived_effective_date": "2025-10-15",
+    "date_status": "derived_under_ordinary_rule_not_express_official_effective_date",
+    "basis": [
+      "N.J.S.A. 40:69A-181(b)",
+      "N.J.S.A. 40:69A-185",
+      "N.J.S.A. 40:49-2(d)"
+    ],
+    "conditions": [
+      "ordinary procedure applies",
+      "no emergency resolution accelerating effectiveness",
+      "no qualifying referendum petition suspending effectiveness",
+      "no special delayed commencement"
+    ],
+    "exception_exclusion_certified": false
+  }
+]

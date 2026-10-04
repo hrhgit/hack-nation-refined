@@ -1,0 +1,244 @@
+{
+  "current_round": 4,
+  "reps": 2,
+  "goal": {
+    "target": "score",
+    "direction": "higher",
+    "hold": [
+      "recall",
+      "fields",
+      "numbers_ok"
+    ]
+  },
+  "approve_each_round": false,
+  "best": {
+    "round": 3,
+    "test_score": 0.9351,
+    "note": "kept by the pre-registered rule; test composite is flat against round 2 (0.9451) because of one unstable page, see v3/change.md"
+  },
+  "train_ids": [
+    "D006-01",
+    "D010-01",
+    "D011-01",
+    "D012-01",
+    "D013-01",
+    "D016-02",
+    "D023-02",
+    "D025-01",
+    "D027-01",
+    "D029-01",
+    "D031-01",
+    "D036-01",
+    "D040-01",
+    "D043-01",
+    "D043-02",
+    "D045-01",
+    "D048-01",
+    "D049-02",
+    "D049-03",
+    "D051-01",
+    "D052-02",
+    "D057-01",
+    "D065-01",
+    "D066-01",
+    "D067-01",
+    "D067-02",
+    "D073-01",
+    "D073-02",
+    "D076-01",
+    "D079-01",
+    "D081-01",
+    "D084-01",
+    "D085-01"
+  ],
+  "test_ids": [
+    "D001-01",
+    "D003-01",
+    "D004-01",
+    "D005-01",
+    "D007-01",
+    "D008-01",
+    "D009-01",
+    "D014-01",
+    "D016-01",
+    "D022-01",
+    "D023-01",
+    "D024-01",
+    "D025-02",
+    "D026-01",
+    "D039-01",
+    "D041-01",
+    "D042-01",
+    "D046-01",
+    "D047-01",
+    "D049-01",
+    "D050-01",
+    "D052-01",
+    "D053-01",
+    "D058-01",
+    "D067-03",
+    "D067-04",
+    "D068-01",
+    "D069-01",
+    "D078-01",
+    "D080-01",
+    "D082-01",
+    "D083-01",
+    "R001-01",
+    "R002-01",
+    "R003-01",
+    "R004-01"
+  ],
+  "harness_paths": [
+    "eval/common.py",
+    "eval/grader.py",
+    "eval/labels.py",
+    "eval/run_eval.py",
+    "eval/cost.py",
+    "eval/cases.json",
+    "eval/silver.json",
+    "nav/ingest.py",
+    "nav/facts.py",
+    "nav/spans.py",
+    "nav/parse.py",
+    "nav/schema.py",
+    "nav/keywords.py",
+    "nav/api.py",
+    "work/index.json",
+    "eval/rehearsal/manifest.csv",
+    "eval/rehearsal/oracle.jsonl",
+    "eval/rehearsal/text/R001.txt",
+    "eval/rehearsal/text/R002.txt",
+    "eval/rehearsal/text/R003.txt",
+    "eval/rehearsal/text/R004.txt",
+    "eval/rehearsal/packets/R001-01.md",
+    "eval/rehearsal/packets/R002-01.md",
+    "eval/rehearsal/packets/R003-01.md",
+    "eval/rehearsal/packets/R004-01.md"
+  ],
+  "harness_sha": "d96ecbf04966cdf99fc3b7106d63ab9481f753623f0024f88bdc7702d601e67b",
+  "metrics": [
+    {
+      "id": "score",
+      "kind": "float",
+      "label": "Score",
+      "scale": 1
+    },
+    {
+      "id": "clean",
+      "kind": "float",
+      "label": "First pass OK",
+      "scale": 1
+    },
+    {
+      "id": "one_per_law",
+      "kind": "float",
+      "label": "One per law",
+      "scale": 1
+    },
+    {
+      "id": "cite_clean",
+      "kind": "float",
+      "label": "Clean cites",
+      "scale": 1
+    },
+    {
+      "id": "cite_num",
+      "kind": "float",
+      "label": "Numbered cites",
+      "scale": 1
+    },
+    {
+      "id": "date_ok",
+      "kind": "float",
+      "label": "Dates",
+      "scale": 1
+    },
+    {
+      "id": "numbers_ok",
+      "kind": "float",
+      "label": "Numbers in text",
+      "scale": 1
+    },
+    {
+      "id": "recall",
+      "kind": "float",
+      "label": "Recall (brief)",
+      "scale": 1
+    },
+    {
+      "id": "fields",
+      "kind": "float",
+      "label": "Field accuracy",
+      "scale": 1
+    },
+    {
+      "id": "nonempty",
+      "kind": "float",
+      "label": "Non-empty",
+      "scale": 1
+    },
+    {
+      "id": "silver_f1",
+      "kind": "float",
+      "label": "Cells F1",
+      "scale": 1
+    },
+    {
+      "id": "rec_ok",
+      "kind": "float",
+      "label": "Accepted",
+      "scale": 1
+    }
+  ],
+  "perf_fields": [
+    {
+      "id": "cost_usd",
+      "label": "Cost",
+      "unit": "$"
+    },
+    {
+      "id": "latency_s",
+      "label": "Latency",
+      "unit": "s"
+    }
+  ],
+  "prices": {
+    "deepseek-flash": {
+      "in": 0.15,
+      "out": 0.6
+    },
+    "deepseek-v4-pro": {
+      "in": 0.66,
+      "out": 1.98
+    }
+  },
+  "plan": {
+    "approved_by_user": "2026-10-03",
+    "lever": [
+      "prompts/extract_prompt.md",
+      "prompts/primer.md"
+    ],
+    "off_limits": "output fields, 'only the packet text', 'quotes verbatim', 'not legal advice'",
+    "stop": "until plateau (3 flat rounds, each below the noise floor) or 6 rounds",
+    "budget_usd": 6.0,
+    "applies_changes": "assistant, user reviews afterwards",
+    "round_ideas": [
+      "one record per law, citation only",
+      "primer (web-page citation numbers)",
+      "failed/pending bills still get a record",
+      "scope exclusions"
+    ]
+  },
+  "baseline_fingerprint": {
+    "model": "deepseek-flash",
+    "harness_sha": "d96ecbf04966",
+    "prompt_files": {
+      "prompts/extract_prompt.md": "46bd037db6d71482",
+      "prompts/primer.md": "2916454f1deea623"
+    },
+    "git_head": "7835826",
+    "tree_dirty": true,
+    "note": "tree is dirty: the repo has uncommitted work; the prompt hash and harness hash are what matter"
+  }
+}

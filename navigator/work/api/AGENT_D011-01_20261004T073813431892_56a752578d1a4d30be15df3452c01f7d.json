@@ -1,0 +1,145 @@
+{
+  "packet_id": "D011-01",
+  "model": "deepseek-flash",
+  "as_of": "2026-10-01",
+  "prompt_sha256": "53c560f245304eed3b15a2f403223aa4d375abc6f1a5bdaab0d25903198a34e6",
+  "steps": 3,
+  "cards_read": [
+    "citations",
+    "dates",
+    "relations"
+  ],
+  "checks": 2,
+  "usage": [
+    {
+      "prompt_tokens": 4814,
+      "completion_tokens": 1396,
+      "total_tokens": 6210,
+      "prompt_tokens_details": {
+        "cached_tokens": 4608
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1301
+      },
+      "prompt_cache_hit_tokens": 4608,
+      "prompt_cache_miss_tokens": 206
+    },
+    {
+      "prompt_tokens": 7410,
+      "completion_tokens": 1883,
+      "total_tokens": 9293,
+      "prompt_tokens_details": {
+        "cached_tokens": 6144
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1372
+      },
+      "prompt_cache_hit_tokens": 6144,
+      "prompt_cache_miss_tokens": 1266
+    },
+    {
+      "prompt_tokens": 9395,
+      "completion_tokens": 506,
+      "total_tokens": 9901,
+      "prompt_tokens_details": {
+        "cached_tokens": 9216
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 38
+      },
+      "prompt_cache_hit_tokens": 9216,
+      "prompt_cache_miss_tokens": 179
+    }
+  ],
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "Let me analyze this packet. It's a Massachusetts bill H.3744, 193rd session (2023-2024), a petition for a special law authorizing the city of Boston to implement rent stabilization and tenant eviction protections.\n\nBill history: 9/9/2024 House Accompanied a study order, see H5035. This means the bill effectively died / was referred to a study order. It's a failed bill (or pending?). \"Accompanied a study order\" typically means the bill was set aside for study — effectively dead. In Massachusetts, being \"accompanied by a study order\" usually means the bill is effectively dead for that session. The session ended (193rd 2023-2024). So lifecycle: \"failed\".\n\nThe bill covers two categories: rent_increase_limits and just_cause_eviction. The keyword hints say rent_increase_limits=4, just_cause_eviction=2.\n\nBut wait — the rule: \"A page about a bill, motion, petition or ballot question that is pending, failed or struck always gets its record in the matching category... A bill that is not about one of the six categories still gets no record.\"\n\nSo this bill is about rent stabilization (rent_increase_limits) and tenant eviction protections (just_cause_eviction). So two records: one for rent_increase_limits, one for just_cause_eviction.\n\nJurisdiction: It's a state bill (Massachusetts legislature) authorizing the city of Boston. Hmm. The jurisdiction should be the body of law that enacted the rule. The bill is a state law petition. But the manifest jurisdiction hint is Boston, MA. However, \"Use the enacting body, not the place where the page is hosted.\" This is a Massachusetts state bill. But it would authorize Boston to implement. Hmm. The applicability — the rule is a state law granting Boston authority. \n\nActually, this is a bill that would authorize the city of Boston. The enacting body would be the Massachusetts General Court (state). But the title says \"authorizing the city of Boston to implement rent stabilization.\" Hmm, tricky. Let me think.\n\nThe jurisdiction field: \"the body of law that enacted the rule.\" The bill is by Representative Montaño, a state representative, H.3744 is a state bill. So the enactment would be by the state (MA). But it's a special law for Boston. Hmm.\n\nGiven known values include \"MA\", \"Boston, MA\". The bill is a state bill. I think jurisdiction = \"MA\" since it's the state legislature acting. But actually the substance applies to Boston. Hmm.\n\nLet me think about \"Use the enacting body, not the place where the page is hosted.\" A statewide statute explained on a city website is still the state's. Here, it's a state bill (Massachusetts General Court). So jurisdiction = \"MA\". But it's a special law that only affects Boston. I'll go with \"MA\" because the enacting body is the state legislature.\n\nHmm, but actually, one might argue it's Boston because it's a Boston-specific law. But the enacting body is the state. The instruction emphasizes enacting body. I'll use \"MA\".\n\nActually wait, let me reconsider. The bill is \"An Act petition for a special law authorizing the city of Boston to implement rent stabilization.\" The law would be enacted by the state legislature. So the enacting body is Massachusetts. Jurisdiction \"MA\".\n\nNow for lifecycle: The bill was accompanied by a study order on 9/9/2024. Session 193rd (2023-2024). This means the bill failed (died in committee). So lifecycle = \"failed\".\n\nTwo records:\n1. category rent_increase_limits\n2. category just_cause_eviction\n\nrequirement: \"Would authorize the city of Boston to implement rent stabilization and tenant eviction protections.\" Start with \"Would\".\n\nkey_value: null (no number stated).\n\nquoted_span: need verbatim from packet. Options: \"By Representative Montaño of Boston, a petition (accompanied by bill, House, No. 3744) of Samantha Montaño (with the approval of the mayor and city council) that the city of Boston be authorized to implement rent stabilization and tenant eviction protections.\" That carries the purpose. Good, >20 chars.\n\nOr the title: \"An Act petition for a special law authorizing the city of Boston to implement rent stabilization and tenant eviction protections\". That's the title line. The instruction says quote the line that states it (the number) or else the line that gives the title or purpose.\n\neffective_date: null (bill).\n\nconfidence: 0.6 or below. Say 0.55.\n\ncitation: Hmm, no code number. The bill is H.3744. Let me read the citations card.\n\nLet me read cards: citations, dates, relations. Actually let me read them.\n\nLet me consider whether both records are needed or if it should be one. The bill addresses two categories (rent stabilization and tenant eviction protections). Each category gets a record. So two records.\n\nBut rule: \"No two records in your answer may share the same jurisdiction, category and law.\" Both records are jurisdiction MA, but different categories. OK.\n\nNow the applicability field. No building conditions stated. So conditions: [], per_tenancy: null, coverage_quotes: [].\n\ninteraction/relations: The bill is about authorizing Boston; it interacts with state law (rent control ban, the Massachusetts rent control prohibition). But the packet doesn't explicitly say... Actually it says \"special law authorizing the city of Boston to implement rent stabilization\" which implies there's a state ban. But the packet doesn't explicitly mention the ban. Hmm. I should not add from memory. So relations = [].\n\nLet me read the cards to be safe.\n\nLet me call read_card for citations and dates.\n\nActually, the packet gives dates: 4/10/2023, ..., 9/9/2024. But no effective date for the rule. Effective_date null.\n\nLet me read the citations card and dates card and relations card.\n\nI'll call them.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_bStQyC57JatBINIzgqSg4368",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"citations\"}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_FpThIpFsGU7ApopHqyxD4808",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"dates\"}"
+          }
+        },
+        {
+          "index": 2,
+          "id": "call_02_cZdwZ1QPsxh7dHHvd8jZ1929",
+          "type": "function",
+          "function": {
+            "name": "read_card",
+            "arguments": "{\"name\": \"relations\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_bStQyC57JatBINIzgqSg4368",
+      "content": "# Card: citations\n\n- `citation`: the legal provision the rule comes from, at section level with no subdivision letters (see CITATIONS).\n- Citation style, one provision per citation: `Cal. Civ. Code § 1947.12`, `Cal. Gov. Code § 12955`, `N.J.S.A. 2A:18-61.1`, `P.L. 2021, c. 110`, `G.L. c. 186, § 15B`, `S.F. Admin. Code § 37.9`, `San Diego Mun. Code § 98.0703`, `Berkeley Mun. Code ch. 13.63`. For a bill give its number, then the code section it adds in parentheses if the text shows one: `AB 325 (Cal. Bus. & Prof. Code § 16729)`, `H.5222`, `S.2983`. Use the form the text itself uses when none of these fits.\n\nWhen the packet prints no code citation, name the law as follows.\n\nWhen the packet prints a code citation for a law, use the packet's. When it does not, and the page is about one of the programs below, cite the law as shown in the right-hand column. The list only names laws: it tells you nothing about what a law says. If the packet does not state a rule, there is no rule. A program that is not on the list is cited by its name exactly as the page names it.\n\n| the law, as pages call it | cite as |\n|---|---|\n| San Francisco Rent Ordinance (rent increases, just cause, relocation, deposit interest, algorithmic devices) | S.F. Admin. Code ch. 37 |\n| Los Angeles Rent Stabilization Ordinance (RSO) | Los Angeles Rent Stabilization Ordinance (L.A.M.C. §151.00 et seq.) |\n| Los Angeles Just Cause Ordinance (JCO), relocation assistance | Los Angeles Just Cause Ordinance (L.A.M.C. §165.00 et seq.) |\n| Berkeley Rent Ordinance, Measure BB | Berkeley Mun. Code ch. 13.76 |\n| Berkeley tenant screening and application fees | Berkeley Mun. Code ch. 13.78 |\n| Berkeley Fair Chance | Berkeley Mun. Code ch. 13.106 |\n| Berkeley coordinated pricing algorithms | Berkeley Mun. Code ch. 13.63 |\n| San Diego tenant protections (just cause) | San Diego Mun. Code §98.0701 et seq. |\n| San Diego automated rent price-fixing ban | San Diego Mun. Code §§98.1101–98.1104 |\n| Jersey City Rent Control Ordinance | Jersey City Mun. Code ch. 260 |\n| Cambridge Fair Housing Ordinance | Cambridge Mun. Code ch. 14.04 |\n| Boston Housing Stability Notification Act | Boston Mun. Code §10-11.7 |\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_01_FpThIpFsGU7ApopHqyxD4808",
+      "content": "# Card: dates\n\n- `effective_date`: the date the requirement described in `key_value` began (or will begin) to apply, as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. For an amended law use the amendment's date if the amendment created the current value. Do not use the signing date unless the text says that is when it takes effect. A code-publisher history note such as `[Adopted 4-2-2024 by Ord. No. 123]` gives the adoption date, not the effective date: use it only if the text says the rule takes effect on that day. If the text gives no date, `null`: never guess a date from memory.\n- `valid_through`: for a value that is published for a period (an annual allowable increase, a yearly interest rate), the last day of that period as `YYYY-MM-DD`, or `YYYY-MM` / `YYYY` if that is all the text gives. `null` for a rule with no stated end.\n- Use only dates and numbers that appear in the packet. If the packet gives two different dates for the same rule, use the one in the legal text, set `conflict_flag` true and name the other date in `conflict_note`. If the date is relative (\"90 days after enactment\") and the anchor is not in the packet, use `null` and say so in `conflict_note`.\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_02_cZdwZ1QPsxh7dHHvd8jZ1929",
+      "content": "# Card: relations to other levels of law\n\n- `interaction`: how this rule relates to other levels of law, only if the text says so (e.g. `\"State cap yields to this local ordinance\"`, `\"May be preempted by the state act once it takes effect\"`). At most 30 words, else `null`.\n- `relations`: a list, `[]` when none. One entry for each sentence of the packet that says how this law fits with other levels of law: `{\"type\":\"preempts_local\",\"quote\":\"...\"}` when the text bars local governments from regulating this subject or from enacting rules that conflict with this law (it needs an explicit bar such as \"shall not\", \"prohibited\" or \"void\"; a sentence that only says the law does not authorize, require or affect local action is not a relation, so leave it out); `{\"type\":\"yields_to_local\",\"quote\":\"...\"}` when the text says this rule does not apply where a local rule on the same subject governs. The quote is copied character for character from the packet. Attach it to the record of the law the sentence belongs to; if the sentence sits in another section of the same act, attach it to that act's record.\n"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "reasoning_content": "Now let me build the records.\n\nJurisdiction: The bill is a Massachusetts state bill authorizing Boston. The enacting body would be MA state legislature. I'll use \"MA\". Hmm, but let me reconsider. The manifest hint is Boston, MA. The card list includes \"Boston Housing Stability Notification Act\" cited as Boston Mun. Code §10-11.7. But this bill is not that. This is a state special law. The enacting body is the state. I'll go with \"MA\".\n\nHmm, actually there's ambiguity. But the general rule: \"the body of law that enacted the rule.\" A special law enacted by the state legislature — jurisdiction is the state. Yes, \"MA\".\n\nNow the citation: For a bill give its number. So citation = \"H.3744\". \n\nNow two records.\n\nRecord 1: rent_increase_limits\n- title: \"Boston rent stabilization authorization (Bill H.3744)\"\n- requirement: \"Would authorize the city of Boston to implement rent stabilization, subject to local approval.\" Start with \"Would\". \n- key_value: null\n- coverage_conditions: \"Would apply to the city of Boston; the bill authorizes Boston to implement rent stabilization.\" Hmm.\n- applicability: conditions [], per_tenancy null, coverage_quotes []\n- exemptions: null\n- penalty: null\n- effective_date: null\n- valid_through: null\n- citation: \"H.3744\"\n- quoted_span: \"An Act petition for a special law authorizing the city of Boston to implement rent stabilization and tenant eviction protections\"\n- interaction: null\n- relations: []\n- confidence: 0.55\n- conflict_flag: false, conflict_note: null\n\nRecord 2: just_cause_eviction\n- similar.\n\nWait, but for the quoted_span, should each record have a distinct span? The instruction says each record's span must support it. For rent_increase_limits, the title mentions rent stabilization. For just_cause_eviction, \"tenant eviction protections\". The title line covers both. Hmm. But we could use the same title line for both, or use different spans. Let me use the title line for one and the petitioner line for the other.\n\nActually, better: use the same purpose sentence but it's one contiguous passage covering both. Since both records come from the same sentence, that's fine. But \"No two records... may share\" refers to jurisdiction/category/law, not spans.\n\nLet me use:\n- Record 1 (rent_increase_limits): quoted_span = \"An Act petition for a special law authorizing the city of Boston to implement rent stabilization and tenant eviction protections\"\n- Record 2 (just_cause_eviction): quoted_span = \"By Representative Montaño of Boston, a petition (accompanied by bill, House, No. 3744) of Samantha Montaño (with the approval of the mayor and city council) that the city of Boston be authorized to implement rent stabilization and tenant eviction protections.\"\n\nHmm, both mention both. That's fine.\n\nActually, let me reconsider whether the span for just_cause should carry the specific. The title line is best since it states purpose. Both are acceptable.\n\nLet me now check records with check_record.\n\nLet me construct record JSONs.\n\njurisdiction \"MA\".\n\nRecord 1:\n{\"packet_id\":\"D011-01\",\"doc_id\":\"D011\",\"jurisdiction\":\"MA\",\"category\":\"rent_increase_limits\",\"lifecycle\":\"failed\",\"title\":\"Boston rent stabilization authorization (Bill H.3744)\",\"requirement\":\"Would authorize the city of Boston to implement rent stabilization, subject to the approval of the mayor and city council.\",\"key_value\":null,\"coverage_conditions\":\"Would apply to the city of Boston if enacted.\",\"applicability\":{\"conditions\":[],\"per_tenancy\":null,\"coverage_quotes\":[]},\"exemptions\":null,\"penalty\":null,\"effective_date\":null,\"valid_through\":null,\"citation\":\"H.3744\",\"quoted_span\":\"An Act petition for a special law authorizing the city of Boston to implement rent stabilization and tenant eviction protections\",\"interaction\":null,\"relations\":[],\"confidence\":0.55,\"conflict_flag\":false,\"conflict_note\":null}\n\nRecord 2:\n{\"packet_id\":\"D011-01\",\"doc_id\":\"D011\",\"jurisdiction\":\"MA\",\"category\":\"just_cause_eviction\",\"lifecycle\":\"failed\",\"title\":\"Boston tenant eviction protections authorization (Bill H.3744)\",\"requirement\":\"Would authorize the city of Boston to implement tenant eviction protections, subject to the approval of the mayor and city council.\",\"key_value\":null,\"coverage_conditions\":\"Would apply to the city of Boston if enacted.\",\"applicability\":{\"conditions\":[],\"per_tenancy\":null,\"coverage_quotes\":[]},\"exemptions\":null,\"penalty\":null,\"effective_date\":null,\"valid_through\":null,\"citation\":\"H.3744\",\"quoted_span\":\"By Representative Montaño of Boston, a petition (accompanied by bill, House, No. 3744) of Samantha Montaño (with the approval of the mayor and city council) that the city of Boston be authorized to implement rent stabilization and tenant eviction protections.\",\"interaction\":null,\"relations\":[],\"confidence\":0.55,\"conflict_flag\":false,\"conflict_note\":null}\n\nWait, is confidence 0.55 appropriate? For a failed bill, keep confidence at 0.6 or below. The status (failed) is clear from history. 0.6. Let's use 0.6.\n\nLet me check records.\n\nActually, check_record may recompute things. Let me run it.\n\nAlso need to reconsider: is the bill \"failed\"? It accompanied a study order 9/9/2024. In Massachusetts, \"accompanied by a study order\" means the bill is effectively dead — referred for study, which ends its progress. And the 193rd session ended. The instruction: lifecycle \"failed\" = a bill died. I'll mark failed. Though one could argue \"pending_bill.\" Hmm. The bill was accompanied by a study order, which effectively kills it. Given as_of 2026-10-01, the 193rd session (2023-2024) is over, so the bill died. I'll use \"failed.\"\n\nLet me run checks.",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_LJFvJDFjGyxEDMHk9Bqj6392",
+          "type": "function",
+          "function": {
+            "name": "check_record",
+            "arguments": "{\"record_json\": \"{\\\"packet_id\\\":\\\"D011-01\\\",\\\"doc_id\\\":\\\"D011\\\",\\\"jurisdiction\\\":\\\"MA\\\",\\\"category\\\":\\\"rent_increase_limits\\\",\\\"lifecycle\\\":\\\"failed\\\",\\\"title\\\":\\\"Boston rent stabilization authorization (Bill H.3744)\\\",\\\"requirement\\\":\\\"Would authorize the city of Boston to implement rent stabilization, subject to the approval of the mayor and city council.\\\",\\\"key_value\\\":null,\\\"coverage_conditions\\\":\\\"Would apply to the city of Boston if enacted.\\\",\\\"applicability\\\":{\\\"conditions\\\":[],\\\"per_tenancy\\\":null,\\\"coverage_quotes\\\":[]},\\\"exemptions\\\":null,\\\"penalty\\\":null,\\\"effective_date\\\":null,\\\"valid_through\\\":null,\\\"citation\\\":\\\"H.3744\\\",\\\"quoted_span\\\":\\\"An Act petition for a special law authorizing the city of Boston to implement rent stabilization and tenant eviction protections\\\",\\\"interaction\\\":null,\\\"relations\\\":[],\\\"confidence\\\":0.6,\\\"conflict_flag\\\":false,\\\"conflict_note\\\":null}\"}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_ZajeyCvzIDbw5w31mLg10143",
+          "type": "function",
+          "function": {
+            "name": "check_record",
+            "arguments": "{\"record_json\": \"{\\\"packet_id\\\":\\\"D011-01\\\",\\\"doc_id\\\":\\\"D011\\\",\\\"jurisdiction\\\":\\\"MA\\\",\\\"category\\\":\\\"just_cause_eviction\\\",\\\"lifecycle\\\":\\\"failed\\\",\\\"title\\\":\\\"Boston tenant eviction protections authorization (Bill H.3744)\\\",\\\"requirement\\\":\\\"Would authorize the city of Boston to implement tenant eviction protections, subject to the approval of the mayor and city council.\\\",\\\"key_value\\\":null,\\\"coverage_conditions\\\":\\\"Would apply to the city of Boston if enacted.\\\",\\\"applicability\\\":{\\\"conditions\\\":[],\\\"per_tenancy\\\":null,\\\"coverage_quotes\\\":[]},\\\"exemptions\\\":null,\\\"penalty\\\":null,\\\"effective_date\\\":null,\\\"valid_through\\\":null,\\\"citation\\\":\\\"H.3744\\\",\\\"quoted_span\\\":\\\"By Representative Montaño of Boston, a petition (accompanied by bill, House, No. 3744) of Samantha Montaño (with the approval of the mayor and city council) that the city of Boston be authorized to implement rent stabilization and tenant eviction protections.\\\",\\\"interaction\\\":null,\\\"relations\\\":[],\\\"confidence\\\":0.6,\\\"conflict_flag\\\":false,\\\"conflict_note\\\":null}\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_00_LJFvJDFjGyxEDMHk9Bqj6392",
+      "content": "ACCEPTED.\nHow a program reads it: citation 'H.3744'; lifecycle failed; effective_date None; valid_through None.\nConditions it will test: none (the rule covers every building)"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_01_ZajeyCvzIDbw5w31mLg10143",
+      "content": "ACCEPTED.\nHow a program reads it: citation 'H.3744'; lifecycle failed; effective_date None; valid_through None.\nConditions it will test: none (the rule covers every building)"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"packet_id\":\"D011-01\",\"doc_id\":\"D011\",\"jurisdiction\":\"MA\",\"category\":\"rent_increase_limits\",\"lifecycle\":\"failed\",\"title\":\"Boston rent stabilization authorization (Bill H.3744)\",\"requirement\":\"Would authorize the city of Boston to implement rent stabilization, subject to the approval of the mayor and city council.\",\"key_value\":null,\"coverage_conditions\":\"Would apply to the city of Boston if enacted.\",\"applicability\":{\"conditions\":[],\"per_tenancy\":null,\"coverage_quotes\":[]},\"exemptions\":null,\"penalty\":null,\"effective_date\":null,\"valid_through\":null,\"citation\":\"H.3744\",\"quoted_span\":\"An Act petition for a special law authorizing the city of Boston to implement rent stabilization and tenant eviction protections\",\"interaction\":null,\"relations\":[],\"confidence\":0.6,\"conflict_flag\":false,\"conflict_note\":null}\n{\"packet_id\":\"D011-01\",\"doc_id\":\"D011\",\"jurisdiction\":\"MA\",\"category\":\"just_cause_eviction\",\"lifecycle\":\"failed\",\"title\":\"Boston tenant eviction protections authorization (Bill H.3744)\",\"requirement\":\"Would authorize the city of Boston to implement tenant eviction protections, subject to the approval of the mayor and city council.\",\"key_value\":null,\"coverage_conditions\":\"Would apply to the city of Boston if enacted.\",\"applicability\":{\"conditions\":[],\"per_tenancy\":null,\"coverage_quotes\":[]},\"exemptions\":null,\"penalty\":null,\"effective_date\":null,\"valid_through\":null,\"citation\":\"H.3744\",\"quoted_span\":\"By Representative Montaño of Boston, a petition (accompanied by bill, House, No. 3744) of Samantha Montaño (with the approval of the mayor and city council) that the city of Boston be authorized to implement rent stabilization and tenant eviction protections.\",\"interaction\":null,\"relations\":[],\"confidence\":0.6,\"conflict_flag\":false,\"conflict_note\":null}\n{\"packet_id\":\"D011-01\",\"n_rules\":2,\"note\":null}",
+      "reasoning_content": "Both accepted. Now output the final JSON lines.\n\nNote about the quoted_span for record 2 includes \"Samantha Montaño\" with special char ñ — fine.\n\nOutput."
+    }
+  ]
+}

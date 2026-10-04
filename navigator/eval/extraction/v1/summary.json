@@ -1,0 +1,6 @@
+{
+  "description": "Round 1: define a law, exactly one record per law and category, drop the '0 to 6 records' line",
+  "target": "system_prompt",
+  "prompt_sha256": "23d74a36f71732bac17b84077e14eda1ae6a0262cd2ae85359361fb4d7aaf240",
+  "model": "deepseek-flash"
+}

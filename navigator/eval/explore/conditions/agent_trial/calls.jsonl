@@ -1,0 +1,2 @@
+{"prompt_id": "D064-01", "rep": 0, "steps": 3, "cards_read": ["owner_and_exceptions", "building_age_and_size", "citations", "dates"], "checks": 1, "cost_usd": 0.00272, "latency_s": 15.7}
+{"prompt_id": "D041-01", "rep": 0, "steps": 4, "cards_read": ["building_age_and_size", "owner_and_exceptions", "dates", "citations", "relations"], "checks": 3, "cost_usd": 0.010212, "latency_s": 67.4}

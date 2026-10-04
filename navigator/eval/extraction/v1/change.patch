@@ -1,0 +1,33 @@
+--- a/prompts/extract_prompt.md
++++ b/prompts/extract_prompt.md
+@@ -60,15 +60,17 @@
+ 
+ # WHAT COUNTS AS ONE RULE
+ 
+-- One record per legal provision per category. A statute section or ordinance chapter that sets one rule is one record, however many subsections it has. Do not write a record per subsection or per sentence.
+-- If one provision regulates two categories (for example a section that caps both deposits and upfront charges), write two records with the same citation, one per category, each with its own quoted span.
+-- Fold definitions, procedures and penalty clauses into the rule they belong to.
+-- The same law appearing twice in a packet is one record.
++A **law** is one statute section, one ordinance chapter or division, one bill, or one named program (for example "the San Francisco Rent Ordinance"). **Write exactly one record for each law and category.** No two records in your answer may share the same jurisdiction, category and law.
++
++- The parts of a law are not separate laws. Its cap, exceptions, deadlines, penalty, amendments and definitions all belong in that law's ONE record: the headline value in `key_value`, exceptions in `exemptions`, the penalty in `penalty`, the other points in `requirement`. A different limit for a special group of landlords or tenants is an exception, not a second record.
++- A guide, FAQ or news page that lists several rules or amendments of one law is still one law: one record per category.
++- A section that regulates two categories (for example one that caps both deposits and upfront charges) gives two records, one per category, each with its own quoted span.
++- Several different laws in one packet (for example a handbook that explains five statutes) give one record per law and category, and only for laws the page explains in some detail.
+ - A law that forbids local governments from regulating something (for example a state ban on local rent control) is a rule of the state: write it in the matching category.
+ - A page that only announces this year's value of an existing rule (annual allowable increase, relocation payment amounts, deposit-interest rate) is a record for that rule, with the value and its period in `key_value`, and `effective_date` set to the day that value starts.
+ - A guide or news page that explains law is a source too: record the rule as the page states it, cite the underlying law if the page names it, otherwise cite the page title, and keep confidence at most 0.8.
+ - Repealed or superseded text that the packet itself marks as no longer operative is not a rule: skip it.
+-- A typical document yields 0 to 6 records.
++- Most packets hold one to three laws. Before you answer, list your records by jurisdiction, category and law. If two of them match, merge them into one.
+ 
+ # QUOTED SPAN
+ 
+@@ -95,6 +97,7 @@
+ 
+ # BEFORE YOU ANSWER, CHECK
+ 
++- No two records share the same jurisdiction, category and law.
+ - Every `quoted_span` is verbatim from the packet and shows the key number, date or prohibition.
+ - Every date and number in `key_value` and `effective_date` appears in the packet.
+ - Pending bills are `pending_bill`; struck or defeated measures are `failed`.

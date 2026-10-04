@@ -44,6 +44,13 @@ RETRIEVED: 2026-10-03 12:00 UTC
 Client alert. Cambridge has capped security deposits at one month’s rent under Chapter 8.99.
 The cap takes effect on February 1, 2027, according to the council summary.
 """
+D104_BODY = """CHAPTER 12
+An Act limiting application fees.
+1. A landlord shall not charge an application fee of more than $40.
+2. This act shall take effect on the first day of the
+fourth month next following the date of enactment.
+Approved March 5, 2024.
+"""
 MANIFEST = (
     "doc_id,jurisdictions,url,source_type,capture,retrieved_at,sha256,text_file,status\n"
     'D100,"Cambridge, MA",https://example.org/cambridge-ordinance,official,yes,2026-10-03 12:00 UTC,,text/D100.txt,ok\n'
@@ -61,7 +68,7 @@ def rec(**kw):
             "lifecycle": "enacted", "title": "Deposit cap", "requirement": "Deposits are capped at one month's rent.",
             "key_value": "1 month's rent", "coverage_conditions": "All rentals", "applicability": APPL,
             "exemptions": None, "penalty": None, "effective_date": "2027-01-01",
-            "citation": "Cambridge Mun. Code § 8.99.010", "quoted_span": "x", "interaction": None,
+            "citation": "Cambridge Mun. Code §8.99.010", "quoted_span": "x", "interaction": None,
             "confidence": 0.9, "conflict_flag": False, "conflict_note": None}
     base.update(kw)
     return base
@@ -95,9 +102,9 @@ class PipelineTest(unittest.TestCase):
         lines.append(json.dumps(rec(quoted_span="A landlord shall not demand or receive a security deposit exceeding one month's rent.",
                                     jurisdiction="City of Cambridge, MA", effective_date="January 1, 2027")))
         lines.append(json.dumps(rec(category="algorithmic_rent_setting", title="Pricing software ban",
-                                    citation="Cambridge Mun. Code § 8.99.020", key_value=None,
+                                    citation="Cambridge Mun. Code §8.99.020", key_value=None,
                                     quoted_span="Landlords may not use pricing programs that look at private competitor rents.")))
-        lines.append(json.dumps(rec(category="rent-control", title="Bad", citation="Cambridge Mun. Code § 8.99.030",
+        lines.append(json.dumps(rec(category="rent-control", title="Bad", citation="Cambridge Mun. Code §8.99.030",
                                     quoted_span="No landlord shall use an algorithmic device that analyzes nonpublic competitor rental data")))
         lines.append(json.dumps({"packet_id": "D100-01", "n_rules": 3, "note": None}))
         # D101: pending bill
@@ -108,7 +115,7 @@ class PipelineTest(unittest.TestCase):
         lines.append(json.dumps({"packet_id": "D101-01", "n_rules": 1, "note": None}))
         # D102: secondary source with a different date, and no receipt (answer cut off)
         lines.append(json.dumps(rec(packet_id="D102-01", doc_id="D102", confidence=0.7, effective_date="2027-02-01",
-                                    citation="Cambridge Rev. Ord. § 8.99.010",
+                                    citation="Cambridge Rev. Ord. §8.99.010",
                                     quoted_span="The cap takes effect on February 1, 2027, according to the council summary.")))
         lines.append("```")
         lines.append('{"packet_id":"D102-01","doc_id":"D102","category":"security_deposits","quoted_span":"cut o')
@@ -135,7 +142,7 @@ class PipelineTest(unittest.TestCase):
         self.assertIn("category", reasons)
 
         by = {r["citation"]: r for r in res.rules}
-        dep = by["Cambridge Mun. Code § 8.99.010"]
+        dep = by["Cambridge Mun. Code §8.99.010"]
         self.assertEqual(dep["jurisdiction"], "Cambridge, MA")
         self.assertEqual(dep["effective_date"], "2027-01-01")
         self.assertEqual(dep["status"], "not_yet_effective")
@@ -179,19 +186,21 @@ class PipelineTest(unittest.TestCase):
 
         # the as-of date is only used for derived status
         later = run_ingest(self.paths, "2027-03-01")
-        self.assertEqual({r["citation"]: r["status"] for r in later.rules}["Cambridge Mun. Code § 8.99.010"], "in_force")
+        self.assertEqual({r["citation"]: r["status"] for r in later.rules}["Cambridge Mun. Code §8.99.010"], "in_force")
 
     def test_fixes_resolve_packets_and_ids_stay_stable(self):
         self.save("answer1.txt", self.first_answer(), 1000)
         before = {r["citation"]: r["team_rule_id"] for r in run_ingest(self.paths).rules}
 
         fix = [
+            json.dumps(rec(quoted_span="A landlord shall not demand or receive a security deposit exceeding one month's rent.",
+                           jurisdiction="City of Cambridge, MA", effective_date="January 1, 2027")),
             json.dumps(rec(category="algorithmic_rent_setting", title="Pricing software ban",
-                           citation="Cambridge Mun. Code § 8.99.020", key_value=None,
+                           citation="Cambridge Mun. Code §8.99.020", key_value=None,
                            quoted_span="No landlord shall use an algorithmic device that analyzes nonpublic competitor rental data to set rents.")),
-            json.dumps({"packet_id": "D100-01", "n_rules": 1, "note": None}),
+            json.dumps({"packet_id": "D100-01", "n_rules": 2, "note": None}),
             json.dumps(rec(packet_id="D102-01", doc_id="D102", confidence=0.7, effective_date="2027-02-01",
-                           citation="Cambridge Rev. Ord. § 8.99.010",
+                           citation="Cambridge Rev. Ord. §8.99.010",
                            quoted_span="The cap takes effect on February 1, 2027, according to the council summary.")),
             json.dumps({"packet_id": "D102-01", "n_rules": 1, "note": None}),
         ]
@@ -218,6 +227,21 @@ class PipelineTest(unittest.TestCase):
         self.assertEqual(res.states["D101-01"]["state"], "needs_fix")
         self.assertTrue(any("does not match packet" in "; ".join(r["reasons"]) for r in res.rejected))
 
+    def test_primer_is_read_only_when_the_prompt_asks_for_it(self):
+        from nav import packets
+        root = packets.ROOT
+        try:
+            base = tempfile.mkdtemp()
+            (Path(base) / "prompts").mkdir()
+            (Path(base) / "prompts" / "primer.md").write_text("PRIMER TEXT\n", encoding="utf-8")
+            packets.ROOT = Path(base)
+            (Path(base) / "prompts" / "extract_prompt.md").write_text("A {{AS_OF}} B", encoding="utf-8")
+            self.assertEqual(packets.render_prompt("2026-10-01"), "A 2026-10-01 B")
+            (Path(base) / "prompts" / "extract_prompt.md").write_text("A {{PRIMER}} B {{AS_OF}}", encoding="utf-8")
+            self.assertEqual(packets.render_prompt("2026-10-01"), "A PRIMER TEXT B 2026-10-01")
+        finally:
+            packets.ROOT = root
+
     def test_add_doc_for_new_ordinance(self):
         doc_id = add_extra_doc(self.paths, "Section 1. No landlord may charge a screening fee above $25 per applicant.\n",
                                "Cambridge, MA", "https://example.org/new")
@@ -229,6 +253,92 @@ class PipelineTest(unittest.TestCase):
         self.assertIn("X001-01", index["packets"])
         self.assertIn("D100-01", index["packets"])  # existing packets kept
         self.assertEqual(add_extra_doc(self.paths, "x", "Boston, MA", "u"), "X002")
+
+    # ------------------------------------------------------------ behaviour added after the first full run
+
+    def test_effective_date_is_worked_out_from_the_acts_own_clause(self):
+        add_extra_doc(self.paths, D104_BODY, "NJ", "https://example.org/act-2024", doc_id="D104")
+        prepare(self.paths, "2026-10-01", only=["D104"])
+        fee = dict(packet_id="D104-01", doc_id="D104", jurisdiction="NJ", category="application_screening_fees",
+                   title="Application fee cap", citation="N.J.S.A. 46:8-18.1", key_value="$40",
+                   quoted_span="A landlord shall not charge an application fee of more than $40.", effective_date=None)
+        self.save("a.txt", "\n".join([json.dumps(rec(**fee)), json.dumps({"packet_id": "D104-01", "n_rules": 1, "note": None})]), 1000)
+        res = run_ingest(self.paths)
+        r = res.rules[0]
+        self.assertEqual((r["effective_date"], r["status"], r["date_source"]), ("2024-07-01", "in_force", "act clause"))
+        self.assertTrue(any("worked out" in n for n in r["notes"]))
+        self.assertEqual(r["warnings"], [])
+        self.assertEqual(run_ingest(self.paths, "2024-06-30").rules[0]["status"], "not_yet_effective")
+        # a model date that disagrees with the act's own clause is kept but flagged
+        self.save("b.txt", "\n".join([json.dumps(rec(**dict(fee, effective_date="2024-05-01"))),
+                                      json.dumps({"packet_id": "D104-01", "n_rules": 1, "note": None})]), 2000)
+        r = run_ingest(self.paths).rules[0]
+        self.assertEqual(r["effective_date"], "2024-05-01")
+        self.assertTrue(any("differs from 2024-07-01" in w for w in r["warnings"]))
+
+    def test_citation_descriptor_is_moved_out_and_one_record_per_law_is_enforced(self):
+        a = rec(title="Deposit cap", citation="Cambridge Mun. Code §8.99.010: deposit cap, one month", key_value="1 month's rent",
+                quoted_span="A landlord shall not demand or receive a security deposit exceeding one month's rent.")
+        b = rec(title="Return within 30 days", citation="Cambridge Mun. Code §8.99.010: return of the deposit", key_value=None,
+                effective_date=None, quoted_span="The landlord shall return the deposit within 30 days after the tenancy ends.")
+        self.save("a.txt", "\n".join([json.dumps(a), json.dumps(b), json.dumps({"packet_id": "D100-01", "n_rules": 2, "note": None})]), 1000)
+        res = run_ingest(self.paths)
+        self.assertEqual(res.states["D100-01"]["state"], "needs_fix")
+        self.assertEqual([r["citation"] for r in res.rules], ["Cambridge Mun. Code §8.99.010"])
+        self.assertEqual(res.rules[0]["title"], "Deposit cap")           # the main record stays
+        self.assertEqual(res.rules[0]["aspect"], "deposit cap, one month")
+        open_rej = [r for r in res.rejected if r["open"]]
+        self.assertEqual(len(open_rej), 1)
+        self.assertIn("one record per law and category", open_rej[0]["reasons"][0])
+        self.assertIn("one record per law and category", "\n".join(res.problems["D100-01"]))
+
+    def test_the_newest_clean_answer_replaces_older_ones_and_dropped_laws_are_reported(self):
+        first = [json.dumps(rec(quoted_span="A landlord shall not demand or receive a security deposit exceeding one month's rent.")),
+                 json.dumps({"packet_id": "D100-01", "n_rules": 1, "note": None})]
+        second = [json.dumps(rec(category="algorithmic_rent_setting", title="Pricing software ban",
+                                 citation="Cambridge Mun. Code §8.99.020", key_value=None,
+                                 quoted_span="No landlord shall use an algorithmic device that analyzes nonpublic competitor rental data to set rents.")),
+                  json.dumps({"packet_id": "D100-01", "n_rules": 1, "note": None})]
+        self.save("a.txt", "\n".join(first), 1000)
+        self.assertEqual([r["category"] for r in run_ingest(self.paths).rules], ["security_deposits"])
+        self.save("b.txt", "\n".join(second), 2000)
+        res = run_ingest(self.paths)
+        self.assertEqual([r["category"] for r in res.rules], ["algorithmic_rent_setting"])
+        self.assertEqual(res.dropped, [("D100-01", "Cambridge, MA | security_deposits", "Cambridge Mun. Code §8.99.010")])
+
+    def test_records_of_one_document_are_sub_rules_not_conflicts(self):
+        main = rec(title="Deposit cap", citation="Cambridge Mun. Code §8.99.010", key_value="1 month's rent",
+                   quoted_span="A landlord shall not demand or receive a security deposit exceeding one month's rent.")
+        side = rec(title="Return within 30 days", citation="Cambridge Mun. Code §8.99.010", key_value="30 days",
+                   effective_date="2028-01-01", quoted_span="The landlord shall return the deposit within 30 days after the tenancy ends.")
+        self.save("a.txt", json.dumps(main) + "\n" + json.dumps({"packet_id": "D100-01", "n_rules": 1, "note": None}), 1000)
+        self.save("b.txt", json.dumps(side), 2000)  # newest answer is unfinished (no receipt), so both stay in use
+        res = run_ingest(self.paths)
+        self.assertEqual(len(res.rules), 1)
+        r = res.rules[0]
+        self.assertEqual((r["title"], r["key_value"], r["conflict_flag"]), ("Deposit cap", "1 month's rent", False))
+        self.assertEqual([x["title"] for x in r["sub_rules"]], ["Return within 30 days"])
+
+    def test_overrides_need_a_reason_and_are_shown(self):
+        self.save("a.txt", json.dumps(rec(packet_id="D101-01", doc_id="D101", jurisdiction="MA", category="rent_increase_limits",
+                                         lifecycle="pending_bill", title="H.9999", key_value=None, effective_date=None, citation="H.9999",
+                                         quoted_span="A municipality may adopt rent control under this act.")) + "\n"
+                  + json.dumps({"packet_id": "D101-01", "n_rules": 1, "note": None}), 1000)
+        self.paths.work_dir.mkdir(parents=True, exist_ok=True)
+        (self.paths.work_dir / "overrides.json").write_text(json.dumps({"overrides": [
+            {"id": "ov-1", "match": {"jurisdiction": "MA", "citation_contains": "9999"},
+             "set": {"lifecycle": "enacted", "effective_date": "2025-01-01"}, "reason": "Signed.", "source": "test"},
+            {"id": "ov-2", "match": {"jurisdiction": "NJ"}, "set": {"key_value": "x"}, "reason": "nothing matches", "source": "test"}]}))
+        res = run_ingest(self.paths)
+        r = res.rules[0]
+        self.assertEqual((r["lifecycle"], r["status"], r["effective_date"], r["date_source"]), ("enacted", "in_force", "2025-01-01", "override ov-1"))
+        self.assertEqual([o["id"] for o in res.overrides_applied], ["ov-1"])
+        self.assertEqual(res.overrides_unused, ["ov-2"])
+        self.assertIn("override ov-1", " ".join(r["notes"]))
+        (self.paths.work_dir / "overrides.json").write_text(json.dumps({"overrides": [
+            {"id": "bad", "match": {}, "set": {"citation": "x"}, "reason": "r", "source": "s"}]}))
+        with self.assertRaises(ValueError):
+            run_ingest(self.paths)
 
 
 if __name__ == "__main__":
