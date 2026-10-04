@@ -10,7 +10,7 @@ const RESULT_ORDER = ["applies", "unknown", "superseded", "not_yet_effective", "
 const LOW_CONFIDENCE = 0.7;
 const CONTEXT_CHARS = 1500;
 const TABS = ["lookup", "imports", "changes", "rules", "pipeline"];
-const QUIET_TABS = ["rules", "pipeline"];
+const QUIET_TABS = ["changes", "rules", "pipeline"];
 const ICON = {
   search: '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12.8 12.8 17 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
   down: '<svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>',
